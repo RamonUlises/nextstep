@@ -1,7 +1,16 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Home } from "./Pages/Home";
+import { Login } from "./Pages/Login";
+
 function App() {
   return(
     <>
-      <h1 className="text-red-500 dark:text-blue-500">React App</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
