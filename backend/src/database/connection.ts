@@ -1,5 +1,6 @@
 import mongoose, { ConnectOptions } from 'mongoose';
 import dotenv from 'dotenv';
+import '@database/verifyIp';
 
 dotenv.config();
 
@@ -13,6 +14,6 @@ mongoose
   .then(() => {
     console.log('Connected to MongoDB');
   })
-  .catch((error : unknown) => {
+  .catch((error: unknown) => {
     console.log(error);
   });
