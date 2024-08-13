@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import axios from 'axios';
 
-import { exec } from 'child_process';
+import { exec } from 'node:child_process';
 import util from 'node:util';
 
 import connection from '@database/connection';
@@ -43,7 +43,7 @@ async function addIPToWhiteList(ip: string): Promise<void> {
 
     await execPromise(curlCommand);
 
-    console.log('IP agregada correctamente');
+    console.log('IP agregada a la whitelist de mongo atlas');
     connection();
   } catch (error) {
     console.log(error);
