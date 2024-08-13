@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc && tsc-alias && node ./scripts/addJsExtension.js",
     "start": "node ./dist/app.js",
-    "dev": "tsx --watch ./src/app.ts"
+    "dev": "tsx --watch --no-warnings ./src/app.ts"
   },
   "keywords": [],
   "author": "Pixels and Bits",
