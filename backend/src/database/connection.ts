@@ -1,19 +1,20 @@
-import mongoose, { ConnectOptions } from 'mongoose';
+import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import '@database/verifyIp';
+import createServer from '@/app';
 
 dotenv.config();
 
 const url: string = process.env.MONGODB_URI ?? '';
 
-mongoose
-  .connect(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  } as ConnectOptions)
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((error: unknown) => {
-    console.log(error);
-  });
+export default function connection(): void {
+  mongoose
+    .connect(url)
+    .then(() => {
+      console.log('Conectado a MongoDB');
+      createServer();
+    })
+    .catch((error: unknown) => {
+      console.log(error);
+    });
+};
+

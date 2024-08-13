@@ -1,6 +1,12 @@
 import dotenv from 'dotenv';
-import DigestFetch from 'digest-fetch';
 import axios from 'axios';
+
+import { exec } from 'child_process';
+import util from 'node:util';
+
+import connection from '@database/connection';
+
+const execPromise = util.promisify(exec);
 
 dotenv.config();
 
@@ -27,7 +33,18 @@ async function addIPToWhiteList(ip: string): Promise<void> {
 
     const url = `https://cloud.mongodb.com/api/atlas/v1.0/groups/${groupId}/accessList`;
 
-    
+    const curlCommand = `curl -u "${apiUser}:${apiKey}" --digest \
+    --header "Content-Type: application/json" \
+    --request POST \
+    --data '[{"ipAddress": "${ip}"}]' \
+    "${url}"`;
+
+    console.log('Agregando IP a la whitelist de mongo atlas');
+
+    await execPromise(curlCommand);
+
+    console.log('IP agregada correctamente');
+    connection();
   } catch (error) {
     console.log(error);
   }

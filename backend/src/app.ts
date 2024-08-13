@@ -1,11 +1,12 @@
 import express from 'express';
-import '@database/connection';
+import '@database/verifyIp';
 
 const app: express.Application = express();
 const port: number | string = process.env.PORT ?? 3000;
 
-
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port.toString()}`);
-});
+export default function createServer(): void{
+  app.listen(port, () => {
+    console.log(`Servidor corriendo en http://localhost:${port.toString()}`);
+  });
+};
 
