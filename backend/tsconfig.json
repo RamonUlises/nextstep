@@ -16,6 +16,8 @@
       "@router/*": ["src/router/*"],
       "@types/*": ["src/types/*"],
       "@database/*": ["src/database/*"],
+      "@schemas/*": ["src/schemas/*"],
+      "@controllers/*": ["src/controllers/*"],
     }
   },
   "include": ["src/**/*"],
