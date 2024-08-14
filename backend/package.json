@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc && tsc-alias && node ./scripts/addJsExtension.js",
-    "start": "node ./dist/app.js",
+    "start": "pnpm run build && node ./dist/app.js",
     "dev": "tsx --watch --no-warnings ./src/app.ts"
   },
   "keywords": [],
