@@ -19,11 +19,11 @@ function addJsExtensionToImports(dir) {
       
       // Reemplaza los imports que no provienen de node_modules
       content = content.replace(
-        /(from\s+['"])(\.\/.*?)(['"])/g, 
+        /(from\s+['"])(\.{1,2}\/.*?)(['"])/g, 
         '$1$2.js$3'
       );
       content = content.replace(
-        /(import\s+['"])(\.\/.*?)(['"])/g, 
+        /(import\s+['"])(\.{1,2}\/.*?)(['"])/g, 
         '$1$2.js$3'
       );
 
