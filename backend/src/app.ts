@@ -4,7 +4,7 @@ import morgan, { StreamOptions } from 'morgan';
 import trabajos from '@router/trabajos';
 import trabajadores from '@router/trabajadores';
 import empresas from '@router/empresas';
-import '@database/verifyIp';
+import '@database/connection';
 
 const app: express.Application = express();
 const port: number | string = process.env.PORT ?? 3000;
