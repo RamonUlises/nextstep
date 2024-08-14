@@ -1,10 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import morgan, { StreamOptions } from 'morgan';
-import '@database/verifyIp';
 import trabajos from '@router/trabajos';
 import trabajadores from '@router/trabajadores';
 import empresas from '@router/empresas';
+import '@database/verifyIp';
 
 const app: express.Application = express();
 const port: number | string = process.env.PORT ?? 3000;
