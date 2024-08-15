@@ -68,7 +68,6 @@ gh repo clone RamonUlises/startup-pixels
   pnpm start
 ```
 - Levantar el servidor del frontend
-- Levantar los dos servidores
 ```bash
   pnpm run frontend
 ```
