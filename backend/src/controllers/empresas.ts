@@ -136,5 +136,3 @@ class Empresa {
 const empresas = new Empresa();
 
 export default empresas;
-
-/*  */
