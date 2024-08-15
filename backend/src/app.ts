@@ -19,6 +19,10 @@ app.use('/trabajos', trabajos);
 app.use('/trabajadores', trabajadores);
 app.use('/empresas', empresas);
 
+app.use((req, res) => {
+  res.status(404).json({ message: 'La ruta no existe', documentation: 'https://github.com/RamonUlises/Startup-pixels' });
+});
+
 export default function createServer(): void {
   app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port.toString()}`);
