@@ -1,11 +1,11 @@
-import express, { NextFunction, Request, Response } from 'express';
+import express from 'express';
 import cors from 'cors';
 import morgan, { StreamOptions } from 'morgan';
 import trabajos from '@router/trabajos';
 import trabajadores from '@router/trabajadores';
 import empresas from '@router/empresas';
 import '@database/connection';
-import { verifyAuth } from './lib/verifyAuth';
+//import { verifyAuth } from '@lib/verifyAuth';
 
 const app: express.Application = express();
 const port: number | string = process.env.PORT ?? 3000;
@@ -16,10 +16,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan('dev') as express.RequestHandler<StreamOptions>);
 
-app.use((req: Request, res: Response, next: NextFunction) => {
-  const response: boolean = verifyAuth(req, res);
-  if(response) next();
-});
+// app.use((req: Request, res: Response, next: NextFunction) => {
+//   const response: boolean = verifyAuth(req, res);
+//   if(response) next();
+// });
 
 app.use('/trabajos', trabajos);
 app.use('/trabajadores', trabajadores);

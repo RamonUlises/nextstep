@@ -4,6 +4,8 @@ import { Request, Response } from 'express';
 
 import requestDataBaseEmpresa from '@/database/request/empresas';
 import { TypeEmpresa } from '@/types/empresas';
+import { manejarError } from '@/lib/Errores';
+import { ErrorZodType } from '@/types/errorZod';
 
 const { string } = zod;
 
@@ -60,7 +62,7 @@ class Empresa {
 
       res.status(200).json({ message: 'Empresa creada' });
     } catch (error) {
-      res.status(400).json({ message: 'Le faltan datos a la petición', error });
+      manejarError(res, error as ErrorZodType);
     }
   }
   async actualizarEmpresa(req: Request, res: Response): Promise<void> {

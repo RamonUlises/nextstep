@@ -18,6 +18,7 @@
       "@database/*": ["src/database/*"],
       "@schemas/*": ["src/schemas/*"],
       "@controllers/*": ["src/controllers/*"],
+      "@lib/*": ["src/lib/*"],
     }
   },
   "include": ["src/**/*"],
