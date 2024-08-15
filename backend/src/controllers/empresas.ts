@@ -105,6 +105,7 @@ class Empresa {
 
       schema.parse(req.body);
 
+      data.contrasena = encrypt(data.contrasena);
       await requestDataBaseEmpresa.actualizarEmpresa(id, data);
 
       res.status(200).json({ message: 'Empresa actualizada' });
