@@ -34,7 +34,7 @@ Para escuchar los cambios usamos el comando experimental **--watch** de node jun
 
 ### Configuración del proyecto
 
-Usamos ESLint esta es una herramienta de análisis de código estático que se utiliza para identificar y reportar patrones encontrados en el código ECMAScript/JavaScript. En este proyecto, ESLint se configura para trabajar con TypeScript y asegurar que el código siga las mejores prácticas y convenciones de estilo.
+Usamos ESLint, es una herramienta de análisis de código estático que se utiliza para identificar y reportar patrones encontrados en el código ECMAScript/JavaScript. En este proyecto, ESLint se configura para trabajar con TypeScript y asegurar que el código siga las mejores prácticas y convenciones de estilo.
 
 El archivo de configuración de ESLint `eslint.config.js` incluye reglas específicas para TypeScript y se integra con el archivo `.prettierrc.json` de Prettier para formatear el código automáticamente.
 
