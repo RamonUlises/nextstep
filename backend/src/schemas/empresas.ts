@@ -14,6 +14,7 @@ const empresasSchema = new mongoose.Schema({
   'mision': { type: String, required: true },
   'vision': { type: String, required: true },
   'objetivos': { type: Array, required: true },
+  'puntuacion': { type: Number, required: true },
   'imagen': { type: String, required: true },
 });
 

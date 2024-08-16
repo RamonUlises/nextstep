@@ -8,7 +8,7 @@ import { manejarError } from '@/lib/errores';
 import { ErrorZodType } from '@/types/errorZod';
 import  { decrypt, encrypt } from '@/lib/encripts';
 
-const { string } = zod;
+const { string, number } = zod;
 
 class Empresa {
   async obtenerEmpresas(req: Request, res: Response): Promise<void> {
@@ -61,6 +61,7 @@ class Empresa {
         'mision': string(),
         'vision': string(),
         'objetivos': string().array(),
+        'puntuacion': number(),
         'imagen': string(),
       });
 
@@ -70,7 +71,7 @@ class Empresa {
       data.contrasena = encrypt(data.contrasena);
       await requestDataBaseEmpresa.crearEmpresa(data);
 
-      res.status(200).json({ message: 'Empresa creada' });
+      res.status(200).json({ message: 'Empresa creada con éxito' });
     } catch (error) {
       manejarError(res, error as ErrorZodType);
     }
@@ -100,6 +101,7 @@ class Empresa {
         'mision': string(),
         'vision': string(),
         'objetivos': string().array(),
+        'puntuacion': number(),
         'imagen': string(),
       });
 
@@ -108,9 +110,9 @@ class Empresa {
       data.contrasena = encrypt(data.contrasena);
       await requestDataBaseEmpresa.actualizarEmpresa(id, data);
 
-      res.status(200).json({ message: 'Empresa actualizada' });
+      res.status(200).json({ message: 'Empresa actualizada con éxito' });
     } catch (error) {
-      res.status(500).json({ message: 'Error al actualizar la empresa', error });
+      manejarError(res, error as ErrorZodType);
     }
   }
   async eliminarEmpresa(req: Request, res: Response): Promise<void> {
@@ -126,7 +128,7 @@ class Empresa {
 
       await requestDataBaseEmpresa.eliminarEmpresa(id);
 
-      res.status(200).json({ message: 'Empresa eliminada' });
+      res.status(200).json({ message: 'Empresa eliminada con éxito' });
     } catch (error) {
       res.status(500).json({ message: 'Error al eliminar la empresa', error });
     }

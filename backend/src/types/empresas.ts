@@ -12,5 +12,6 @@ export interface TypeEmpresa {
   'mision': string;
   'vision': string;
   'objetivos': string[];
+  'puntuacion': number;
   'imagen': string;
 };
