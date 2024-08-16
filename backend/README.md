@@ -66,12 +66,12 @@ La entrada del servidor `(app.ts)`, crea el app que viene de express, luego crea
 - **scripts/**: Contiene scripts necesarios para la build que realiza tsc y tsc-aleas
 - **src/**:
   - **controllers/**: Contiene los controladores que manejan la lógica de negocio y las interacciones con la base de datos.
-  - **database/**: Contiene la conexión a la base de datos en Mongo Atlas verifica la IP para agregarla a las IP permitidas de Mongo.
+  - **database/**: Contiene la conexión a la base de datos en Mongo Atlas, verifica la IP para agregarla a las IP permitidas de Mongo.
     - **request/**: Contiene las peticiones http a la base de datos en Mongo Atlas.
-  - **lib/**: Contiene scripts del proyecto que automatizan los procesos que realiza el servidor cuando hace la autentificación, peticines, errores, entre otras.
+  - **lib/**: Contiene scripts del proyecto que automatizan los procesos que realiza el servidor cuando hace la autentificación, peticiones, errores, entre otras.
   - **router/**: Contiene las definiciones de las rutas de la API.
-  - **schemas/**: Contiene los esquemas creados para la base de datos, las propiedades que tendra cada una de las entidades y los tipos de ellas.
-  - **types/**: Contiene los tipos, interfaces, enums que usamos para definir los tipos de TypeScript.
+  - **schemas/**: Contiene los esquemas creados para la base de datos, las propiedades que tendrá cada una de las entidades y sus tipos.
+  - **types/**: Contiene los types, interfaces, enums que usamos para definir los tipos de TypeScript.
 
 
 ## Endpoints
