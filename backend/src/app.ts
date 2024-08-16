@@ -21,9 +21,9 @@ app.use(morgan('dev') as express.RequestHandler<StreamOptions>);
 //   if(response) next();
 // });
 
-app.use('/trabajos', trabajos);
-app.use('/trabajadores', trabajadores);
-app.use('/empresas', empresas);
+app.use('/api/trabajos', trabajos);
+app.use('/api/trabajadores', trabajadores);
+app.use('/api/empresas', empresas);
 
 app.use((req, res) => {
   res.status(404).json({
