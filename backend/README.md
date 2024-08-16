@@ -129,7 +129,7 @@ Obtiene la información de todas las empresas, en este caso tenemos 2 empresas r
 ```
 
 #### GET /api/empresas/:id
-En este caso tenemos un parametro el cuál le nombramos `id`, este endpoint lo que hace es traernos la información de una empresa en especifico, en este caso la empresa que le pertenzca el `id`.
+En este caso tenemos un párametro el cual le nombramos `id`, este endpoint lo que hace es traernos la información de una empresa en específico, en este caso la empresa que le pertenzca el `id`.
 
 Tomemos está petición como ejemplo: **GET** **/api/empresas/id-empresa-3**
 
