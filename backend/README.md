@@ -57,7 +57,7 @@ La entrada del servidor `(app.ts)`, crea el app que viene de express, luego crea
 
 - Usa el middleware de `express` para indicarle que se usará formato `json`:
 - Utiliza `morgan` para que en modo desarrollo podamos ver en consola las peticiones que se le hacen a nuestro servidor.
-- Cuando se hace una petición, esta pasa por dos middleware, uno de ellos busca la ruta a la que se le hizo la petición, si esta no existe muestra un error `404` que indica que la url no existe, si existe se activa el segundo middleware que verifica que dentro de los headers de la petición venga las claves de autentificación, no vienen o son incorrectas muestra un error de 401 que indica que no está autorizado.
+- Cuando se hace una petición, esta pasa por dos middleware, uno de ellos busca la ruta a la que se le hizo la petición, si no está en el router muestra un error `404` que indica que la url no existe, de lo contrario se activa el segundo middleware que verifica que dentro de los headers de la petición venga las claves de autentificación, si no vienen o son incorrectas, muestra un error `401` que indica que no está autorizado.
 
 ### Organización de carpetas
 
