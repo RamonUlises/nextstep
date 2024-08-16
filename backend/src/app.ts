@@ -28,7 +28,7 @@ app.use('/api/empresas', empresas);
 app.use((req, res) => {
   res.status(404).json({
     message: 'La ruta no existe',
-    documentation: 'https://github.com/RamonUlises/Startup-pixels',
+    documentation: 'https://github.com/RamonUlises/startup-pixels/blob/main/backend/README.md',
   });
 });
 
