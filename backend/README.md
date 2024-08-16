@@ -73,3 +73,323 @@ La entrada del servidor `(app.ts)`, crea el app que viene de express, luego crea
   - **schemas/**: Contiene los esquemas creados para la base de datos, las propiedades que tendra cada una de las entidades y los tipos de ellas.
   - **types/**: Contiene los tipos, interfaces, enums que usamos para definir los tipos de TypeScript.
 
+
+## Endpoints
+
+Cada uno de estos endpoind correstode a una `url` específica y un método http `(GET, POST, PUT, DELETE, entre otros)`, que define la acción que se realiará.
+
+Las respuesta que de el servidor luego de la petición sera en archivos `json`.
+
+### Empresas
+
+#### GET /api/empresas
+Obtiene la información de todas las empresas, en este caso tenemos 2 empresas registradas en la BD:
+
+**Respuesta**
+
+``` json
+{
+  "data": [
+    {
+      "id": "id-empresa-1",
+      "numero-identificacion": "número-identificación",
+      "certificado-registro": "certificado-registro",
+      "licencia-comercial": "licencia-comercial",
+      "nombre": "nombre-empresa",
+      "direccion": ["direccion 1", "dirección 2"],
+      "telefono": ["teléfono 1", "teléfono 2"],
+      "email": ["email 1", "email 2"],
+      "contrasena": "contraseña-empresa",
+      "redes-sociales": ["red 1", "red 2"],
+      "mision": "mision-empresa",
+      "vision": "vision-empresa",
+      "objetivos": ["objetivos"],
+      "puntuacion": 4,
+      "imagen": "url-imagen"
+    },
+    {
+      "id": "id-empresa-2",
+      "numero-identificacion": "número-identificación",
+      "certificado-registro": "certificado-registro",
+      "licencia-comercial": "licencia-comercial",
+      "nombre": "nombre-empresa",
+      "direccion": ["direccion 1", "dirección 2"],
+      "telefono": ["teléfono 1", "teléfono 2"],
+      "email": ["email 1", "email 2"],
+      "contrasena": "contraseña-empresa",
+      "redes-sociales": ["red 1", "red 2"],
+      "mision": "mision-empresa",
+      "vision": "vision-empresa",
+      "objetivos": ["objetivos"],
+      "puntuacion": 4,
+      "imagen": "url-imagen"
+    }
+  ]
+}
+```
+
+#### GET /api/empresas/:id
+En este caso tenemos un parametro el cuál le nombramos `id` este endpoint lo que hace es traernos la información de una empresa en especifico, en este caso la empresa que le pertenzca el `id`.
+
+Tomemos está petición como ejemplo: **GET** **/api/empresas/id-empresa-3**
+
+``` json
+{
+  "message": "Empresa no encontrada"
+}
+```
+
+En este caso en la BD no tenemos un id llamado `id-empresa-3` por lo cuál el servidor muestra un status `404` y mensaje que indica que la empresa no ha sido encontrada.
+
+Ahora probemos con otra petición: **GET** **/api/empresas/id-empresa-2**
+
+``` json
+{
+  "data": [
+    {
+      "id": "id-empresa-2",
+      "numero-identificacion": "número-identificación",
+      "certificado-registro": "certificado-registro",
+      "licencia-comercial": "licencia-comercial",
+      "nombre": "nombre-empresa",
+      "direccion": ["direccion 1", "dirección 2"],
+      "telefono": ["teléfono 1", "teléfono 2"],
+      "email": ["email 1", "email 2"],
+      "contrasena": "contraseña-empresa",
+      "redes-sociales": ["red 1", "red 2"],
+      "mision": "mision-empresa",
+      "vision": "vision-empresa",
+      "objetivos": ["objetivos"],
+      "puntuacion": 4,
+      "imagen": "url-imagen"
+    }
+  ]
+}
+```
+
+En este caso, el id `id-empresa-2` si existe por lo cuál el servidor nos da un status `200` y muestra toda la información de está empresa.
+
+#### POST /api/empresas
+Cuándo le hacemos una petición `POST` a el endpoint de empresa esta necesita una serie de propiedades para crear un registro de la empresa en la BD:
+
+**Propiedades**
+``` json
+{
+  "numero-identificacion": "número-identificación",
+  "certificado-registro": "certificado-registro",
+  "licencia-comercial": "licencia-comercial",
+  "nombre": "nombre-empresa",
+  "direccion": ["direccion 1", "dirección 2"],
+  "telefono": ["teléfono 1", "teléfono 2"],
+  "email": ["email 1", "email 2"],
+  "contrasena": "contraseña-empresa",
+  "redes-sociales": ["red 1", "red 2"],
+  "mision": "mision-empresa",
+  "vision": "vision-empresa",
+  "objetivos": ["objetivos"],
+  "puntuacion": 4,
+  "imagen": "url-imagen"
+}
+```
+
+Tomemos como ejemplo esta petición: **POST** **/api/empresas**
+
+**Datos** **enviados**:
+``` json
+{
+  "numero-identificacion": "número-identificación",
+  "certificado-registro": "certificado-registro",
+  "licencia-comercial": "licencia-comercial",
+  "nombre": "nombre-empresa",
+  "direccion": ["direccion 1", "dirección 2"],
+  "telefono": ["teléfono 1", "teléfono 2"],
+  "email": ["email 1", "email 2"],
+  "contrasena": "contraseña-empresa",
+  "redes-sociales": ["red 1", "red 2"],
+  "mision": "mision-empresa",
+  "vision": 89765,
+  "puntuacion": 4,
+}
+```
+
+**Respuesta**:
+``` json
+{
+  "error": [
+    {
+      "propiedad": "vision",
+      "mensaje": "Expected string, received number",
+      "recibido": "number"
+    },
+    {
+      "propiedad": "objetivos",
+      "mensaje": "Required",
+      "recibido": "undefined"
+    },
+    {
+      "propiedad": "imagen",
+      "mensaje": "Required",
+      "recibido": "undefined"
+    }
+  ]
+}
+```
+
+En este caso obtenemos un status de `400` y un error, esté nos muestra las propiedades que hacen falta como es el caso de `objetivos` e `imagen`, y el mensaje que nos indica que es requerido, o como en el caso de `vision` que le pasamos un número y el servidor esperaba una cadena de texto.
+
+Tomemos otro ejemplo: **POST** **/api/empresas**
+
+**Datos** **enviados**:
+``` json
+{
+  "numero-identificacion": "número-identificación",
+  "certificado-registro": "certificado-registro",
+  "licencia-comercial": "licencia-comercial",
+  "nombre": "nombre-empresa",
+  "direccion": ["direccion 1", "dirección 2"],
+  "telefono": ["teléfono 1", "teléfono 2"],
+  "email": ["email 1", "email 2"],
+  "contrasena": "contraseña-empresa",
+  "redes-sociales": ["red 1", "red 2"],
+  "mision": "mision-empresa",
+  "vision": "vision-empresa",
+  "objetivos": ["objetivos"],
+  "puntuacion": 4,
+  "imagen": "url-imagen"
+}
+```
+
+**Respuesta**:
+```json
+{
+  "message": "Empresa creada con éxito"
+}
+```
+El servidor nos da un status `200`, y un mensaje indicandonos que la empresa ha sido creada con éxito, cabe tomar en cuenta que `contrasena` antes de subirse a la base de datos es inciptada, y además de eso no se le pasa una propiedad `id`, ya que este es creado en el servidor antes de subirse a la base de datos.
+
+#### PUT /api/empresas/:id
+En el caso de hacer actualizaciones a la empresas, se tiene que pasar en la url el párametro `id` para indicarle a que empresa le haremos la actualización. Tener en cuenta que se le tiene que pasar un `json` con todas las propiedades, si no se la hará actualización a alguna propiedad enviarla como estaba antes.
+
+Ejemplo:  **PUT** **/api/empresas/id-empresa-3**
+
+**Datos** **enviados**:
+``` json
+{
+  "numero-identificacion": "número-identificación",
+  "certificado-registro": "certificado-registro",
+  "licencia-comercial": "licencia-comercial",
+  "nombre": "nombre-empresa",
+  "direccion": ["direccion 1", "dirección 2"],
+  "telefono": ["teléfono 1", "teléfono 2"],
+  "email": ["email 1", "email 2"],
+  "contrasena": "contraseña-empresa",
+  "redes-sociales": ["red 1", "red 2", "red 3"],
+  "mision": "nueva-mision-empresa",
+  "vision": "nueva-vision-empresa",
+  "objetivos": ["objetivos"],
+  "puntuacion": 4,
+  "imagen": "nueva-url-imagen"
+}
+```
+
+**Respues**:
+``` json
+{
+  "message": "Empresa no encontrada"
+}
+```
+Acompañado de un error `404`, el servidor nos muestra un mensaje el cuál nos indica que la empresa no ha sido encontrada en la base de datos, esto ya que no existe el id `id-empresa-3`.
+
+Ejemplo:  **PUT** **/api/empresas/id-empresa-2**
+
+**Datos** **enviados**:
+``` json
+{
+  "numero-identificacion": "número-identificación",
+  "certificado-registro": "certificado-registro",
+  "licencia-comercial": "licencia-comercial",
+  "direccion": ["direccion 1", "dirección 2"],
+  "telefono": ["teléfono 1", "teléfono 2"],
+  "email": ["email 1", "email 2"],
+  "contrasena": "contraseña-empresa",
+  "redes-sociales": [7466, "red 2", "red 3"],
+  "mision": "nueva-mision-empresa",
+  "vision": "nueva-vision-empresa",
+  "objetivos": ["objetivos"],
+  "puntuacion": 4,
+  "imagen": "nueva-url-imagen"
+}
+```
+
+**Respuesta**:
+``` json
+{
+  "error": [
+    {
+      "propiedad": "nombre",
+      "mensaje": "Required",
+      "recibido": "undefined"
+    },
+    {
+      "propiedad": "redes-sociales.0",
+      "mensaje": "Expected string, received number",
+      "recibido": "number"
+    }
+  ]
+}
+```
+
+En esté caso tenemos un status `400`, ya que no se le paso la propiedad `nombre` como indica en el primer objeto del `json`, el segundo nos muestra que redes sociales en la posición 0, esperaba un string y recibio un número.
+
+Tomemos otro ejemplo: Ejemplo:  **PUT** **/api/empresas/id-empresa-2**
+
+**Datos** **enviados**:
+``` json
+{
+  "id": "nuevo-id",
+  "numero-identificacion": "número-identificación",
+  "certificado-registro": "certificado-registro",
+  "licencia-comercial": "licencia-comercial",
+  "nombre": "nombre-empresa",
+  "direccion": ["direccion 1", "dirección 2"],
+  "telefono": ["teléfono 1", "teléfono 2"],
+  "email": ["email 1", "email 2"],
+  "contrasena": "contraseña-empresa",
+  "redes-sociales": ["red 1", "red 2", "red 3"],
+  "mision": "nueva-mision-empresa",
+  "vision": "nueva-vision-empresa",
+  "objetivos": ["objetivos"],
+  "puntuacion": 4,
+  "imagen": "nueva-url-imagen",
+  "imagen-2": "otra imagen" 
+}
+```
+
+**Respues**:
+``` json
+{
+  "message": "Empresa actualizada con éxito"
+}
+```
+En la respuesta que returna el servidor, podemos ver un mensaje que nos indica que la empresa ha sido actualizada con exito. Tomar en cuenta que a pesar que le pasamos la propiedad `id` dentro de las propiedad, el servidor va a ignorarla junto a las otras propiedades que se le pasen y no sean necesarias para la actualización, en este caso el `id` no cambiará y no se agregará la propiedad `imagen-2`.
+
+#### DELETE /api/empresas/:id
+Cuándo hacemos una petición `DELETE` al servidor, necesitamos pasarle en la url el `id` para así decirle que empresa vamos a eliminar de la BD.
+
+Por ejemplo: **DELETE** **/api/empresas/id-empresa-3**
+**Respues**:
+``` json
+{
+  "message": "Empresa no encontrada"
+}
+```
+En está ocasión, el servidor devuelve un status `404`, nos muestra un mensaje que nos indica que la empresa no existe dentro de la BD.
+
+Tomemos este otro ejemplo: **DELETE** **/api/empresas/id-empresa-2**
+**Respues**:
+``` json
+{
+  "message": "Empresa eliminada con éxito"
+}
+```
+En esté caso podemos ver que nos devuelve un status `200`, y nos indica que la empresa fue borrada con éxito.
