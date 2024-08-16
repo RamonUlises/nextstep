@@ -133,6 +133,7 @@ En este caso tenemos un párametro el cual le nombramos `id`, este endpoint lo q
 
 Tomemos esta petición como ejemplo: **GET** **/api/empresas/id-empresa-3**
 
+**Respuesta**:
 ``` json
 {
   "message": "Empresa no encontrada"
@@ -143,6 +144,7 @@ En este caso en la BD no tenemos un id llamado `id-empresa-3` por lo cuál el se
 
 Ahora probemos con otra petición: **GET** **/api/empresas/id-empresa-2**
 
+**Respuesta**:
 ``` json
 {
   "data": [
