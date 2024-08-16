@@ -129,7 +129,7 @@ Obtiene la información de todas las empresas, en este caso tenemos 2 empresas r
 ```
 
 #### GET /api/empresas/:id
-En este caso tenemos un párametro el cual le nombramos `id`, este endpoint lo que hace es traernos la información de una empresa en específico, en este caso la empresa que le pertenece el `id`.
+En este caso tenemos un parámetro el cual le nombramos `id`, este endpoint lo que hace es traernos la información de una empresa en específico, en este caso la empresa que le pertenece el `id`.
 
 Tomemos esta petición como ejemplo: **GET** **/api/empresas/id-empresa-3**
 
@@ -169,10 +169,10 @@ Ahora probemos con otra petición: **GET** **/api/empresas/id-empresa-2**
 }
 ```
 
-En este caso, el id `id-empresa-2` si existe por lo cuál el servidor nos da un status `200` y muestra toda la información de está empresa.
+En este caso, el id `id-empresa-2` si existe por lo cuál el servidor nos da un status `200` y muestra toda la información de esta empresa.
 
 #### POST /api/empresas
-Cuándo le hacemos una petición `POST` a el endpoint de empresa, esta necesita una serie de propiedades para crear un registro de la empresa en la BD.
+Cuando le hacemos una petición `POST` al endpoint de empresas, esta necesita una serie de propiedades para crear un registro de la empresa en la BD.
 
 **Propiedades que necesita el registro**:
 ``` json
@@ -237,7 +237,7 @@ Tomemos como ejemplo esta petición: **POST** **/api/empresas**
 }
 ```
 
-En este caso obtenemos un status de `400` y un error, esté nos muestra las propiedades que hacen falta, como es el caso de `objetivos` e `imagen`, y el mensaje que nos indica que es requerido, o como en el caso de `vision` que le pasamos un número y el servidor esperaba una cadena de texto.
+En este caso obtenemos un status de `400` y un error, este nos muestra las propiedades que hacen falta, como es el caso de `objetivos` e `imagen`, y el mensaje que nos indica que es requerido, o como en el caso de `vision` que le pasamos un número y el servidor esperaba una cadena de texto.
 
 Tomemos otro ejemplo: **POST** **/api/empresas**
 
@@ -267,10 +267,10 @@ Tomemos otro ejemplo: **POST** **/api/empresas**
   "message": "Empresa creada con éxito"
 }
 ```
-El servidor nos da un status `200`, y un mensaje indicandonos que la empresa ha sido creada con éxito, cabe tomar en cuenta que `contrasena` antes de subirse a la base de datos es inciptada, además de eso no se le pasa una propiedad `id`, ya que este es creado en el servidor antes de subirse a la base de datos.
+El servidor nos da un status `200`, y un mensaje indicándonos que la empresa ha sido creada con éxito, cabe tomar en cuenta que `contrasena` antes de subirse a la base de datos es incriptada, además de eso no se le pasa una propiedad `id`, ya que este es creado en el servidor antes de subirse a la base de datos.
 
 #### PUT /api/empresas/:id
-En el caso de hacer actualizaciones a la empresas, se tiene que pasar en la url el párametro `id` para indicarle a que empresa le haremos la actualización. Tener en cuenta que se le tiene que pasar un `json` con todas las propiedades, si no se la hará actualización a alguna propiedad enviarla como estaba antes.
+En el caso de hacer actualizaciones a la empresas, se tiene que pasar en la url el parámetro `id` para indicarle a que empresa le haremos la actualización. Tener en cuenta que se le tiene que pasar un `json` con todas las propiedades, si no se la hará actualización a alguna propiedad enviarla como estaba antes.
 
 Ejemplo:  **PUT** **/api/empresas/id-empresa-3**
 
@@ -300,7 +300,7 @@ Ejemplo:  **PUT** **/api/empresas/id-empresa-3**
   "message": "Empresa no encontrada"
 }
 ```
-Acompañado de un error `404`, el servidor nos muestra un mensaje el cuál nos indica que la empresa no ha sido encontrada en la base de datos, esto ya que no existe el id `id-empresa-3`.
+Acompañado de un error `404`, el servidor nos muestra un mensaje el cual nos indica que la empresa no ha sido encontrada en la base de datos, esto ya que no existe el id `id-empresa-3`.
 
 Otro ejemplo:  **PUT** **/api/empresas/id-empresa-2**
 
@@ -341,7 +341,7 @@ Otro ejemplo:  **PUT** **/api/empresas/id-empresa-2**
 }
 ```
 
-En esté caso tenemos un status `400`, ya que no se le paso la propiedad `nombre` como indica en el primer objeto del `json`, el segundo objeto nos muestra que redes sociales en la posición 0, esperaba un string y recibio un número.
+En este caso tenemos un status `400`, ya que no se le pasó la propiedad `nombre` como indica en el primer objeto del `json`, el segundo objeto nos muestra que redes sociales en la posición 0 esperaba un string y recibió un número.
 
 Tomemos otro ejemplo:  **PUT** **/api/empresas/id-empresa-2**
 
@@ -373,10 +373,10 @@ Tomemos otro ejemplo:  **PUT** **/api/empresas/id-empresa-2**
   "message": "Empresa actualizada con éxito"
 }
 ```
-En la respuesta que retorna el servidor, podemos ver un mensaje que nos indica que la empresa ha sido actualizada con exito. Tomar en cuenta que a pesar que le pasamos la propiedad `id` dentro de las propiedad, el servidor va a ignorarla junto a las otras propiedades que se le pasen y no sean necesarias para la actualización, en este caso el `id` no cambiará y no se agregará la propiedad `imagen-2`.
+En la respuesta que retorna el servidor, podemos ver un mensaje que nos indica que la empresa ha sido actualizada con éxito. Tomar en cuenta que a pesar que le pasamos la propiedad `id` dentro de las propiedades, el servidor va a ignorarla junto a las otras propiedades que se le pasen y no sean necesarias para la actualización, en este caso el `id` no cambiará y no se agregará la propiedad `imagen-2`.
 
 #### DELETE /api/empresas/:id
-Cuándo hacemos una petición `DELETE` al servidor, necesitamos pasarle en la url el `id` para así indicarle que empresa vamos a eliminar de la BD.
+Cuando hacemos una petición `DELETE` al servidor, necesitamos pasarle en la url el `id` para así indicarle que empresa vamos a eliminar de la BD.
 
 Por ejemplo: **DELETE** **/api/empresas/id-empresa-3**
 
@@ -386,7 +386,7 @@ Por ejemplo: **DELETE** **/api/empresas/id-empresa-3**
   "message": "Empresa no encontrada"
 }
 ```
-En está ocasión, el servidor devuelve un status `404`, nos muestra un mensaje que nos indica que la empresa no existe dentro de la BD.
+En esta ocasión, el servidor devuelve un status `404`, nos muestra un mensaje que nos indica que la empresa no existe dentro de la BD.
 
 Tomemos este otro ejemplo: **DELETE** **/api/empresas/id-empresa-2**
 
@@ -396,4 +396,4 @@ Tomemos este otro ejemplo: **DELETE** **/api/empresas/id-empresa-2**
   "message": "Empresa eliminada con éxito"
 }
 ```
-En esté caso podemos ver que nos devuelve un status `200`, y nos indica que la empresa fue borrada con éxito.
+En este caso podemos ver que nos devuelve un status `200`, y nos indica que la empresa fue borrada con éxito.
