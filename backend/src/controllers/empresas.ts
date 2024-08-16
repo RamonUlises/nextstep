@@ -62,7 +62,6 @@ class Empresa {
   };
   async crearEmpresa(req: Request, res: Response): Promise<void> {
     try {
-
       const data: TypeEmpresa = req.body as TypeEmpresa;
 
       schema.parse(req.body);
@@ -101,7 +100,6 @@ class Empresa {
   async eliminarEmpresa(req: Request, res: Response): Promise<void> {
     try {
       const { id } = req.params;
-
       const data: TypeEmpresa[] = await requestDataBaseEmpresa.obtenerEmpresa(id);
 
       if(data.length === 0) {
