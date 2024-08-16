@@ -20,7 +20,7 @@ pnpm start
 pnpm run dev
 ```
 
-Para escuchar los cambios usamos el comando experimental **--watch** de node junto a la dependencia y tcx
+Para escuchar los cambios usamos el comando experimental **--watch** de node junto a la dependencia tcx
 
 ## Tecnologías
 
