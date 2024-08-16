@@ -14,10 +14,10 @@ pnpm install
 pnpm start
 ```
 
-- Para iniciar, ejecute el siguiente comando:
+- Para iniciar en modo desarrollo, ejecute el siguiente comando:
 
 ``` bash
-pnpm start
+pnpm run dev
 ```
 
 Para escuchar los cambios usamos el comando experimental **--watch** de node junto a la dependencia y tcx
