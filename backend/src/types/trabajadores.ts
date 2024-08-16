@@ -1,0 +1,21 @@
+export interface TypeTrabajadores {
+  'id': string;
+  'nombres': string;
+  'usuario': string;
+  'telefono': string;
+  'email': string;
+  'contrasena': string;
+  'redes-sociales': string[];
+  'imagen': string;
+  'descripcion': string;
+  'educacion-primaria': string;
+  'educacion-secundaria': string;
+  'titulos': string[];
+  'idiomas': string[];
+  'certificados': string[];
+  'referencias': string[];
+  'habilidades': string[];
+  'puntos': number;
+  'puntuacion': number;
+  'saldo': number;
+};
