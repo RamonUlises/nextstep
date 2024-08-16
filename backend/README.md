@@ -76,7 +76,7 @@ La entrada del servidor `(app.ts)`, crea el app que viene de express, luego crea
 
 ## Endpoints
 
-Cada uno de estos endpoind correstode a una `url` específica y un método http `(GET, POST, PUT, DELETE, entre otros)`, que define la acción que se realiará.
+Cada uno de estos endpoind corresponde a una `url` específica y un método http `(GET, POST, PUT, DELETE, entre otros)`, que define la acción que se realiará.
 
 Las respuesta que de el servidor luego de la petición sera en archivos `json`.
 
