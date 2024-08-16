@@ -10,6 +10,23 @@ import  { decrypt, encrypt } from '@/lib/encripts';
 
 const { string, number } = zod;
 
+const schema = zod.object({
+  'numero-identificacion': string(),
+  'certificado-registro': string(),
+  'licencia-comercial': string(),
+  'nombre': string(),
+  'direccion': string().array(),
+  'telefono': string().array(),
+  'email': string().array(),
+  'contrasena': string(),
+  'redes-sociales': string().array(),
+  'mision': string(),
+  'vision': string(),
+  'objetivos': string().array(),
+  'puntuacion': number(),
+  'imagen': string(),
+});
+
 class Empresa {
   async obtenerEmpresas(req: Request, res: Response): Promise<void> {
     try {
@@ -48,23 +65,6 @@ class Empresa {
 
       const data: TypeEmpresa = req.body as TypeEmpresa;
 
-      const schema = zod.object({
-        'numero-identificacion': string(),
-        'certificado-registro': string(),
-        'licencia-comercial': string(),
-        'nombre': string(),
-        'direccion': string().array(),
-        'telefono': string().array(),
-        'email': string().array(),
-        'contrasena': string(),
-        'redes-sociales': string().array(),
-        'mision': string(),
-        'vision': string(),
-        'objetivos': string().array(),
-        'puntuacion': number(),
-        'imagen': string(),
-      });
-
       schema.parse(req.body);
 
       data.id = crypto.randomUUID();
@@ -87,23 +87,6 @@ class Empresa {
       }
 
       const data: TypeEmpresa = req.body as TypeEmpresa;
-
-      const schema = zod.object({
-        'numero-identificacion': string(),
-        'certificado-registro': string(),
-        'licencia-comercial': string(),
-        'nombre': string(),
-        'direccion': string().array(),
-        'telefono': string().array(),
-        'email': string().array(),
-        'contrasena': string(),
-        'redes-sociales': string().array(),
-        'mision': string(),
-        'vision': string(),
-        'objetivos': string().array(),
-        'puntuacion': number(),
-        'imagen': string(),
-      });
 
       schema.parse(req.body);
 
