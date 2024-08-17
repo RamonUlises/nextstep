@@ -43,6 +43,22 @@ class RequestDatabase {
       throw new Error('Error al eliminar el trabajador');
     }
   }
+  async obtenerTrabajadorPorEmail(email: string): Promise<TypeTrabajadores[]> {
+    try {
+      const data = await trabajadores.find({ email });
+      return data as TypeTrabajadores[];
+    } catch {
+      throw new Error('Error al obtener el trabajador');
+    }
+  }
+  async obtenerTrabajadorPorUsuario(usuario: string): Promise<TypeTrabajadores[]> {
+    try {
+      const data = await trabajadores.find({ usuario });
+      return data as TypeTrabajadores[];
+    } catch {
+      throw new Error('Error al obtener el trabajador');
+    }
+  }
 }
 
 const requestDatabase = new RequestDatabase();
