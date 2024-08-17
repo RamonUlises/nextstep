@@ -41,6 +41,14 @@ class RequesDatabase {
       throw new Error('Error al eliminar la empresa');
     }
   }
+  async obtenerEmpresaPorEmail(email: string): Promise<TypeEmpresa[]> {
+    try {
+      const data = await empresas.find({ email });
+      return data as TypeEmpresa[];
+    } catch {
+      throw new Error('Error al obtener la empresa');
+    }
+  }
 }
 
 const requestDatabase = new RequesDatabase();
