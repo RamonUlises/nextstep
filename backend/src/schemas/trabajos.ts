@@ -12,7 +12,7 @@ const trabajosSchema = new mongoose.Schema({
   'presupuesto': { type: Number, required: true },
   'puntos': { type: Number, required: true },
   'etiquetas': { type: Array, required: true },
-  'departamento': { type: Array, required: true },
+  'departamentos': { type: Array, required: true },
 });
 
 const Trabajos = mongoose.model('Trabajos', trabajosSchema);

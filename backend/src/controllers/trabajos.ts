@@ -19,7 +19,7 @@ const schema = zod.object({
   'presupuesto': number(),
   'puntos': number(),
   'etiquetas': string().array(),
-  'departamento': string().array(),
+  'departamentos': string().array(),
 });
 
 class Trabajos {

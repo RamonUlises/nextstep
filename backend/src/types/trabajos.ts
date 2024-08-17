@@ -10,5 +10,5 @@ export interface TypeTrabajos {
   'presupuesto': number;
   'puntos': number;
   'etiquetas': string[];
-  'departamento': string[];
+  'departamentos': string[];
 };
