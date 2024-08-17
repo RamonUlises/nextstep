@@ -66,6 +66,15 @@ class Empresa {
 
       schema.parse(req.body);
 
+      for(const email of data.email) {
+        const response = await requestDataBaseEmpresa.obtenerEmpresaPorEmail(email);
+
+        if(response.length > 0) {
+          res.status(400).json({ message: 'El email ya está en uso' });
+          return;
+        }
+      }
+
       data.id = crypto.randomUUID();
       data.contrasena = encrypt(data.contrasena);
       await requestDataBaseEmpresa.crearEmpresa(data);
@@ -88,6 +97,15 @@ class Empresa {
       const data: TypeEmpresa = req.body as TypeEmpresa;
 
       schema.parse(req.body);
+
+      for(const email of data.email) {
+        const response = await requestDataBaseEmpresa.obtenerEmpresaPorEmail(email);
+
+        if(response.length > 0 && response[0].id !== id) {
+          res.status(400).json({ message: 'El email ya está en uso' });
+          return;
+        }
+      }
 
       data.contrasena = encrypt(data.contrasena);
       await requestDataBaseEmpresa.actualizarEmpresa(id, data);
