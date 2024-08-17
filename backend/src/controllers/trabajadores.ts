@@ -66,6 +66,22 @@ class Trabajadores {
 
       schema.parse(req.body);
 
+      // Verificar que el usuario no exista
+      const ress1: TypeTrabajadores[] = await requestDatabaseTrabajador.obtenerTrabajadorPorUsuario(data.usuario);
+
+      if(ress1.length > 0) {
+        res.status(400).json({ message: 'Ya existe un trabajador con este usuario' });
+        return;
+      }
+
+      // Verificar que el correo no exista
+      const  ress2: TypeTrabajadores[] = await requestDatabaseTrabajador.obtenerTrabajadorPorEmail(data.email);
+
+      if(ress2.length > 0) {
+        res.status(400).json({ message: 'Ya existe un trabajador con este correo' });
+        return;
+      } 
+
       data.id = crypto.randomUUID();
       data.contrasena = encrypt(data.contrasena);
 
@@ -92,6 +108,20 @@ class Trabajadores {
       const data: TypeTrabajadores = req.body as TypeTrabajadores;
 
       schema.parse(req.body);
+
+      const ress1: TypeTrabajadores[] = await requestDatabaseTrabajador.obtenerTrabajadorPorUsuario(data.usuario);
+
+      if(ress1.length > 0) {
+        res.status(400).json({ message: 'Ya existe un trabajador con este usuario' });
+        return;
+      }
+
+      const ress2: TypeTrabajadores[] = await requestDatabaseTrabajador.obtenerTrabajadorPorEmail(data.email);
+
+      if(ress2.length > 0) {
+        res.status(400).json({ message: 'Ya existe un trabajador con este correo' });
+        return;
+      }
 
       data.contrasena = encrypt(data.contrasena);
       await requestDatabaseTrabajador.actualizarTrabajador(id, data);
