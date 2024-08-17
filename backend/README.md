@@ -651,3 +651,196 @@ Ejemplo: **DELETE /api/trabajadores/id-trabajador-2**
 }
 ```
 En este caso podemos ver que nos devuelve un status 200, y nos indica que el trabajador fue borrada con éxito.
+
+### Trabajos
+
+#### GET /api/trabajos
+
+Este endpoint obtiene toda la información de todos los trabajos registrados.
+
+**Respuesta**:
+```json
+"data": [
+  {
+    "id": "id-trabajo-1",
+    "empresa": "id-empresa-1",
+    "descripcion": "descripcion-trabajo",
+    "requerimientos": ["requerimiento 1"],
+    "fecha-publicacion": "2024-08-17T00:00:00.000Z",
+    "fecha-inicio": "2024-09-01T00:00:00.000Z",
+    "fecha-expiracion": "2024-12-31T00:00:00.000Z",
+    "contrato": "tipo-de-contrato",
+    "presupuesto": 1000,
+    "puntos": 0,
+    "etiquetas": ["etiqueta 1"],
+    "departamentos": ["departamento 1", "departamento 2"]
+  },
+  {
+    "id": "id-trabajo-2",
+    "empresa": "id-empresa-2",
+    "descripcion": "descripcion-trabajo",
+    "requerimientos": ["requerimiento 2"],
+    "fecha-publicacion": "2024-08-18T00:00:00.000Z",
+    "fecha-inicio": "2024-09-15T00:00:00.000Z",
+    "fecha-expiracion": "2024-12-31T00:00:00.000Z",
+    "contrato": "tipo-de-contrato",
+    "presupuesto": 2000,
+    "puntos": 10,
+    "etiquetas": ["etiqueta 2"],
+    "departamentos": ["departamento 1", "departamento 3"]
+  }
+]
+```
+
+#### GET /api/trabajos/:id
+Este endpoint obtiene la información de un trabajo específico basado en el `id` proporcionado.
+
+Ejemplo: **GET /api/trabajos/id-trabajo-3**
+
+**Respuesta**:
+```json
+{
+  "message": "Trabajo no encontrado"
+}
+```
+Status `404`, indica que el trabajo no existe en la base de datos.
+
+Ejemplo: **GET /api/trabajos/id-trabajo-2**
+
+**Respuesta**:
+```json
+{
+  "data": {
+    "id": "id-trabajo-2",
+    "empresa": "id-empresa-2",
+    "descripcion": "descripcion-trabajo",
+    "requerimientos": ["requerimiento 2"],
+    "fecha-publicacion": "2024-08-18T00:00:00.000Z",
+    "fecha-inicio": "2024-09-15T00:00:00.000Z",
+    "fecha-expiracion": "2024-12-31T00:00:00.000Z",
+    "contrato": "tipo-de-contrato",
+    "presupuesto": 2000,
+    "puntos": 10,
+    "etiquetas": ["etiqueta 2"],
+    "departamentos": ["departamento 1", "departamento 3"]
+  }
+}
+```
+El servidor devuelve la información del trabajo con status `200`.
+
+## POST /api/trabajos
+Este endpoint crea un nuevo trabajo en la base de datos.
+
+**Propiedades necesarias**:
+```json
+{
+  "empresa": "id-empresa-1",
+  "descripcion": "descripcion-trabajo",
+  "requerimientos": ["requerimiento 1"],
+  "fecha-publicacion": "2024-08-17T00:00:00.000Z",
+  "fecha-inicio": "2024-09-01T00:00:00.000Z",
+  "fecha-expiracion": "2024-12-31T00:00:00.000Z",
+  "contrato": "tipo-de-contrato",
+  "presupuesto": 1000,
+  "puntos": 0,
+  "etiquetas": ["etiqueta 1"],
+  "departamentos": ["departamento 1", "departamento 2"]
+}
+```
+
+**Validaciones**:
+- Si faltan campos o se proporcionan tipos de datos incorrectos, se devuelve un status `400` con detalles del error.
+
+**Mensaje de error**:
+
+```json
+{
+  "error": [
+    {
+      "propiedad": "presupuesto",
+      "mensaje": "Expected number, received string",
+      "recibido": "string"
+    },
+    {
+      "propiedad": "descripcion",
+      "mensaje": "Required",
+      "recibido": "undefined"
+    }
+  ]
+}
+```
+
+Ejemplo: **POST /api/trabajos**
+
+**Datos enviados**:
+```json
+{
+  "empresa": "id-empresa-1",
+  "descripcion": "descripcion-trabajo",
+  "requerimientos": ["requerimiento 1"],
+  "fecha-publicacion": "2024-08-17T00:00:00.000Z",
+  "fecha-inicio": "2024-09-01T00:00:00.000Z",
+  "fecha-expiracion": "2024-12-31T00:00:00.000Z",
+  "contrato": "tipo-de-contrato",
+  "presupuesto": 1000,
+  "puntos": 0,
+  "etiquetas": ["etiqueta 1"],
+  "departamentos": ["departamento 1", "departamento 2"]
+}
+```
+
+**Respuesta**:
+```json
+{
+  "message": "Trabajo creado con éxito"
+}
+```
+Status `200`, el trabajo ha sido creado exitosamente.
+
+#### PUT /api/trabajos/:id
+
+Este endpoint actualiza la información de un trabajo existente basado en el `id` proporcionado.
+
+**Validaciones**:
+- Requiere todas las propiedades necesarias.
+- Ignora campos adicionales no requeridos.
+
+Ejemplo: **PUT /api/trabajos/id-trabajo-1**
+
+**Datos enviados**:
+```json
+{
+  "empresa": "id-empresa-1",
+  "descripcion": "actualizar-descripcion-trabajo",
+  "requerimientos": ["requerimiento actualizado"],
+  "fecha-publicacion": "2024-08-17T00:00:00.000Z",
+  "fecha-inicio": "2024-09-01T00:00:00.000Z",
+  "fecha-expiracion": "2024-12-31T00:00:00.000Z",
+  "contrato": "tipo-de-contrato",
+  "presupuesto": 1200,
+  "puntos": 5,
+  "etiquetas": ["etiqueta actualizada"],
+  "departamentos": ["departamento 1", "departamento 3"]
+}
+```
+
+**Respuesta**:
+```json
+{
+  "message": "Trabajo actualizado con éxito"
+}
+```
+Status `200`, el trabajo ha sido actualizado exitosamente.
+
+#### DELETE /api/trabajos/:id
+Este endpoint elimina un trabajo basado en el `id` proporcionado.
+
+Ejemplo: **DELETE /api/trabajos/id-trabajo-2**
+
+**Respuesta**:
+```json
+{
+  "message": "Trabajo eliminado con éxito"
+}
+```
+Status `200`, el trabajo fue eliminado con éxito
