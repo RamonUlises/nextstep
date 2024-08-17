@@ -294,7 +294,7 @@ Ejemplo:  **PUT** **/api/empresas/id-empresa-3**
 }
 ```
 
-**Respues**:
+**Respuesta**:
 ``` json
 {
   "message": "Empresa no encontrada"
@@ -397,3 +397,257 @@ Tomemos este otro ejemplo: **DELETE** **/api/empresas/id-empresa-2**
 }
 ```
 En este caso podemos ver que nos devuelve un status `200`, y nos indica que la empresa fue borrada con éxito.
+
+### Trabajadores
+
+#### GET /api/trabajadores
+
+Este endpoint nos trae toda la información de todos los trabajadores, en este caso tenemos 2 trbajadores registrados.
+
+**Respuesta**:
+```json
+"data": [
+  {
+    "id": "id-trabajador-1",
+    "nombres": "nombre-trabajador",
+    "usuario": "usuario-21",
+    "telefono": "telefono-usuario",
+    "email": "email-trabajador",
+    "contrasena": "contraseña",
+    "redes-sociales": ["red 1"],
+    "imagen": "url-imagen",
+    "descripcion": "descripcion-trabajador",
+    "educacion-primaria": "educacion-trab",
+    "educacion-secundaria": "educacion-trab",
+    "titulos": ["titulo-1"],
+    "idiomas": ["idioma 1"],
+    "certificados": ["certificado 1"],
+    "referencias": ["referencias 1"],
+    "habilidades": ["habilidades 1"],
+    "puntos": 0,
+    "puntuacion": 0,
+    "saldo": 0,
+  },
+  {
+    "id": "id-trabajador-2",
+    "nombres": "nombre-trabajador",
+    "usuario": "usuario-12",
+    "telefono": "telefono-usuario",
+    "email": "email-trabajador",
+    "contrasena": "contraseña",
+    "redes-sociales": ["red 1"],
+    "imagen": "url-imagen",
+    "descripcion": "descripcion-trabajador",
+    "educacion-primaria": "educacion-trab",
+    "educacion-secundaria": "educacion-trab",
+    "titulos": ["titulo-1"],
+    "idiomas": ["idioma 1"],
+    "certificados": ["certificado 1"],
+    "referencias": ["referencias 1"],
+    "habilidades": ["habilidades 1"],
+    "puntos": 0,
+    "puntuacion": 0,
+    "saldo": 0,
+  }
+]
+```
+
+#### GET /api/trabajadores/:id
+
+Si hacemos una petición a esta url, nos traerá la información del trabajador que le posea el `id` que le pasamos al endopoint como parámetro.
+
+Ejemplo: **GET /api/trabajadores/id-trabajador-3**
+
+**Respuesta**:
+```json
+{
+  "message": "Trabajador no encontrado"
+}
+```
+Junto a un status `404`, nos muestra un mensaje que nos indica que el trabajador no existe, ya que en la BD no tenemos un registro con ese `id`.
+
+Tomemos otro ejemplo: **GET /api/trabajadores/id-trabajador-2**
+
+**Respues**:
+```json
+{
+  "data": [
+    {
+      "id": "id-trabajador-2",
+      "nombres": "nombre-trabajador",
+      "usuario": "usuario-12",
+      "telefono": "telefono-usuario",
+      "email": "email-trabajador",
+      "contrasena": "contraseña",
+      "redes-sociales": ["red 1"],
+      "imagen": "url-imagen",
+      "descripcion": "descripcion-trabajador",
+      "educacion-primaria": "educacion-trab",
+      "educacion-secundaria": "educacion-trab",
+      "titulos": ["titulo-1"],
+      "idiomas": ["idioma 1"],
+      "certificados": ["certificado 1"],
+      "referencias": ["referencias 1"],
+      "habilidades": ["habilidades 1"],
+      "puntos": 0,
+      "puntuacion": 0,
+      "saldo": 0,
+    }
+  ]
+}
+```
+El servidor encontró al trabajador, por lo tanto nos devuelve la información junto a un status `200`.
+
+#### POST /api/trabajadores
+
+Sí realizamon una petición `POST` a este endpoint, le indicamos al servidor que tiene que crear un nuevo trabajador, este necesita un conjunto de propiedades para poder completar la acción.
+
+**Propiedades necesarias**:
+```json
+{
+  "nombres": "nombre-trabajador",
+  "usuario": "usuario",
+  "telefono": "teléfono-usuario",
+  "email": "email-trabajador",
+  "contrasena": "contraseña",
+  "redes-sociales": ["red 1"],
+  "imagen": "url-img",
+  "descripcion": "descripción-trabajador",
+  "educacion-primaria": "educación-trab",
+  "educacion-secundaria": "educación-trab",
+  "titulos": ["títulos"],
+  "idiomas": ["idioma 1"],
+  "certificados": ["certificado 1"],
+  "referencias": ["referencias 1"],
+  "habilidades": ["habilidades 1"]
+}
+```
+
+Sí intentamos enviarle una petición y no le enviamos todos los datos necesarios este nos mostrara un status `400` al igual que si le enviamos tipos de datos diferentes a los que necesita.
+
+**Mensaje de error**:
+
+```json
+{
+  "error": [
+    {
+      "propiedad": "imagen",
+      "mensaje": "Expected string, received number",
+      "recibido": "number"
+    },
+    {
+      "propiedad": "titulos",
+      "mensaje": "Required",
+      "recibido": "undefined"
+    }
+  ]
+}
+```
+
+También hay que tomar en cuenta que la BD no puede guardar propiedades como `usuario` o `email` duplicados por lo que esto nos mostrará algunos errores.
+
+**Error 1**:
+```json
+{
+  "message": "Ya existe un trabajador registrado con este usuario"
+}
+```
+**Error 2**:
+```json
+{
+  "message": "Ya existe un trabajador registrado con este email"
+}
+```
+
+Ejemplo: **POST /api/trabajadores**
+
+**Datos enviados**
+``` json
+{
+  "nombres": "nombre-trabajador",
+  "usuario": "usuario",
+  "telefono": "teléfono-usuario",
+  "email": "email-trabajador",
+  "contrasena": "contraseña",
+  "redes-sociales": ["red 1"],
+  "imagen": "url-img",
+  "descripcion": "descripción-trabajador",
+  "educacion-primaria": "educación-trab",
+  "educacion-secundaria": "educación-trab",
+  "titulos": ["títulos"],
+  "idiomas": ["idioma 1"],
+  "certificados": ["certificado 1"],
+  "referencias": ["referencias 1"],
+  "habilidades": ["habilidades 1"]
+}
+```
+**Respuesta**:
+``` json
+{
+  "message": "Trabajador creado con éxito"
+}
+```
+El endpoint nos devuelve un status `200`, con un mensaje indicándonos que el trabajador ha sido creado con exito, el campo `contrasena` antes de subirse a la BD es incriptado, el idientificador `id` es creado por el servidor antes de enviarse.
+
+#### PUT /api/trabajadores/:id
+
+Al endpoint con la petición `PUT`, se le tien que pasar como parámetro el `id` del trabajador al cual le haremos la actualización, este también necesitará toda las propiedades.
+
+Si el servidor no encuetra el trabajador con el `id` que le pasamos como parámetro retornara un status `404` y nos mostrará un mensaje así:
+```json
+{
+  "message": "Trabajador no encontrado"
+}
+```
+
+Tomar en cuenta que si no le pasamos todas los campos necesarios y sus tipos, el servidor nos devolverá errores como en la petición `POST`, también que no podemos pasarle propiedades como `usuario` y `email` que ya esten registrados en la BD, o si intentamos registrar datos no requeridos este las ignorará.
+
+Tomemos este ejemplo: **PUT api/trabajadores/id-usuario-1**
+
+**Datos enviados**:
+``` json
+{
+  "nombres": "nombre-trabajador",
+  "usuario": "usuario",
+  "telefono": "teléfono-usuario",
+  "email": "email-trabajador",
+  "contrasena": "contraseña",
+  "redes-sociales": ["red 1"],
+  "imagen": "url-img",
+  "descripcion": "actualizar-descripción-trabajador",
+  "educacion-primaria": "educación-trab",
+  "educacion-secundaria": "educación-trab",
+  "titulos": ["títulos"],
+  "idiomas": ["idioma 1"],
+  "certificados": ["certificado 1"],
+  "referencias": ["referencias 1"],
+  "habilidades": ["habilidades 1"],
+  "talla": 364, // <-- ignorada
+}
+```
+**Respuesta**:
+```json
+{
+  "message": "Trabajador actualizado con éxito"
+}
+```
+
+#### DELETE /api/trabajadores/:id
+
+Al momento de realizar una petición `DELETE`, necesitamos pasarle el `id` del trabajador como parámetro, para indicarle cual registro borrar, si este no es encontrado, el servidor nos devolverá un status `404` y un mensaje como este:
+
+```json
+{
+  "message": "Trabajador no encontrado"
+}
+```
+
+Ejemplo: **DELETE /api/trabajadores/id-trabajador-2**
+
+**Respuesta**:
+```json
+{
+  "message": "Trabajador eliminado con éxito"
+}
+```
+En este caso podemos ver que nos devuelve un status 200, y nos indica que el trabajador fue borrada con éxito.
