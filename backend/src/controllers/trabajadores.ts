@@ -70,7 +70,7 @@ class Trabajadores {
       const ress1: TypeTrabajadores[] = await requestDatabaseTrabajador.obtenerTrabajadorPorUsuario(data.usuario);
 
       if(ress1.length > 0) {
-        res.status(400).json({ message: 'Ya existe un trabajador con este usuario' });
+        res.status(400).json({ message: 'Ya existe un trabajador registrado con este usuario' });
         return;
       }
 
@@ -78,7 +78,7 @@ class Trabajadores {
       const  ress2: TypeTrabajadores[] = await requestDatabaseTrabajador.obtenerTrabajadorPorEmail(data.email);
 
       if(ress2.length > 0) {
-        res.status(400).json({ message: 'Ya existe un trabajador con este correo' });
+        res.status(400).json({ message: 'Ya existe un trabajador registrado con este correo' });
         return;
       } 
 
@@ -112,14 +112,14 @@ class Trabajadores {
       const ress1: TypeTrabajadores[] = await requestDatabaseTrabajador.obtenerTrabajadorPorUsuario(data.usuario);
 
       if(ress1.length > 0) {
-        res.status(400).json({ message: 'Ya existe un trabajador con este usuario' });
+        res.status(400).json({ message: 'Ya existe un trabajador registrado con este usuario' });
         return;
       }
 
       const ress2: TypeTrabajadores[] = await requestDatabaseTrabajador.obtenerTrabajadorPorEmail(data.email);
 
       if(ress2.length > 0) {
-        res.status(400).json({ message: 'Ya existe un trabajador con este correo' });
+        res.status(400).json({ message: 'Ya existe un trabajador registrado con este correo' });
         return;
       }
 
