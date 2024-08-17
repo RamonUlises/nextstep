@@ -5,7 +5,7 @@ export interface TypeTrabajos {
   'requerimientos': string[];
   'fecha-publicacion': string;
   'fecha-inicio': string;
-  'fecha-expericacion': string;
+  'fecha-expiracion': string;
   'contrato': string;
   'presupuesto': number;
   'puntos': number;
