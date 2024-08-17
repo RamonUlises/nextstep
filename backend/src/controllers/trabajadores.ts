@@ -109,18 +109,22 @@ class Trabajadores {
 
       schema.parse(req.body);
 
-      const ress1: TypeTrabajadores[] = await requestDatabaseTrabajador.obtenerTrabajadorPorUsuario(data.usuario);
+      if(trab[0].usuario !== data.usuario) {
+        const ress1: TypeTrabajadores[] = await requestDatabaseTrabajador.obtenerTrabajadorPorUsuario(data.usuario);
 
-      if(ress1.length > 0) {
-        res.status(400).json({ message: 'Ya existe un trabajador registrado con este usuario' });
-        return;
+        if(ress1.length > 0) {
+          res.status(400).json({ message: 'Ya existe un trabajador registrado con este usuario' });
+          return;
+        }
       }
 
-      const ress2: TypeTrabajadores[] = await requestDatabaseTrabajador.obtenerTrabajadorPorEmail(data.email);
+      if(trab[0].email !== data.email) {
+        const ress2: TypeTrabajadores[] = await requestDatabaseTrabajador.obtenerTrabajadorPorEmail(data.email);
 
-      if(ress2.length > 0) {
-        res.status(400).json({ message: 'Ya existe un trabajador registrado con este correo' });
-        return;
+        if(ress2.length > 0) {
+          res.status(400).json({ message: 'Ya existe un trabajador registrado con este correo' });
+          return;
+        }
       }
 
       data.contrasena = encrypt(data.contrasena);
