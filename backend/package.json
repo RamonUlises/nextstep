@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "Backend del proyecto Startup Pixels",
+  "description": "Backend del proyecto NextStep",
   "main": "app.js",
   "type": "module",
   "scripts": {

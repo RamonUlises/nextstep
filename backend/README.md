@@ -1,4 +1,4 @@
-# Backend Startup Pixels
+# Backend NextStep
 
 ## Instalación
 Para instalar las dependencias necesarias, ejecute el segundo comando:
