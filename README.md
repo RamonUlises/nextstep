@@ -1,8 +1,8 @@
-# Startup Pixels
+# NextStep
 
 ## Introducción
 
-Startup Pixels es una plataforma web diseñada para conectar grandes, medianas y pequeñas empresas con personas que buscan trabajo. Nuestro objetivo es facilitar el proceso de contratación y búsqueda de empleo, proporcionando una interfaz intuitiva y eficiente tanto para empleadores como para trabajadores.
+NextStep es una plataforma web diseñada para conectar grandes, medianas y pequeñas empresas con personas que buscan trabajo. Nuestro objetivo es facilitar el proceso de contratación y búsqueda de empleo, proporcionando una interfaz intuitiva y eficiente tanto para empleadores como para trabajadores.
 
 ## Características
 
@@ -46,15 +46,15 @@ Para ejecutar este proyecto, necesitas tener instalados los siguientes requisito
 
 - https
 ```bash
-  git clone https://github.com/RamonUlises/startup-pixels.git
+  git clone https://github.com/RamonUlises/nextstep.git
 ```
 - SSH
 ```bash
-  git@github.com:RamonUlises/startup-pixels.git
+  git@github.com:RamonUlises/nextstep.git
 ```
 - GitHub CLI
 ```bash
-gh repo clone RamonUlises/startup-pixels
+gh repo clone RamonUlises/nextstep
 ```
 
 ## Instrucciones de inicialización
@@ -78,13 +78,13 @@ gh repo clone RamonUlises/startup-pixels
 
 ## Contribución
 
-¡Gracias por tu interés en contribuir a Startup Pixels! Para contribuir, sigue estos pasos:
+¡Gracias por tu interés en contribuir a NextStep Para contribuir, sigue estos pasos:
 
 1. Crea un **Fork** del repositorio.
 2. **Clona** tu fork localmente:
 - Puedes clonar el repositorio usando **https**, **SSH** o **GitHub CLI**, pero recomendamos SSH o GitHub CLI ya que este también clona las path, lo que facilitará las pull request.
 ```bash
-gh repo clone tu-usuario/startup-pixels
+gh repo clone tu-usuario/nextstep
 ```
 3. **Crea** una nueva rama:
 ```bash
