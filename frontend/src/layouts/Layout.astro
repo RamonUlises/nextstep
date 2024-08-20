@@ -7,7 +7,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -34,7 +34,12 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
+	}
+	body {
+		margin: 0;
+		padding: 0;
+		width: 100vw;
+		min-height: 100vh;
 	}
 	code {
 		font-family:
