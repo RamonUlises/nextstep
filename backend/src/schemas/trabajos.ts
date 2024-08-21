@@ -7,7 +7,7 @@ const trabajosSchema = new mongoose.Schema({
   'requerimientos': { type: Array, required: true },
   'fecha-publicacion': { type: String, required: true },
   'fecha-inicio': { type: String, required: true },
-  'fecha-expericacion': { type: String, required: true },
+  'fecha-expiracion': { type: String, required: true },
   'contrato': { type: String, required: true },
   'presupuesto': { type: Number, required: true },
   'puntos': { type: Number, required: true },
