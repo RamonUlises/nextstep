@@ -1,0 +1,62 @@
+<ul class="menu">
+   
+    <li>
+        <a href="#">Opción 2</a>
+        <ul>
+            
+            <li><a href="#">Sub Opción 2</a></li>
+            
+        </ul>
+    </li>
+  
+</ul>
+
+<style>
+    /* Estilo básico para el menú */
+    .menu {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu > li {
+        position: relative;
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    .menu > li > a {
+        text-decoration: none;
+        padding: 10px 20px;
+        display: block;
+        background-color: #007bff;
+        color: white;
+    }
+
+    .menu > li > ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        background-color: #007bff;
+    }
+
+    .menu > li > ul > li > a {
+        padding: 10px 20px;
+        display: block;
+        text-decoration: none;
+        color: white;
+    }
+
+    .menu > li > ul > li > a:hover {
+        background-color: #0056b3;
+    }
+
+    /* Mostrar el submenú cuando se hace hover sobre el elemento padre */
+    .menu > li:hover > ul {
+        display: block;
+    }
+</style>

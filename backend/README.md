@@ -1,7 +1,7 @@
 # Backend NextStep
 
 ## Instalación
-Para instalar las dependencias necesarias, ejecute el segundo comando:
+Para instalar las dependencias necesarias, ejecute el siguiente comando:
 
 ``` bash
 pnpm install
