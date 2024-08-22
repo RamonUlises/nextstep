@@ -1,4 +1,4 @@
-import eslintPluginAstro, { rules } from 'eslint-plugin-astro';
+import eslintPluginAstro from 'eslint-plugin-astro';
 
 export default [
   ...eslintPluginAstro.configs.recommended,
@@ -16,6 +16,7 @@ export default [
       semi: ['error', 'always'],
       indent: ['error', 2],
       'no-multiple-empty-lines': ['error', { max: 1 }],
+      'no-multi-spaces': ['error'],
     },
   },
   {
