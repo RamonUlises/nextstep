@@ -1,6 +1,6 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,93 +8,98 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="preload" href="/dist/style.css" as="style">
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<script defer>
-			(() => {
-				const theme = localStorage.getItem('theme');
-				
-				if(theme == null){
-					localStorage.setItem('theme', 'system');
-				}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href="/dist/style.css" as="style" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script defer>
+      (() => {
+        const theme = localStorage.getItem('theme');
 
-				if(theme === 'system'){
-					const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-					
-					if(systemTheme === 'dark'){
-						document.documentElement.classList.add('dark');
-					} else {
-						document.documentElement.classList.remove('dark');
-					}
-				}
+        if (theme == null) {
+          localStorage.setItem('theme', 'system');
+        }
 
-				if(theme === 'dark'){
-					document.documentElement.classList.add('dark');
-				}
+        if (theme === 'system') {
+          const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+            .matches
+            ? 'dark'
+            : 'light';
 
-				if(theme === 'light'){
-					document.documentElement.classList.remove('dark');
-				}
-			})();
+          if (systemTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        }
 
-			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-				const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
 
-				if(theme !== 'system') return;
+        if (theme === 'light') {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
 
-				const newTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', () => {
+          const theme = localStorage.getItem('theme');
 
+          if (theme !== 'system') return;
 
-					if(newTheme === 'dark'){
-						document.documentElement.classList.add('dark');
-					} else {
-						document.documentElement.classList.remove('dark');
-					}
-				
-			})
+          const newTheme = window.matchMedia('(prefers-color-scheme: dark)')
+            .matches
+            ? 'dark'
+            : 'light';
 
-		</script>
-	</head>
-	<body>
-		<slot />
-	</body>
+          if (newTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        });
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-	}
-	body {
-		margin: 0;
-		padding: 0;
-		width: 100vw;
-		min-height: 100vh;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: system-ui, sans-serif;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
 </style>
