@@ -13,10 +13,11 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preload" href="/dist/style.css" as="style">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<script>
-			function detectedTheme(){
+		<script defer>
+			(() => {
 				const theme = localStorage.getItem('theme');
 				
 				if(theme == null){
@@ -27,20 +28,20 @@ const { title } = Astro.props;
 					const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 					
 					if(systemTheme === 'dark'){
-						document.body.classList.add('dark');
+						document.documentElement.classList.add('dark');
 					} else {
-						document.body.classList.remove('dark');
+						document.documentElement.classList.remove('dark');
 					}
 				}
 
 				if(theme === 'dark'){
-					document.body.classList.add('dark');
+					document.documentElement.classList.add('dark');
 				}
 
 				if(theme === 'light'){
-					document.body.classList.remove('dark');
+					document.documentElement.classList.remove('dark');
 				}
-			}
+			})();
 
 			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
 				const theme = localStorage.getItem('theme');
@@ -51,17 +52,16 @@ const { title } = Astro.props;
 
 
 					if(newTheme === 'dark'){
-						document.body.classList.add('dark');
+						document.documentElement.classList.add('dark');
 					} else {
-						document.body.classList.remove('dark');
+						document.documentElement.classList.remove('dark');
 					}
 				
 			})
 
-			detectedTheme();
 		</script>
 	</head>
-	<body class="">
+	<body>
 		<slot />
 	</body>
 </html>

@@ -52,11 +52,11 @@ import System from "../icons/system.astro";
     document.addEventListener('click', (event) => {
         if(event.target && ((event.target as Element).matches("#btn-dark") || (event.target as Element).matches('#btn-dark *'))){
             localStorage.setItem('theme', 'dark');
-            document.body.classList.add('dark');
+            document.documentElement.classList.add('dark');
         }
         if(event.target && ((event.target as Element).matches("#btn-light") || (event.target as Element).matches('#btn-light *'))){
             localStorage.setItem('theme', 'light');
-            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
         }
         if(event.target && ((event.target as Element).matches("#btn-system") || (event.target as Element).matches('#btn-system *'))){
             localStorage.setItem('theme', 'system');
@@ -64,9 +64,9 @@ import System from "../icons/system.astro";
             const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
             if(systemTheme === 'dark'){
-                document.body.classList.add('dark');
+                document.documentElement.classList.add('dark');
             } else {
-                document.body.classList.remove('dark');
+                document.documentElement.classList.remove('dark');
             }
         }
     })
