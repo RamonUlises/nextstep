@@ -20,7 +20,6 @@
     "@typescript-eslint/parser": "^8.2.0",
     "eslint": "^9.9.0",
     "eslint-plugin-astro": "^1.2.3",
-    "eslint-plugin-regexp": "^2.6.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1"
   }
