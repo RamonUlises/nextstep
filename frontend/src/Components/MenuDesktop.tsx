@@ -11,7 +11,7 @@ export const MenuDesktop = () => {
           <nav>
             <ul
               className="flex items-center gap-6 text-base ml-4
-            font-mediuma"
+            font-medium"
             >
               <li>
                 <a
@@ -50,8 +50,8 @@ export const MenuDesktop = () => {
         </section>
         <section className="flex items-center bg-gradient-to-tl to-[#C3480B] from-[#E75F0B] py-4 px-6 gap-5 rounded-lg justify-center dark:to-zinc-700 dark:from-zinc-800">
           <ChangeTheme />
-          <button className="bg-white rounded-lg text-[#E75F0B] font-semibold px-5 py-1 border-2 hover:bg-[#E75F0B] hover:text-white transition-colors duration-500 dark:bg-zinc-800 dark:text-white dark:hover:bg-white dark:hover:text-zinc-800">
-            Iniciar
+          <button className="button-menu before:bg-gradient-to-tl before:to-[#C3480B] before:from-[#E75F0B] dark:before:to-zinc-700 dark:before:from-zinc-800 border-2 border-white">
+            <span className="z-20">Iniciar</span>
           </button>
         </section>
       </header>

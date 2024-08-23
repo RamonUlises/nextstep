@@ -5,6 +5,55 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NextStep</title>
+    <script defer>
+      (() => {
+        const theme = localStorage.getItem('theme');
+
+        if (theme == null) {
+          localStorage.setItem('theme', 'system');
+        }
+
+        if (theme === 'system') {
+          const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+            .matches
+            ? 'dark'
+            : 'light';
+
+          if (systemTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        }
+
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+
+        if (theme === 'light') {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', () => {
+          const theme = localStorage.getItem('theme');
+
+          if (theme !== 'system') return;
+
+          const newTheme = window.matchMedia('(prefers-color-scheme: dark)')
+            .matches
+            ? 'dark'
+            : 'light';
+
+          if (newTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        });
+    </script>
   </head>
   <body>
     <div id="root"></div>
