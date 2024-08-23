@@ -18,17 +18,17 @@ export const MenuDesktop = () => {
               <li>
                 <Link
                   to="/"
-                  className="hover:opacity-80 transition-opacity duration-300 underline decoration-2"
+                  className="hover:opacity-80 transition-opacity duration-300"
                 >
                   Inicio
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/trabajo"
+                  to="/trabajos"
                   className="hover:opacity-80 transition-opacity duration-300"
                 >
-                  Trabajo
+                  Trabajos
                 </Link>
               </li>
               <li>
