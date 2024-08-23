@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.menu > li {
+  position: relative;
+  display: inline-block;
+}
+.menu > li > ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style-type: none;
+}
+/* Mostrar el submenú cuando se hace hover sobre el elemento padre */
+.menu > li:hover > ul {
+  display: block;
+}
