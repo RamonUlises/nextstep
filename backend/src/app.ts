@@ -32,8 +32,10 @@ app.use((req, res) => {
   });
 });
 
-export default function createServer(): void {
+function createServer(): void {
   app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port.toString()}`);
   });
 }
+
+export default createServer;

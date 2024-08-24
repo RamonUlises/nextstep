@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Backend del proyecto NextStep",
-  "main": "app.js",
+  "main": "dist/app.js",
   "type": "module",
   "scripts": {
     "build": "tsc && tsc-alias && node ./scripts/addJsExtension.js",
