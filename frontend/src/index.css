@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+  display: flex;
+  flex-direction: column;
+}
+
 .menu > li {
   position: relative;
   display: inline-block;
@@ -65,3 +70,10 @@
  .button-menu:hover span {
   @apply text-[#E75F0B] dark:text-zinc-700
  }
+
+.bg-fondo{
+  background: url("./assets/image-inicio.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: start;
+}
