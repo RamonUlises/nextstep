@@ -1,17 +1,17 @@
 import { MenuDesktop } from '../Components/MenuDesktop';
 import { ButtonsIndex } from '../Components/ButtonsIndex';
+import { MenuMovil } from '../Components/MenuMovil';
+import { BallIndex } from '../Components/BallIndex';
 
 export const Home = () => {
   return (
     <>
       <main className="flex flex-col h-screen overflow-hidden bg-fondo">
         <MenuDesktop />
-        <div className="mt-[103px] grid-index">
-          <section className='h-full flex items-end relative'>
-            <div className='bg-gradient-to-tl to-[#C3480B] from-[#E75F0B] opacity-90 flex flex-col rounded-ball-index dark:to-zinc-800 dark:from-zinc-700'>
-              <h3 className="text-white lg:text-5xl md:text-4xl flex flex-col gap-5 absolute lg:top-[120px] lg:right-[25%] md:top-[90px] md:right-[30%]"> <span>Conectando </span> <span>negocios,</span> <span>impulsando</span> <span>oportunidades</span></h3>
-              <p className='text-white absolute lg:top-[420px] lg:right-[33%] flex flex-col md:top-[350px] md:right-[26%]'>La plataforma donde las empresas <span>encuentran su futuro comercial</span></p>
-            </div>
+        <MenuMovil />
+        <div className="flex flex-col md:mt-[103px] md:grid lg:grid-cols-[1fr,400px] md:grid-cols-[1fr,300px] lg:grid-rows-[1fr] md:h-full">
+          <section className='md:h-full flex md:items-end static md:relative'>
+            <BallIndex />
           </section>
           <section className="w-full h-full flex flex-col items-center pt-20 gap-5">
             <div className="flex lg:my-12">
