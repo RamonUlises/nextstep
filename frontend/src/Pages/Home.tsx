@@ -34,7 +34,7 @@ export const Home = () => {
               <div className="text-[#E75F0B] bg-white pr-12 py-4 text-2xl font-extrabold dark:text-black rounded-div-2">trate</div>
             </div>
             {
-              (vwScreen > 768) ? (
+              (vwScreen >= 768) ? (
                 <>
                   <ButtonsIndex text="Empresa" url="/login/empresas" />
                   <ButtonsIndex text="Trabajador" url="/login/trabajadores" />
