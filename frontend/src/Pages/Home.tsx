@@ -1,9 +1,24 @@
+import { useState, useEffect } from 'react';
+
 import { MenuDesktop } from '../Components/MenuDesktop';
 import { ButtonsIndex } from '../Components/ButtonsIndex';
 import { MenuMovil } from '../Components/MenuMovil';
 import { BallIndex } from '../Components/BallIndex';
+import { ButtonsMovilIndex } from '../Components/ButtonsMovilIndex';
 
 export const Home = () => {
+  const [vwScreen, setWvScreen] = useState<number>(window.innerWidth);
+
+  function handelWidth(){
+    setWvScreen(window.innerWidth)
+  }
+  useEffect(() => {
+    window.addEventListener('resize', handelWidth);
+
+    return () => {
+      window.removeEventListener('resize', handelWidth)
+    }
+  },[]);
   return (
     <>
       <main className="flex flex-col h-screen overflow-hidden bg-fondo">
@@ -18,8 +33,20 @@ export const Home = () => {
               <div className="text-white bg-gradient-to-tl to-[#C3480B] from-[#E75F0B] pl-12 py-4 text-2xl font-extrabold  dark:to-zinc-600 dark:from-zinc-800 rounded-div-1">Regis</div>
               <div className="text-[#E75F0B] bg-white pr-12 py-4 text-2xl font-extrabold dark:text-black rounded-div-2">trate</div>
             </div>
-            <ButtonsIndex text="Empresa" url="/login/empresas" />
-            <ButtonsIndex text="Trabajador" url="/login/trabajadores" />
+            {
+              (vwScreen > 768) ? (
+                <>
+                  <ButtonsIndex text="Empresa" url="/login/empresas" />
+                  <ButtonsIndex text="Trabajador" url="/login/trabajadores" />
+                </>
+              ) : (
+                <>
+                  <ButtonsMovilIndex text="Empresa" url="/login/empresas" />
+                  <ButtonsMovilIndex text="Trabajador" url="/login/trabajadores" />
+                </>
+              )
+            }
+            { /*  */ }
           </section>
         </div>
       </main>
