@@ -17,7 +17,7 @@ export const System = ({
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="icon icon-tabler icons-tabler-outline icon-tabler-device-desktop"
+        className="icon icon-tabler icons-tabler-outline icon-tabler-device-desktop cursor-pointer"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
         <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path>

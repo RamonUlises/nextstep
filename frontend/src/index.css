@@ -22,7 +22,6 @@ body{
   display: inline-block;
 }
 .menu > li > ul {
-  display: none;
   position: absolute;
   top: 100%;
   left: 0;

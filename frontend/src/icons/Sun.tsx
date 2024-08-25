@@ -10,7 +10,7 @@ export const Sun = ({ width, height }: { width: number; height: number }) => {
       strokeWidth="2" // Cambiado de stroke-width a strokeWidth
       strokeLinecap="round" // Cambiado de stroke-linecap a strokeLinecap
       strokeLinejoin="round" // Cambiado de stroke-linejoin a strokeLinejoin
-      className="icon icon-tabler icons-tabler-outline icon-tabler-sun"
+      className="icon icon-tabler icons-tabler-outline icon-tabler-sun cursor-pointer"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
