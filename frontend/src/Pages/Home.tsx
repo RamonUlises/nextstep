@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
-import { MenuDesktop } from '../Components/MenuDesktop';
-import { ButtonsIndex } from '../Components/ButtonsIndex';
-import { MenuMovil } from '../Components/MenuMovil';
-import { BallIndex } from '../Components/BallIndex';
-import { ButtonsMovilIndex } from '../Components/ButtonsMovilIndex';
+import { MenuDesktop } from '../Components/Home/MenuDesktop';
+import { ButtonsIndex } from '../Components/Home/ButtonsIndex';
+import { MenuMovil } from '../Components/Home/MenuMovil';
+import { BallIndex } from '../Components/Home/BallIndex';
+import { ButtonsMovilIndex } from '../Components/Home/ButtonsMovilIndex';
 
 export const Home = () => {
   const [vwScreen, setWvScreen] = useState<number>(window.innerWidth);
