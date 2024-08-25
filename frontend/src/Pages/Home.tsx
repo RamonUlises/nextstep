@@ -4,7 +4,7 @@ import { ButtonsIndex } from '../Components/ButtonsIndex';
 export const Home = () => {
   return (
     <>
-      <main className="flex flex-col h-screen bg-fondo">
+      <main className="flex flex-col h-screen overflow-hidden bg-fondo">
         <MenuDesktop />
         <div className="mt-[103px] grid-index">
           <section className='h-full flex items-end relative'>
