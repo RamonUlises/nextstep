@@ -149,3 +149,46 @@ body{
 .rounded-ball-index{
   @apply flex flex-col items-center static w-full md:rounded-full md:absolute md:flex lg:w-[800px] lg:h-[800px] md:w-[700px] md:h-[700px] md:bottom-[-40%] md:left-[-100px] rounded-b-[90px];
 }
+
+/* inputs login */
+.input-google {
+  position: relative;
+  margin-top: 20px
+}
+
+.input-google input{
+  @apply w-[250px] border-2 border-[#E75F0B] text-[#E75F0B];
+  height: 50px;
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 0 15px;
+  background: transparent;
+  outline: none;
+}
+
+.input-google label{
+  @apply text-[#E75F0B];
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  pointer-events: none;
+  transition: all .3s ease-in-out;
+}
+
+.input-google input:focus ~label{
+  top: 0;
+  left: 15px;
+  font-size: 16px;
+  padding: 0 2px;
+  @apply bg-white
+}
+
+.active{
+  top: 0 !important;
+  left: 15px !important;
+  font-size: 16px !important;
+  padding: 0 2px !important;
+  @apply bg-zinc-800
+}
