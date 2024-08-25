@@ -83,7 +83,7 @@ body{
 
 /* fondo página index */
 .bg-fondo{
-  background: url("./assets/image-inicio.png");
+  @apply md:bg-[url("./assets/image-inicio.png")];
   background-size: cover;
   background-repeat: no-repeat;
   background-position: start;
