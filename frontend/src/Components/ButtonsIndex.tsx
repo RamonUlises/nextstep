@@ -2,11 +2,8 @@ import { Link } from 'react-router-dom';
 export const ButtonsIndex = ({ text, url }: { text: string; url: string }) => {
   return (
     <>
-      <Link
-        to="#"
-        className="css-button dark:bg-zinc-700 text-center"
-      >
-        <span className='text-center w-full'>{text}</span>
+      <Link to={url} className="css-button dark:bg-zinc-700 text-center">
+        <span className="text-center w-full">{text}</span>
         <div className="icon">
           <svg
             height="24"
