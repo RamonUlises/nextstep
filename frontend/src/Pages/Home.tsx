@@ -31,7 +31,7 @@ export const Home = () => {
           <section className="w-full h-full flex flex-col items-center mt-8 md:pt-20 gap-5">
             <div className="flex lg:my-12">
               <div className="text-white bg-gradient-to-r from-[#C3480B] to-[#E75F0B] pl-8 md:pl-12 py-4 text-lg md:text-2xl font-extrabold  dark:to-zinc-600 dark:from-zinc-800 rounded-div-1">Regis</div>
-              <div className="text-[#E75F0B] bg-[#FFEFD5] md:bg-white pr-8 md:pr-12 py-4 md:text-2xl text-lg font-extrabold dark:text-black rounded-div-2">trate</div>
+              <div className="text-[#E75F0B] bg-[#FFEFD5] dark:bg-white md:bg-white pr-8 md:pr-12 py-4 md:text-2xl text-lg font-extrabold dark:text-black rounded-div-2">trate</div>
             </div>
             {
               (vwScreen >= 768) ? (
