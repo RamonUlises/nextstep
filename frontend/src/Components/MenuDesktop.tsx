@@ -5,14 +5,14 @@ import { ChangeTheme } from './ChangeTheme';
 export const MenuDesktop = () => {
   return (
     <>
-      <header className="flex justify-between text-white p-4 fixed w-full bg-transparent">
-        <section className="flex items-center bg-gradient-to-tl to-[#C3480B] from-[#E75F0B] py-4 px-10 rounded-lg gap-10 dark:to-zinc-700 dark:from-zinc-800">
-          <Link to="/" className="font-bold text-2xl">
+      <header className="hidden md:flex justify-between text-white p-4 fixed w-full bg-transparent">
+        <section className="flex items-center bg-gradient-to-tl to-[#C3480B] from-[#E75F0B] py-4 px-10 rounded-lg md:gap-6 lg:gap-10 dark:to-zinc-700 dark:from-zinc-800">
+          <Link to="/" className="font-bold lg:text-2xl md:text-xl">
             NextStep
           </Link>
           <nav>
             <ul
-              className="flex items-center gap-6 text-base ml-4
+              className="flex items-center md:gap-4 lg:gap-6 md:text-sm lg:text-base ml-4
             font-medium"
             >
               <li>

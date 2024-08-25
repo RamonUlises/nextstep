@@ -12,9 +12,7 @@ body{
 /* index */
 
 .grid-index{
-  display: grid;
-  grid-template-columns: 1fr 600px;
-  grid-template-rows: 1fr;
+  @apply grid lg:grid-cols-[1fr,400px] md:grid-cols-[1fr,300px] lg:grid-rows-[1fr];
   height: 100%;
 }
 
@@ -42,7 +40,6 @@ body{
   padding: 6px 12px;
   margin: 0;
   font-family: inherit;
-  font-size: inherit;
   position: relative;
   display: inline-block;
   font-size: 16px;
@@ -75,8 +72,8 @@ body{
 }
 
 .button-menu span {
+  @apply md:text-sm lg:text-base;
   position: relative;
-  z-index: 10;
   transition: color 0.4s;
  }
  
@@ -157,8 +154,7 @@ body{
 .rounded-ball-index{
   position: absolute;
   border-radius: 50%;
-  width: 800px;
-  height: 800px;
+  @apply hidden md:flex lg:w-[800px] lg:h-[800px] md:w-[700px] md:h-[700px];
   bottom: -40%;
   left: -100px;
 }
