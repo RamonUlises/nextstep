@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import { ChangeTheme } from "./ChangeTheme";
+import { ChangeTheme } from './ChangeTheme';
 
 export const MenuDesktop = () => {
   return (
@@ -52,7 +52,10 @@ export const MenuDesktop = () => {
         </section>
         <section className="flex items-center bg-gradient-to-tl to-[#C3480B] from-[#E75F0B] py-4 px-6 gap-5 rounded-lg justify-center dark:to-zinc-700 dark:from-zinc-800">
           <ChangeTheme />
-          <Link to="#" className="button-menu before:bg-gradient-to-tl before:to-[#C3480B] before:from-[#E75F0B] dark:before:to-zinc-700 dark:before:from-zinc-800 border-2 border-white">
+          <Link
+            to="#"
+            className="button-menu before:bg-gradient-to-tl before:to-[#C3480B] before:from-[#E75F0B] dark:before:to-zinc-700 dark:before:from-zinc-800 border-2 border-white"
+          >
             <span className="z-20">Iniciar</span>
           </Link>
         </section>
