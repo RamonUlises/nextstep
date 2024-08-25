@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Moon } from '../icons/Moon';
-import { Sun } from '../icons/Sun';
-import { System } from '../icons/System';
-import { changeThemeClick } from '../lib/changeThemeClick';
+import { Moon } from '../../icons/Moon';
+import { Sun } from '../../icons/Sun';
+import { System } from '../../icons/System';
+import { changeThemeClick } from '../../lib/changeThemeClick';
 
 export const ChangeTheme = () => {
   const [theme, setTheme] = useState<string>(
