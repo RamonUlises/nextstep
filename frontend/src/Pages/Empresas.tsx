@@ -1,5 +1,3 @@
 export const Empresas = () => {
-  return (
-    <div>Empresas</div>
-  )
-}
+  return <div>Empresas</div>;
+};

@@ -1,5 +1,3 @@
 export const Trabajos = () => {
-  return (
-    <div>trabajo</div>
-  )
-}
+  return <div>trabajo</div>;
+};

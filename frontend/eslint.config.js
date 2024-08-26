@@ -27,6 +27,8 @@ export default tseslint.config(
       'no-multi-spaces': ['error'],
       'no-multiple-empty-lines': ['error', { max: 1 }],
       'indent': ['error', 2],
+      'semi': ['error', 'always'],
+      'no-console': ['error', { allow: ['warn', 'error'] }],
     },
   },
 )

@@ -1,5 +1,3 @@
 export const Trabajadores = () => {
-  return (
-    <div>Trabajadores</div>
-  )
-}
+  return <div>Trabajadores</div>;
+};
