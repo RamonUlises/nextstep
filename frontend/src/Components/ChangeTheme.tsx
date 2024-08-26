@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Moon } from '../../icons/Moon';
-import { Sun } from '../../icons/Sun';
-import { System } from '../../icons/System';
-import { changeThemeClick } from '../../lib/changeThemeClick';
+import { Moon } from '../icons/Moon';
+import { Sun } from '../icons/Sun';
+import { System } from '../icons/System';
+import { changeThemeClick } from '../lib/changeThemeClick';
 
 export const ChangeTheme = () => {
   const [theme, setTheme] = useState<string>(
@@ -22,7 +22,7 @@ export const ChangeTheme = () => {
   return (
     <>
       <ul className="menu">
-        <li className="mt-2">
+        <li className="mt-2 relative inline-block">
           <div onClick={clickIcon}>
             {theme === 'light' ? (
               <Sun width={24} height={24} />
@@ -34,7 +34,7 @@ export const ChangeTheme = () => {
           </div>
           <ul
             onMouseLeave={mouseOut}
-            className={`bg-[#FC9A3B] text-white rounded-lg py-1 -ml-24 dark:bg-zinc-700 ${
+            className={`bg-[#FC9A3B] text-white rounded-lg py-1 -ml-24 dark:bg-zinc-700 absolute top-[100%] left-0 ${
               clicked ? 'block' : 'hidden'
             }`}
           >

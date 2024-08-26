@@ -1,8 +1,8 @@
-import { Factory } from '../../icons/Factory';
-import { Home } from '../../icons/Home';
-import { Job } from '../../icons/Job';
-import { Jobs } from '../../icons/Jobs';
-import { Settings } from '../../icons/Settings';
+import { Factory } from '../icons/Factory';
+import { Home } from '../icons/Home';
+import { Job } from '../icons/Job';
+import { Jobs } from '../icons/Jobs';
+import { Settings } from '../icons/Settings';
 
 export const MenuMovil = () => {
   return (

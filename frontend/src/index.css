@@ -8,40 +8,8 @@ body{
   overflow: hidden;
 }
 
-/* grids */
-
-/* index */
-
-/* menu theme */
-.menu > li {
-  position: relative;
-  display: inline-block;
-}
-.menu > li > ul {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  list-style-type: none;
-}
-
 .menu > li:hover > ul {
   display: block;
-}
-
-/* btn login menu */
-.button-menu{
-  outline: none;
-  cursor: pointer;
-  padding: 6px 12px;
-  margin: 0;
-  font-family: inherit;
-  position: relative;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 10px;
-  overflow: hidden;
-  background: white;
-  color: ghostwhite;
 }
 
 .button-menu:before,
@@ -66,79 +34,9 @@ body{
  transform: translate3d(100%, 0, 0);
 }
 
-.button-menu span {
-  @apply md:text-sm lg:text-base;
-  position: relative;
-  transition: color 0.4s;
- }
- 
- .button-menu:hover span {
-  @apply text-[#E75F0B] dark:text-zinc-700
- }
-
-/* fondo página index */
-.bg-fondo{
-  @apply dark:bg-zinc-900/95 md:bg-[url("./assets/image-inicio.png")];
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: start;
-}
-
-/* button registred index */
-
-.css-button{
-  @apply bg-[#FA7C15];
-  color: white;
-  display: flex;
-  padding: 0.35em;
-  padding-left: 1.2em;
-  font-size: 17px;
-  font-weight: 500;
-  border-radius: 0.9em;
-  border: none;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-  height: 2.8em;
-  padding-right: 3.3em;
-  cursor: pointer;
-  width: 180px;
-}
-
-.css-button .icon {
-  background: white;
-  margin-left: 1em;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 2.2em;
-  width: 2.2em;
-  border-radius: 0.7em;
-  
-  right: 0.3em;
-  transition: all 0.6s;
-}
-
 .css-button:hover .icon {
   width: calc(100% - 0.6em);
 }
-
-.css-button .icon svg {
-  width: 1.1em;
-  transition: transform 0.3s;
-  color:black;
-}
-
-.cssbuttons-io-button:hover .icon svg {
-  transform: translateX(0.1em);
-}
-
-.cssbuttons-io-button:active .icon {
-  transform: scale(0.95);
-}
-
-/* rounded divs index */
 
 .rounded-div-1{
   border-radius: 4px 0 0 20px;
@@ -146,36 +44,8 @@ body{
 .rounded-div-2{
   border-radius: 0 20px 4px 0;
 }
-.rounded-ball-index{
-  @apply flex flex-col items-center static w-full md:rounded-full md:absolute md:flex lg:w-[800px] lg:h-[800px] md:w-[700px] md:h-[700px] md:bottom-[-40%] md:left-[-100px] rounded-b-[90px];
-}
 
 /* inputs login */
-.input-google {
-  position: relative;
-  margin-top: 20px
-}
-
-.input-google input{
-  @apply w-[250px] border-2 border-[#E75F0B] text-[#E75F0B];
-  height: 50px;
-  border-radius: 6px;
-  font-size: 14px;
-  padding: 0 15px;
-  background: transparent;
-  outline: none;
-}
-
-.input-google label{
-  @apply text-[#E75F0B];
-  position: absolute;
-  top: 50%;
-  left: 15px;
-  transform: translateY(-50%);
-  font-size: 14px;
-  pointer-events: none;
-  transition: all .3s ease-in-out;
-}
 
 .input-google input:focus ~label{
   top: 0;
