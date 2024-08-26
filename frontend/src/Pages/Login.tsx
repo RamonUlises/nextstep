@@ -2,8 +2,15 @@ import { MenuDesktop } from '../Components/MenuDesktop';
 import { MenuMovil } from '../Components/MenuMovil';
 import { InputLogin } from '../Components/Login/InputLogin';
 import logo from '../assets/logo.png';
+import { useState } from 'react';
 
 export const Login = () => {
+  const [ inputs, setInputs ] = useState({ correo: '', contra: '' });
+
+  function onInputChange({ prop, value }: { prop: string, value: string }) {
+    setInputs({ ...inputs, [prop]: value });
+  }
+  
   return (
     <main className="flex flex-col h-screen overflow-hidden">
       <MenuDesktop />
@@ -16,10 +23,10 @@ export const Login = () => {
               Iniciar Sesión
             </h3>
             <div className="relative mt-5 input-google">
-              <InputLogin text="Correo eléctronico" />
+              <InputLogin text="Correo eléctronico" type='email' name='correo' onInputChange={onInputChange} />
             </div>
             <div className="relative mt-5 input-google">
-              <InputLogin text="Contraseña" />
+              <InputLogin text="Contraseña" type='password' name='contra' onInputChange={onInputChange} />
             </div>
             <button className="bg-[#E75F0B] p-3 rounded-xl text-white font-medium hover:bg-[#FA7C15] transition-colors duration-300   mt-12">
               Inicia sesión
