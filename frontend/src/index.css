@@ -62,3 +62,9 @@ body{
   padding: 0 2px !important;
   @apply bg-white
 }
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear,
+input[type="password"]::-webkit-credentials-auto-fill-button {
+  display: none;
+}
