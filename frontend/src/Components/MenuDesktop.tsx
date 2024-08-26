@@ -51,9 +51,9 @@ export const MenuDesktop = () => {
           <ChangeTheme />
           <Link
             to="/login"
-            className="border-2 border-white before:bg-gradient-to-tl before:from-[#E75F0B] dark:before:from-zinc-800 before:to-[#C3480B] dark:before:to-zinc-700 button-menu outline-none cursor-pointer py-[6px] px-[12px] m-0 relative text-base inline-block rounded-lg overflow-hidden bg-white text-white"
+            className="border-2 border-white before:bg-gradient-to-tl before:from-[#E75F0B] dark:before:from-zinc-800 before:to-[#C3480B] dark:before:to-zinc-700 button-menu outline-none cursor-pointer py-[6px] px-[12px] m-0 relative text-base inline-block rounded-lg overflow-hidden bg-white text-white hover:text-[#E75F0B] dark:hover:text-zinc-700"
           >
-            <span className="relative z-20 md:text-sm lg:text-base hover:text-[#E75F0B] dark:hover:text-zinc-700">Iniciar</span>
+            <span className="relative z-20 md:text-sm lg:text-base">Iniciar</span>
           </Link>
         </section>
       </header>
