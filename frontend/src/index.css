@@ -52,7 +52,7 @@ body{
   left: 15px;
   font-size: 16px;
   padding: 0 2px;
-  @apply bg-white
+  @apply bg-white dark:bg-zinc-800
 }
 
 .active{
