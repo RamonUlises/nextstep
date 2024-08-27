@@ -27,7 +27,7 @@
 
         if (theme == null) {
           localStorage.setItem('theme', 'system');
-          document.body.classList.add('dark');
+          document.documentElement.classList.add('dark');
         }
 
         if (theme === 'system') {
