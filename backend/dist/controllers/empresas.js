@@ -1,8 +1,9 @@
 import zod from 'zod';
 import crypto from 'node:crypto';
 import requestDataBaseEmpresa from '../database/request/empresas.js';
+import requestDatabaseTrabajadores from '../database/request/trabajadores.js';
 import { manejarError } from '../lib/errores.js';
-import { decrypt, encrypt } from '../lib/encripts.js';
+import { encrypt } from '../lib/encripts.js';
 const { string, number } = zod;
 const schema = zod.object({
     'numero-identificacion': string(),
@@ -24,9 +25,6 @@ class Empresa {
     async obtenerEmpresas(req, res) {
         try {
             const data = await requestDataBaseEmpresa.obtenerEmpresas();
-            data.forEach((empresa) => {
-                empresa.contrasena = decrypt(empresa.contrasena);
-            });
             res.status(200).json({ message: 'Empresas obtenidas', data });
         }
         catch (error) {
@@ -41,9 +39,6 @@ class Empresa {
                 res.status(404).json({ message: 'Empresa no encontrada' });
                 return;
             }
-            data.forEach((empresa) => {
-                empresa.contrasena = decrypt(empresa.contrasena);
-            });
             res.status(200).json({ message: 'Empresa obtenida', data });
         }
         catch (error) {
@@ -56,9 +51,14 @@ class Empresa {
             const data = req.body;
             schema.parse(req.body);
             for (const email of data.email) {
-                const response = await requestDataBaseEmpresa.obtenerEmpresaPorEmail(email);
-                if (response.length > 0) {
-                    res.status(400).json({ message: 'El email ya está en uso' });
+                const response1 = await requestDataBaseEmpresa.obtenerEmpresaPorEmail(email);
+                if (response1.length > 0) {
+                    res.status(400).json({ message: `El email '${email}' ya está en uso` });
+                    return;
+                }
+                const response2 = await requestDatabaseTrabajadores.obtenerTrabajadorPorEmail(email);
+                if (response2.length > 0) {
+                    res.status(400).json({ message: `El email '${email}' ya está en uso` });
                     return;
                 }
             }
@@ -84,7 +84,12 @@ class Empresa {
             for (const email of data.email) {
                 const response = await requestDataBaseEmpresa.obtenerEmpresaPorEmail(email);
                 if (response.length > 0 && response[0].id !== id) {
-                    res.status(400).json({ message: 'El email ya está en uso' });
+                    res.status(400).json({ message: `El email '${email}' ya está en uso` });
+                    return;
+                }
+                const response2 = await requestDatabaseTrabajadores.obtenerTrabajadorPorEmail(email);
+                if (response2.length > 0) {
+                    res.status(400).json({ message: `El email '${email}' ya está en uso` });
                     return;
                 }
             }

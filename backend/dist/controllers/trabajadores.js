@@ -1,8 +1,9 @@
 import zod from 'zod';
 import crypto from 'node:crypto';
 import requestDatabaseTrabajador from '../database/request/trabajadores.js';
-import { decrypt, encrypt } from '../lib/encripts.js';
+import { encrypt } from '../lib/encripts.js';
 import { manejarError } from '../lib/errores.js';
+import requestDatabaseEmpresas from '../database/request/empresas.js';
 const { string } = zod;
 const schema = zod.object({
     'nombres': string(),
@@ -25,9 +26,6 @@ class Trabajadores {
     async obtenerTrabajadores(req, res) {
         try {
             const data = await requestDatabaseTrabajador.obtenerTrabajadores();
-            data.forEach((trabajador) => {
-                trabajador.contrasena = decrypt(trabajador.contrasena);
-            });
             res.status(200).json({ message: 'Trabajadores obtenidos', data });
         }
         catch (error) {
@@ -42,9 +40,6 @@ class Trabajadores {
                 res.status(404).json({ message: 'Trabajador no encontrado' });
                 return;
             }
-            data.forEach((trabajador) => {
-                trabajador.contrasena = decrypt(trabajador.contrasena);
-            });
             res.status(200).json({ message: 'Trabajador obtenido', data });
         }
         catch (error) {
@@ -65,6 +60,11 @@ class Trabajadores {
             const ress2 = await requestDatabaseTrabajador.obtenerTrabajadorPorEmail(data.email);
             if (ress2.length > 0) {
                 res.status(400).json({ message: 'Ya existe un trabajador registrado con este correo' });
+                return;
+            }
+            const ress3 = await requestDatabaseEmpresas.obtenerEmpresaPorEmail(data.email);
+            if (ress3.length > 0) {
+                res.status(400).json({ message: 'Ya existe una empresa registrada con este correo' });
                 return;
             }
             data.id = crypto.randomUUID();
@@ -102,6 +102,11 @@ class Trabajadores {
                     res.status(400).json({ message: 'Ya existe un trabajador registrado con este correo' });
                     return;
                 }
+            }
+            const ress3 = await requestDatabaseEmpresas.obtenerEmpresaPorEmail(data.email);
+            if (ress3.length > 0) {
+                res.status(400).json({ message: 'Ya existe una empresa registrada con este correo' });
+                return;
             }
             data.contrasena = encrypt(data.contrasena);
             await requestDatabaseTrabajador.actualizarTrabajador(id, data);

@@ -6,6 +6,7 @@ import trabajadores from './router/trabajadores.js';
 import empresas from './router/empresas.js';
 import './database/connection.js';
 import { verifyAuth } from './lib/verifyAuth.js';
+import auth from './router/auth.js';
 const app = express();
 const port = process.env.PORT ?? 3000;
 app.use(express.json());
@@ -20,14 +21,16 @@ app.use((req, res, next) => {
 app.use('/api/trabajos', trabajos);
 app.use('/api/trabajadores', trabajadores);
 app.use('/api/empresas', empresas);
+app.use('/api/auth', auth);
 app.use((req, res) => {
     res.status(404).json({
         message: 'La ruta no existe',
         documentation: 'https://github.com/RamonUlises/nextstep/blob/main/backend/README.md',
     });
 });
-export default function createServer() {
+function createServer() {
     app.listen(port, () => {
         console.log(`Servidor corriendo en http://localhost:${port.toString()}`);
     });
 }
+export default createServer;
