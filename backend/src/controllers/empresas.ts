@@ -7,7 +7,7 @@ import requestDatabaseTrabajadores from '@/database/request/trabajadores';
 import { TypeEmpresa } from '@/types/empresas';
 import { manejarError } from '@/lib/errores';
 import { ErrorZodType } from '@/types/errorZod';
-import  { decrypt, encrypt } from '@/lib/encripts';
+import { encrypt } from '@/lib/encripts';
 
 const { string, number } = zod;
 
@@ -32,10 +32,6 @@ class Empresa {
   async obtenerEmpresas(req: Request, res: Response): Promise<void> {
     try {
       const data: TypeEmpresa[] = await requestDataBaseEmpresa.obtenerEmpresas();
-      
-      data.forEach((empresa) => {
-        empresa.contrasena = decrypt(empresa.contrasena);
-      });
 
       res.status(200).json({ message: 'Empresas obtenidas', data });
     } catch (error) {
@@ -51,10 +47,6 @@ class Empresa {
         res.status(404).json({ message: 'Empresa no encontrada' });
         return;
       }
-
-      data.forEach((empresa) => {
-        empresa.contrasena = decrypt(empresa.contrasena);
-      });
 
       res.status(200).json({ message: 'Empresa obtenida', data });
     } catch (error) {
