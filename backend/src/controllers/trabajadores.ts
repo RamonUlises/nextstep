@@ -3,7 +3,7 @@ import crypto from 'node:crypto';
 import requestDatabaseTrabajador from '@/database/request/trabajadores';
 import { Request, Response } from 'express';
 import { TypeTrabajadores } from '@/types/trabajadores';
-import { decrypt, encrypt } from '@/lib/encripts';
+import { encrypt } from '@/lib/encripts';
 import { manejarError } from '@/lib/errores';
 import { ErrorZodType } from '@/types/errorZod';
 import { TypeEmpresa } from '@/types/empresas';
@@ -34,10 +34,6 @@ class Trabajadores {
     try {
       const data: TypeTrabajadores[] = await requestDatabaseTrabajador.obtenerTrabajadores();
 
-      data.forEach((trabajador) => {
-        trabajador.contrasena = decrypt(trabajador.contrasena);
-      });
-
       res.status(200).json({ message: 'Trabajadores obtenidos', data });
     } catch (error) {
       res.status(500).json({ message: 'Error al obtener los trabajadores', error });
@@ -52,10 +48,6 @@ class Trabajadores {
         res.status(404).json({ message: 'Trabajador no encontrado' });
         return;
       }
-
-      data.forEach((trabajador) => {
-        trabajador.contrasena = decrypt(trabajador.contrasena);
-      });
 
       res.status(200).json({ message: 'Trabajador obtenido', data });
     } catch (error) {
