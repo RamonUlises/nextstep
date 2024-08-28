@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 
 authServer.ts
+src/lib/empresas.ts
