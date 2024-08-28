@@ -3,6 +3,7 @@ import crypto from 'node:crypto';
 import { Request, Response } from 'express';
 
 import requestDataBaseEmpresa from '@/database/request/empresas';
+import requestDatabaseTrabajadores from '@/database/request/trabajadores';
 import { TypeEmpresa } from '@/types/empresas';
 import { manejarError } from '@/lib/errores';
 import { ErrorZodType } from '@/types/errorZod';
@@ -67,10 +68,17 @@ class Empresa {
       schema.parse(req.body);
 
       for(const email of data.email) {
-        const response = await requestDataBaseEmpresa.obtenerEmpresaPorEmail(email);
+        const response1 = await requestDataBaseEmpresa.obtenerEmpresaPorEmail(email);
 
-        if(response.length > 0) {
-          res.status(400).json({ message: 'El email ya está en uso' });
+        if(response1.length > 0) {
+          res.status(400).json({ message: `El email '${email}' ya está en uso` });
+          return;
+        }
+
+        const response2 = await requestDatabaseTrabajadores.obtenerTrabajadorPorEmail(email);
+
+        if(response2.length > 0) {
+          res.status(400).json({ message: `El email '${email}' ya está en uso` });
           return;
         }
       }
@@ -102,7 +110,14 @@ class Empresa {
         const response = await requestDataBaseEmpresa.obtenerEmpresaPorEmail(email);
 
         if(response.length > 0 && response[0].id !== id) {
-          res.status(400).json({ message: 'El email ya está en uso' });
+          res.status(400).json({ message: `El email '${email}' ya está en uso` });
+          return;
+        }
+
+        const response2 = await requestDatabaseTrabajadores.obtenerTrabajadorPorEmail(email);
+
+        if(response2.length > 0) {
+          res.status(400).json({ message: `El email '${email}' ya está en uso` });
           return;
         }
       }
