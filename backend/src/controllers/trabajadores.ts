@@ -6,6 +6,8 @@ import { TypeTrabajadores } from '@/types/trabajadores';
 import { decrypt, encrypt } from '@/lib/encripts';
 import { manejarError } from '@/lib/errores';
 import { ErrorZodType } from '@/types/errorZod';
+import { TypeEmpresa } from '@/types/empresas';
+import requestDatabaseEmpresas from '@/database/request/empresas';
 
 const { string } = zod;
 
@@ -82,6 +84,13 @@ class Trabajadores {
         return;
       } 
 
+      const ress3: TypeEmpresa[] = await requestDatabaseEmpresas.obtenerEmpresaPorEmail(data.email);
+
+      if(ress3.length > 0) {
+        res.status(400).json({ message: 'Ya existe una empresa registrada con este correo' });
+        return;
+      }
+
       data.id = crypto.randomUUID();
       data.contrasena = encrypt(data.contrasena);
 
@@ -125,6 +134,13 @@ class Trabajadores {
           res.status(400).json({ message: 'Ya existe un trabajador registrado con este correo' });
           return;
         }
+      }
+
+      const ress3: TypeEmpresa[] = await requestDatabaseEmpresas.obtenerEmpresaPorEmail(data.email);
+
+      if(ress3.length > 0) {
+        res.status(400).json({ message: 'Ya existe una empresa registrada con este correo' });
+        return;
       }
 
       data.contrasena = encrypt(data.contrasena);
