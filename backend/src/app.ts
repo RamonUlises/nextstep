@@ -6,6 +6,7 @@ import trabajadores from '@router/trabajadores';
 import empresas from '@router/empresas';
 import '@database/connection';
 import { verifyAuth } from '@lib/verifyAuth';
+import auth from '@router/auth';
 
 const app: express.Application = express();
 const port: number | string = process.env.PORT ?? 3000;
@@ -24,6 +25,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 app.use('/api/trabajos', trabajos);
 app.use('/api/trabajadores', trabajadores);
 app.use('/api/empresas', empresas);
+app.use('/api/auth', auth);
 
 app.use((req, res) => {
   res.status(404).json({
