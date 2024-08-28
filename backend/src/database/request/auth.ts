@@ -1,4 +1,5 @@
 import empresas from '@/schemas/empresas';
+import trabajadores from '@/schemas/trabajadores';
 import { TypeEmpresa } from '@/types/empresas';
 import { TypeTrabajadores } from '@/types/trabajadores';
 
@@ -6,7 +7,7 @@ class Auth {
   async login(email: string) {
     try {
       const empresa: TypeEmpresa[] = await empresas.find({ email });
-      const trabajador: TypeTrabajadores[] = await empresas.find({ email });
+      const trabajador: TypeTrabajadores[] = await trabajadores.find({ email });
 
       return { empresa, trabajador };
     } catch {
