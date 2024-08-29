@@ -22,7 +22,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-authServer.ts
-src/lib/empresas.ts
-auth.ts
