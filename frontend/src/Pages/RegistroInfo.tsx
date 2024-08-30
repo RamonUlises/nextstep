@@ -7,16 +7,16 @@ export const RegistroInfo = () => {
         <div className="w-20 h-20 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B] absolute top-8 right-[18%] dark:to-zinc-700 dark:from-zinc-600"></div>
         <div className="w-32 h-32 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B] absolute top-[78%] right-[29%] dark:to-zinc-700 dark:from-zinc-600"></div>
         <div className="w-96 h-96 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B] absolute top-[14%] -right-[5%]  dark:to-zinc-700 dark:from-zinc-600 "></div>
-        <div className='absolute top-[40%] right-[24%] dark:text-white flex flex-col gap-8'>
+        <div className='absolute top-[40%] right-[24%] dark:text-white hidden flex-col gap-8 md:flex'>
           <Clock />
           <Document />
           <File />
         </div>
-        <div className="flex flex-col items-center justify-center w-[70%] h-full px-[100px]">
-          <h1 className="text-black text-5xl font-bold mb-[60px] dark:text-white">
+        <div className="flex flex-col items-center justify-center md:w-[70%] h-full px-[30px] lg:px-[100px] z-40">
+          <h1 className="text-black text-3xl lg:text-5xl font-bold mb-[60px] dark:text-white">
             Crea un perfil que destaque entre la multitud en StartUp
           </h1>
-          <ul className="flex flex-col text-black text-xl ul-registro list-disc gap-6 font-semibold px-[90px] dark:text-white">
+          <ul className="flex flex-col text-black lg:text-xl ul-registro list-disc gap-6 font-semibold p-0 lg:px-[90px] dark:text-white">
             <li className="">
               Tómate tu tiempo para crear tu perfil para que sea exactamente
               como quieres que sea.
@@ -39,11 +39,11 @@ export const RegistroInfo = () => {
             Comenzar
           </Link>
         </div>
-        <div className="flex justify-end w-[30%] h-full items-end">
+        <div className="md:flex justify-end w-[30%] h-full items-end hidden">
           <img
             src={imagenRegistro}
             alt="Imagen registro"
-            className="w-auto h-[80%] z-10"
+            className="w-auto h-[80%] max-h-[500px] lg:max-h-full z-10"
           />
         </div>
       </main>
