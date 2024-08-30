@@ -4,6 +4,7 @@ import { InputLogin } from '../Components/Login/InputLogin';
 import logo from '../assets/logo.png';
 import { FormEvent, useState } from 'react';
 import { auth } from '../lib/auth';
+import { agregarCookie } from '../lib/cookies';
 
 export const Login = () => {
   const [inputs, setInputs] = useState({ correo: '', contra: '' });
@@ -20,7 +21,11 @@ export const Login = () => {
     const response = await auth({ email: inputs.correo, password: inputs.contra });  
     
     if(response.status === 200) {
-      location.href = '/';
+      setError('Sesión iniciada correctamente');
+      agregarCookie({ name: 'UserId', value: response.data.id, days: 1 });
+      setTimeout(() => {       
+        window.location.href = '/';
+      }, 2000);
       return;
     }
 
