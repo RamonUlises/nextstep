@@ -18,7 +18,7 @@ const options: {
 export async function auth(user: {
   email: string;
   password: string;
-}): Promise<{ data: { message: string}; status: number; }> {
+}): Promise<{ data: { message: string; id: string}; status: number; }> {
   try {
     const response = await axios.post(`${url}/auth/login`, { email: user.email, password: user.password} ,options);
 
@@ -27,7 +27,7 @@ export async function auth(user: {
     if (axios.isAxiosError(error) && error.response) {
       return { data: error.response.data, status: error.response.status };
     } else {
-      return { data: { message: 'Unknown error' }, status: 500 };
+      return { data: { message: 'Unknown error', id: 'undefined' }, status: 500 };
     }
   }
 }
