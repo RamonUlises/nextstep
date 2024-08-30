@@ -4,6 +4,7 @@ import { Home } from './Pages/Home';
 // import { Trabajadores } from "./Pages/Trabajadores";
 // import { Empresas } from "./Pages/Empresas";
 import { Login } from './Pages/Login';
+import { RegistroInfo } from './Pages/RegistroInfo';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/trabajadores" element={<Trabajadores />} />
           <Route path="/empresas" element={<Empresas />} /> */}
           <Route path='/login' element={<Login />} />
+          <Route path='/registro' element={<RegistroInfo />} />
         </Routes>
       </BrowserRouter>
     </>

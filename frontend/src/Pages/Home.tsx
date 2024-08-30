@@ -40,14 +40,14 @@ export const Home = () => {
             {vwScreen >= 768 ? (
               <>
                 <ButtonsIndex text="Empresa" url="/login/empresas" />
-                <ButtonsIndex text="Trabajador" url="/login/trabajadores" />
+                <ButtonsIndex text="Trabajador" url="/registro" />
               </>
             ) : (
               <>
                 <ButtonsMovilIndex text="Empresa" url="/login/empresas" />
                 <ButtonsMovilIndex
                   text="Trabajador"
-                  url="/login/trabajadores"
+                  url="/registro"
                 />
               </>
             )}
