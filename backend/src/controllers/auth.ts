@@ -39,7 +39,7 @@ class Auth {
         }
       }
 
-      res.status(200).json({ message: 'Login correcto' }); 
+      res.status(200).json({ message: 'Login correcto', id: empresa[0].id || trabajador[0].id }); 
     } catch (error) {
       res.status(500).json({ message: 'Error en el servidor', error });
     }
