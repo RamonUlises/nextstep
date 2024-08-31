@@ -2,9 +2,9 @@ import { MenuDesktop } from '../Components/MenuDesktop';
 import { MenuMovil } from '../Components/MenuMovil';
 import { InputLogin } from '../Components/Login/InputLogin';
 import logo from '../assets/logo.png';
-import { FormEvent, useState } from 'react';
-import { auth } from '../lib/auth';
-import { agregarCookie } from '../lib/cookies';
+import { FormEvent, useEffect, useState } from 'react';
+import { auth } from '../lib/servidor/auth';
+import { agregarCookie, obtenerCookie } from '../lib/cookies';
 
 export const Login = () => {
   const [inputs, setInputs] = useState({ correo: '', contra: '' });
@@ -31,6 +31,13 @@ export const Login = () => {
 
     setError(response.data.message);
   }
+
+  useEffect(() => {
+    const user = obtenerCookie('UserId');
+    if (user) {
+      window.location.href = '/';
+    }
+  }, []);
 
   return (
     <main className="flex flex-col h-screen overflow-hidden">
