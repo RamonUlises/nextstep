@@ -30,9 +30,15 @@ export const textBackground = ({
     const theme = localStorage.getItem('theme');
     if (distance <= circleRadius) {
       if (theme === 'dark') return;
+      if(theme === 'system'){
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) return;
+      }
       span.classList.add('text-white');
     } else {
       if (theme === 'dark') return;
+      if(theme === 'system'){
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) return;
+      }
       span.classList.add('text-black');
     }
   });
