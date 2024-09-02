@@ -12,7 +12,7 @@ export const RegistroInfo = () => {
           <Document />
           <File />
         </div>
-        <div className="flex flex-col items-center justify-center md:w-[70%] h-full px-[30px] lg:px-[100px] z-40 relative">
+        <div className="flex flex-col items-center justify-center md:w-[70%] h-full px-[30px] lg:px-[100px] z-40 relative overflow-hidden">
           <TextInfo />
         </div>
         <div className="md:flex justify-end w-[30%] h-full items-end hidden">
