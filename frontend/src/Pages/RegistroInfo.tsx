@@ -7,7 +7,7 @@ export const RegistroInfo = () => {
         <div className="w-20 h-20 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B] absolute top-8 right-[18%] dark:to-zinc-700 dark:from-zinc-600"></div>
         <div className="w-32 h-32 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B] absolute top-[78%] right-[29%] dark:to-zinc-700 dark:from-zinc-600"></div>
         <div className="w-96 h-96 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B] absolute top-[14%] -right-[5%]  dark:to-zinc-700 dark:from-zinc-600 "></div>
-        <div className="absolute top-[40%] right-[24%] dark:text-white hidden flex-col gap-8 md:flex">
+        <div className="absolute top-[40%] right-[28%] dark:text-white hidden flex-col gap-8 md:flex">
           <Clock />
           <Document />
           <File />
