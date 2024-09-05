@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 import { ChangeTheme } from './ChangeTheme';
 import loader from '../assets/loader-menu.svg';
-import { obtenerCookie } from '../lib/cookies';
+import { obtenerCookie } from '../utils/cookies';
 import { TypeTrabajadores } from '../types/trabajadores';
 import { TypeEmpresa } from '../types/empresas';
-import { obtenerInfo } from '../lib/servidor/obtenerInfo';
+import { obtenerInfo } from '../lib/obtenerInfo';
 
 type StateMenu = 'logueando' | 'logueado' | 'deslogueado';
 

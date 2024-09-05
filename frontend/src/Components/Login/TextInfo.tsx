@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { textBackground } from '../../lib/textBackground';
+import { textBackground } from '../../utils/textBackground';
 
 export const TextInfo = () => {
   const text: string[] =

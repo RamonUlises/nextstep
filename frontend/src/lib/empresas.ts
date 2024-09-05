@@ -1,6 +1,6 @@
 import axios from 'axios';
 import auth from './authServer';
-import { TypeEmpresa } from '../../types/empresas';
+import { TypeEmpresa } from '../types/empresas';
 
 const url: string = auth.editing ? auth.desarrollo : auth.produccion;
 
