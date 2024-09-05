@@ -5,6 +5,7 @@ import { Home } from './Pages/Home';
 // import { Empresas } from "./Pages/Empresas";
 import { Login } from './Pages/Login';
 import { RegistroInfo } from './Pages/RegistroInfo';
+import { Page404 } from './Pages/404';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/empresas" element={<Empresas />} /> */}
           <Route path='/login' element={<Login />} />
           <Route path='/registro' element={<RegistroInfo />} />
+          <Route path='*' element={<Page404 />} />
         </Routes>
       </BrowserRouter>
     </>
