@@ -2,6 +2,7 @@ import {
   Computer,
   LogOut,
   Moon,
+  PawPrintIcon,
   Sun,
   User,
 } from 'lucide-react';
@@ -32,7 +33,7 @@ export const OptionsMenuMovil = () => {
             <Settings />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56">
+        <DropdownMenuContent className="w-56 z-20">
           <DropdownMenuLabel>Mi perfil</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
@@ -44,7 +45,7 @@ export const OptionsMenuMovil = () => {
           <DropdownMenuGroup>
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>
-                <Sun className="mr-2 h-4 w-4" />
+                <PawPrintIcon className="mr-2 h-4 w-4" />
                 <span>Tema</span>
               </DropdownMenuSubTrigger>
               <DropdownMenuPortal>
