@@ -68,3 +68,9 @@ input[type="password"]::-ms-clear,
 input[type="password"]::-webkit-credentials-auto-fill-button {
   display: none;
 }
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
