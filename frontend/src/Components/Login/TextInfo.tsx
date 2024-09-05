@@ -1,23 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { textBackground } from '../../utils/textBackground';
+import { text, text2, text3, text4 } from '../../lib/textsInfoLogin';
 
 export const TextInfo = () => {
-  const text: string[] =
-    'Crea un perfil que destaque entre la multitud en StartUp'.split('');
-  const text2: string[] =
-    'Tómate tu tiempo para crear tu perfil para que sea exactamente como quieres que sea.'.split(
-      ''
-    );
-  const text3: string[] =
-    'Aumente su credibilidad vinculando sus redes profesionales relevantes.'.split(
-      ''
-    );
-  const text4: string[] =
-    'Describe con precisión tus habilidades profesionales para ayudarte a conseguir más trabajo.'.split(
-      ''
-    );
-
   const circleRef = useRef<HTMLDivElement>(null);
   const spansRef = useRef<(HTMLSpanElement | null)[]>([]);
   const spansLiRef1 = useRef<(HTMLSpanElement | null)[]>([]);
