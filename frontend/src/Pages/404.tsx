@@ -11,8 +11,10 @@ export const Page404 = () => {
       <MenuDesktop />
       <MenuMovil />
 
-      <section className="flex flex-col justify-center items-center md:mt-[103px]">
-        <img src={logo} alt="Logo NextStep" className="max-w-[400px] mb-20" />
+      <section className="flex flex-col justify-center items-center md:mt-[103px] px-8">
+        <div className='flex'>
+          <img src={logo} alt="Logo NextStep" className="max-w-[400px] mb-20" />
+        </div>
         <Atropos
           alwaysActive={true}
           activeOffset={50}
@@ -33,7 +35,7 @@ export const Page404 = () => {
           highlight={true}
           scaleClassName='scale-150'
           rotateClassName='rotate-[-20deg]'
-          innerClassName='mx-8 rounded-lg font-bold dark:text-white flex flex-col text-center shadow-2xl max-w-[600px] drop-shadow-2xl'
+          innerClassName='rounded-lg font-bold dark:text-white flex flex-col text-center shadow-2xl max-w-[600px] min-w-full drop-shadow-2xl'
           rootChildren
           scaleChildren
           rotateChildren
