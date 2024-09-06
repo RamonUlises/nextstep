@@ -64,7 +64,7 @@ export const MenuDesktop = () => {
                   to="#"
                   className="transition-opacity duration-300 hover:opacity-80"
                 >
-                  Trabajadores
+                  Colaboradores
                 </Link>
               </li>
               <li>
