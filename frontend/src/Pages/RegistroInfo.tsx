@@ -1,12 +1,13 @@
+import { LayoutAtropos } from '@/Components/LayoutAtropos';
 import imagenRegistro from '../assets/imagen-registro.png';
 import { TextInfo } from '../Components/Login/TextInfo';
 export const RegistroInfo = () => {
   return (
     <>
       <main className="flex  h-screen overflow-hidden relative dark:bg-zinc-800">
-        <div className="w-20 h-20 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B] absolute top-8 right-[18%] dark:to-zinc-700 dark:from-zinc-600"></div>
-        <div className="w-32 h-32 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B] absolute top-[78%] right-[29%] dark:to-zinc-700 dark:from-zinc-600"></div>
-        <div className="w-96 h-96 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B] absolute top-[14%] -right-[5%]  dark:to-zinc-700 dark:from-zinc-600 "></div>
+        <LayoutAtropos innerClass="w-20 h-20 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B]  dark:to-zinc-700 dark:from-zinc-600" styles='absolute top-8 right-[18%]'></LayoutAtropos>
+        <LayoutAtropos innerClass="w-32 h-32 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B] dark:to-zinc-700 dark:from-zinc-600" styles='absolute top-[78%] right-[29%]'></LayoutAtropos>
+        <LayoutAtropos innerClass="w-96 h-96 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B]  dark:to-zinc-700 dark:from-zinc-600" styles='absolute top-[14%] -right-[5%]'></LayoutAtropos>
         <div className="absolute top-[40%] right-[28%] dark:text-white hidden flex-col gap-8 md:flex">
           <Clock />
           <Document />

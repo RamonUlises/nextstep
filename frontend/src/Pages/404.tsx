@@ -2,8 +2,7 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { MenuDesktop } from '../Components/MenuDesktop';
 import { MenuMovil } from '../Components/MenuMovil';
-import Atropos from 'atropos/react';
-import 'atropos/css';
+import { LayoutAtropos } from '../Components/LayoutAtropos';
 
 export const Page404 = () => {
   return (
@@ -15,30 +14,10 @@ export const Page404 = () => {
         <div className='flex'>
           <img src={logo} alt="Logo NextStep" className="max-w-[400px] mb-20" />
         </div>
-        <Atropos
-          alwaysActive={true}
-          activeOffset={50}
-          duration={700}
-          rotate={true}
-          rotateTouch={true}
-          rotateXMax={20}
-          rotateYMax={20}
-          rotateXInvert={false}
-          rotateYInvert={false}
-          stretchX={0}
-          stretchY={0}
-          stretchZ={0}
-          commonOrigin={true}
-          shadow={false}
-          shadowOffset={0}
-          shadowScale={1}
-          highlight={true}
-          scaleClassName='scale-150'
-          rotateClassName='rotate-[-20deg]'
-          innerClassName='rounded-lg font-bold dark:text-white flex flex-col text-center shadow-2xl max-w-[600px] min-w-full drop-shadow-2xl'
-          rootChildren
-          scaleChildren
-          rotateChildren
+        <LayoutAtropos
+          scale='scale-150'
+          rotateClass='rotate-[-20deg]'
+          innerClass='rounded-lg font-bold dark:text-white flex flex-col text-center shadow-2xl max-w-[600px] min-w-full drop-shadow-2xl'
         >
           <h1 className="text-8xl mt-8">404</h1>
           <h2 className="text-2xl">Tenemos un problema...</h2>
@@ -51,7 +30,7 @@ export const Page404 = () => {
               regrese al inicio
             </Link>
           </h3>
-        </Atropos>
+        </LayoutAtropos>
       </section>
     </main>
   );

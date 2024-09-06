@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
 import { text, text2, text3, text4 } from '../../lib/textsInfoLogin';
+import { LayoutAtropos } from '../LayoutAtropos';
 
 export const TextInfo = () => {
   return (
     <>
-      <div className="w-[550px] h-[550px] rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B] absolute -top-[14%] -left-[5%] dark:to-zinc-700 dark:from-zinc-600 hidden md:block -z-10 opacity-95"></div>
+      <LayoutAtropos
+        innerClass="w-[550px] h-[550px] rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B] dark:to-zinc-700 dark:from-zinc-600"
+        styles="absolute -top-[14%] -left-[5%] hidden md:block -z-10 opacity-95"
+      ></LayoutAtropos>
       <h1 className="text-black text-3xl lg:text-5xl font-bold mb-[60px] dark:text-white">
         {text}
       </h1>
