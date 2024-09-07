@@ -39,15 +39,15 @@ export const Home = () => {
             </div>
             {vwScreen >= 768 ? (
               <>
-                <ButtonsIndex text="Empresa" url="/registro-empresas" />
-                <ButtonsIndex text="Colaborador" url="/registro-colaborador" />
+                <ButtonsIndex text="Empresa" url="/info-empresas" />
+                <ButtonsIndex text="Colaborador" url="/info-colaborador" />
               </>
             ) : (
               <>
-                <ButtonsMovilIndex text="Empresa" url="/registro-empresas" />
+                <ButtonsMovilIndex text="Empresa" url="/info-empresas" />
                 <ButtonsMovilIndex
                   text="Colaborador"
-                  url="/registro-colaborador"
+                  url="/info-colaborador"
                 />
               </>
             )}
