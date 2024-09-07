@@ -19,7 +19,7 @@ export const TextInfo = () => {
       </ul>
 
       <Link
-        to="/registro/trabajador"
+        to="/registro/colaborador"
         className="text-white rounded-2xl bg-[#E75F0B] px-5 py-2 shadow-xl drop-shadow mt-20
            hover:bg-[#FA7C15] transition duration-300 dark:bg-zinc-700 dark:hover:bg-zinc-600"
       >
