@@ -64,7 +64,7 @@ export const Colaborador1 = ({ nextTab }:{ nextTab: (num: number) => void }) => 
           <div className="flex justify-center">
             <button
               type="button"
-              className="font-light bg-principal-400 flex justify-center items-center py-1 px-2 rounded gap-1 text-sm"
+              className="bg-principal-500 text-white flex justify-center items-center py-1 px-2 rounded gap-1 text-sm"
               onClick={addNewRed}
               disabled={red.length > 3}
             >
