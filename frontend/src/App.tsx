@@ -4,8 +4,9 @@ import { Home } from './Pages/Home';
 // import { Trabajadores } from "./Pages/Trabajadores";
 // import { Empresas } from "./Pages/Empresas";
 import { Login } from './Pages/Login';
-import { RegistroInfo } from './Pages/RegistroInfo';
+import { RegistroInfo } from './Pages/RegistroInfoColaborador';
 import { Page404 } from './Pages/404';
+import { RegistroColaborador } from './Pages/RegistroColaborador';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <Route path="/colaboradores" element={<Colaboradores />} />
           <Route path="/empresas" element={<Empresas />} /> */}
           <Route path='/login' element={<Login />} />
-          <Route path='/registro-colaborador' element={<RegistroInfo />} />
+          <Route path='/info-colaborador' element={<RegistroInfo />} />
+          <Route path='/registro/colaborador' element={<RegistroColaborador />} />
           <Route path='*' element={<Page404 />} />
         </Routes>
       </BrowserRouter>
