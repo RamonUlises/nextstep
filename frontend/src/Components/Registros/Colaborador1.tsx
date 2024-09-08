@@ -3,20 +3,24 @@ import { Header1 } from './colaborador/Header1';
 import { Inputs } from './Inputs';
 import { InputsRedes } from './InputsRedes';
 
-type Redes = { red: string | undefined; url: string | undefined };
+type Redes = { id: string; red: string | undefined; url: string | undefined };
 
-export const Colaborador1 = ({ nextTab }:{ nextTab: (num: number) => void }) => {
+export const Colaborador1 = ({
+  nextTab,
+}: {
+  nextTab: (num: number) => void;
+}) => {
   const [red, setRed] = useState<Redes[]>([]);
   const [redes, setRedes] = useState<string[]>([]);
 
   const addNewRed = () => {
-    if (red.length > 3) return;
+    if (red.length > 4) return;
 
     for (const r of red) {
-      if (r.red === undefined || r.url === undefined) return;
+      if (r.red === undefined || (r.url === undefined || r.url === '')) return;
     }
 
-    setRed([...red, { red: undefined, url: undefined }]);
+    setRed([...red, { id: crypto.randomUUID(), red: undefined, url: undefined }]);
   };
 
   const handleChange = ({
@@ -36,13 +40,34 @@ export const Colaborador1 = ({ nextTab }:{ nextTab: (num: number) => void }) => 
         }
       }
     }
-    const redes = red.filter((r) => r.red !== undefined).map((r) => r.red!);
-    setRedes(redes);
   };
 
   const handleDeleteInput = (prop: string | undefined) => {
-    const newRedes = red.filter((r) => r.red !== prop);
-    setRed(newRedes);
+    setRed(red.filter((r) => r.red !== prop));
+
+    const newRedes = redes.filter((r) => r !== prop);
+    setRedes(newRedes);
+  };
+
+  const changeProp = ({
+    prop,
+    newProp,
+    value,
+  }: {
+    prop: string | undefined;
+    newProp: string | undefined;
+    value: string | undefined;
+  }) => {
+    for (const r of red) {
+      if (r.red === prop) {
+        r.red = newProp;
+      }
+      if (r.url === undefined) {
+        r.url = value;
+      }
+    }
+    const redesS = red.filter((r) => r.red !== undefined).map((r) => r.red!);
+    setRedes(redesS);
   };
 
   return (
@@ -55,33 +80,47 @@ export const Colaborador1 = ({ nextTab }:{ nextTab: (num: number) => void }) => 
         <Inputs type="email" placeholder="Correo" name="email" />
         <Inputs type="password" placeholder="Contraseña" name="contrasena" />
         <section className="flex flex-col w-full sm:col-span-2">
-          <h4 className="text-center">Redes sociales</h4>
+          <h4 className="text-center dark:text-white">Redes sociales</h4>
           <div>
-            {red.map((_, i) => (
-              <InputsRedes deleteInput={handleDeleteInput} redes={redes} change={handleChange} key={i} />
-            ))}
+            {red.map((r) => {
+              return (
+                <InputsRedes
+                  changeProp={changeProp}
+                  deleteInput={handleDeleteInput}
+                  redes={redes}
+                  change={handleChange}
+                  key={r.id}
+                  propiedad={r.red}
+                  valor={r.url}
+                />
+              );
+            })}
           </div>
           <div className="flex justify-center">
             <button
               type="button"
-              className="bg-principal-500 text-white flex justify-center items-center py-1 px-2 rounded gap-1 text-sm"
+              className="bg-principal-500 text-white flex justify-center items-center py-1 px-2 rounded gap-1 text-sm dark:bg-zinc-600 mt-2"
               onClick={addNewRed}
-              disabled={red.length > 3}
+              disabled={red.length > 4}
             >
               Añadir
             </button>
           </div>
         </section>
         <section className="flex flex-col sm:col-span-2 w-full max-w-[600px] px-5 mt-3">
-          <label className="text-sm">Descripción</label>
+          <label className="text-sm dark:text-white">Descripción</label>
           <textarea
             name="descripcion"
-            className="outline-none p-2 font-light border shadow drop-shadow"
+            className="outline-none p-2 font-light  shadow drop-shadow rounded dark:bg-zinc-700 dark:text-white"
           ></textarea>
         </section>
 
         <section className="flex justify-center sm:col-span-2 mt-4 gap-3">
-          <button onClick={() => nextTab(2)} type='button' className="bg-principal-600 text-white rounded-xl py-2 px-4">
+          <button
+            onClick={() => nextTab(2)}
+            type="button"
+            className="bg-principal-600 text-white rounded-xl py-2 px-4 dark:bg-zinc-700"
+          >
             Siguiente
           </button>
         </section>

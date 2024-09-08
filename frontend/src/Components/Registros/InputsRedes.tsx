@@ -13,13 +13,19 @@ export function InputsRedes ({
   redes,
   change,
   deleteInput,
+  changeProp,
+  propiedad,
+  valor
 }: {
   redes: string[];
   change: (event: { prop: string | undefined; value: string }) => void;
   deleteInput: (prop: string | undefined) => void;
+  changeProp: (event: { prop: string | undefined; newProp: string | undefined; value: string | undefined }) => void;
+  propiedad: string | undefined;
+  valor: string | undefined;
 }) {
   const [prop, setProp] = useState<string | undefined>(undefined);
-  const [value, setValue] = useState<string>('');
+  const [value, setValue] = useState<string>(valor !== undefined ? valor : '');
 
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
@@ -27,17 +33,17 @@ export function InputsRedes ({
     change({ prop, value: newValue });
   };
 
-  const handleProp = (prop: string) => {
-    setProp(prop);
-    change({ prop, value });
+  const handlePropChange = (newProp: string) => {
+    changeProp({ prop, newProp, value });
+    setProp(newProp);
   };
 
   return (
     <>
       <section className="flex my-2 justify-center items-center">
-        <Select onValueChange={handleProp} name="prop">
+        <Select onValueChange={handlePropChange} name="prop">
           <SelectTrigger className="w-auto border-none bg-slate-300 rounded-none rounded-s-xl">
-            <SelectValue placeholder="Redes" />
+            <SelectValue placeholder={propiedad === undefined ? 'Redes' : propiedad} />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
@@ -52,6 +58,9 @@ export function InputsRedes ({
               </SelectItem>
               <SelectItem disabled={redes.includes('whatsapp')} className="cursor-pointer" value="whatsapp">
                 WhatsApp
+              </SelectItem>
+              <SelectItem disabled={redes.includes('tiktok')} className="cursor-pointer" value="tiktok">
+                Tiktok
               </SelectItem>
             </SelectGroup>
           </SelectContent>
