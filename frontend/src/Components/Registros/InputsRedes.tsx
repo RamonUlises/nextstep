@@ -42,7 +42,7 @@ export function InputsRedes ({
     <>
       <section className="flex my-2 justify-center items-center">
         <Select onValueChange={handlePropChange} name="prop">
-          <SelectTrigger className="w-auto border-none bg-slate-300 rounded-none rounded-s-xl">
+          <SelectTrigger className="w-auto border-none bg-slate-300 rounded-none rounded-s-xl dark:bg-zinc-700 dark:text-white">
             <SelectValue placeholder={propiedad === undefined ? 'Redes' : propiedad} />
           </SelectTrigger>
           <SelectContent>
