@@ -1,3 +1,4 @@
+import { Plus } from 'lucide-react';
 import { InputsOptions } from './InputsOptions';
 
 export const OptionsInfo = ({
@@ -31,27 +32,24 @@ export const OptionsInfo = ({
   };
 
   return (
-    <div className="grid grid-cols-[auto,1fr] grid-rows-[30px,1fr] overflow-hidden w-full gap-2">
-      <label className="">{text}</label>
-      <div className="row-span-2 flex flex-col gap-1 border-2 p-1">
-        {option.map((t, i) => (
-          <InputsOptions
-            deleteInput={deleteOption}
-            value={t.value}
-            change={changeOption}
-            index={i}
-            key={t.id}
-          />
-        ))}
-      </div>
-      <div>
-        <button
-          type="button"
-          className="cursor-pointer bg-principal-400 text-white px-2 py-1 rounded-md"
-          onClick={addNew}
-        >
-          Añadir
-        </button>
+    <div className="flex w-full justify-center overflow-hidden gap-2">
+      <label className="row-span-2">{text}</label>
+      <div className="flex items-end gap-1 p-1 max-w-[320px]">
+        <div className='bg-green-600 rounded-full w-[23px] h-[23px] text-white cursor-pointer mb-2'>
+          <Plus onClick={addNew} width={23} height={23} />
+        </div>
+        <div className="flex flex-col gap-1 p-1">
+          {option.map((t, i) => (
+            <InputsOptions
+              option={option}
+              deleteInput={deleteOption}
+              value={t.value}
+              change={changeOption}
+              index={i}
+              key={t.id}
+            />  
+          ))}
+        </div>
       </div>
     </div>
   );
