@@ -8,8 +8,8 @@ export interface TypeTrabajadores {
   'redes-sociales': string[];
   'imagen': string;
   'descripcion': string;
-  'educacion-primaria': string;
-  'educacion-secundaria': string;
+  'educacion-primaria': boolean;
+  'educacion-secundaria': boolean;
   'titulos': string[];
   'idiomas': string[];
   'certificados': string[];
