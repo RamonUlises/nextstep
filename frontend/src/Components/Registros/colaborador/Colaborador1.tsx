@@ -122,7 +122,7 @@ export const Colaborador1 = ({
         <button
           onClick={() => nextTab(2)}
           type="button"
-          className="bg-principal-600 text-white rounded-xl py-2 px-4 dark:bg-zinc-700 mt-7 mb-5 text-sm sm:text-base"
+          className="border-2 border-principal-600 text-principal-600 rounded-xl py-2 px-4 dark:bg-zinc-700 mt-7 mb-5 text-sm sm:text-base"
         >
           Siguiente
         </button>
