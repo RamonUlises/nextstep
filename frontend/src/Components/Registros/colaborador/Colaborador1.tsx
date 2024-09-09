@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Header1 } from './colaborador/Header1';
-import { Inputs } from './Inputs';
-import { InputsRedes } from './InputsRedes';
+import { Header1 } from './Header1';
+import { Inputs } from '../Inputs';
+import { InputsRedes } from '../InputsRedes';
 
 type Redes = { id: string; red: string | undefined; url: string | undefined };
 
@@ -17,10 +17,13 @@ export const Colaborador1 = ({
     if (red.length > 4) return;
 
     for (const r of red) {
-      if (r.red === undefined || (r.url === undefined || r.url === '')) return;
+      if (r.red === undefined || r.url === undefined || r.url === '') return;
     }
 
-    setRed([...red, { id: crypto.randomUUID(), red: undefined, url: undefined }]);
+    setRed([
+      ...red,
+      { id: crypto.randomUUID(), red: undefined, url: undefined },
+    ]);
   };
 
   const handleChange = ({
@@ -114,17 +117,16 @@ export const Colaborador1 = ({
             className="outline-none p-2 font-light  shadow drop-shadow rounded dark:bg-zinc-700 dark:text-white"
           ></textarea>
         </section>
-
-        <section className="flex justify-center sm:col-span-2 mt-4 gap-3">
-          <button
-            onClick={() => nextTab(2)}
-            type="button"
-            className="bg-principal-600 text-white rounded-xl py-2 px-4 dark:bg-zinc-700"
-          >
-            Siguiente
-          </button>
-        </section>
       </form>
+      <section className="flex justify-end mt-4 mx-4">
+        <button
+          onClick={() => nextTab(2)}
+          type="button"
+          className="bg-principal-600 text-white rounded-xl py-2 px-4 dark:bg-zinc-700 mt-7 mb-5 text-sm sm:text-base"
+        >
+          Siguiente
+        </button>
+      </section>
     </section>
   );
 };
