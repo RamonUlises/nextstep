@@ -1,4 +1,5 @@
-import { Colaborador1 } from '@/Components/Registros/Colaborador1';
+import { Colaborador1 } from '@/Components/Registros/colaborador/Colaborador1';
+import { Colaborador2 } from '@/Components/Registros/colaborador/Colaborador2';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { useState } from 'react';
 
@@ -42,7 +43,9 @@ export const RegistroColaborador = () => {
           <TabsContent value="info-1">
             <Colaborador1 nextTab={nextTab} />
           </TabsContent>
-          <TabsContent value="info-2">Change your password here.</TabsContent>
+          <TabsContent value="info-2">
+            <Colaborador2 nextTab={nextTab} />
+          </TabsContent>
         </Tabs>
       </main>
     </>
