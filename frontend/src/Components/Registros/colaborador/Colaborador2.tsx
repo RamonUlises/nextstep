@@ -13,28 +13,35 @@ export const Colaborador2 = ({
 }: {
   nextTab: (num: number) => void;
 }) => {
-  const [titulos, setTitulos] = useState<Titulos[]>([]);
-  const [idiomas, setIdiomas] = useState<Idiomas[]>([]);
-  const [certificados, setCertificados] = useState<Certificados[]>([]);
-  const [referencias, setReferencias] = useState<Referencias[]>([]);
-  const [habilidades, setHabilidades] = useState<Habilidades[]>([]);
+  const [titulos, setTitulos] = useState<Titulos[]>([{ id: crypto.randomUUID(), value: '' }]);
+  const [idiomas, setIdiomas] = useState<Idiomas[]>([{ id: crypto.randomUUID(), value: '' }]);
+  const [certificados, setCertificados] = useState<Certificados[]>([{ id: crypto.randomUUID(), value: '' }]);
+  const [referencias, setReferencias] = useState<Referencias[]>([{ id: crypto.randomUUID(), value: '' }]);
+  const [habilidades, setHabilidades] = useState<Habilidades[]>([{ id: crypto.randomUUID(), value: '' }]);
 
   return (
     <section>
-      <form className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center overflow-hidden">
-        <Options text='Educación primaria' />
-        <Options text='Educación secundaria' />
-        <OptionsInfo text='Títulos' option={titulos} setOption={setTitulos} />
-        <OptionsInfo text='Idiomas' option={idiomas} setOption={setIdiomas} />
-        <OptionsInfo text='Certificados' option={certificados} setOption={setCertificados} />
-        <OptionsInfo text='Referencias' option={referencias} setOption={setReferencias} />
+      <form className="mt-4 gap-4 overflow-hidden">
+        <div className='flex justify-evenly flex-col sm:flex-row gap-2 mb-3'>
+          <Options text='Educación primaria' />
+          <Options text='Educación secundaria' />
+        </div>
+        <div className='flex justify-evenly flex-col md:flex-row gap-2 md:items-center'>
+          <OptionsInfo text='Títulos' option={titulos} setOption={setTitulos} />
+          <OptionsInfo text='Idiomas' option={idiomas} setOption={setIdiomas} />
+        </div>
+        <div className='flex justify-evenly flex-col md:flex-row gap-2'>
+          <OptionsInfo text='Certificados' option={certificados} setOption={setCertificados} />
+          <OptionsInfo text='Referencias' option={referencias} setOption={setReferencias} />
+        </div>
+
         <OptionsInfo text='Habilidades' option={habilidades} setOption={setHabilidades} />
       </form>
       <section className="flex justify-start mt-4 ml-4">
         <button
           onClick={() => nextTab(1)}
           type="button"
-          className="bg-principal-600 text-white rounded-xl py-2 px-4 dark:bg-zinc-700 mt-7 mb-5 mx-4 text-sm sm:text-base outline-none"
+          className="border-2 border-principal-600 text-principal-600 rounded-xl py-2 px-4 dark:bg-zinc-700 mt-7 mb-5 mx-4 text-sm sm:text-base outline-none"
         >
           Anterior
         </button>
