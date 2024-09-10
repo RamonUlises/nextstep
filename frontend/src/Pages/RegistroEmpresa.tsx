@@ -1,6 +1,7 @@
 import { Empresa1 } from '@/Components/Registros/Empresa/Empresa1';
 import { Empresa2 } from '@/Components/Registros/Empresa/Empresa2';
 import { TypeEmpresa } from '@/types/empresas';
+import { validateEmpresa, validationEmpresa } from '@/utils/validateEmpresa';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { useState } from 'react';
 export const RegistroEmpresa = () => {
@@ -23,19 +24,29 @@ export const RegistroEmpresa = () => {
     puntuacion: 0,
     imagen: 'sin-imagen',
     verificado: false,
+    'imagen-2': 'sin-imagen',
+    'sitio-web': '',
   });
 
   const nextTab = (num: number) => {
     try {
       setError('');
-      //validateColaborador(colaborador);
+      validationEmpresa(empresa);
       setTab(num);
     } catch (error) {
       setError(error as string);
     }
   };
 
-  const registrar = () => {};
+  const registrar = () => {
+    try {
+      setError('');
+      validateEmpresa(empresa);
+      
+    } catch (error) {
+      setError(error as string);
+    }
+  };
 
   return (
     <main className="flex flex-col h-screen items-center px-3 overflow-y-auto overflow-x-hidden bg-gradient-to-tr dark:from-zinc-800 dark:to-zinc-700">

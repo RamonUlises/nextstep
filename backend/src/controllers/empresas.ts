@@ -9,23 +9,26 @@ import { manejarError } from '@/lib/errores';
 import { ErrorZodType } from '@/types/errorZod';
 import { encrypt } from '@/lib/encripts';
 
-const { string, number } = zod;
+const { string, number, boolean } = zod;
 
 const schema = zod.object({
   'numero-identificacion': string(),
   'certificado-registro': string(),
   'licencia-comercial': string(),
   'nombre': string(),
-  'direccion': string().array(),
   'telefono': string().array(),
   'email': string().array(),
   'contrasena': string(),
+  'sitio-web': string().optional(),
+  'direccion': string().array(),
+  'objetivos': string().array(),
   'redes-sociales': string().array(),
   'mision': string(),
   'vision': string(),
-  'objetivos': string().array(),
   'puntuacion': number(),
   'imagen': string(),
+  'imagen-2': string(),
+  'verificado': boolean(),
 });
 
 class Empresa {

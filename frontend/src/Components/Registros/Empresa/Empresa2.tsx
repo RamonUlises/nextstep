@@ -106,8 +106,13 @@ export const Empresa2 = ({
         </div>
       </form>
       {error !== '' && (
-        <p className="text-center mt-4 dark:text-white">{error}</p>
+        <p className={`text-center mt-4 ${error !== 'Datos enviados' ? 'text-red-500' : 'text-black dark:text-white'}`}>{error}</p>
       )}
+      {
+        error === 'Datos enviados' && (
+          <p className="text-center mt-4 text-principal-600">Si todo va bien se le dará una confirmación de su registro</p>
+        )
+      }
       <section className="flex justify-between mt-4 mx-4">
         <button
           onClick={() => nextTab(1)}

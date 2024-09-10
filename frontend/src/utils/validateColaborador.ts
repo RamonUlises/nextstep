@@ -1,4 +1,5 @@
 import { TypeColaboradores } from '@/types/colaboradores';
+import { validateExpression, validateLength, validateString } from '@/utils/validations';
 
 export function validateColaborador(colaborador: TypeColaboradores): void {
   const {
@@ -41,23 +42,4 @@ export function validateColaborador(colaborador: TypeColaboradores): void {
   validateString(descripcion, 'descripcion');
   validateLength(descripcion, 'descripcion', 10, 500);
 
-  // 
-}
-
-function validateString(value: string, name: string) {
-  if (!value) {
-    throw `El campo ${name} es obligatorio`;
-  }
-}
-
-function validateExpression(value: string, name: string, expression: RegExp, patron: string) {
-  if (!expression.test(value)) {
-    throw `El campo ${name} no cumple con el formato esperado, \n${patron}`;
-  }
-}
-
-function validateLength(value: string, name: string, min: number, max: number) {
-  if (value.length < min || value.length > max) {
-    throw `El campo ${name} debe tener entre ${min} y ${max} caracteres`;
-  }
 }

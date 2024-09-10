@@ -17,17 +17,26 @@ export const Empresa1 = ({
   nextTab: (num: number) => void;
 }) => {
   const [imagen, setImagen] = useState<string>(empresa.imagen);
-  const [numeroIdentificacion, setNumeroIdentificacion] = useState<string>(empresa['numero-identificacion']);
-  const [certificadoRegistro, setCertificadoRegistro] = useState<string>(empresa['certificado-registro']);
-  const [licenciaComercial, setLicenciaComercial] = useState<string>(empresa['licencia-comercial']);
+  const [numeroIdentificacion, setNumeroIdentificacion] = useState<string>(
+    empresa['numero-identificacion']
+  );
+  const [certificadoRegistro, setCertificadoRegistro] = useState<string>(
+    empresa['certificado-registro']
+  );
+  const [licenciaComercial, setLicenciaComercial] = useState<string>(
+    empresa['licencia-comercial']
+  );
   const [nombre, setNombre] = useState<string>(empresa.nombre);
   const [contrasena, setContrasena] = useState<string>(empresa.contrasena);
-  const [telefono, setTelefono] = useState<InfoCol[]>(getElement(empresa.telefono));
+  const [telefono, setTelefono] = useState<InfoCol[]>(
+    getElement(empresa.telefono)
+  );
   const [email, setEmail] = useState<InfoCol[]>(getElement(empresa.email));
+  const [sitioWeb, setSitioWeb] = useState<string>(empresa['sitio-web']);
 
   useEffect(() => {
     setEmpresa((prev) => ({
-      ...prev, 
+      ...prev,
       imagen,
       'numero-identificacion': numeroIdentificacion,
       'certificado-registro': certificadoRegistro,
@@ -36,9 +45,20 @@ export const Empresa1 = ({
       contrasena,
       telefono: addNewArray(telefono),
       email: addNewArray(email),
+      'sitio-web': sitioWeb,
     }));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [imagen, numeroIdentificacion, certificadoRegistro, licenciaComercial, nombre, contrasena, telefono, email]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    imagen,
+    numeroIdentificacion,
+    certificadoRegistro,
+    licenciaComercial,
+    nombre,
+    contrasena,
+    telefono,
+    email,
+    sitioWeb
+  ]);
   return (
     <section>
       <Header1
@@ -83,9 +103,20 @@ export const Empresa1 = ({
           placeholder="Contraseña"
           name="contrasena"
         />
-        <div className='sm:col-span-2 flex justify-evenly flex-col md:flex-row gap-2 md:items-center'>
-          <OptionsInfo text='Teléfono(s)' option={telefono} setOption={setTelefono} />
-          <OptionsInfo text='Correo(s)' option={email} setOption={setEmail} />
+        <Inputs
+          value={empresa['sitio-web']}
+          setProp={setSitioWeb}
+          type="text"
+          placeholder="Sitio web"
+          name="sitio-web"
+        />
+        <div className="sm:col-span-2 flex justify-evenly flex-col md:flex-row gap-2 md:items-center">
+          <OptionsInfo
+            text="Teléfono(s)"
+            option={telefono}
+            setOption={setTelefono}
+          />
+          <OptionsInfo text="Correo(s)" option={email} setOption={setEmail} />
         </div>
         {error && (
           <div className="flex flex-col w-full sm:col-span-2 mt-3">

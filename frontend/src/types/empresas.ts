@@ -7,6 +7,7 @@ export interface TypeEmpresa {
   'telefono': string[];
   'email': string[];
   'contrasena': string;
+  'sitio-web': string;
   'direccion': string[];
   'objetivos': string[];
   'redes-sociales': string[];
@@ -14,5 +15,6 @@ export interface TypeEmpresa {
   'vision': string;
   'puntuacion': number;
   'imagen': string;
+  'imagen-2': string;
   'verificado': boolean;
 };
