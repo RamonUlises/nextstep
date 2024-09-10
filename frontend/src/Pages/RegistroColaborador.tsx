@@ -36,8 +36,6 @@ export const RegistroColaborador = () => {
     alert('Colaborador registrado');
   };
 
-  console.log(colaborador);
-
   return (
     <>
       <main className="flex flex-col h-screen items-center px-3 overflow-y-auto overflow-x-hidden bg-gradient-to-tr dark:from-zinc-800 dark:to-zinc-700">
