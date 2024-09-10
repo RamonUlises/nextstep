@@ -7,8 +7,8 @@ export const OptionsInfo = ({
   setOption,
 }: {
   text: string;
-  option: { id: string; value: string | undefined }[];
-  setOption: (value: { id: string; value: string | undefined }[]) => void;
+  option: { id: string; value: string }[];
+  setOption: (value: { id: string; value: string }[]) => void;
 }) => {
 
   const addNew = () => {
@@ -32,7 +32,7 @@ export const OptionsInfo = ({
   };
 
   return (
-    <div className="flex w-full justify-center overflow-hidden gap-2">
+    <div className="flex w-full justify-center md:justify-start items-center overflow-hidden gap-2">
       <label className="row-span-2">{text}</label>
       <div className="flex items-end gap-1 p-1 max-w-[320px]">
         <div className='bg-green-600 rounded-full w-[23px] h-[23px] text-white cursor-pointer mb-2'>
