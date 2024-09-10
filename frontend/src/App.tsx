@@ -4,9 +4,10 @@ import { Home } from './Pages/Home';
 // import { Trabajadores } from "./Pages/Trabajadores";
 // import { Empresas } from "./Pages/Empresas";
 import { Login } from './Pages/Login';
-import { RegistroInfo } from './Pages/RegistroInfoColaborador';
+import { RegistroInfoColaboradores } from './Pages/RegistroInfoColaborador';
 import { Page404 } from './Pages/404';
 import { RegistroColaborador } from './Pages/RegistroColaborador';
+import { RegistroInfoEmpresas } from './Pages/RegistroInfoEmpresas';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
           <Route path="/colaboradores" element={<Colaboradores />} />
           <Route path="/empresas" element={<Empresas />} /> */}
           <Route path='/login' element={<Login />} />
-          <Route path='/info-colaborador' element={<RegistroInfo />} />
+          <Route path='/info-colaborador' element={<RegistroInfoColaboradores />} />
+          <Route path='/info-empresa' element={<RegistroInfoEmpresas />} />
           <Route path='/registro/colaborador' element={<RegistroColaborador />} />
           <Route path='*' element={<Page404 />} />
         </Routes>
