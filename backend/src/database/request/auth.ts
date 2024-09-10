@@ -11,7 +11,7 @@ class Auth {
 
       return { empresa, trabajador };
     } catch {
-      throw new Error('Error en el servidor');
+      throw new Error('Error en la base de datos');
     }
   }
 }

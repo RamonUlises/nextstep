@@ -38,10 +38,13 @@ class Auth {
           return;
         }
       }
-
-      res.status(200).json({ message: 'Login correcto', id: empresa[0].id || trabajador[0].id }); 
+      
+      const id = empresa.length > 0 ? empresa[0].id : trabajador[0].id;
+      
+      res.status(200).json({ message: 'Login correcto', id }); 
     } catch (error) {
       res.status(500).json({ message: 'Error en el servidor', error });
+      console.log(error);
     }
   }
 }
