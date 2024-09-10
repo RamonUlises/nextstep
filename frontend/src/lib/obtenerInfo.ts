@@ -1,11 +1,11 @@
 import axios from 'axios';
 import auth from './authServer';
 import { TypeEmpresa } from '../types/empresas';
-import { TypeTrabajadores } from '../types/trabajadores';
+import { TypeColaboradores } from '../types/colaboradores';
 
 const url = auth.editing ? auth.desarrollo : auth.produccion;
 
-export const obtenerInfo = async (id: string): Promise<{ data: TypeEmpresa[] | TypeTrabajadores[]; status:number }> => {
+export const obtenerInfo = async (id: string): Promise<{ data: TypeEmpresa[] | TypeColaboradores[]; status:number }> => {
   try{
     const response = await axios.get(`${url}/info/${id}`, auth.options);
 
