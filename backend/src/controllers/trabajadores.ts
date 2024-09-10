@@ -9,7 +9,7 @@ import { ErrorZodType } from '@/types/errorZod';
 import { TypeEmpresa } from '@/types/empresas';
 import requestDatabaseEmpresas from '@/database/request/empresas';
 
-const { string } = zod;
+const { string, boolean, } = zod;
 
 const schema = zod.object({
   'nombres': string(),
@@ -20,8 +20,8 @@ const schema = zod.object({
   'redes-sociales': string().array(),
   'imagen': string(),
   'descripcion': string(),
-  'educacion-primaria': string(),
-  'educacion-secundaria': string(),
+  'educacion-primaria': boolean(),
+  'educacion-secundaria': boolean(),
   'titulos': string().array(),
   'idiomas': string().array(),
   'certificados': string().array(),

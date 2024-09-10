@@ -1,8 +1,11 @@
 import { Colaborador1 } from '@/Components/Registros/colaborador/Colaborador1';
 import { Colaborador2 } from '@/Components/Registros/colaborador/Colaborador2';
 import { TypeColaboradores } from '@/types/colaboradores';
+import { validateColaborador } from '@/utils/validateColaborador';
+//import { validateColaborador } from '@/utils/validateColaborador';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { useState } from 'react';
+import Colaborador from '@/lib/colaboradores';
 
 export const RegistroColaborador = () => {
   const [tab, setTab] = useState<number>(1);
@@ -14,7 +17,7 @@ export const RegistroColaborador = () => {
     email: '',
     contrasena: '',
     'redes-sociales': [],
-    imagen: '',
+    imagen: 'sin-imagen',
     descripcion: '',
     'educacion-primaria': false,
     'educacion-secundaria': false,
@@ -27,13 +30,33 @@ export const RegistroColaborador = () => {
     puntuacion: 0,
     saldo: 0,
   });
+  const [error, setError] = useState<string>('');
+  const [error2, setError2] = useState<string>('');
 
   const nextTab = (num: number) => {
-    setTab(num);
+    try {
+      setError('');
+      validateColaborador(colaborador);
+      setTab(num);
+    } catch (error) {
+      setError(error as string);
+    }
   };
 
-  const registrarColaborador = () => {
-    alert('Colaborador registrado');
+  const registrarColaborador = async () => {
+    try {
+      validateColaborador(colaborador);
+
+      const response = await Colaborador.agregarColaborador(colaborador);
+
+      if (response.status === 200) {
+        setError2('Bienvenido a NextStep');
+      }
+
+      setError2(response.data.message);
+    } catch {
+      setError2('Error al registrar el colaborador');
+    }
   };
 
   return (
@@ -47,6 +70,7 @@ export const RegistroColaborador = () => {
         >
           <TabsList className="flex justify-center mb-4 items-center sm:gap-4 gap-2">
             <TabsTrigger
+              disabled
               className={`text-white w-12 h-12 sm:w-16 sm:h-16 rounded-full ${
                 tab === 1
                   ? 'bg-principal-600 dark:text-black dark:bg-white'
@@ -64,6 +88,7 @@ export const RegistroColaborador = () => {
                   ? 'bg-principal-600 dark:text-black dark:bg-white'
                   : 'bg-slate-400 dark:text-white dark:bg-zinc-700'
               }`}
+              disabled
               value="info-2"
               onClick={() => setTab(2)}
             >
@@ -72,13 +97,15 @@ export const RegistroColaborador = () => {
           </TabsList>
           <TabsContent value="info-1">
             <Colaborador1
-              colaborador={colaborador}            
+              error={error}
+              colaborador={colaborador}
               setColaborador={setColaborador}
               nextTab={nextTab}
             />
           </TabsContent>
           <TabsContent value="info-2">
             <Colaborador2
+              error={error2}
               colaborador={colaborador}
               setColaborador={setColaborador}
               registrar={registrarColaborador}

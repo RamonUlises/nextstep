@@ -15,7 +15,7 @@ const auth: authServer = {
     },
     auth: {
       username: 'xnpxvlzo',
-      password: '',
+      password: '5f5e5b3f4-659a-44ed-9e44-2b1f99ae6517',
     }
   }
 };

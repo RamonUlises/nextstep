@@ -5,7 +5,7 @@ class RequestDatabase {
   async obtenerTrabajadores(): Promise<TypeTrabajadores[]> {
     try {
       const data = await trabajadores.find();
-      return data as TypeTrabajadores[];
+      return data;
     } catch {
       throw new Error('Error al obtener los trabajadores');
     }
@@ -13,7 +13,7 @@ class RequestDatabase {
   async obtenerTrabajador(id: string): Promise<TypeTrabajadores[]> {
     try {
       const data = await trabajadores.find({ id });
-      return data as TypeTrabajadores[];
+      return data;
     } catch {
       throw new Error('Error al obtener el trabajador');
     }
@@ -46,7 +46,7 @@ class RequestDatabase {
   async obtenerTrabajadorPorEmail(email: string): Promise<TypeTrabajadores[]> {
     try {
       const data = await trabajadores.find({ email });
-      return data as TypeTrabajadores[];
+      return data;
     } catch {
       throw new Error('Error al obtener el trabajador');
     }
@@ -54,7 +54,7 @@ class RequestDatabase {
   async obtenerTrabajadorPorUsuario(usuario: string): Promise<TypeTrabajadores[]> {
     try {
       const data = await trabajadores.find({ usuario });
-      return data as TypeTrabajadores[];
+      return data;
     } catch {
       throw new Error('Error al obtener el trabajador');
     }

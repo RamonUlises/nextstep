@@ -32,8 +32,8 @@ export const OptionsInfo = ({
   };
 
   return (
-    <div className="flex w-full justify-center md:justify-start items-center overflow-hidden gap-2">
-      <label className="row-span-2">{text}</label>
+    <div className="flex w-full justify-center md:justify-start items-center overflow-hidden gap-2 ">
+      <label className="row-span-2 dark:text-white">{text}</label>
       <div className="flex items-end gap-1 p-1 max-w-[320px]">
         <div className='bg-green-600 rounded-full w-[23px] h-[23px] text-white cursor-pointer mb-2'>
           <Plus onClick={addNew} width={23} height={23} />

@@ -45,7 +45,7 @@ export const Login = () => {
       <MenuMovil />
       <div className="flex h-full md:grid-rows-1 md:grid-cols-2 md:grid">
         <section className="hidden md:block bg-[url(./assets/image-login.png)] bg-cover bg-no-repeat"></section>
-        <section className="flex flex-col items-center w-full h-full md:justify-center bg-gradient-to-r dark:from-zinc-800 dark:to-zinc-700">
+        <section className="flex flex-col items-center w-full h-full md:justify-center bg-gradient-to-b dark:from-zinc-800 dark:to-zinc-700">
           <img
             src={logo}
             alt="Logo NextStep"

@@ -9,11 +9,13 @@ export const Colaborador2 = ({
   nextTab,
   registrar,
   setColaborador,
+  error,
 }: {
   colaborador: TypeColaboradores;
   nextTab: (num: number) => void;
   registrar: () => void;
   setColaborador: (value: React.SetStateAction<TypeColaboradores>) => void;
+  error: string;
 }) => {
   const [titulos, setTitulos] = useState<InfoCol[]>(getElement(colaborador.titulos));
   const [idiomas, setIdiomas] = useState<InfoCol[]>(getElement(colaborador.idiomas));
@@ -24,14 +26,23 @@ export const Colaborador2 = ({
   const [primaria, setPrimaria] = useState<boolean>(colaborador['educacion-primaria']);
   const [secundaria, setSecundaria] = useState<boolean>(colaborador['educacion-secundaria']);
 
+  function addNewArray(option: InfoCol[]): string[]{
+    const newArray: string[] = [];
+    for(const op of option) {
+      if(op.value !== '') newArray.push(op.value);
+    }
+
+    return newArray;
+  }
+
   useEffect(() => {
     setColaborador((prevColaborador) => ({
       ...prevColaborador,
-      titulos: titulos.map((t) => t.value),
-      idiomas: idiomas.map((i) => i.value),
-      certificados: certificados.map((c) => c.value),
-      referencias: referencias.map((r) => r.value),
-      habilidades: habilidades.map((h) => h.value),
+      titulos: addNewArray(titulos),
+      idiomas: addNewArray(idiomas),
+      certificados: addNewArray(certificados),
+      referencias: addNewArray(referencias),
+      habilidades: addNewArray(habilidades),
       'educacion-primaria': primaria,
       'educacion-secundaria': secundaria,
     }));
@@ -56,15 +67,18 @@ export const Colaborador2 = ({
           <OptionsInfo text='Habilidades' option={habilidades} setOption={setHabilidades} />
         </div>
       </form>
+      {
+        error !== '' && <p className='text-center mt-4 dark:text-white'>{error}</p>
+      }
       <section className="flex justify-between mt-4 mx-4">
         <button
           onClick={() => nextTab(1)}
           type="button"
-          className="border-2 border-principal-600 text-principal-600 rounded-xl py-2 px-4 dark:bg-zinc-700 mt-7 mb-5 mx-4 text-sm sm:text-base outline-none"
+          className="border-2 border-principal-600 text-principal-600 rounded-xl py-2 px-4 dark:bg-zinc-700 mt-7 mb-5 mx-4 text-sm sm:text-base outline-none dark:border-zinc-400 dark:text-white"
         >
           Anterior
         </button>
-        <button onClick={registrar} className='bg-principal-600 border-none text-white rounded-xl py-2 px-4 mt-7 mb-5 mx-4 text-sm sm:text-base outline-none hover:opacity-80 transition-opacity duration-300'>Registrar</button>
+        <button onClick={registrar} className='bg-principal-600 border-none text-white rounded-xl py-2 px-4 mt-7 mb-5 mx-4 text-sm sm:text-base outline-none hover:opacity-80 transition-opacity duration-300 dark:bg-zinc-200 dark:text-black'>Registrar</button>
       </section>
     </section>
   );

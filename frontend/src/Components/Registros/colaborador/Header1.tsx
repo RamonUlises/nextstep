@@ -19,7 +19,7 @@ export const Header1 = ({
   };
 
   const deleteImagen = () => {
-    setImagen('');
+    setImagen('sin-imagen');
   };
   return (
     <div className="sm:flex sm:px-4 ">
@@ -35,7 +35,7 @@ export const Header1 = ({
       <div className="flex flex-col items-center sm:w-[30%] mt-2 sm:mt-0">
         <div className='flex items-center gap-3'>
           <label className="cursor-pointer">
-            {imagen ? (
+            {imagen !== 'sin-imagen' ? (
               <img
                 src={imagen}
                 alt="foto de perfil"
@@ -51,7 +51,7 @@ export const Header1 = ({
               accept="image/*"
             />
           </label>
-          { imagen && <X className='text-red-500 cursor-pointer' onClick={deleteImagen} /> }
+          { imagen !== 'sin-imagen' && <X className='text-red-500 cursor-pointer' onClick={deleteImagen} /> }
         </div>
         <div>
           <p className="text-sm dark:text-white">foto de perfil</p>

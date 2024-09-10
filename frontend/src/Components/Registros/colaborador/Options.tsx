@@ -26,7 +26,7 @@ export const Options = ({
 
   return (
     <div className="flex justify-center items-center gap-4">
-      <label>{text}</label>
+      <label className='dark:text-white'>{text}</label>
       <Select onValueChange={handleOption}>
         <SelectTrigger className="w-[80px] justify-evenly border-none bg-slate-300 dark:bg-zinc-700 dark:text-white">
           <SelectValue placeholder={option ? 'Si' : 'No'} />

@@ -7,12 +7,14 @@ import { TypeColaboradores } from '@/types/colaboradores';
 type Redes = { id: string; red: string | undefined; url: string | undefined };
 
 export const Colaborador1 = ({
-  nextTab,
+  error,
   colaborador,
+  nextTab,
   setColaborador,
 }: {
-  nextTab: (num: number) => void;
+  error: string;
   colaborador: TypeColaboradores;
+  nextTab: (num: number) => void;
   setColaborador: React.Dispatch<React.SetStateAction<TypeColaboradores>>;
 }) => {
   const [red, setRed] = useState<Redes[]>(
@@ -28,8 +30,12 @@ export const Colaborador1 = ({
   const [telefono, setTelefono] = useState<string>(colaborador.telefono);
   const [email, setEmail] = useState<string>(colaborador.email);
   const [contrasena, setContrasena] = useState<string>(colaborador.contrasena);
-  const [descripcion, setDescripcion] = useState<string>(colaborador.descripcion);
-  const [redesSociales, setRedesSociales] = useState<string[]>(colaborador['redes-sociales']);
+  const [descripcion, setDescripcion] = useState<string>(
+    colaborador.descripcion
+  );
+  const [redesSociales, setRedesSociales] = useState<string[]>(
+    colaborador['redes-sociales']
+  );
   const [imagen, setImagen] = useState<string>(colaborador.imagen ?? '');
 
   const addNewRed = () => {
@@ -65,7 +71,12 @@ export const Colaborador1 = ({
     const redesSoc: string[] = [];
 
     for (const r of red) {
-      if (r.red !== undefined && r.red !== '' && r.url !== undefined && r.url !== '') {
+      if (
+        r.red !== undefined &&
+        r.red !== '' &&
+        r.url !== undefined &&
+        r.url !== ''
+      ) {
         redesSoc.push(`${r.red}:${r.url}`);
       }
     }
@@ -78,11 +89,11 @@ export const Colaborador1 = ({
     const newRedes = redes.filter((r) => r !== prop);
     setRedes(newRedes);
 
-    if(prop === undefined) return;
+    if (prop === undefined) return;
 
     const redesSoc: string[] = [];
-    for(const reds of redesSociales){
-      if(reds.split(':')[0] !== prop){
+    for (const reds of redesSociales) {
+      if (reds.split(':')[0] !== prop) {
         redesSoc.push(reds);
       }
     }
@@ -112,14 +123,19 @@ export const Colaborador1 = ({
     const redesSoc: string[] = [];
 
     for (const r of red) {
-      if (r.red !== undefined && r.red !== '' && r.url !== undefined && r.url !== '') {
+      if (
+        r.red !== undefined &&
+        r.red !== '' &&
+        r.url !== undefined &&
+        r.url !== ''
+      ) {
         redesSoc.push(`${r.red}:${r.url}`);
       }
     }
     setRedesSociales(redesSoc);
   };
 
-  useEffect(() => { 
+  useEffect(() => {
     setColaborador((prevColaborador) => ({
       ...prevColaborador,
       nombres,
@@ -131,18 +147,58 @@ export const Colaborador1 = ({
       'redes-sociales': redesSociales,
       imagen,
     }));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [redesSociales, redes, nombres, usuario, telefono, email, contrasena, descripcion, imagen]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    redesSociales,
+    redes,
+    nombres,
+    usuario,
+    telefono,
+    email,
+    contrasena,
+    descripcion,
+    imagen,
+  ]);
 
   return (
     <section>
       <Header1 setImagen={setImagen} imagen={imagen} />
       <form className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center">
-        <Inputs value={colaborador.nombres} setProp={setNombres} type="text" placeholder="Nombres" name="nombres" />
-        <Inputs value={colaborador.usuario} setProp={setUsuario} type="text" placeholder="Usuario" name="usuario" />
-        <Inputs value={colaborador.telefono} setProp={setTelefono} type="text" placeholder="Teléfono" name="telefono" />
-        <Inputs value={colaborador.email} setProp={setEmail} type="email" placeholder="Correo" name="email" />
-        <Inputs value={colaborador.contrasena} setProp={setContrasena} type="password" placeholder="Contraseña" name="contrasena" />
+        <Inputs
+          value={colaborador.nombres}
+          setProp={setNombres}
+          type="text"
+          placeholder="Nombres y apellidos"
+          name="nombres"
+        />
+        <Inputs
+          value={colaborador.usuario}
+          setProp={setUsuario}
+          type="text"
+          placeholder="Usuario"
+          name="usuario"
+        />
+        <Inputs
+          value={colaborador.telefono}
+          setProp={setTelefono}
+          type="text"
+          placeholder="Teléfono"
+          name="telefono"
+        />
+        <Inputs
+          value={colaborador.email}
+          setProp={setEmail}
+          type="text"
+          placeholder="Correo"
+          name="email"
+        />
+        <Inputs
+          value={colaborador.contrasena}
+          setProp={setContrasena}
+          type="password"
+          placeholder="Contraseña"
+          name="contrasena"
+        />
         <section className="flex flex-col w-full sm:col-span-2">
           <h4 className="text-center dark:text-white">Redes sociales</h4>
           <div>
@@ -180,12 +236,17 @@ export const Colaborador1 = ({
             className="outline-none p-2 font-light  shadow drop-shadow rounded dark:bg-zinc-700 dark:text-white"
           ></textarea>
         </section>
+        {error && (
+          <div className="flex flex-col w-full sm:col-span-2 mt-4">
+            <p className="text-red-500 text-center">{error}</p>
+          </div>
+        )}
       </form>
       <section className="flex justify-end mt-4 mx-4">
         <button
           onClick={() => nextTab(2)}
           type="button"
-          className="border-2 border-principal-600 text-principal-600 rounded-xl py-2 px-4 dark:bg-zinc-700 mt-7 mb-5 text-sm sm:text-base"
+          className="border-2 border-principal-600 text-principal-600 rounded-xl py-2 px-4 dark:bg-zinc-700 mt-7 mb-5 text-sm sm:text-base dark:border-zinc-400 dark:text-white"
         >
           Siguiente
         </button>
