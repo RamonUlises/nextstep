@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ChangeTheme } from './ChangeTheme';
 import loader from '../assets/loader-menu.svg';
 import { obtenerCookie } from '../utils/cookies';
-import { TypeTrabajadores } from '../types/trabajadores';
+import { TypeColaboradores } from '../types/colaboradores';
 import { TypeEmpresa } from '../types/empresas';
 import { obtenerInfo } from '../lib/obtenerInfo';
 
@@ -12,8 +12,8 @@ type StateMenu = 'logueando' | 'logueado' | 'deslogueado';
 
 export const MenuDesktop = () => {
   const [state, setState] = useState<StateMenu>('deslogueado');
-  const [user, setUser] = useState<TypeTrabajadores | TypeEmpresa>(
-    {} as TypeTrabajadores | TypeEmpresa
+  const [user, setUser] = useState<TypeColaboradores | TypeEmpresa>(
+    {} as TypeColaboradores | TypeEmpresa
   );
 
   useEffect(() => {
