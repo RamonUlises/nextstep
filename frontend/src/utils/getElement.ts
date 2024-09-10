@@ -14,3 +14,12 @@ export const getElement = (element: string[]): InfoCol[] => {
     value: '',
   }];
 };
+
+export function addNewArray(option: InfoCol[]): string[]{
+  const newArray: string[] = [];
+  for(const op of option) {
+    if(op.value !== '') newArray.push(op.value);
+  }
+
+  return newArray;
+}

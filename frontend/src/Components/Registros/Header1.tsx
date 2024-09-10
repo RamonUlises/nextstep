@@ -2,9 +2,13 @@ import { Image, X } from 'lucide-react';
 
 export const Header1 = ({
   imagen,
+  titulo,
+  text,
   setImagen,
 }: {
   imagen: string;
+  titulo: string;
+  text: string;
   setImagen: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   const changeImagen = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,11 +29,10 @@ export const Header1 = ({
     <div className="sm:flex sm:px-4 ">
       <div className="sm:w-[70%] sm:flex sm:flex-col sm:justify-center dark:text-white">
         <h4 className="text-center font-semibold  sm:text-start sm:text-xl ">
-          Información personal
+          {titulo}
         </h4>
         <p className="text-sm text-pretty">
-          Cuéntanos un poco sobre ti. Esta información aparecerá en tu perfil
-          público, para que los compradores potenciales puedan conocerte mejor.
+          {text}
         </p>
       </div>
       <div className="flex flex-col items-center sm:w-[30%] mt-2 sm:mt-0">

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Options } from './Options';
 import { OptionsInfo } from '../OptionsInfo';
 import { TypeColaboradores } from '@/types/colaboradores';
-import { getElement, InfoCol } from '@/utils/getElement';
+import { addNewArray, getElement, InfoCol } from '@/utils/getElement';
 
 export const Colaborador2 = ({
   colaborador,
@@ -25,15 +25,6 @@ export const Colaborador2 = ({
 
   const [primaria, setPrimaria] = useState<boolean>(colaborador['educacion-primaria']);
   const [secundaria, setSecundaria] = useState<boolean>(colaborador['educacion-secundaria']);
-
-  function addNewArray(option: InfoCol[]): string[]{
-    const newArray: string[] = [];
-    for(const op of option) {
-      if(op.value !== '') newArray.push(op.value);
-    }
-
-    return newArray;
-  }
 
   useEffect(() => {
     setColaborador((prevColaborador) => ({

@@ -2,7 +2,6 @@ import { Colaborador1 } from '@/Components/Registros/colaborador/Colaborador1';
 import { Colaborador2 } from '@/Components/Registros/colaborador/Colaborador2';
 import { TypeColaboradores } from '@/types/colaboradores';
 import { validateColaborador } from '@/utils/validateColaborador';
-//import { validateColaborador } from '@/utils/validateColaborador';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { useState } from 'react';
 import Colaborador from '@/lib/colaboradores';

@@ -8,21 +8,54 @@ import {
   SelectValue,
 } from '../ui/select';
 import { Minus } from 'lucide-react';
+import { Redes } from '@/utils/redesComponent';
 
-export function InputsRedes ({
+export function InputsRedes({
   redes,
   change,
   deleteInput,
   changeProp,
   propiedad,
-  valor
+  valor,
+  red,
+  setRedesSociales,
+  setRed,
+  setRedes,
+  redesSociales,
+  options,
 }: {
   redes: string[];
-  change: (event: { prop: string | undefined; value: string }) => void;
-  deleteInput: (prop: string | undefined) => void;
-  changeProp: (event: { prop: string | undefined; newProp: string | undefined; value: string | undefined }) => void;
+  change: (event: {
+    prop: string | undefined;
+    value: string;
+    red: Redes[];
+    setRedesSociales: React.Dispatch<React.SetStateAction<string[]>>;
+  }) => void;
+  deleteInput: (
+    prop: string | undefined,
+    red: Redes[],
+    redes: string[],
+    setRed: React.Dispatch<React.SetStateAction<Redes[]>>,
+    setRedes: React.Dispatch<React.SetStateAction<string[]>>,
+    redesSociales: string[],
+    setRedesSociales: React.Dispatch<React.SetStateAction<string[]>>
+  ) => void;
+  changeProp: (event: {
+    prop: string | undefined;
+    newProp: string | undefined;
+    value: string | undefined;
+    red: Redes[];
+    setRedes: React.Dispatch<React.SetStateAction<string[]>>;
+    setRedesSociales: React.Dispatch<React.SetStateAction<string[]>>;
+  }) => void;
   propiedad: string | undefined;
   valor: string | undefined;
+  red: Redes[];
+  setRedesSociales: React.Dispatch<React.SetStateAction<string[]>>;
+  setRed: React.Dispatch<React.SetStateAction<Redes[]>>;
+  setRedes: React.Dispatch<React.SetStateAction<string[]>>;
+  redesSociales: string[];
+  options: string[];
 }) {
   const [prop, setProp] = useState<string | undefined>(undefined);
   const [value, setValue] = useState<string>(valor !== undefined ? valor : '');
@@ -30,11 +63,11 @@ export function InputsRedes ({
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
     setValue(newValue);
-    change({ prop, value: newValue });
+    change({ prop, value: newValue, red, setRedesSociales });
   };
 
   const handlePropChange = (newProp: string) => {
-    changeProp({ prop, newProp, value });
+    changeProp({ prop, newProp, value, red, setRedes, setRedesSociales });
     setProp(newProp);
   };
 
@@ -43,25 +76,24 @@ export function InputsRedes ({
       <section className="flex my-2 justify-center items-center">
         <Select onValueChange={handlePropChange} name="prop">
           <SelectTrigger className="w-auto border-none bg-slate-300 rounded-none rounded-s-xl dark:bg-zinc-700 dark:text-white">
-            <SelectValue placeholder={propiedad === undefined ? 'Redes' : propiedad} />
+            <SelectValue
+              placeholder={propiedad === undefined ? 'Redes' : propiedad}
+            />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectItem disabled={redes.includes('facebook')} className="cursor-pointer" value="facebook">
-                Facebook
-              </SelectItem>
-              <SelectItem disabled={redes.includes('instagram')} className="cursor-pointer" value="instagram">
-                Instagram
-              </SelectItem>
-              <SelectItem disabled={redes.includes('x')} className="cursor-pointer" value="x">
-                X
-              </SelectItem>
-              <SelectItem disabled={redes.includes('whatsapp')} className="cursor-pointer" value="whatsapp">
-                WhatsApp
-              </SelectItem>
-              <SelectItem disabled={redes.includes('tiktok')} className="cursor-pointer" value="tiktok">
-                Tiktok
-              </SelectItem>
+              {
+                options.map(option => (
+                  <SelectItem
+                    disabled={redes.includes(option)}
+                    className="cursor-pointer"
+                    value={option}
+                    key={option}
+                  >
+                    {option}
+                  </SelectItem>
+                ))
+              }
             </SelectGroup>
           </SelectContent>
         </Select>
@@ -73,8 +105,11 @@ export function InputsRedes ({
           placeholder="Nombre o url"
           onChange={onInputChange}
         />
-        <Minus onClick={() => deleteInput(prop)} className='text-white bg-red-600 rounded-full ml-2 cursor-pointer' />
+        <Minus
+          onClick={() => deleteInput(prop, red, redes, setRed, setRedes, redesSociales, setRedesSociales)}
+          className="text-white bg-red-600 rounded-full ml-2 cursor-pointer"
+        />
       </section>
     </>
   );
-};
+}

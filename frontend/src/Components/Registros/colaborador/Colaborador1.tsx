@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Header1 } from './Header1';
+import { Header1 } from '../Header1';
 import { Inputs } from '../Inputs';
 import { InputsRedes } from '../InputsRedes';
 import { TypeColaboradores } from '@/types/colaboradores';
-
-type Redes = { id: string; red: string | undefined; url: string | undefined };
+import { addNewRed, changeProp, handleChange, handleDeleteInput, Redes } from '@/utils/redesComponent';
+import { TextTarea } from '../TextTarea';
 
 export const Colaborador1 = ({
   error,
@@ -36,104 +36,7 @@ export const Colaborador1 = ({
   const [redesSociales, setRedesSociales] = useState<string[]>(
     colaborador['redes-sociales']
   );
-  const [imagen, setImagen] = useState<string>(colaborador.imagen ?? '');
-
-  const addNewRed = () => {
-    if (red.length > 4) return;
-
-    for (const r of red) {
-      if (r.red === undefined || r.url === undefined || r.url === '') return;
-    }
-
-    setRed([
-      ...red,
-      { id: crypto.randomUUID(), red: undefined, url: undefined },
-    ]);
-  };
-
-  const handleChange = ({
-    prop,
-    value,
-  }: {
-    prop: string | undefined;
-    value: string;
-  }) => {
-    for (const r of red) {
-      if (prop !== undefined) {
-        if (r.red !== prop && r.red === undefined) {
-          r.red = prop;
-        }
-        if (r.red === prop) {
-          r.url = value;
-        }
-      }
-    }
-    const redesSoc: string[] = [];
-
-    for (const r of red) {
-      if (
-        r.red !== undefined &&
-        r.red !== '' &&
-        r.url !== undefined &&
-        r.url !== ''
-      ) {
-        redesSoc.push(`${r.red}:${r.url}`);
-      }
-    }
-    setRedesSociales(redesSoc);
-  };
-
-  const handleDeleteInput = (prop: string | undefined) => {
-    setRed(red.filter((r) => r.red !== prop));
-
-    const newRedes = redes.filter((r) => r !== prop);
-    setRedes(newRedes);
-
-    if (prop === undefined) return;
-
-    const redesSoc: string[] = [];
-    for (const reds of redesSociales) {
-      if (reds.split(':')[0] !== prop) {
-        redesSoc.push(reds);
-      }
-    }
-    setRedesSociales(redesSoc);
-  };
-
-  const changeProp = ({
-    prop,
-    newProp,
-    value,
-  }: {
-    prop: string | undefined;
-    newProp: string | undefined;
-    value: string | undefined;
-  }) => {
-    for (const r of red) {
-      if (r.red === prop) {
-        r.red = newProp;
-      }
-      if (r.url === undefined) {
-        r.url = value;
-      }
-    }
-    const redesS = red.filter((r) => r.red !== undefined).map((r) => r.red!);
-    setRedes(redesS);
-
-    const redesSoc: string[] = [];
-
-    for (const r of red) {
-      if (
-        r.red !== undefined &&
-        r.red !== '' &&
-        r.url !== undefined &&
-        r.url !== ''
-      ) {
-        redesSoc.push(`${r.red}:${r.url}`);
-      }
-    }
-    setRedesSociales(redesSoc);
-  };
+  const [imagen, setImagen] = useState<string>(colaborador.imagen);
 
   useEffect(() => {
     setColaborador((prevColaborador) => ({
@@ -162,7 +65,7 @@ export const Colaborador1 = ({
 
   return (
     <section>
-      <Header1 setImagen={setImagen} imagen={imagen} />
+      <Header1 text={'Cuéntanos un poco sobre ti. Esta información aparecerá en tu perfil público, para que los compradores potenciales puedan conocerte mejor.'} titulo='Información personal' setImagen={setImagen} imagen={imagen} />
       <form className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center">
         <Inputs
           value={colaborador.nombres}
@@ -205,6 +108,11 @@ export const Colaborador1 = ({
             {red.map((r) => {
               return (
                 <InputsRedes
+                  red={red}
+                  redesSociales={redesSociales}
+                  setRedes={setRedes}
+                  setRed={setRed}
+                  setRedesSociales={setRedesSociales}
                   changeProp={changeProp}
                   deleteInput={handleDeleteInput}
                   redes={redes}
@@ -212,6 +120,7 @@ export const Colaborador1 = ({
                   key={r.id}
                   propiedad={r.red}
                   valor={r.url}
+                  options={['facebook', 'instagram', 'whatsapp', 'x', 'tiktok']}
                 />
               );
             })}
@@ -220,7 +129,7 @@ export const Colaborador1 = ({
             <button
               type="button"
               className="bg-principal-500 text-white flex justify-center items-center py-1 px-2 rounded gap-1 text-sm dark:bg-zinc-600 mt-2"
-              onClick={addNewRed}
+              onClick={() => addNewRed(red, setRed)}
               disabled={red.length > 4}
             >
               Añadir
@@ -228,13 +137,7 @@ export const Colaborador1 = ({
           </div>
         </section>
         <section className="flex flex-col sm:col-span-2 w-full max-w-[600px] px-5 mt-3">
-          <label className="text-sm dark:text-white">Descripción</label>
-          <textarea
-            value={colaborador.descripcion}
-            onChange={(e) => setDescripcion(e.target.value)}
-            name="descripcion"
-            className="outline-none p-2 font-light  shadow drop-shadow rounded dark:bg-zinc-700 dark:text-white"
-          ></textarea>
+          <TextTarea setDescripcion={setDescripcion} text='Descripción' value={colaborador.descripcion} />
         </section>
         {error && (
           <div className="flex flex-col w-full sm:col-span-2 mt-4">
