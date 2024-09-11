@@ -9,7 +9,7 @@ const empresasSchema = new mongoose.Schema({
   'telefono': { type: Array, required: true },
   'email': { type: Array, required: true },
   'contrasena': { type: String, required: true },
-  'sitio-web': { type: String, required: false },
+  'sitio-web': { type: String, required: true },
   'direccion': { type: Array, required: true },
   'objetivos': { type: Array, required: true },
   'redes-sociales': { type: Array, required: true },

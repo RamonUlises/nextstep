@@ -20,7 +20,7 @@ const trabajadoresSchema = new mongoose.Schema({
   'puntos': { type: Number, required: true },
   'puntuacion': { type: Number, required: true },
   'saldo': { type: Number, required: true },
-  'imagen-2': { type: String, required: false },
+  'imagen-2': { type: String, required: true },
 });
 
 const Trabajadores = mongoose.model('Trabajadores', trabajadoresSchema);
