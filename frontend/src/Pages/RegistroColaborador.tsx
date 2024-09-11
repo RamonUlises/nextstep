@@ -17,6 +17,7 @@ export const RegistroColaborador = () => {
     contrasena: '',
     'redes-sociales': [],
     imagen: 'sin-imagen',
+    'imagen-2': 'sin-imagen',
     descripcion: '',
     'educacion-primaria': false,
     'educacion-secundaria': false,
@@ -46,15 +47,27 @@ export const RegistroColaborador = () => {
     try {
       validateColaborador(colaborador);
 
-      const response = await Colaborador.agregarColaborador(colaborador);
-
-      if (response.status === 200) {
-        setError2('Bienvenido a NextStep');
+      try {
+        const response = await Colaborador.agregarColaborador(colaborador);
+        
+        if(response.status === 200){
+          setError2('Bienvenido a NextStep');
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 4000);
+        }
+      } catch (error) {
+        if(error instanceof Error){
+          setError2('Error al enviar los datos');
+        } else if (typeof error === 'object' && error != null && 'data' in error){
+          const err = error as { data: { message: string; status: number }};
+          setError2(err.data.message);
+        } else {
+          setError2('Error al enviar los datos');
+        }
       }
-
-      setError2(response.data.message);
-    } catch {
-      setError2('Error al registrar el colaborador');
+    } catch(error) {
+      setError2(error as string);
     }
   };
 

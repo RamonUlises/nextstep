@@ -18,4 +18,5 @@ export interface TypeTrabajadores {
   'puntos': number;
   'puntuacion': number;
   'saldo': number;
+  'imagen-2': string;
 };

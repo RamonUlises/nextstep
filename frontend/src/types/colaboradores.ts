@@ -18,4 +18,5 @@ export interface TypeColaboradores {
   'puntos': number;
   'puntuacion': number;
   'saldo': number;
+  'imagen-2': string;
 };

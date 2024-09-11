@@ -27,6 +27,7 @@ const schema = zod.object({
   'certificados': string().array(),
   'referencias': string().array(),
   'habilidades': string().array(),
+  'imagen-2': string().optional(),
 });
 
 class Trabajadores {

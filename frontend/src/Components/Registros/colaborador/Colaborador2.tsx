@@ -59,7 +59,7 @@ export const Colaborador2 = ({
         </div>
       </form>
       {
-        error !== '' && <p className='text-center mt-4 dark:text-white'>{error}</p>
+        error !== '' && <p className={`text-center mt-4 ${error === 'Bienvenido a NextStep' ? 'text-black dark:text-white' : 'text-red-500'}`}>{error}</p>
       }
       <section className="flex justify-between mt-4 mx-4">
         <button

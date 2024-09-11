@@ -1,5 +1,6 @@
 import { Empresa1 } from '@/Components/Registros/Empresa/Empresa1';
 import { Empresa2 } from '@/Components/Registros/Empresa/Empresa2';
+import empresas from '@/lib/empresas';
 import { TypeEmpresa } from '@/types/empresas';
 import { validateEmpresa, validationEmpresa } from '@/utils/validateEmpresa';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
@@ -38,11 +39,31 @@ export const RegistroEmpresa = () => {
     }
   };
 
-  const registrar = () => {
+  const registrar = async () => {
     try {
       setError('');
       validateEmpresa(empresa);
-      
+      try {
+        const response = await empresas.crearEmpresa(empresa);
+        if(response.status === 200){
+          setError('Datos enviados');
+
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 4000);
+        }
+
+        return;
+      } catch (error) {
+        if(error instanceof Error){
+          setError('Error al enviar los datos');
+        } else if (typeof error === 'object' && error != null && 'data' in error){
+          const err = error as { data: { message: string; status: number }};
+          setError(err.data.message);
+        } else {
+          setError('Error al enviar los datos');
+        }
+      }
     } catch (error) {
       setError(error as string);
     }
