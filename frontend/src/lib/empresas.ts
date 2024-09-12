@@ -36,6 +36,10 @@ class Empresas {
     empresa: TypeEmpresa
   ): Promise<{ data: string; status: number }> {
     try {
+      if(empresa['sitio-web'] === ''){
+        empresa['sitio-web'] = 'sin-sitio-web';
+      };
+
       const response = await axios.post(
         `${url}/empresas`,
         empresa,

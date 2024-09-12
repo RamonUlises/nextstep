@@ -44,9 +44,6 @@ export const RegistroEmpresa = () => {
       setError('');
       validateEmpresa(empresa);
       try {
-        if(empresa['sitio-web'] === ''){
-          empresa['sitio-web'] = 'sin-sitio-web';
-        };
         const response = await empresas.crearEmpresa(empresa);
         if(response.status === 200){
           setError('Datos enviados');

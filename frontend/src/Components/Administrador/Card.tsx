@@ -46,7 +46,7 @@ export const Card = ({ empresa }: { empresa: TypeEmpresa }) => {
       <button
         disabled={empresa.verificado}
         onClick={aceptEmpresa}
-        className="bg-white text-slate-400 px-2 py-1 rounded-xl"
+        className="bg-white text-slate-600 px-2 py-1 rounded-xl"
       >
         Aceptar empresa
       </button>

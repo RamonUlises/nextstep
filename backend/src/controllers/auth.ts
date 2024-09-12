@@ -47,6 +47,17 @@ class Auth {
       console.log(error);
     }
   }
+
+  accessAdmin(req: Request, res: Response) {
+    const { contrasena } = req.body as { contrasena: string };
+    const pass = process.env.PASSWORD_ADMINISTRATOR;
+    if (contrasena !== pass) {
+      res.status(400).json({ message: 'Contraseña incorrecta' });
+      return;
+    }
+
+    res.status(200).json({ message: 'Login correcto' });
+  };
 }
 
 const auth = new Auth();

@@ -19,3 +19,17 @@ export async function auth(user: {
     }
   }
 }
+
+export async function adminAccess(contrasena: string): Promise<{ data: { message: string; id: string}; status: number; }> {
+  try {
+    const response = await axios.post(`${url}/auth/access-admin`, { contrasena }, authA.options);
+
+    return { data: response.data, status: response.status };
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response) {
+      return { data: error.response.data, status: error.response.status };
+    } else {
+      return { data: { message: 'Unknown error', id: 'undefined' }, status: 500 };
+    }
+  }
+}
