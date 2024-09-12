@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 export const ButtonsIndex = ({ text, url }: { text: string; url: string }) => {
   return (
     <>
-      <Link to={url} className="css-button dark:bg-zinc-700 text-center bg-[#FA7C15] text-white flex p-[0.35em] pl-[1.2em] text-lg rounded-[0.9em] items-center overflow-hidden relative h-[2.8em] pr-[3.3em] cursor-pointer w-[190px]">
+      <Link to={url} className="css-button dark:bg-zinc-700 text-center bg-[#FA7C15] text-white flex p-[0.35em] pl-[1.2em] text-lg rounded-[0.9em] items-center overflow-hidden relative h-[2.8em] pr-[3.3em] cursor-pointer w-[190px] z-30">
         <span className="w-full text-center">{text}</span>
         <div className="icon bg-white ml-[1em] absolute flex items-center justify-center h-[2.2em] w-[2.2em] rounded-[0.7em] right-[0.3em] transition-all duration-700">
           <svg
