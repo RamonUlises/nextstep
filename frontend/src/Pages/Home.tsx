@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import { LayoutAtropos } from '@/Components/LayoutAtropos';
 import { MenuDesktop } from '../Components/MenuDesktop';
 import { ButtonsIndex } from '../Components/Home/ButtonsIndex';
 import { MenuMovil } from '../Components/MenuMovil';
@@ -21,9 +21,17 @@ export const Home = () => {
   }, []);
   return (
     <>
-      <main className="flex flex-col h-screen overflow-hidden dark:bg-zinc-900/95 md:bg-[url(./assets/image-inicio.png)] bg-cover bg-no-repeat">
+      <main className="flex flex-col h-screen overflow-hidden dark:bg-zinc-900/95 md:bg-[url(./assets/flecha-inicio.png)] bg-cover bg-no-repeat relative">
         <MenuDesktop />
         <MenuMovil />
+        <LayoutAtropos
+          innerClass="w-32 h-32 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B]  dark:to-zinc-700 dark:from-zinc-600"
+          styles="absolute top-32 right-[87%]"
+        ></LayoutAtropos>
+        <LayoutAtropos
+          innerClass="w-16 h-16 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B]  dark:to-zinc-700 dark:from-zinc-600"
+          styles="absolute top-[250px] right-[75%]"
+        ></LayoutAtropos>
         <div className="flex flex-col md:mt-[103px] md:grid lg:grid-cols-[1fr,400px] md:grid-cols-[1fr,300px] lg:grid-rows-[1fr] md:h-full">
           <section className="static flex md:h-full md:items-end md:relative">
             <BallIndex />
@@ -45,10 +53,7 @@ export const Home = () => {
             ) : (
               <>
                 <ButtonsMovilIndex text="Empresa" url="/info-empresa" />
-                <ButtonsMovilIndex
-                  text="Colaborador"
-                  url="/info-colaborador"
-                />
+                <ButtonsMovilIndex text="Colaborador" url="/info-colaborador" />
               </>
             )}
             {/*  */}

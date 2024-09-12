@@ -39,7 +39,7 @@ export function validateColaborador(colaborador: TypeColaboradores): void {
   validateLength(contrasena, 'contrasena', 8, 25);
 
   // Validar descripción
-  validateString(descripcion, 'descripcion');
-  validateLength(descripcion, 'descripcion', 10, 500);
+  validateString(descripcion, 'descripción');
+  validateLength(descripcion, 'descripción', 10, 500);
 
 }

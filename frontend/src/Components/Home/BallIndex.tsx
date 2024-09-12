@@ -15,12 +15,14 @@ export const BallIndex = () => {
         </Link>
       </div>
       <h3 className="text-white lg:text-5xl md:text-4xl flex flex-col md:gap-5 md:absolute lg:top-[80px] lg:right-[18%] md:top-[90px] md:right-[30%] gap-[2px] text-2xl">
-        {' '}
-        <span>Conectando </span> <span>negocios,</span> <span>impulsando</span>{' '}
+        
+        <span>Sembrando </span> 
+        <span>talentos,</span> 
+        <span>cosechando</span>
         <span>oportunidades</span>
       </h3>
       <p className="text-white text-sm md:absolute lg:top-[360px] lg:right-[28%] flex flex-col md:top-[350px] md:right-[26%] mt-4 md:mt-0">
-        La plataforma donde las empresas{' '}
+        La plataforma donde las empresas
         <span>encuentran su futuro comercial</span>
       </p>
     </div>

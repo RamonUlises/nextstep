@@ -36,6 +36,7 @@ export const RegistroColaborador = () => {
   const nextTab = (num: number) => {
     try {
       setError('');
+      setError2('');
       validateColaborador(colaborador);
       setTab(num);
     } catch (error) {

@@ -110,7 +110,7 @@ export const Empresa2 = ({
       )}
       {
         error === 'Datos enviados' && (
-          <p className="text-center mt-4 text-principal-600">Si todo va bien se le dará una confirmación de su registro</p>
+          <p className="text-center mt-4 text-principal-600 dark:text-white">Si todo va bien se le dará una confirmación de su registro</p>
         )
       }
       <section className="flex justify-between mt-4 mx-4">

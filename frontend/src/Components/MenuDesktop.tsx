@@ -106,10 +106,10 @@ function Logueado({ nombre, img }: { nombre: string; img: string }) {
   return (
     <>
       <section className='flex justify-center items-center gap-2'>
-        <div className='bg-gradient-to-tl from-[#E75F0B] dark:from-zinc-800 to-[#C3480B] dark:to-zinc-700 px-4 lg:px-6 py-4 rounded-lg'>
+        <div className='bg-gradient-to-tl from-[#E75F0B] dark:from-zinc-800 to-[#C3480B] dark:to-zinc-700 px-4 lg:px-6 py-3 rounded-lg'>
           <ChangeTheme />
         </div>
-        <div className='bg-gradient-to-tl from-[#E75F0B] dark:from-zinc-800 to-[#C3480B] dark:to-zinc-700 px-4 lg:px-6 py-4 rounded-lg flex items-center gap-2'>
+        <div className='bg-gradient-to-tl from-[#E75F0B] dark:from-zinc-800 to-[#C3480B] dark:to-zinc-700 px-4 lg:px-6 py-3 rounded-lg flex items-center gap-2'>
           <h3>{nombre}</h3>
           <div className='w-[35px] h-[35px] rounded-full bg-slate-300 overflow-hidden'>
             {
