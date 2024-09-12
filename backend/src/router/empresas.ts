@@ -23,4 +23,8 @@ router.delete('/:id', (req, res) => {
   void empresas.eliminarEmpresa(req, res);
 });
 
+router.put('/aceptar/:id', (req, res) => {
+  void empresas.aceptarEmpresa(req, res);
+});
+
 export default router;

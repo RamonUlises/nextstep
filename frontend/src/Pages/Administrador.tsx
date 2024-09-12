@@ -9,6 +9,23 @@ export const Administrador = () => {
   const [verify, setVerify] = useState<boolean>(false);
   const [contrasena, setContrasena] = useState<string>('');
 
+  const aceptEmpresa = async (id: string) => {
+    try {
+      const response = await empresas.aceptarEmpresa(id);
+
+      if (response.status === 200) {
+        // eslint-disable-next-line no-console
+        console.log('Empresa aceptada');
+
+        const { data } = await empresas.obtenerEmpresas();
+        setEmpresasInfo(data);
+      }
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error);
+    }
+  };
+
   const handlePassword = async () => {
     try {
       const response = await adminAccess(contrasena);
@@ -44,9 +61,9 @@ export const Administrador = () => {
         <input onChange={handleChange} type="text" placeholder='Contraseña' className='pl-3 py-1 rounded-md outline-none' />
         <button onClick={handlePassword} className='text-black bg-white px-3 py-2 rounded-xl'>Acceder</button>
       </section>
-      <section className="flex flex-col gap-4 w-screen p-6">
+      <section className="flex flex-col h-screen gap-4 p-6 overflow-y-auto overflow-x-hidden z-40">
         {empresasInfo.map((empresa) => (
-          <Card empresa={empresa} key={empresa.id} />
+          <Card aceptEmpresa={aceptEmpresa} empresa={empresa} key={empresa.id} />
         ))}
       </section>
     </>

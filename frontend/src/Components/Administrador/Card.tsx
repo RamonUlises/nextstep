@@ -1,7 +1,6 @@
 import { TypeEmpresa } from '@/types/empresas';
 
-export const Card = ({ empresa }: { empresa: TypeEmpresa }) => {
-  const aceptEmpresa = () => {};
+export const Card = ({ empresa, aceptEmpresa }: { empresa: TypeEmpresa, aceptEmpresa: (id: string) => void }) => {
   return (
     <article className="bg-slate-600 text-white rounded-2xl p-6">
       <p>Nombre: {empresa.nombre}</p>
@@ -45,8 +44,8 @@ export const Card = ({ empresa }: { empresa: TypeEmpresa }) => {
 
       <button
         disabled={empresa.verificado}
-        onClick={aceptEmpresa}
-        className="bg-white text-slate-600 px-2 py-1 rounded-xl"
+        onClick={() => aceptEmpresa(empresa.id)}
+        className={`${empresa.verificado ? 'bg-black text-white' : 'bg-white text-slate-600'}  px-2 py-1 rounded-xl`}
       >
         Aceptar empresa
       </button>

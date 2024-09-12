@@ -142,6 +142,23 @@ class Empresa {
       res.status(500).json({ message: 'Error al eliminar la empresa', error });
     }
   }
+  async aceptarEmpresa(req: Request, res: Response): Promise<void> {
+    try {
+      const { id } = req.params;
+      const data: TypeEmpresa[] = await requestDataBaseEmpresa.obtenerEmpresa(id);
+
+      if(data.length === 0) {
+        res.status(404).json({ message: 'Empresa no encontrada' });
+        return;
+      }
+
+      await requestDataBaseEmpresa.aceptarEmpresa(id);
+
+      res.status(200).json({ message: 'Empresa aceptada con éxito' });
+    } catch (error) {
+      res.status(500).json({ message: 'Error al aceptar la empresa', error });
+    }
+  }
 }
 
 const empresas = new Empresa();

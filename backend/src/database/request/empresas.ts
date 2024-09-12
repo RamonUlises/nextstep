@@ -49,6 +49,13 @@ class RequesDatabase {
       throw new Error('Error al obtener la empresa');
     }
   }
+  async aceptarEmpresa(id: string): Promise<void> {
+    try {
+      await empresas.updateOne({ id }, { verificado: true });
+    } catch {
+      throw new Error('Error al aceptar la empresa');
+    }
+  };
 }
 
 const requestDatabase = new RequesDatabase();
