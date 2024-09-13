@@ -1,8 +1,10 @@
 import {
+  Book,
   Computer,
   LogOut,
   Moon,
   PawPrintIcon,
+  PencilRuler,
   Sun,
   User,
 } from 'lucide-react';
@@ -11,7 +13,6 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuSub,
@@ -23,26 +24,38 @@ import { Button } from './ui/button';
 import { Settings } from '@/icons/Settings';
 import { changeThemeClick } from '@/utils/changeThemeClick';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { cookieExist } from '@/utils/cookies';
 
 export const OptionsMenuMovil = () => {
+  const [login] = useState(
+    cookieExist('UserId')
+  );
+
+  function logOut() {
+    document.cookie = 'UserId=; max-age=0';
+    window.location.href = '/';
+  }
+
   return (
     <>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" className='bg-transparent dark:bg-transparent border-0 hover:bg-transparent dark:hover:bg-transparent active:outline-none h-[80px]'>
+          <Button
+            variant="outline"
+            className="bg-transparent dark:bg-transparent border-0 hover:bg-transparent dark:hover:bg-transparent active:outline-none h-[80px]"
+          >
             <Settings />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56 z-20">
-          <DropdownMenuLabel>Mi perfil</DropdownMenuLabel>
-          <DropdownMenuSeparator />
+        <DropdownMenuContent className="w-56 z-40">
           <DropdownMenuGroup>
-            <DropdownMenuItem>
-              <User className="mr-2 h-4 w-4" />
-              <Link to={'/login'}>Iniciar sesión</Link>
+            <DropdownMenuItem disabled={!login}>
+              <Link to="/perfil" className="w-full flex items-center">
+                <User className="mr-2 h-4 w-4" />
+                Perfil
+              </Link>
             </DropdownMenuItem>
-          </DropdownMenuGroup>
-          <DropdownMenuGroup>
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>
                 <PawPrintIcon className="mr-2 h-4 w-4" />
@@ -66,8 +79,20 @@ export const OptionsMenuMovil = () => {
               </DropdownMenuPortal>
             </DropdownMenuSub>
           </DropdownMenuGroup>
+          <DropdownMenuItem>
+            <Link to="/blog" className="w-full flex items-center">
+              <Book className="mr-2 h-4 w-4" />
+              Blog
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Link to="/talleres" className="w-full flex items-center">
+              <PencilRuler className="mr-2 h-4 w-4" />
+              Talleres
+            </Link>
+          </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem disabled>
+          <DropdownMenuItem onClick={logOut} disabled={!login}>
             <LogOut className="mr-2 h-4 w-4" />
             <span>Cerrar sesión</span>
           </DropdownMenuItem>

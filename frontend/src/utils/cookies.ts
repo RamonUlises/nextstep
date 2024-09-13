@@ -10,3 +10,12 @@ export function obtenerCookie(name: string) {
   const parts = value.split(`; ${name}=`);
   if (parts.length === 2) return parts.pop()?.split(';').shift();
 }
+
+export function eliminarCookie(name: string) {
+  document.cookie = `${name}=; max-age=0`;
+}
+
+export function cookieExist(name: string) {
+  const cookie = obtenerCookie(name);
+  return cookie !== undefined;
+}

@@ -31,9 +31,9 @@ export const Home = () => {
         />
         <LayoutAtropos
           innerClass="w-16 h-16 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B] dark:to-zinc-700 dark:from-zinc-600"
-          styles="absolute top-[70%] left-[70%] md:top-[250px] md:left-[22%] z-20"
+          styles="absolute top-[70%] left-[70%] md:top-[200px] md:left-[22%] z-20"
         />
-        <img src={imagen} alt="" className='hidden md:block absolute z-10 w-[800px] bottom-0 left-[12%] lg:left-[25%]'/>
+        <img src={imagen} alt="" className='h-[85vh] w-auto hidden md:block absolute z-10 bottom-0 left-[12%] lg:left-[25%]'/>
         <div className="flex flex-col md:mt-[103px] md:grid lg:grid-cols-[1fr,400px] md:grid-cols-[1fr,300px] lg:grid-rows-[1fr] md:h-full">
           <section className="static flex md:h-full md:items-end md:relative">
             <BallIndex />
