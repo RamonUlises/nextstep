@@ -22,7 +22,7 @@ export const Home = () => {
   }, []);
   return (
     <>
-      <main className="flex flex-col  h-screen overflow-hidden dark:bg-zinc-900/95 bg-cover bg-no-repeat relative md:bg-[url(./assets/rueda-inicio-claro.png)] bg-[-80px]">
+      <main className="flex flex-col h-screen overflow-hidden dark:bg-zinc-900/95 bg-cover bg-no-repeat relative md:bg-[url(./assets/rueda-inicio-claro.png)] md:bg-[-80px]">
         <MenuDesktop />
         <MenuMovil />
         <LayoutAtropos
@@ -33,18 +33,18 @@ export const Home = () => {
           innerClass="w-16 h-16 rounded-full bg-gradient-to-r from-[#C3480B] to-[#E75F0B] dark:to-zinc-700 dark:from-zinc-600"
           styles="absolute top-[70%] left-[70%] md:top-[200px] md:left-[22%] z-20"
         />
-        <img src={imagen} alt="" className='h-[85vh] w-auto hidden md:block absolute z-10 bottom-0 left-[12%] lg:left-[25%]'/>
+        <img src={imagen} alt="" className='h-[85vh] w-auto hidden md:block absolute z-10 bottom-0 left-[12%] lg:left-[25%] image-inicio'/>
         <div className="flex flex-col md:mt-[103px] md:grid lg:grid-cols-[1fr,400px] md:grid-cols-[1fr,300px] lg:grid-rows-[1fr] md:h-full">
-          <section className="static flex md:h-full md:items-end md:relative">
+          <section className="static flex md:h-full md:items-end md:relative overflow-hidden">
             <BallIndex />
           </section>
-          <section className="flex flex-col items-center w-full h-full gap-5 mt-8 md:pt-20 z-40">
-            <div className="flex lg:my-12">
+          <section className="flex flex-col items-center w-full h-full gap-5 mt-8 z-40 md:mt-[35%]">
+            <div className="flex">
               <div className="text-white bg-gradient-to-r from-[#C3480B] to-[#E75F0B] pl-8 md:pl-12 py-4 text-lg md:text-2xl font-extrabold dark:to-zinc-600 dark:from-zinc-800 rounded-div-1">
-                Regis
+                <p>Regis</p>
               </div>
               <div className="text-[#E75F0B] bg-[#FFEFD5] dark:bg-white pr-8 md:pr-12 py-4 md:text-2xl text-lg font-extrabold dark:text-black rounded-div-2">
-                trate
+                <p>trate</p>
               </div>
             </div>
             {vwScreen >= 768 ? (
