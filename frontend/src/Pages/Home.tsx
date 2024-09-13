@@ -22,7 +22,7 @@ export const Home = () => {
   }, []);
   return (
     <>
-      <main className="flex flex-col  h-screen overflow-hidden dark:bg-zinc-900/95 bg-cover bg-no-repeat relative">
+      <main className="flex flex-col  h-screen overflow-hidden dark:bg-zinc-900/95 bg-cover bg-no-repeat relative md:bg-[url(./assets/rueda-inicio-claro.png)] bg-[-80px]">
         <MenuDesktop />
         <MenuMovil />
         <LayoutAtropos
