@@ -137,7 +137,7 @@ export const Colaborador1 = ({
           </div>
         </section>
         <section className="flex flex-col sm:col-span-2 w-full max-w-[600px] px-5 mt-3">
-          <TextTarea setDescripcion={setDescripcion} text='Descripción' value={colaborador.descripcion} />
+          <TextTarea placeholder='Comparte sobre tus experiencias de trabajo y proyectos que has realizado' setDescripcion={setDescripcion} text='Descripción' value={colaborador.descripcion} />
         </section>
         {error && (
           <div className="flex flex-col w-full sm:col-span-2 mt-4">

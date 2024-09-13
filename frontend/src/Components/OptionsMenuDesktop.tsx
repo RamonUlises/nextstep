@@ -10,7 +10,7 @@ import {
 } from '@/Components/ui/dropdown-menu';
 
 export function OptionsMenuDesktop({
-  img,
+  img = 'sin-imagen',
   nombre,
 }: {
   img: string;
