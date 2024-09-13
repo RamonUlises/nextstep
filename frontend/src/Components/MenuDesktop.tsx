@@ -7,7 +7,7 @@ import { obtenerCookie } from '../utils/cookies';
 import { TypeColaboradores } from '../types/colaboradores';
 import { TypeEmpresa } from '../types/empresas';
 import { obtenerInfo } from '../lib/obtenerInfo';
-import { User } from 'lucide-react';
+import { OptionsMenuDesktop } from './OptionsMenuDesktop';
 
 type StateMenu = 'logueando' | 'logueado' | 'deslogueado';
 
@@ -109,17 +109,8 @@ function Logueado({ nombre, img }: { nombre: string; img: string }) {
         <div className='bg-gradient-to-tl from-[#E75F0B] dark:from-zinc-800 to-[#C3480B] dark:to-zinc-700 px-4 lg:px-6 py-3 rounded-lg'>
           <ChangeTheme />
         </div>
-        <div className='bg-gradient-to-tl from-[#E75F0B] dark:from-zinc-800 to-[#C3480B] dark:to-zinc-700 px-4 lg:px-6 py-3 rounded-lg flex items-center gap-2'>
-          <h3>{nombre}</h3>
-          <div className='w-[35px] h-[35px] rounded-full bg-slate-300 overflow-hidden'>
-            {
-              img === 'sin-imagen' ? (
-                <User width={33} height={33} />
-              ) : (
-                <img src={img} alt="Image" />
-              )
-            }
-          </div>
+        <div className='bg-gradient-to-tl from-[#E75F0B] dark:from-zinc-800 to-[#C3480B] px-1 dark:to-zinc-700 py-3 rounded-lg flex items-center'>
+          <OptionsMenuDesktop img={img} nombre={nombre} />
         </div>
       </section>
     </>
