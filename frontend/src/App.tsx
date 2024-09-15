@@ -10,6 +10,7 @@ import { RegistroColaborador } from './Pages/RegistroColaborador';
 import { RegistroInfoEmpresas } from './Pages/RegistroInfoEmpresas';
 import { RegistroEmpresa } from './Pages/RegistroEmpresa';
 import { Administrador } from './Pages/Administrador';
+import { Talleres } from './Pages/Talleres';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path='/registro/empresa' element={<RegistroEmpresa />} />
           <Route path='*' element={<Page404 />} />
           <Route path='/administrador' element={<Administrador />} />
+          <Route path='/talleres' element={<Talleres />} />
         </Routes>
       </BrowserRouter>
     </>

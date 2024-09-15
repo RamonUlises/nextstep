@@ -47,15 +47,15 @@ export const Colaborador2 = ({
           <Options default={secundaria} setOption={setSecundaria} text='Educación secundaria' />
         </div>
         <div className='flex justify-evenly flex-col md:flex-row gap-2 md:items-center'>
-          <OptionsInfo text='Títulos' option={titulos} setOption={setTitulos} />
-          <OptionsInfo text='Idiomas' option={idiomas} setOption={setIdiomas} />
+          <OptionsInfo text='Títulos' option={titulos} setOption={setTitulos} format='Nombre del título' />
+          <OptionsInfo text='Idiomas' option={idiomas} setOption={setIdiomas} format='Idioma' />
         </div>
         <div className='flex justify-evenly flex-col md:flex-row gap-2'>
-          <OptionsInfo text='Certificados' option={certificados} setOption={setCertificados} />
-          <OptionsInfo text='Referencias' option={referencias} setOption={setReferencias} />
+          <OptionsInfo text='Certificados' option={certificados} setOption={setCertificados} format='Nombre del certificado' />
+          <OptionsInfo text='Referencias' option={referencias} setOption={setReferencias} format='Empresa o persona de la referencia' />
         </div>
         <div className='flex md:w-[50%] mx-auto md:mx-0'>
-          <OptionsInfo text='Habilidades' option={habilidades} setOption={setHabilidades} />
+          <OptionsInfo text='Habilidades' option={habilidades} setOption={setHabilidades} format='Habilidad' />
         </div>
       </form>
       {

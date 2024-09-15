@@ -4,10 +4,12 @@ import { InputsOptions } from './InputsOptions';
 export const OptionsInfo = ({
   text,
   option,
+  format,
   setOption,
 }: {
   text: string;
   option: { id: string; value: string }[];
+  format: string;
   setOption: (value: { id: string; value: string }[]) => void;
 }) => {
 
@@ -32,13 +34,13 @@ export const OptionsInfo = ({
   };
 
   return (
-    <div className="flex w-full justify-center md:justify-start items-center overflow-hidden gap-2 ">
-      <label className="row-span-2 dark:text-white">{text}</label>
+    <div className="flex w-full justify-center md:justify-start items-start overflow-hidden gap-2 ">
+      <label className="row-span-2 dark:text-white font-bold">{text}</label>
       <div className="flex items-end gap-1 p-1 max-w-[320px]">
-        <div className='bg-green-600 rounded-full w-[23px] h-[23px] text-white cursor-pointer mb-2'>
+        <div className='rounded-full w-[23px] h-[23px] text-green-600 cursor-pointer mb-2'>
           <Plus onClick={addNew} width={23} height={23} />
         </div>
-        <div className="flex flex-col gap-1 p-1">
+        <div className="flex flex-col gap-3 p-1 border-2">
           {option.map((t, i) => (
             <InputsOptions
               option={option}
@@ -47,6 +49,7 @@ export const OptionsInfo = ({
               change={changeOption}
               index={i}
               key={t.id}
+              format={format}
             />  
           ))}
         </div>

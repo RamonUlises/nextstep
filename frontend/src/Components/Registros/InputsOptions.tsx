@@ -4,12 +4,14 @@ export const InputsOptions = ({
   index,
   value,
   option,
+  format,
   change,
   deleteInput,
 }: {
   index: number;
   value: string | undefined;
   option: { id: string; value: string | undefined }[];
+  format: string;
   change: ({ index, value }: { index: number; value: string }) => void;
   deleteInput: ({ index }: { index: number}) => void;
 }) => {
@@ -28,10 +30,11 @@ export const InputsOptions = ({
         onChange={handleChange}
         type="text"
         value={value ?? ''}
-        className="bg-transparent border-[1px] border-principal-300 rounded-[8px] outline-none focus:border-principal-200 px-2 w-full valid:font-light max-w-[250px] dark:border-zinc-300 dark:valid:text-white "
+        className="bg-transparent border-none outline-none px-2 w-full valid:font-light max-w-[250px]"
+        placeholder={format}
       />
-      <button disabled={index === 0 && option.length === 1 } className={`w-[22px] h-[22px] ${(index === 0 && option.length === 1)? 'bg-red-500/60' : 'bg-red-500'} rounded-full`}>
-        <Minus onClick={deleteInp} width={22} height={22} className='flex-grow-0 text-white cursor-pointer' />
+      <button disabled={index === 0 && option.length === 1 } className="w-[22px] h-[22px] $ rounded-full">
+        <Minus onClick={deleteInp} width={22} height={22} className={`flex-grow-0 ${(index === 0 && option.length === 1)? 'text-red-500/60' : 'text-red-500'} cursor-pointer`} />
       </button>
     </div>
   );

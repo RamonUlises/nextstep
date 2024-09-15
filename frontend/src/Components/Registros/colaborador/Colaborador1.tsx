@@ -3,7 +3,13 @@ import { Header1 } from '../Header1';
 import { Inputs } from '../Inputs';
 import { InputsRedes } from '../InputsRedes';
 import { TypeColaboradores } from '@/types/colaboradores';
-import { addNewRed, changeProp, handleChange, handleDeleteInput, Redes } from '@/utils/redesComponent';
+import {
+  addNewRed,
+  changeProp,
+  handleChange,
+  handleDeleteInput,
+  Redes,
+} from '@/utils/redesComponent';
 import { TextTarea } from '../TextTarea';
 
 export const Colaborador1 = ({
@@ -65,28 +71,38 @@ export const Colaborador1 = ({
 
   return (
     <section>
-      <Header1 text={'Cuéntanos un poco sobre ti. Esta información aparecerá en tu perfil público, para que los compradores potenciales puedan conocerte mejor.'} titulo='Información personal' setImagen={setImagen} imagen={imagen} />
-      <form className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center">
+      <Header1
+        text={
+          'Cuéntanos un poco sobre ti. Esta información aparecerá en tu perfil público, para que los compradores potenciales puedan conocerte mejor.'
+        }
+        titulo="Información personal"
+        setImagen={setImagen}
+        imagen={imagen}
+      />
+      <form className="mt-16 flex flex-col gap-4 md:gap-16 justify-items-center">
         <Inputs
           value={colaborador.nombres}
           setProp={setNombres}
           type="text"
-          placeholder="Nombres y apellidos"
+          placeholder="Nombre completo"
           name="nombres"
+          format="Nombres y apellidos"
         />
         <Inputs
           value={colaborador.usuario}
           setProp={setUsuario}
           type="text"
-          placeholder="Usuario"
+          placeholder="Nombre de usuario"
           name="usuario"
+          format="usuario123"
         />
         <Inputs
           value={colaborador.telefono}
           setProp={setTelefono}
           type="text"
-          placeholder="Teléfono"
+          placeholder="Número de teléfono / celular"
           name="telefono"
+          format="0000-0000"
         />
         <Inputs
           value={colaborador.email}
@@ -94,6 +110,7 @@ export const Colaborador1 = ({
           type="text"
           placeholder="Correo"
           name="email"
+          format="example@gmail.com"
         />
         <Inputs
           value={colaborador.contrasena}
@@ -101,7 +118,17 @@ export const Colaborador1 = ({
           type="password"
           placeholder="Contraseña"
           name="contrasena"
+          format="+8 caracteres"
         />
+
+        <section className="flex w-full px-5 mt-3 gap-4">
+          <TextTarea
+            placeholder="Comparte sobre tus experiencias de trabajo y proyectos que has realizado"
+            setDescripcion={setDescripcion}
+            text="Descripción"
+            value={colaborador.descripcion}
+          />
+        </section>
         <section className="flex flex-col w-full sm:col-span-2">
           <h4 className="text-center dark:text-white">Redes sociales</h4>
           <div>
@@ -135,9 +162,6 @@ export const Colaborador1 = ({
               Añadir
             </button>
           </div>
-        </section>
-        <section className="flex flex-col sm:col-span-2 w-full max-w-[600px] px-5 mt-3">
-          <TextTarea placeholder='Comparte sobre tus experiencias de trabajo y proyectos que has realizado' setDescripcion={setDescripcion} text='Descripción' value={colaborador.descripcion} />
         </section>
         {error && (
           <div className="flex flex-col w-full sm:col-span-2 mt-4">

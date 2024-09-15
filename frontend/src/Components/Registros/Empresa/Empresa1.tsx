@@ -67,13 +67,14 @@ export const Empresa1 = ({
         imagen={imagen}
         setImagen={setImagen}
       />
-      <form className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center">
+      <form className="flex flex-col gap-16 justify-items-center mt-16">
         <Inputs
           value={empresa['numero-identificacion']}
           setProp={setNumeroIdentificacion}
           type="text"
           placeholder="Número de identificación"
           name="numero-identificacion"
+          format='NIT, RUC, entre otros'
         />
         <Inputs
           value={empresa['certificado-registro']}
@@ -81,6 +82,7 @@ export const Empresa1 = ({
           type="text"
           placeholder="Certificado de registro"
           name="certificado-registro"
+          format='Número de registro'
         />
         <Inputs
           value={empresa['licencia-comercial']}
@@ -88,6 +90,7 @@ export const Empresa1 = ({
           type="text"
           placeholder="Licencia comercial"
           name="licencia-comercial"
+          format='Número de licencia'
         />
         <Inputs
           value={empresa.nombre}
@@ -95,6 +98,7 @@ export const Empresa1 = ({
           type="text"
           placeholder="Nombre de la empresa"
           name="nombre"
+          format='Nombre de la empresa'
         />
         <Inputs
           value={empresa.contrasena}
@@ -102,6 +106,7 @@ export const Empresa1 = ({
           type="password"
           placeholder="Contraseña"
           name="contrasena"
+          format='Contraseña'
         />
         <Inputs
           value={empresa['sitio-web']}
@@ -109,14 +114,16 @@ export const Empresa1 = ({
           type="text"
           placeholder="Sitio web"
           name="sitio-web"
+          format='ejemplo.com'
         />
-        <div className="sm:col-span-2 flex justify-evenly flex-col md:flex-row gap-2 md:items-center">
+        <div className="flex justify-evenly flex-col gap-8 md:items-center sm:px-4">
           <OptionsInfo
             text="Teléfono(s)"
             option={telefono}
             setOption={setTelefono}
+            format='0000-0000'
           />
-          <OptionsInfo text="Correo(s)" option={email} setOption={setEmail} />
+          <OptionsInfo text="Correo(s)" option={email} setOption={setEmail} format='example@gmail.com' />
         </div>
         {error && (
           <div className="flex flex-col w-full sm:col-span-2 mt-3">

@@ -57,11 +57,13 @@ export const Empresa2 = ({
             text="Dirección(es)"
             option={direccion}
             setOption={setDireccion}
+            format='Dirección de empresas'
           />
           <OptionsInfo
             text="Objetivo(s)"
             option={objetivo}
             setOption={setObjetivo}
+            format='Objetivos de la empresa'
           />
         </div>
         <section className="flex flex-col w-full sm:col-span-2 mt-4">
@@ -99,10 +101,10 @@ export const Empresa2 = ({
           </div>
         </section>
         <div className="flex flex-col w-full mx-auto max-w-[400px] px-5 mt-3">
-          <TextTarea value={empresa.mision} text='Misión' setDescripcion={setMision} />
+          <TextTarea value={empresa.mision} text='Misión' setDescripcion={setMision} placeholder='Misión de la empresa' />
         </div>
         <div className="flex flex-col mx-auto w-full max-w-[400px] px-5 mt-3">
-          <TextTarea value={empresa.vision} text='Visión' setDescripcion={setVision} />
+          <TextTarea value={empresa.vision} text='Visión' setDescripcion={setVision} placeholder='Visión de la empresa' />
         </div>
       </form>
       {error !== '' && (

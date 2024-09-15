@@ -11,13 +11,13 @@ export const TextTarea = ({
 }) => {
   return (
     <>
-      <label className="text-sm dark:text-white">{text}</label>
+      <label className="dark:text-white font-bold text-sm md:text-base">{text}</label>
       <textarea
         placeholder={placeholder}
         value={value}
         onChange={(e) => setDescripcion(e.target.value)}
         name="descripcion"
-        className="outline-none p-2 font-light  shadow drop-shadow rounded dark:bg-zinc-700 dark:text-white placeholder:text-xs valid:text-xs"
+        className="outline-none p-2 font-light  shadow drop-shadow rounded dark:bg-zinc-700 dark:text-white placeholder:text-xs valid:text-xs w-full max-w-[450px] h-28"
       ></textarea>
     </>
   );

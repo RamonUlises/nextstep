@@ -52,7 +52,7 @@ export const Login = () => {
             className="w-[60%] mt-4 md:mt-0 mb-4"
           />
           <form onSubmit={handleSubmit} className="flex flex-col items-center px-16 py-8 bg-white shadow-xl rounded-2xl dark:bg-zinc-800">
-            <h3 className="mt-6 mb-7 text-center text-[#E75F0B] text-2xl font-bold dark:text-white">
+            <h3 className="mt-6 mb-7 text-center text-secundario-600 text-2xl font-bold dark:text-white">
               Iniciar Sesión
             </h3>
             <div className="relative mt-5 input-google">
@@ -71,11 +71,11 @@ export const Login = () => {
                 onInputChange={onInputChange}
               />
             </div>
-            <p className='mt-6 dark:text-white'>{error}</p>
+            <p className='text-secundario-600 mt-6 dark:text-white'>{error}</p>
             <input
               value="Enviar"
               type="submit"
-              className="bg-[#E75F0B] py-3 px-6 rounded-xl text-white font-medium hover:bg-[#FA7C15] transition-colors duration-300 mt-6 dark:bg-zinc-600 dark:hover:bg-zinc-500 cursor-pointer"
+              className="bg-principal-600 py-3 px-6 rounded-xl text-white font-medium hover:bg-[#FA7C15] transition-colors duration-300 mt-6 dark:bg-zinc-600 dark:hover:bg-zinc-500 cursor-pointer"
             />
           </form>
         </section>

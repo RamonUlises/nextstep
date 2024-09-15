@@ -37,14 +37,14 @@ export const ChangeTheme = () => {
             )}
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-40 flex flex-col py-2 dark:bg-zinc-800/80 text-white bg-principal-500/90 border-none">
+        <DropdownMenuContent className="w-40 flex flex-col py-2 dark:bg-zinc-800/80 bg-white text-black border-none">
           <DropdownMenuGroup>
             <DropdownMenuItem onClick={
               () => {
                 changeThemeClick('light');
                 cambiarIconTheme('light');
               }
-            } className='gap-2 focus:text-principal-500 dark:focus:bg-zinc-700'>
+            } className='gap-2 focus:bg-secundario-600 focus:text-white dark:focus:bg-zinc-700'>
               <Sun width={24} height={24} />
               <p>Claro</p>
             </DropdownMenuItem>
@@ -53,7 +53,7 @@ export const ChangeTheme = () => {
                 changeThemeClick('dark');
                 cambiarIconTheme('dark');
               }
-            } className='gap-2 focus:text-principal-500 dark:focus:bg-zinc-700'>
+            } className='gap-2 focus:bg-secundario-600 focus:text-white dark:focus:bg-zinc-700'>
               <Moon width={24} height={24} />
               <p>Oscuro</p>
             </DropdownMenuItem>
@@ -62,7 +62,7 @@ export const ChangeTheme = () => {
                 changeThemeClick('system');
                 cambiarIconTheme('system');
               }
-            } className='gap-2 focus:text-principal-500 dark:focus:bg-zinc-700'>
+            } className='gap-2 focus:bg-secundario-600 focus:text-white dark:focus:bg-zinc-700'>
               <System width={24} height={24} />
               <p>Sistema</p>
             </DropdownMenuItem>

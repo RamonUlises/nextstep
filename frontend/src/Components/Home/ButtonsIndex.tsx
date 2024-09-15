@@ -2,15 +2,15 @@ import { Link } from 'react-router-dom';
 export const ButtonsIndex = ({ text, url }: { text: string; url: string }) => {
   return (
     <>
-      <Link to={url} className="css-button dark:bg-zinc-700 text-center bg-[#FA7C15] text-white flex p-[0.35em] pl-[1.2em] text-lg rounded-[0.9em] items-center overflow-hidden relative h-[2.8em] pr-[3.3em] cursor-pointer w-[190px] z-30">
+      <Link to={url} className="css-button dark:bg-zinc-700 text-center bg-principal-600 text-white flex p-[0.35em] pl-[1.2em] text-lg rounded-[0.9em] items-center overflow-hidden relative h-[2.8em] pr-[3.3em] cursor-pointer w-[190px] z-30">
         <span className="w-full text-center">{text}</span>
-        <div className="icon bg-white ml-[1em] absolute flex items-center justify-center h-[2.2em] w-[2.2em] rounded-[0.7em] right-[0.3em] transition-all duration-700">
+        <div className="icon bg-white dark:bg-white ml-[1em] absolute flex items-center justify-center h-[2.2em] w-[2.2em] rounded-[0.7em] right-[0.3em] transition-all duration-700">
           <svg
             height="24"
             width="24"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
-            className='w-[1.1em] transition-transform text-black'
+            className='w-[1.1em] transition-transform text-secundario-600 dark:text-black'
           >
             <path d="M0 0h24v24H0z" fill="none"></path>
             <path

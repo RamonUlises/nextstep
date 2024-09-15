@@ -25,7 +25,7 @@ export const Page404 = () => {
             No pudimos encontrar ese enlace.. Verifique la dirección o{' '}
             <Link
               to="/"
-              className="text-[#FA7C15] dark:text-[#FC9A3B] underline hover:underline-offset-1"
+              className="text-secundario-600 dark:secundario-600 underline hover:underline-offset-1"
             >
               regrese al inicio
             </Link>
