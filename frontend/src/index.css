@@ -89,15 +89,8 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   @apply h-full w-full object-cover;
 }
 .slider .list .item .content{
-  @apply absolute top-[20%] w-[1140px] max-w-[80%] left-[50%] -translate-x-[50%] pr-[30%] text-white;
+  @apply absolute top-[5%] md:top-[10%] w-[1140px] max-w-[90%] left-[50%] -translate-x-[50%] pr-[30%] text-white;
   text-shadow: 0 5px 10px #0004;
-}
-
-.slider .list .item .content .title,
-.slider .list .item .content .type{
-  font-size: 5em;
-  font-weight: bold;
-  line-height: 1.3em;
 }
 .slider .list .item .type{
   @apply text-principal-400;
@@ -119,7 +112,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
 
 /* Thumbnail Section  */
 .thumbnail{
-  @apply absolute bottom-12 left-1/2 w-[max-content] z-50 flex gap-5;
+  @apply absolute bottom-24 md:bottom-12 left-1/2 w-[max-content] z-50 flex gap-5;
 }
 
 .thumbnail .item{
@@ -133,7 +126,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
 
 /* nextPrevArrows Section  */
 .nextPrevArrows{
-  @apply absolute top-[80%] right-[52%] z-50 w-[300px] max-w-[30%] flex gap-2 items-center;
+  @apply absolute top-[65%] md:top-[80%] right-[52%] z-50 w-[300px] max-w-[30%] flex gap-2 items-center;
 }
 .nextPrevArrows button{
   @apply w-[40px] h-[40px] rounded-full bg-principal-500 text-white font-bold transition-all duration-500 ease-in-out;
