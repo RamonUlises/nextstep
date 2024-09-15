@@ -8,6 +8,7 @@ import { TypeEmpresa } from '@/types/empresas';
 import { manejarError } from '@/lib/errores';
 import { ErrorZodType } from '@/types/errorZod';
 import { encrypt } from '@/lib/encripts';
+import { enviarCorreo } from '@/lib/enviarCorreo';
 
 const { string, number, boolean } = zod;
 
@@ -145,6 +146,8 @@ class Empresa {
   async aceptarEmpresa(req: Request, res: Response): Promise<void> {
     try {
       const { id } = req.params;
+      const { email } = req.body as { email: string };
+
       const data: TypeEmpresa[] = await requestDataBaseEmpresa.obtenerEmpresa(id);
 
       if(data.length === 0) {
@@ -153,7 +156,7 @@ class Empresa {
       }
 
       await requestDataBaseEmpresa.aceptarEmpresa(id);
-
+      await enviarCorreo(email, 'Bienvenido a NextStep', 'Tu empresa ha sido aceptada.');
       res.status(200).json({ message: 'Empresa aceptada con éxito' });
     } catch (error) {
       res.status(500).json({ message: 'Error al aceptar la empresa', error });

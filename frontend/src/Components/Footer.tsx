@@ -17,17 +17,17 @@ export const Footer = () => {
             <Github
               width={40}
               height={40}
-              className="bg-white text-secundario-600 p-1 rounded-full cursor-pointer"
+              className="bg-white text-secundario-600 p-1 rounded-full cursor-pointer dark:bg-zinc-600 dark:text-white"
             />
             <Facebook
               width={40}
               height={40}
-              className="bg-white text-secundario-600 p-1 rounded-full cursor-pointer"
+              className="bg-white text-secundario-600 p-1 rounded-full cursor-pointer dark:bg-zinc-600 dark:text-white"
             />
             <Instagram
               width={40}
               height={40}
-              className="bg-white text-secundario-600 p-[5px] rounded-full cursor-pointer"
+              className="bg-white text-secundario-600 p-[5px] rounded-full cursor-pointer dark:bg-zinc-600 dark:text-white"
             />
           </div>
         </div>

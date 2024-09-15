@@ -9,9 +9,9 @@ export const Administrador = () => {
   const [verify, setVerify] = useState<boolean>(false);
   const [contrasena, setContrasena] = useState<string>('');
 
-  const aceptEmpresa = async (id: string) => {
+  const aceptEmpresa = async (id: string, email: string) => {
     try {
-      const response = await empresas.aceptarEmpresa(id);
+      const response = await empresas.aceptarEmpresa(id, email);
 
       if (response.status === 200) {
         // eslint-disable-next-line no-console

@@ -60,11 +60,11 @@ class Empresas {
     }
   }
   // Aceptar empresa
-  async aceptarEmpresa(id: string){
+  async aceptarEmpresa(id: string, email: string) {
     try{
       const response = await axios.put(
         `${url}/empresas/aceptar/${id}`,
-        {},
+        {email},
         auth.options
       );
       return { data: response.data, status: response.status };

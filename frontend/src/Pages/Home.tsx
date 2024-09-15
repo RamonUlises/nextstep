@@ -67,13 +67,13 @@ export const Home = () => {
             {/*  */}
           </section>
         </div>
-        <div className="flex flex-col h-screen md:pt-[103px] items-center justify-center">
+        <div className="flex flex-col md:h-screen md:pt-[103px] items-center md:justify-center mt-40 md:mt-0">
           <h2 className="text-center text-2xl md:text-5xl font-extrabold dark:text-white mb-8">
             Talleres
           </h2>
           <CarouselSpacing />
         </div>
-        <div className="flex flex-col h-screen md:pt-[103px]">
+        <div className="flex flex-col h-screen pt-[103px]">
           <h2 className="text-center text-2xl md:text-5xl font-extrabold dark:text-white">
             Beneficios
           </h2>
