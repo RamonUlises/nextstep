@@ -11,6 +11,7 @@ import { RegistroInfoEmpresas } from './Pages/RegistroInfoEmpresas';
 import { RegistroEmpresa } from './Pages/RegistroEmpresa';
 import { Administrador } from './Pages/Administrador';
 import { Talleres } from './Pages/Talleres';
+import { Blog } from './Pages/Blog';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path='*' element={<Page404 />} />
           <Route path='/administrador' element={<Administrador />} />
           <Route path='/talleres' element={<Talleres />} />
+          <Route path='/blog' element={<Blog />} />
         </Routes>
       </BrowserRouter>
     </>
