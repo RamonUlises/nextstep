@@ -19,11 +19,11 @@ export const Animacion = () => {
           className="w-[100%] h-[30%] md:h-[40%] lg:h-[50%] xl:h-[60%] z-20 dark:saturate-0"
         />
       </div>
-      <p className="text-center pt-[300px] mx-8 z-20 md:mx-24 md:pt-[350px] lg:pt-0 lg:text-white lg:mx-0 lg:w-[30%] lg:absolute lg:top-[22%] lg:left-24 xl:top-[30%] font-bold">
+      <p className="text-center pt-[300px] mx-8 z-20 md:mx-24 md:pt-[350px] lg:pt-0 lg:text-white lg:mx-0 lg:w-[30%] lg:absolute lg:top-[22%] lg:left-24 xl:top-[30%] font-bold dark:text-white">
         ¡Desarrolla tu carrera con nuestros talleres exclusivos! Canjea tus
         puntos por capacitaciones especiales y avanza profesionalmente
       </p>
-      <button className="cursor-pointer rounded-3xl bg-principal-600 text-white mx-auto px-4 py-3 mt-4 lg:bg-white lg:text-black lg:mt-0 lg:-[30%] lg:absolute lg:top-[40%] lg:left-[17%] xl:top-[45%]">
+      <button className="cursor-pointer rounded-3xl bg-principal-600 text-white mx-auto px-4 py-3 mt-4 lg:bg-white lg:text-black lg:mt-0 lg:-[30%] lg:absolute lg:top-[40%] lg:left-[17%] xl:top-[45%] dark:bg-zinc-700 lg:dark:bg-white">
         Descubre más
       </button>
       <img
