@@ -23,10 +23,12 @@ export const RegistroEmpresa = () => {
     vision: '',
     objetivos: [],
     puntuacion: 0,
+    puntuados: 0,
     imagen: 'sin-imagen',
     verificado: false,
     'imagen-2': 'sin-imagen',
     'sitio-web': '',
+    'nivel': 1,
   });
 
   const nextTab = (num: number) => {
