@@ -93,7 +93,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   text-shadow: 0 5px 10px #0004;
 }
 .slider .list .item .type{
-  @apply text-principal-400;
+  @apply text-principal-400 dark:text-white;
 }
 .slider .list .item .button{
   @apply mt-5 gap-[5px] grid;
@@ -103,7 +103,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   margin-top: 20px;
 }
 .slider .list .item .button button{
-  @apply bg-principal-500 transition-all duration-300 ease-in-out border-none font-bold rounded-xl;
+  @apply bg-principal-500 transition-all duration-300 ease-in-out border-none font-bold rounded-xl dark:bg-zinc-700;
 }
 
 .slider .list .item .button button:hover{
@@ -129,10 +129,10 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   @apply absolute top-[65%] md:top-[80%] right-[52%] z-50 w-[300px] max-w-[30%] flex gap-2 items-center;
 }
 .nextPrevArrows button{
-  @apply w-[40px] h-[40px] rounded-full bg-principal-500 text-white font-bold transition-all duration-500 ease-in-out;
+  @apply w-[40px] h-[40px] rounded-full bg-principal-500 text-white font-bold transition-all duration-500 ease-in-out dark:bg-zinc-700;
 }
 .nextPrevArrows button:hover{
-  @apply scale-110 bg-white text-principal-500;
+  @apply scale-110 bg-white text-principal-500 dark:text-zinc-700;
 }
 
 /* Animation Part */
