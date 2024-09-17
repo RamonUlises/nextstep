@@ -44,37 +44,37 @@ export function OptionsMenuDesktop({
           </div>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 bg-white text-black dark:bg-zinc-800/80">
-        <DropdownMenuItem disabled={!login} className='focus:bg-secundario-600 focus:text-white'>
+      <DropdownMenuContent className="w-56 bg-white text-black dark:bg-zinc-800 z-[401]">
+        <DropdownMenuItem disabled={!login} className='focus:bg-secundario-600 focus:text-white dark:focus:bg-zinc-700'>
           <Link to="/perfil" className="w-full flex items-center">
             <User className="mr-2 h-4 w-4" />
             Perfil
           </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem disabled={!login} className='focus:bg-secundario-600 focus:text-white'>
+        <DropdownMenuItem disabled={!login} className='focus:bg-secundario-600 focus:text-white dark:focus:bg-zinc-700'>
           <Mail className="mr-2 h-4 w-4" />
           Buzón
         </DropdownMenuItem>
-        <DropdownMenuItem className='focus:bg-secundario-600 focus:text-white'>
+        <DropdownMenuItem className='focus:bg-secundario-600 focus:text-white dark:focus:bg-zinc-700'>
           <Link to="/tienda" className="w-full flex items-center">
             <ShoppingCart className="mr-2 h-4 w-4" />
             Tienda
           </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem className='focus:bg-secundario-600 focus:text-white'>
+        <DropdownMenuItem className='focus:bg-secundario-600 focus:text-white dark:focus:bg-zinc-700'>
           <Link to="/blog" className="w-full flex items-center">
             <Book className="mr-2 h-4 w-4" />
             Blog
           </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem className='focus:bg-secundario-600 focus:text-white'>
+        <DropdownMenuItem className='focus:bg-secundario-600 focus:text-white dark:focus:bg-zinc-700'>
           <Link to="/talleres" className="w-full flex items-center">
             <PencilRuler className="mr-2 h-4 w-4" />
             Talleres
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className='focus:bg-secundario-600 focus:text-white' onClick={logOut} disabled={!login}>
+        <DropdownMenuItem className='focus:bg-secundario-600 focus:text-white dark:focus:bg-zinc-700' onClick={logOut} disabled={!login}>
           <LogOut className="mr-2 h-4 w-4" />
           <span>Cerrar sesión</span>
         </DropdownMenuItem>
