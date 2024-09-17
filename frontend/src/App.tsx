@@ -12,6 +12,8 @@ import { RegistroEmpresa } from './Pages/RegistroEmpresa';
 import { Administrador } from './Pages/Administrador';
 import { Talleres } from './Pages/Talleres';
 import { Blog } from './Pages/Blog';
+import { Perfil } from './Pages/Perfil';
+import { SobreNosotros } from './Pages/SobreNosotros';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
           <Route path='/administrador' element={<Administrador />} />
           <Route path='/talleres' element={<Talleres />} />
           <Route path='/blog' element={<Blog />} />
+          <Route path='/perfil' element={<Perfil />} />
+          <Route path='/sobre-nosotros' element={<SobreNosotros />} />
         </Routes>
       </BrowserRouter>
     </>
