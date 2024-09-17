@@ -43,7 +43,7 @@ export const Footer = () => {
             </div>
             <div className='flex flex-col text-start'>
               <Link to="/contacto">Contacto</Link>
-              <Link to="/nosotros">Nosotros</Link>
+              <Link to="/sobre-nosotros">Nosotros</Link>
               <Link to="/soporte">Soporte</Link>
             </div>
           </div>
