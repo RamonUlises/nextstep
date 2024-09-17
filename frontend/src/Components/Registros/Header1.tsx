@@ -26,7 +26,7 @@ export const Header1 = ({
     setImagen('sin-imagen');
   };
   return (
-    <div className="sm:flex sm:px-4 ">
+    <div className="sm:flex sm:px-4">
       <div className="sm:w-[70%] sm:flex sm:flex-col sm:justify-center dark:text-white">
         <h4 className="text-center font-semibold  sm:text-start sm:text-xl ">
           {titulo}
