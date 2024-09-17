@@ -3,7 +3,6 @@ import { RedesSociales } from '../RedesSociales';
 import { TypeEmpresa } from '@/types/empresas';
 
 export const Empresa1 = ({ empresa }: { empresa: TypeEmpresa }) => {
-  const tel = ['5781', '6985'];
   return (
     <div className="mt-12 max-w-[70%] mx-auto">
       <Datos title="Nombre" text={empresa.nombre} />
