@@ -14,7 +14,9 @@ export interface TypeEmpresa {
   'mision': string;
   'vision': string;
   'puntuacion': number;
+  'puntuados': number;
   'imagen': string;
   'imagen-2': string;
   'verificado': boolean;
+  'nivel': number;
 };
