@@ -257,3 +257,34 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
       font-size: 50px;
   }
 }
+
+.decoration-nosotros::before {
+  content: '';
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 10px solid #e75f0b;
+  @apply border-t-principal-600 dark:border-t-zinc-600;
+}
+
+.decoration-nosotros::after {
+  content: '';
+  width: 120%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid;
+  @apply border-t-principal-600 dark:border-t-zinc-600;
+}
+
+.shadow-img{
+  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.3));
+}
