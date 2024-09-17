@@ -16,9 +16,11 @@ const empresasSchema = new mongoose.Schema({
   'mision': { type: String, required: true },
   'vision': { type: String, required: true },
   'puntuacion': { type: Number, required: true },
+  'puntuados': { type: Number, required: true },
   'imagen': { type: String, required: true },
   'imagen-2': { type: String, required: true },
   'verificado': { type: Boolean, required: true },
+  'nivel': { type: Number, required: true },
 });
 
 const Empresas = mongoose.model('Empresas', empresasSchema);

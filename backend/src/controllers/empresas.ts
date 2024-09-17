@@ -27,9 +27,11 @@ const schema = zod.object({
   'mision': string(),
   'vision': string(),
   'puntuacion': number(),
+  'puntuados': number(),
   'imagen': string(),
   'imagen-2': string(),
   'verificado': boolean(),
+  'nivel': number(),
 });
 
 class Empresa {
