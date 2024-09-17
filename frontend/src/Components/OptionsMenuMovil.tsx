@@ -48,7 +48,7 @@ export const OptionsMenuMovil = () => {
             <Settings />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56 z-[100]">
+        <DropdownMenuContent className="w-56 z-[101]">
           <DropdownMenuGroup>
             <DropdownMenuItem disabled={!login} className='focus:bg-secundario-600 focus:text-white'>
               <Link to="/perfil" className="w-full flex items-center">
