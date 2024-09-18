@@ -27,4 +27,8 @@ router.put('/aceptar/:id', (req, res) => {
   void empresas.aceptarEmpresa(req, res);
 });
 
+router.put('/imagen-2/:id', (req, res) => {
+  void empresas.actualizarImagen2(req, res);
+});
+
 export default router;

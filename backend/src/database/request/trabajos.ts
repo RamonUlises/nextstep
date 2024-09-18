@@ -40,6 +40,14 @@ class RequesDatabase {
       throw new Error('Error al eliminar el trabajo');
     }
   }
+  async obtenerTrabajosPorEmpresa(empresa: string): Promise<TypeTrabajos[]> {
+    try {
+      const data = await trabajos.find({ empresa });
+      return data as TypeTrabajos[];
+    } catch {
+      throw new Error('Error al obtener los trabajos');
+    }
+  }
 }
 
 const requestDatabase = new RequesDatabase();

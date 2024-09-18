@@ -56,6 +56,13 @@ class RequesDatabase {
       throw new Error('Error al aceptar la empresa');
     }
   };
+  async actualizarImagen2(id: string, imagen: string): Promise<void> {
+    try {
+      await empresas.updateOne({ id }, { 'imagen-2': imagen });
+    } catch {
+      throw new Error('Error al actualizar la imagen');
+    }
+  }
 }
 
 const requestDatabase = new RequesDatabase();

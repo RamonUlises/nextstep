@@ -23,4 +23,8 @@ router.delete('/:id', (req, res) => {
   void trabajos.eliminarTrabajo(req, res);
 });
 
+router.get('/empresa/:empresa', (req, res) => {
+  void trabajos.obtenerTrabajosPorEmpresa(req, res);
+});
+
 export default router;

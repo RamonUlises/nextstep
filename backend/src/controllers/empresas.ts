@@ -164,6 +164,26 @@ class Empresa {
       res.status(500).json({ message: 'Error al aceptar la empresa', error });
     }
   }
+  async actualizarImagen2(req: Request, res: Response): Promise<void> {
+    try {
+      const { id } = req.params;
+      const { imagen } = req.body as { imagen: string };
+
+      const data: TypeEmpresa[] = await requestDataBaseEmpresa.obtenerEmpresa(id);
+
+      if(data.length === 0) {
+        res.status(404).json({ message: 'Empresa no encontrada' });
+        return;
+      }
+
+      console.log(imagen);
+      await requestDataBaseEmpresa.actualizarImagen2(id, imagen);
+
+      res.status(200).json({ message: 'Imagen actualizada con éxito' });
+    } catch (error) {
+      res.status(500).json({ message: 'Error al actualizar la imagen', error });
+    }
+  }
 }
 
 const empresas = new Empresa();

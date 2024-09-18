@@ -11,15 +11,17 @@ const { string, number } = zod;
 const schema = zod.object({
   'empresa': string(),
   'descripcion': string(),
-  'requerimientos': string().array(),
+  'responsabilidades': string().array(),
+  'requisitos': string().array(),
+  'categorias': string().array(),
+  'beneficios': string().array(),
+  'contrato': string(),
+  'presupuesto': number(),
   'fecha-publicacion': string(),
   'fecha-inicio': string(),
   'fecha-expericacion': string(),
-  'contrato': string(),
-  'presupuesto': number(),
   'puntos': number(),
-  'etiquetas': string().array(),
-  'departamentos': string().array(),
+  'estado': string()
 });
 
 class Trabajos {
@@ -96,6 +98,21 @@ class Trabajos {
       res.status(200).json({ message: 'Trabajo eliminado con éxito' });
     } catch (error) {
       res.status(500).json({ message: 'Error al eliminar el trabajo', error });
+    }
+  }
+  async obtenerTrabajosPorEmpresa(req: Request, res: Response): Promise<void> {
+    try {
+      const { empresa } = req.params;
+      const data: TypeTrabajos[] = await requestDatabaseTrabajo.obtenerTrabajosPorEmpresa(empresa);
+
+      if (data.length === 0) {
+        res.status(404).json({ message: 'Trabajos no encontrados' });
+        return;
+      }
+
+      res.status(200).json({ message: 'Trabajos obtenidos', data });
+    } catch (error) {
+      res.status(500).json({ message: 'Error al obtener los trabajos', error });
     }
   }
 }
