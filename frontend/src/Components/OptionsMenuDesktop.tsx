@@ -44,7 +44,7 @@ export function OptionsMenuDesktop({
           </div>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 bg-white text-black dark:bg-zinc-800 z-[401]">
+      <DropdownMenuContent className="w-56 bg-white text-black dark:bg-zinc-800">
         <DropdownMenuItem disabled={!login} className='focus:bg-secundario-600 focus:text-white dark:focus:bg-zinc-700'>
           <Link to="/perfil" className="w-full flex items-center">
             <User className="mr-2 h-4 w-4" />

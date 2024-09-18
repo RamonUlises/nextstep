@@ -55,13 +55,13 @@ export const Footer = () => {
           Hecho en Nicaragua.
         </h5>
         <div className="flex gap-3">
-          <p className="cursor-pointer hover:opacity-80 transition-opacity duration-500">
+          <Link to='/terminos-y-servicios' className="cursor-pointer hover:opacity-80 transition-opacity duration-500">
             Terminos y servicios
-          </p>
+          </Link>
           <p>-</p>
-          <p className="cursor-pointer hover:opacity-80 transition-opacity duration-500">
+          <Link to='politicas-de-privacidad' className="cursor-pointer hover:opacity-80 transition-opacity duration-500">
             Politicas de privacidad
-          </p>
+          </Link>
         </div>
       </section>
     </footer>

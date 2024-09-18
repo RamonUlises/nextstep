@@ -79,6 +79,25 @@ class Empresas {
       }
     }
   }
+  async actualizarImagen2(id: string, imagen: string){
+    try {
+      const response = await axios.put(
+        `${url}/empresas/imagen-2/${id}`,
+        {imagen},
+        auth.options
+      );
+      return { data: response.data, status: response.status };
+    } catch (error) {
+      if (error && typeof error === 'object' && 'response' in error) {
+        const err = error as { response: { data: string[]; status: number } };
+        throw { data: err.response.data, status: err.response.status };
+      } else if (error instanceof Error) {
+        throw { data: error.message, status: 500 };
+      } else {
+        throw { data: 'Error desconocido', status: 500 };
+      }
+    }
+  }
 }
 
 const empresas = new Empresas();

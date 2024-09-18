@@ -21,16 +21,16 @@ export const Empresa1 = ({ empresa }: { empresa: TypeEmpresa }) => {
       <hr className="bg-transparent border-2 border-black/60 my-4" />
       <Datos title="Objetivos" text={empresa.objetivos} />
       <hr className="bg-transparent border-2 border-black/60 my-4" />
-      <h5 className='font-bold text-base'>Redes sociales</h5>
+      <h5 className='font-medium text-base'>Redes sociales</h5>
       <RedesSociales redes={empresa['redes-sociales']} />
       <hr className="bg-transparent border-2 border-black/60 my-4" />
       <div>
-        <h5 className='font-bold text-base'>Misión</h5>
+        <h5 className='font-medium text-base'>Misión</h5>
         <p>{empresa.mision}</p>
       </div>
       <hr className="bg-transparent border-2 border-black/60 my-4" />
       <div>
-        <h5 className='font-bold text-base'>Visión</h5>
+        <h5 className='font-medium text-base'>Visión</h5>
         <p>{empresa.vision}</p>
       </div>
     </div>

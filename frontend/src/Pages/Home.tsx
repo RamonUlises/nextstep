@@ -27,7 +27,7 @@ export const Home = () => {
       <main className="flex flex-col dark:bg-zinc-900/95">
         <MenuDesktop />
         <MenuMovil />
-        <div className="flex flex-col md:pt-[103px] md:grid lg:grid-cols-[1fr,400px] md:grid-cols-[1fr,300px] lg:grid-rows-[1fr] md:h-screen md:bg-[150%,10px] bg-no-repeat relative md:bg-[url(./assets/rueda-inicio-claro.png)] md:bg-[100%]">
+        <div className="flex flex-col md:pt-[103px] md:grid lg:grid-cols-[1fr,400px] md:grid-cols-[1fr,300px] lg:grid-rows-[1fr] md:h-screen md:bg-[150%,10px] bg-no-repeat relative md:bg-[url(./assets/Inicio/imagen-rueda-claro.png)] dark:md:bg-[url(./assets/Inicio/imagen-rueda-oscuro.png)] md:bg-[100%]">
           <LayoutAtropos
             innerClass="w-32 h-32 rounded-full bg-gradient-to-r from-principal-500 to-principal-600 dark:to-zinc-700 dark:from-zinc-600"
             styles="absolute top-[50%] left-[8%] md:top-32 md:left-[5%] z-20"

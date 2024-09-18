@@ -6,6 +6,7 @@ body{
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  font-family: Poppins, system-ui;
 }
 
 .menu > li:hover > ul {

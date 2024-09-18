@@ -14,6 +14,9 @@ import { Talleres } from './Pages/Talleres';
 import { Blog } from './Pages/Blog';
 import { Perfil } from './Pages/Perfil';
 import { SobreNosotros } from './Pages/SobreNosotros';
+import { TermimosServicios } from './Pages/TerminosServicios';
+import { PoliticasPrivacidad } from './Pages/PoliticasPrivacidad';
+import { CrearTrabajo } from './Pages/CrearTrabajo';
 
 function App() {
   return (
@@ -34,7 +37,10 @@ function App() {
           <Route path='/talleres' element={<Talleres />} />
           <Route path='/blog' element={<Blog />} />
           <Route path='/perfil' element={<Perfil />} />
+          <Route path='/crear-trabajo/:id' element={<CrearTrabajo />} />
           <Route path='/sobre-nosotros' element={<SobreNosotros />} />
+          <Route path='/terminos-y-servicios' element={<TermimosServicios />} />
+          <Route path='/politicas-de-privacidad' element={<PoliticasPrivacidad />} />
         </Routes>
       </BrowserRouter>
     </>

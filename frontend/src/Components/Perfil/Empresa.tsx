@@ -9,7 +9,7 @@ export const Empresa = ({ empresa }: { empresa: TypeEmpresa }) => {
   return (
     <>
       <div className="flex flex-col">
-        <ImagenHeader imagen={empresa.imagen} />
+        <ImagenHeader id={empresa.id} imagen={empresa['imagen-2']} />
         <div className="grid grid-cols-[auto,1fr] mb-16">
           <div className="flex flex-col px-4 pb-4">
             <Card
