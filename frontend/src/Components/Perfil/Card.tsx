@@ -15,18 +15,18 @@ export const Card = ({
   value: number;
 }) => {
   return (
-    <article className="bg-gradient-to-l to-principal-600 from-principal-700 rounded-2xl -mt-8 z-20 py-4 px-8 opacity-90">
+    <article className="bg-gradient-to-l to-principal-600 from-principal-700 rounded-2xl -mt-8 z-20 py-4 px-8 opacity-90 max-w-[350px] w-full mx-auto dark:to-zinc-800 dark:from-zinc-700">
       <figure className="flex flex-col items-center mt-4">
         {imagen !== 'sin-imagen' ? (
           <div className="bg-principal-600 text-white rounded-full shadow-xl drop-shadow-xl">
             <img src={imagen} alt="foto de perfil" className="" />
           </div>
         ) : (
-          <div className="bg-white text-white rounded-full shadow-xl drop-shadow-xl w-auto h-auto p-8">
+          <div className="bg-white text-white rounded-full shadow-xl drop-shadow-xl w-auto h-auto p-8 dark:bg-zinc-700">
             <UserRoundXIcon
               width={60}
               height={60}
-              className="text-principal-600"
+              className="text-principal-600 dark:text-white"
             />
           </div>
         )}
@@ -42,7 +42,7 @@ export const Card = ({
           <Mail />
           <p>{email}</p>
         </div>
-        <Estrellas value={value} />
+        <Estrellas color='text-white' value={value} />
       </figure>
     </article>
   );

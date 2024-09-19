@@ -8,9 +8,9 @@ import { Empresa2 } from './Empresa/Empresa2';
 export const Empresa = ({ empresa }: { empresa: TypeEmpresa }) => {
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col bg-gradient-to-l dark:to-zinc-600 dark:from-zinc-700">
         <ImagenHeader id={empresa.id} imagen={empresa['imagen-2']} />
-        <div className="grid grid-cols-[auto,1fr] mb-16">
+        <div className="grid md:grid-cols-[auto,1fr] mb-16">
           <div className="flex flex-col px-4 pb-4">
             <Card
               imagen={empresa.imagen}
@@ -22,15 +22,15 @@ export const Empresa = ({ empresa }: { empresa: TypeEmpresa }) => {
           </div>
           <div className="flex justify-center p-8">
             <Tabs defaultValue="perfil" className="w-full">
-              <TabsList className="flex justify-center gap-24 bg-transparent">
+              <TabsList className="flex justify-center gap-24 bg-transparent dark:bg-transparent">
                 <TabsTrigger
-                  className="border-b-4 rounded-none w-1/4 data-[state=active]:border-principal-500"
+                  className="border-b-4 rounded-none w-1/4 data-[state=active]:border-principal-500 dark:data-[state=active]:border-white dark:border-zinc-500"
                   value="perfil"
                 >
                   Perfil
                 </TabsTrigger>
                 <TabsTrigger
-                  className="border-b-4 rounded-none w-1/4 data-[state=active]:border-principal-500"
+                  className="border-b-4 rounded-none w-1/4 data-[state=active]:border-principal-500 dark:data-[state=active]:border-white dark:border-zinc-500"
                   value="ofertas"
                 >
                   Ofertas

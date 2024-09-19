@@ -289,3 +289,20 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
 .shadow-img{
   filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.3));
 }
+
+.header-trabajo{
+  @apply relative;
+}
+
+.header-trabajo::before{
+  content: '';
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 500px solid transparent;
+  border-right: 0px solid transparent;
+  border-top: 320px solid #e75f0b;
+  @apply border-t-principal-600 dark:border-t-zinc-600;
+}

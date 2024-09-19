@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './Pages/Home';
-// import { Trabajos } from "./Pages/Trabajos";
+import { Trabajos } from './Pages/Trabajos';
 // import { Trabajadores } from "./Pages/Trabajadores";
 // import { Empresas } from "./Pages/Empresas";
 import { Login } from './Pages/Login';
@@ -23,24 +23,33 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Home />} />
-          {/* <Route path="/trabajos" element={<Trabajos />} />
-          <Route path="/colaboradores" element={<Colaboradores />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/trabajos" element={<Trabajos />} />
+          {/* <Route path="/colaboradores" element={<Colaboradores />} />
           <Route path="/empresas" element={<Empresas />} /> */}
-          <Route path='/login' element={<Login />} />
-          <Route path='/info-colaborador' element={<RegistroInfoColaboradores />} />
-          <Route path='/info-empresa' element={<RegistroInfoEmpresas />} />
-          <Route path='/registro/colaborador' element={<RegistroColaborador />} />
-          <Route path='/registro/empresa' element={<RegistroEmpresa />} />
-          <Route path='*' element={<Page404 />} />
-          <Route path='/administrador' element={<Administrador />} />
-          <Route path='/talleres' element={<Talleres />} />
-          <Route path='/blog' element={<Blog />} />
-          <Route path='/perfil' element={<Perfil />} />
-          <Route path='/crear-trabajo/:id' element={<CrearTrabajo />} />
-          <Route path='/sobre-nosotros' element={<SobreNosotros />} />
-          <Route path='/terminos-y-servicios' element={<TermimosServicios />} />
-          <Route path='/politicas-de-privacidad' element={<PoliticasPrivacidad />} />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/info-colaborador"
+            element={<RegistroInfoColaboradores />}
+          />
+          <Route path="/info-empresa" element={<RegistroInfoEmpresas />} />
+          <Route
+            path="/registro/colaborador"
+            element={<RegistroColaborador />}
+          />
+          <Route path="/registro/empresa" element={<RegistroEmpresa />} />
+          <Route path="*" element={<Page404 />} />
+          <Route path="/administrador" element={<Administrador />} />
+          <Route path="/talleres" element={<Talleres />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/perfil" element={<Perfil />} />
+          <Route path="/crear-trabajo/:id" element={<CrearTrabajo />} />
+          <Route path="/sobre-nosotros" element={<SobreNosotros />} />
+          <Route path="/terminos-y-servicios" element={<TermimosServicios />} />
+          <Route
+            path="/politicas-de-privacidad"
+            element={<PoliticasPrivacidad />}
+          />
         </Routes>
       </BrowserRouter>
     </>

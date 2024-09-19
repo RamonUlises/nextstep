@@ -27,11 +27,11 @@ class Empresas {
   async obtenerEmpresa(
     id: string
   ): Promise<{ data: TypeEmpresa; status: number }> {
-    const response = await axios.get<TypeEmpresa>(
+    const response = await axios.get(
       `${url}/empresas/${id}`,
       auth.options
     );
-    return { data: response.data, status: response.status };
+    return { data: response.data.data[0], status: response.status };
   }
   // Crea una empresa
   async crearEmpresa(

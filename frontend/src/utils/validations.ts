@@ -31,6 +31,10 @@ export function validateArray(value: string[], name: string) {
     if(name === 'dirección') {
       throw `Debe agregar al menos una ${name}`;
     }
+    if(name === 'responsabilidades') {
+      throw `Debe agregar al menos una ${name}`;
+    }
+
     throw `Debe agregar al menos un ${name}`;
   }
 }
@@ -48,5 +52,11 @@ export function validateLengthArray(value: string[], name: string, min: number, 
     if (value[i].length < min || value[i].length > max) {
       throw `El campo ${name} debe tener entre ${min} y ${max} caracteres`;
     }
+  }
+}
+
+export function validateNumber(value: number, name: string) {
+  if (value <= 0) {
+    throw `El campo ${name} tiene que ser mayor a 0`;
   }
 }

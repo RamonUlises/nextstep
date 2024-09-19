@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { TypeTrabajos } from '@/types/trabajos';
 import trabajosLib from '@/lib/trabajos';
 import { Link } from 'react-router-dom';
+import { MostrarTrabajos } from './MostrarTrabajos';
 
 export const Empresa2 = ({ empresa }: { empresa: TypeEmpresa }) => {
   const [trabajos, getTrabajos] = useState<TypeTrabajos[]>([]);
@@ -24,15 +25,17 @@ export const Empresa2 = ({ empresa }: { empresa: TypeEmpresa }) => {
   }, []);
 
   return (
-    <div className="mt-12 max-w-[70%] mx-auto">
+    <div className="mt-12 lg:max-w-[70%] mx-auto">
       <div className="flex justify-center">
-        <Link to={`/crear-trabajo/${empresa.id}`} className='bg-principal-600 text-white p-2 rounded-sm font-semibold'>Crear trabajo</Link>
+        <Link to={`/crear-trabajo/${empresa.id}`} className='bg-principal-600 text-white p-2 rounded-sm font-semibold dark:bg-zinc-600 dark:border'>Crear trabajo</Link>
       </div>
       <div>
         {
           trabajos.length === 0 ? (
-            <h3 className='font-bold text-center text-xl mt-8'>Sin ofertas públicadas</h3> 
-          ) : <h3>trabajos</h3>
+            <h3 className='font-semibold text-center text-xl mt-8 dark:text-white'>Sin ofertas públicadas</h3> 
+          ) : (
+            <MostrarTrabajos trabajos={trabajos} />
+          )
         }
       </div>
     </div>

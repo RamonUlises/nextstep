@@ -54,7 +54,7 @@ export const MenuDesktop = () => {
               </li>
               <li>
                 <Link
-                  to="#"
+                  to="/trabajos"
                   className="transition-opacity duration-300 hover:opacity-80"
                 >
                   Trabajos

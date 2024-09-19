@@ -13,9 +13,9 @@ export const MenuMovil = () => {
           <Link to={'/'} className="rounded-full bg-[#FA7C15] p-1  hover:scale-125 transition-transform duration-300 dark:bg-zinc-600 w-[47px] h-[47px] flex justify-center">
             <Home />
           </Link>
-          <div className="rounded-full bg-[#FA7C15] p-1 hover:scale-125 transition-transform duration-300 dark:bg-zinc-600 w-[47px] h-[47px] flex justify-center">
+          <Link to='/trabajos' className="rounded-full bg-[#FA7C15] p-1 hover:scale-125 transition-transform duration-300 dark:bg-zinc-600 w-[47px] h-[47px] flex justify-center">
             <Job></Job>{' '}
-          </div>
+          </Link>
           <div className="rounded-full bg-[#FA7C15] p-1  hover:scale-125 transition-transform duration-300  dark:bg-zinc-600 w-[47px] h-[47px] flex justify-center">
             <Jobs></Jobs>{' '}
           </div>

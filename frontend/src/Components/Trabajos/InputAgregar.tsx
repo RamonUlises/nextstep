@@ -7,7 +7,21 @@ type Opcion = {
   value: string;
 };
 
-export const InputAgregar = ({ text, setTrabajo, textClass, inputClass, iconClass }: { text: string; setTrabajo: React.Dispatch<React.SetStateAction<TypeTrabajos>>; textClass?: string, inputClass?: string; iconClass?: string}) => {
+export const InputAgregar = ({
+  text,
+  setTrabajo,
+  textClass,
+  inputClass,
+  iconClass,
+  iconMinClass,
+}: {
+  text: string;
+  setTrabajo: React.Dispatch<React.SetStateAction<TypeTrabajos>>;
+  textClass?: string;
+  inputClass?: string;
+  iconClass?: string;
+  iconMinClass?: string;
+}) => {
   const [opcion, setOpcion] = useState<Opcion[]>([
     {
       id: crypto.randomUUID(),
@@ -61,15 +75,18 @@ export const InputAgregar = ({ text, setTrabajo, textClass, inputClass, iconClas
       </div>
       <div className="w-full flex flex-col gap-3">
         {opcion.map((item) => (
-          <div key={item.id} className='flex items-center gap-4'>
+          <div key={item.id} className="flex items-center gap-4">
             <input
               type="text"
               value={item.value}
               onChange={(e) => handleChange(e, item.id)}
-              className={`bg-zinc-300 rounded-sm outline-none valid:pl-2 w-full ${inputClass}`}
+              className={`rounded-sm outline-none valid:pl-2 w-full ${inputClass}`}
             />
-            <div onClick={() => deleteInput(item.id)} className='bg-red-600 rounded-full p-[1px] cursor-pointer'>
-              <Minus className='text-white' />
+            <div
+              onClick={() => deleteInput(item.id)}
+              className={`rounded-full p-[1px] cursor-pointer ${iconMinClass}`}
+            >
+              <Minus />
             </div>
           </div>
         ))}

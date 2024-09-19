@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
-    <footer className="flex flex-col py-5 px-8 md:px-20 bg-secundario-600 pb-[120px] md:pb-5 dark:bg-zinc-700">
+    <footer className="flex flex-col py-5 px-8 md:px-20 bg-principal-600 pb-[120px] md:pb-5 dark:bg-zinc-700">
       <section className="flex flex-col md:flex-row md:justify-between">
         <div className="flex flex-col items-center md:items-start md:w-[40%] lg:w-[30%]">
           <img src={logo} alt="logo" className="w-[50%] md:w-[80%]" />
@@ -17,17 +17,17 @@ export const Footer = () => {
             <Github
               width={40}
               height={40}
-              className="bg-white text-secundario-600 p-1 rounded-full cursor-pointer dark:bg-zinc-600 dark:text-white"
+              className="bg-white text-principal-600 p-1 rounded-full cursor-pointer dark:bg-zinc-600 dark:text-white"
             />
             <Facebook
               width={40}
               height={40}
-              className="bg-white text-secundario-600 p-1 rounded-full cursor-pointer dark:bg-zinc-600 dark:text-white"
+              className="bg-white text-principal-600 p-1 rounded-full cursor-pointer dark:bg-zinc-600 dark:text-white"
             />
             <Instagram
               width={40}
               height={40}
-              className="bg-white text-secundario-600 p-[5px] rounded-full cursor-pointer dark:bg-zinc-600 dark:text-white"
+              className="bg-white text-principal-600 p-[5px] rounded-full cursor-pointer dark:bg-zinc-600 dark:text-white"
             />
           </div>
         </div>

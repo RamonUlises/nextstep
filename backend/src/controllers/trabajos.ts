@@ -10,16 +10,19 @@ const { string, number } = zod;
 
 const schema = zod.object({
   'empresa': string(),
+  'titulo': string(),
   'descripcion': string(),
   'responsabilidades': string().array(),
   'requisitos': string().array(),
   'categorias': string().array(),
   'beneficios': string().array(),
   'contrato': string(),
-  'presupuesto': number(),
+  'ubicacion': string(),
+  'presupuesto-min': number(),
+  'presupuesto-max': number(),
   'fecha-publicacion': string(),
   'fecha-inicio': string(),
-  'fecha-expericacion': string(),
+  'fecha-expiracion': string(),
   'puntos': number(),
   'estado': string()
 });
@@ -52,6 +55,7 @@ class Trabajos {
     try {
       const data: TypeTrabajos = req.body as TypeTrabajos;
 
+      console.log(data);
       schema.parse(req.body);
 
       data.id = crypto.randomUUID();

@@ -98,7 +98,7 @@ export const ImagenHeader = ({
           >
             Subir imagén
           </button>
-          <label className=" bg-secundario-600 p-3 rounded-full shadow-2xl drop-shadow-lg cursor-pointer block">
+          <label className=" bg-secundario-600 p-3 rounded-full shadow-2xl drop-shadow-lg cursor-pointer block mb-8 md:mb-0">
             <input onChange={handleImage} type="file" accept="image/*" hidden />
             <Edit size="24" className="text-white" />
           </label>

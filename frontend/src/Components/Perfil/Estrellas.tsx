@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const Estrellas = ({ value }: { value: number }) => {
+export const Estrellas = ({ value, color }: { value: number, color: string }) => {
   const [puntuacion, setPuntuacion] = useState(value);
 
   useEffect(() => {
@@ -12,9 +12,9 @@ export const Estrellas = ({ value }: { value: number }) => {
       {[1, 2, 3, 4, 5].map((i) => (
         <span key={i}>
           {puntuacion >= i ? (
-            <StarFull className="text-white" />
+            <StarFull className={color} />
           ) : (
-            <StarNot />
+            <StarNot className={color} />
           )}
         </span>
       ))}
@@ -38,7 +38,7 @@ function StarFull({ className }: { className: string }) {
   );
 }
 
-function StarNot() {
+function StarNot({ className }: { className: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ function StarNot() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="icon icon-tabler icons-tabler-outline icon-tabler-star text-white"
+      className={`icon icon-tabler icons-tabler-outline icon-tabler-star ${className}`}
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
