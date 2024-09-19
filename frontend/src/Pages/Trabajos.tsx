@@ -64,6 +64,8 @@ const CardTrabajos = ({
   img: string;
   fecha: string;
 }) => {
+
+  console.log(img);
   return (
     <div className="bg-gradient-to-br flex items-center to-[#1562AD] from-[#144678] w-full rounded-2xl text-white font-medium">
       <div className="h-full w-[25%] flex items-center justify-center ">
