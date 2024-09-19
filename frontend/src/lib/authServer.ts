@@ -6,7 +6,7 @@ interface authServer {
 };
 
 const auth: authServer = {
-  editing: true,
+  editing: false,
   desarrollo: 'http://localhost:3000/api',
   produccion: 'https://nextstep-gpli.onrender.com/api',
   options: {
