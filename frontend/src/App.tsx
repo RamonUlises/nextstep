@@ -18,6 +18,7 @@ import { TermimosServicios } from './Pages/TerminosServicios';
 import { PoliticasPrivacidad } from './Pages/PoliticasPrivacidad';
 import { CrearTrabajo } from './Pages/CrearTrabajo';
 import { RecuperarContrasena } from './Pages/RecuperarContrasena';
+import { TalleresInfo } from './Pages/TalleresInfo';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="*" element={<Page404 />} />
           <Route path="/administrador" element={<Administrador />} />
           <Route path="/talleres" element={<Talleres />} />
+          <Route path="/talleres-info" element={<TalleresInfo />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/crear-trabajo/:id" element={<CrearTrabajo />} />

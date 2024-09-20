@@ -1,9 +1,10 @@
 import { Item } from '@/Components/Carrusel/Item';
 import { MenuDesktop } from '@/Components/MenuDesktop';
 import { MenuMovil } from '@/Components/MenuMovil';
-import imagen from '@/assets/image-login.png';
 import { useRef } from 'react';
-// import { moveSlider } from '@/utils/slider';
+import imagen1 from '@/assets/Talleres/produccion-ingenieria.jpeg';
+import imagen2 from '@/assets/Talleres/image-fondo-talleres.jpg';
+import imagen3 from '@/assets/Talleres/administracion1.jpeg';
 
 export const Talleres = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -51,8 +52,8 @@ export const Talleres = () => {
           <div className="slider" ref={sliderRef}>
             <div className="list" ref={sliderListRef}>
               <Item
-                imagen={imagen}
-                title="MAGIC SLIDER"
+                imagen={imagen1}
+                title="Hello wordddd"
                 description="Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Deleniti temporibus quis eum consequuntur voluptate quae
                     doloribus distinctio. Possimus, sed recusandae. Lorem ipsum
@@ -60,8 +61,8 @@ export const Talleres = () => {
                 type="FLOWER"
               />
               <Item
-                imagen={imagen}
-                title="MAGIC SLIDER"
+                imagen={imagen2}
+                title="Hello wordddd"
                 description="Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Deleniti temporibus quis eum consequuntur voluptate quae
                     doloribus distinctio. Possimus, sed recusandae. Lorem ipsum
@@ -69,16 +70,7 @@ export const Talleres = () => {
                 type="FLOWER"
               />
               <Item
-                imagen={imagen}
-                title="MAGIC SLIDER"
-                description="Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Deleniti temporibus quis eum consequuntur voluptate quae
-                    doloribus distinctio. Possimus, sed recusandae. Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Sequi, aut."
-                type="FLOWER"
-              />
-              <Item
-                imagen={imagen}
+                imagen={imagen3}
                 title="MAGIC SLIDER"
                 description="Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Deleniti temporibus quis eum consequuntur voluptate quae
@@ -88,19 +80,16 @@ export const Talleres = () => {
               />
             </div>
 
-            <div className="thumbnail" ref={thumbnailRef}>
+            <div className="thumbnail" ref={thumbnailRef}>          
               <div className="item">
-                <img src={imagen} alt="" />
+                <img src={imagen2} alt="Imagen del carrousel" />
               </div>
               <div className="item">
-                <img src={imagen} alt="" />
-              </div>
+                <img src={imagen3} alt="Imagen del carrousel" />
+              </div>  
               <div className="item">
-                <img src={imagen} alt="" />
-              </div>
-              <div className="item">
-                <img src={imagen} alt="" />
-              </div>
+                <img src={imagen1} alt="Imagen del carrousel" />
+              </div>            
             </div>
 
             <div className="nextPrevArrows">
