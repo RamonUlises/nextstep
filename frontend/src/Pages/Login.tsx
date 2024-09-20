@@ -5,6 +5,7 @@ import logo from '../assets/logo.png';
 import { FormEvent, useEffect, useState } from 'react';
 import { auth } from '../lib/auth';
 import { agregarCookie, obtenerCookie } from '../utils/cookies';
+import { Link } from 'react-router-dom';
 
 export const Login = () => {
   const [inputs, setInputs] = useState({ correo: '', contra: '' });
@@ -71,7 +72,8 @@ export const Login = () => {
                 onInputChange={onInputChange}
               />
             </div>
-            <p className='text-secundario-600 mt-6 dark:text-white'>{error}</p>
+            <Link to="/recuperar-contrasena" className="text-secundario-600 mt-4 hover:underline dark:text-white">¿Olvidaste tu contraseña?</Link>
+            <p className={`${error.includes('orrectamente') ? 'text-secundario-600' : 'text-red-600'} mt-6 dark:text-white`}>{error}</p>
             <input
               value="Enviar"
               type="submit"

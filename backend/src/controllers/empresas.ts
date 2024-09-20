@@ -82,7 +82,9 @@ class Empresa {
       }
 
       data.id = crypto.randomUUID();
-      data.contrasena = encrypt(data.contrasena);
+      if (data.contrasena) {
+        data.contrasena = encrypt(data.contrasena);
+      }
       await requestDataBaseEmpresa.crearEmpresa(data);
 
       res.status(200).json({ message: 'Empresa creada con éxito' });
@@ -120,7 +122,7 @@ class Empresa {
         }
       }
 
-      data.contrasena = encrypt(data.contrasena);
+      delete data.contrasena;
       await requestDataBaseEmpresa.actualizarEmpresa(id, data);
 
       res.status(200).json({ message: 'Empresa actualizada con éxito' });
@@ -198,7 +200,7 @@ class Empresa {
         return;
       }
 
-      const contraAntigua = decrypt(data[0].contrasena);
+      const contraAntigua = data[0].contrasena ? decrypt(data[0].contrasena) : '';
 
       if(contraAntigua !== contrasenaAntigua) {
         res.status(400).json({ message: 'Contraseña antigua incorrecta' });
@@ -206,6 +208,18 @@ class Empresa {
       }
 
       await requestDataBaseEmpresa.cambiarContrasena(id, encrypt(contrasenaNueva));
+
+      res.status(200).json({ message: 'Contraseña cambiada con éxito' });
+    } catch (error) {
+      res.status(500).json({ message: 'Error al cambiar la contraseña', error });
+    }
+  }
+  async cambiarContrasenaPerdida(req: Request, res: Response): Promise<void> {
+    try {
+      const id = req.params.id;
+      const { contrasena } = req.body as { contrasena: string };
+
+      await requestDataBaseEmpresa.cambiarContrasena(id, encrypt(contrasena));
 
       res.status(200).json({ message: 'Contraseña cambiada con éxito' });
     } catch (error) {

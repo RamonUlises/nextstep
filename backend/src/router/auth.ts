@@ -11,4 +11,8 @@ router.post('/access-admin', (req, res) => {
   auth.accessAdmin(req, res);
 });
 
+router.post('/recover-password', (req, res) => {
+  void auth.recoverPassword(req, res);
+});
+
 export default router;

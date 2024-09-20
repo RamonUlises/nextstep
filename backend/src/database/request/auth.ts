@@ -14,6 +14,16 @@ class Auth {
       throw new Error('Error en la base de datos');
     }
   }
+  async recoverPassword(email: string) {
+    try {
+      const empresa: TypeEmpresa[] = await empresas.find({ email });
+      const trabajador: TypeTrabajadores[] = await trabajadores.find({ email });
+
+      return { empresa, trabajador };
+    } catch {
+      throw new Error('Error en la base de datos');
+    }
+  }
 }
 
 const auth = new Auth();

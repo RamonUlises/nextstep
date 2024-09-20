@@ -23,4 +23,8 @@ router.delete('/:id', (req, res) => {
   void trabajadores.eliminarTrabajador(req, res);
 });
 
+router.put('/contrasena-perdida/:id', (req, res) => {
+  void trabajadores.cambiarContrasenaPerdida(req, res);
+});
+
 export default router;

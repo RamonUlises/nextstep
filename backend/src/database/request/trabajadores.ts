@@ -59,6 +59,13 @@ class RequestDatabase {
       throw new Error('Error al obtener el trabajador');
     }
   }
+  async cambiarContrasena(id: string, contrasena: string): Promise<void> {
+    try {
+      await trabajadores.updateOne({ id }, { contrasena });
+    } catch {
+      throw new Error('Error al cambiar la contraseña');
+    }
+  }
 }
 
 const requestDatabase = new RequestDatabase();

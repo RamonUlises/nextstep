@@ -33,3 +33,17 @@ export async function adminAccess(contrasena: string): Promise<{ data: { message
     }
   }
 }
+
+export async function recuperarContrasena(email: string): Promise<{ data: { message: string; type: string; token: string; id: string}; status: number; }> {
+  try {
+    const response = await axios.post(`${url}/auth/recover-password`, { email }, authA.options);
+
+    return { data: response.data, status: response.status };
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response) {
+      return { data: error.response.data, status: error.response.status };
+    } else {
+      return { data: { message: 'Unknown error', token: 'undefined', type: 'undefined', id: 'undefined' }, status: 500 };
+    }
+  }
+};

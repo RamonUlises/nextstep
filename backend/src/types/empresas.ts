@@ -6,7 +6,7 @@ export interface TypeEmpresa {
   'nombre': string;
   'telefono': string[];
   'email': string[];
-  'contrasena': string;
+  'contrasena'?: string;
   'sitio-web': string;
   'direccion': string[];
   'objetivos': string[];

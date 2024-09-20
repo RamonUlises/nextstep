@@ -22,3 +22,19 @@ export async function enviarCorreo(email: string, title: string, text: string) {
     return false;
   }
 }
+
+export async function enviarCorreoRecoverPassword(email: string, token: string) {
+  const response = await resend.emails.send({
+    from: 'NextStep <nextstep@nextstep-web.online>',
+    to: [email],
+    subject: 'Recuperar contraseña',
+    text: `Su token para recuperar la contraseña es: ${token}`,
+  });
+
+  if (response.error) {
+    console.error(response.error);
+    return false;
+  }
+
+  return true;
+};

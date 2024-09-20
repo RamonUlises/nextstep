@@ -1,4 +1,4 @@
-import logo from '@/assets/logo.png';
+import logo from '@/assets/Logos/logo-blanco.png';
 import { Facebook, Github, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -59,7 +59,7 @@ export const Footer = () => {
             Terminos y servicios
           </Link>
           <p>-</p>
-          <Link to='politicas-de-privacidad' className="cursor-pointer hover:opacity-80 transition-opacity duration-500">
+          <Link to='/politicas-de-privacidad' className="cursor-pointer hover:opacity-80 transition-opacity duration-500">
             Politicas de privacidad
           </Link>
         </div>

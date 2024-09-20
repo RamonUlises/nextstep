@@ -77,6 +77,10 @@ export const EditarEmpresa = ({ empresa }: { empresa: TypeEmpresa }) => {
       setEmail(getElement(empresa.email));
       setObjetivos(getElement(empresa.objetivos));
 
+      if(empresa['sitio-web'] === 'sin-sitio-web') {
+        setEmpresaEdit((prev) => ({ ...prev, 'sitio-web': '' }));
+      }
+
       setRed(
         empresa['redes-sociales'].map((r) => {
           const red = r.split(':');

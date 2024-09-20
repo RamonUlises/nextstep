@@ -10,6 +10,7 @@ import {
 } from '@/Components/ui/dialog';
 import empresas from '@/lib/empresas';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export function CambiarContrasena({ id }: { id: string }) {
   const [contrasenaAntigua, setContrasenaAntigua] = useState('');
@@ -92,6 +93,7 @@ export function CambiarContrasena({ id }: { id: string }) {
             className="border border-gray-300 rounded-md p-2 outline-none"
             name="contrasenaNueva"
           />
+          <Link className='text-secundario-600 mt-4 hover:underline' to='/recuperar-contrasena'>¿Olvidaste tu contraseña?</Link>
 
           {error && <p className="text-red-500 mt-4">{error}</p>}
         </div>

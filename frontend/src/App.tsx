@@ -17,6 +17,7 @@ import { SobreNosotros } from './Pages/SobreNosotros';
 import { TermimosServicios } from './Pages/TerminosServicios';
 import { PoliticasPrivacidad } from './Pages/PoliticasPrivacidad';
 import { CrearTrabajo } from './Pages/CrearTrabajo';
+import { RecuperarContrasena } from './Pages/RecuperarContrasena';
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
             path="/politicas-de-privacidad"
             element={<PoliticasPrivacidad />}
           />
+          <Route path="/recuperar-contrasena" element={<RecuperarContrasena />} />
         </Routes>
       </BrowserRouter>
     </>

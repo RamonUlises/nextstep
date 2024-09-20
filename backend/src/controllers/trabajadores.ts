@@ -161,6 +161,18 @@ class Trabajadores {
       res.status(500).json({ message: 'Error al eliminar el trabajador', error });
     }
   }
+  async cambiarContrasenaPerdida(req: Request, res: Response): Promise<void> {
+    try {
+      const id = req.params.id;
+      const { contrasena } = req.body as { contrasena: string };
+
+      await requestDatabaseTrabajador.cambiarContrasena(id, encrypt(contrasena));
+
+      res.status(200).json({ message: 'Contraseña cambiada con éxito' });
+    } catch (error) {
+      res.status(500).json({ message: 'Error al cambiar la contraseña', error });
+    }
+  }
 }
 
 const trabajadores = new Trabajadores();

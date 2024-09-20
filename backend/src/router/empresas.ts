@@ -35,4 +35,8 @@ router.put('/contrasena/:id', (req, res) => {
   void empresas.cambiarContrasena(req, res);
 });
 
+router.put('/contrasena-perdida/:id', (req, res) => {
+  void empresas.cambiarContrasenaPerdida(req, res);
+});
+
 export default router;
