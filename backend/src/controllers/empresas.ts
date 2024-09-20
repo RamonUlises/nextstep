@@ -7,7 +7,7 @@ import requestDatabaseTrabajadores from '@/database/request/trabajadores';
 import { TypeEmpresa } from '@/types/empresas';
 import { manejarError } from '@/lib/errores';
 import { ErrorZodType } from '@/types/errorZod';
-import { encrypt } from '@/lib/encripts';
+import { decrypt, encrypt } from '@/lib/encripts';
 import { enviarCorreo } from '@/lib/enviarCorreo';
 
 const { string, number, boolean } = zod;
@@ -182,6 +182,34 @@ class Empresa {
       res.status(200).json({ message: 'Imagen actualizada con éxito' });
     } catch (error) {
       res.status(500).json({ message: 'Error al actualizar la imagen', error });
+    }
+  }
+  async cambiarContrasena(req: Request, res: Response): Promise<void> {
+    try {
+      const { id } = req.params;
+      const { contrasenaNueva, contrasenaAntigua } = req.body as { contrasenaNueva: string; contrasenaAntigua: string };
+
+      console.log(contrasenaAntigua);
+
+      const data: TypeEmpresa[] = await requestDataBaseEmpresa.obtenerEmpresa(id);
+
+      if(data.length === 0) {
+        res.status(404).json({ message: 'Empresa no encontrada' });
+        return;
+      }
+
+      const contraAntigua = decrypt(data[0].contrasena);
+
+      if(contraAntigua !== contrasenaAntigua) {
+        res.status(400).json({ message: 'Contraseña antigua incorrecta' });
+        return;
+      }
+
+      await requestDataBaseEmpresa.cambiarContrasena(id, encrypt(contrasenaNueva));
+
+      res.status(200).json({ message: 'Contraseña cambiada con éxito' });
+    } catch (error) {
+      res.status(500).json({ message: 'Error al cambiar la contraseña', error });
     }
   }
 }

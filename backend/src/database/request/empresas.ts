@@ -63,6 +63,13 @@ class RequesDatabase {
       throw new Error('Error al actualizar la imagen');
     }
   }
+  async cambiarContrasena(id: string, contrasena: string): Promise<void> {
+    try {
+      await empresas.updateOne({ id }, { contrasena });
+    } catch {
+      throw new Error('Error al cambiar la contraseña');
+    }
+  }
 }
 
 const requestDatabase = new RequesDatabase();

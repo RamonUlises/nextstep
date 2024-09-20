@@ -98,6 +98,69 @@ class Empresas {
       }
     }
   }
+  async eliminarEmpresa(id: string){
+    try {
+      const response = await axios.delete(
+        `${url}/empresas/${id}`,
+        auth.options
+      );
+      return { data: response.data, status: response.status };
+    } catch (error) {
+      if (error && typeof error === 'object' && 'response' in error) {
+        const err = error as { response: { data: string[]; status: number } };
+        throw { data: err.response.data, status: err.response.status };
+      } else if (error instanceof Error) {
+        throw { data: error.message, status: 500 };
+      } else {
+        throw { data: 'Error desconocido', status: 500 };
+      }
+    }
+  }
+  async editarEmpresa(
+    id: string,
+    empresa: TypeEmpresa
+  ): Promise<{ data: string; status: number }> {
+    try {
+      if(empresa['sitio-web'] === ''){
+        empresa['sitio-web'] = 'sin-sitio-web';
+      };
+
+      const response = await axios.put(
+        `${url}/empresas/${id}`,
+        empresa,
+        auth.options
+      );
+      return { data: response.data, status: response.status };
+    } catch (error) {
+      if (error && typeof error === 'object' && 'response' in error) {
+        const err = error as { response: { data: string[]; status: number } };
+        throw { data: err.response.data, status: err.response.status };
+      } else if (error instanceof Error) {
+        throw { data: error.message, status: 500 };
+      } else {
+        throw { data: 'Error desconocido', status: 500 };
+      }
+    }
+  }
+  async cambiarContrasena(id: string, contrasenaNueva: string, contrasenaAntigua: string){
+    try {
+      const response = await axios.put(
+        `${url}/empresas/contrasena/${id}`,
+        {contrasenaNueva, contrasenaAntigua},
+        auth.options
+      );
+      return { data: response.data, status: response.status };
+    } catch (error) {
+      if (error && typeof error === 'object' && 'response' in error) {
+        const err = error as { response: { data: string[]; status: number } };
+        throw { data: err.response.data, status: err.response.status };
+      } else if (error instanceof Error) {
+        throw { data: error.message, status: 500 };
+      } else {
+        throw { data: 'Error desconocido', status: 500 };
+      }
+    }
+  }
 }
 
 const empresas = new Empresas();

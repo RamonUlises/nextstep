@@ -6,10 +6,12 @@ export const OptionsInfo = ({
   option,
   format,
   setOption,
+  styles,
 }: {
   text: string;
   option: { id: string; value: string }[];
   format: string;
+  styles?: string;
   setOption: (value: { id: string; value: string }[]) => void;
 }) => {
 
@@ -34,9 +36,9 @@ export const OptionsInfo = ({
   };
 
   return (
-    <div className="flex w-full justify-center md:justify-start items-start overflow-hidden gap-2 ">
-      <label className="row-span-2 dark:text-white font-bold">{text}</label>
-      <div className="flex items-end gap-1 p-1 max-w-[320px]">
+    <div className="flex w-full justify-center md:justify-start items-start overflow-hidden gap-2">
+      <label className="row-span-2 dark:text-white font-medium mt-2">{text}</label>
+      <div className={`flex items-end gap-1 p-1 ${styles !== undefined ? 'w-full' : 'max-w-[320px]'}`}>
         <div className='rounded-full w-[23px] h-[23px] text-green-600 cursor-pointer mb-2'>
           <Plus onClick={addNew} width={23} height={23} />
         </div>

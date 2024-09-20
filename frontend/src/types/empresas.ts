@@ -12,7 +12,7 @@ export interface TypeEmpresa {
   'objetivos': string[];
   'redes-sociales': string[];
   'mision': string;
-  'vision': string;
+  'vision': string; 
   'puntuacion': number;
   'puntuados': number;
   'imagen': string;

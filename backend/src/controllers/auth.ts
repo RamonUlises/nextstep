@@ -22,6 +22,11 @@ class Auth {
       });
 
       if(empresa.length > 0){
+        if(!empresa[0].verificado) {
+          res.status(400).json({ message: 'Empresa no verificada' });
+          return;
+        }
+
         if(empresa[0].contrasena !== password) {
           res.status(400).json({ message: 'Contraseña incorrecta' });
           return;

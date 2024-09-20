@@ -57,7 +57,7 @@ export function InputsRedes({
   redesSociales: string[];
   options: string[];
 }) {
-  const [prop, setProp] = useState<string | undefined>(undefined);
+  const [prop, setProp] = useState<string | undefined>(propiedad);
   const [value, setValue] = useState<string>(valor !== undefined ? valor : '');
 
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -80,7 +80,7 @@ export function InputsRedes({
               placeholder={propiedad === undefined ? 'Redes' : propiedad}
             />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className='z-[999]'>
             <SelectGroup>
               {
                 options.map(option => (
@@ -101,7 +101,7 @@ export function InputsRedes({
           name="url"
           type="text"
           value={value}
-          className="border-2 rounded-e-xl outline-none valid:pl-2 font-light h-8 min-w-[150px] border-l-0"
+          className="border-2 rounded-e-xl outline-none valid:pl-2 font-light h-8 min-w-[150px] border-l-0 dark:valid:text-black"
           placeholder="Nombre o url"
           onChange={onInputChange}
         />

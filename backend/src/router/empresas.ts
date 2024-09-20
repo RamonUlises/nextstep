@@ -31,4 +31,8 @@ router.put('/imagen-2/:id', (req, res) => {
   void empresas.actualizarImagen2(req, res);
 });
 
+router.put('/contrasena/:id', (req, res) => {
+  void empresas.cambiarContrasena(req, res);
+});
+
 export default router;

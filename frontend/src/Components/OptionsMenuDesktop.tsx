@@ -35,11 +35,11 @@ export function OptionsMenuDesktop({
           className="bg-transparent border-none outline-none hover:bg-transparent hover:text-white flex gap-2 dark:bg-transparent dark:hover:bg-transparent"
         >
           <h3>{nombre}</h3>
-          <div className="w-[35px] h-[35px] rounded-full bg-slate-300 overflow-hidden">
+          <div className="w-[35px] h-[35px] rounded-full bg-slate-300 overflow-hidden flex items-center">
             {img === 'sin-imagen' ? (
               <User width={33} height={33} />
             ) : (
-              <img src={img} alt="Image" />
+              <img src={img} alt="Image" className='w-full' />
             )}
           </div>
         </Button>

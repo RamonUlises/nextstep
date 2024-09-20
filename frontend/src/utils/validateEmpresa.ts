@@ -61,15 +61,30 @@ export const validationEmpresa = (empresa: TypeEmpresa) => {
 
   // Validate number identification
   validateString(numeroIdentificacion, 'número de identificación');
-  validateExpression(numeroIdentificacion, 'número de identificación', expNumId, '###-######-####X');
-  
+  validateExpression(
+    numeroIdentificacion,
+    'número de identificación',
+    expNumId,
+    '###-######-####X'
+  );
+
   // Validate certificate registration
   validateString(certificadoRegistro, 'certificado de registro');
-  validateExpression(certificadoRegistro, 'certificado de registro', expCerReg, '######-####');
+  validateExpression(
+    certificadoRegistro,
+    'certificado de registro',
+    expCerReg,
+    '######-####'
+  );
 
   // Validate commercial license
   validateString(licenciaComercial, 'licencia comercial');
-  validateExpression(licenciaComercial, 'licencia comercial', expComLic, 'XX-######/####');
+  validateExpression(
+    licenciaComercial,
+    'licencia comercial',
+    expComLic,
+    'XX-######/####'
+  );
 
   // Validate name
   validateString(nombre, 'nombre');
@@ -80,8 +95,13 @@ export const validationEmpresa = (empresa: TypeEmpresa) => {
   validateLength(contrasena, 'contraseña', 8, 50);
 
   // Validate website
-  if(sitioWeb.length > 0) {
-    validateExpression(sitioWeb, 'sitio web', expSitio, 'ejemplo.com (sin http:// o https://)');
+  if (sitioWeb.length > 0) {
+    validateExpression(
+      sitioWeb,
+      'sitio web',
+      expSitio,
+      'ejemplo.com (sin http:// o https://)'
+    );
   }
 
   // Validate cellphone
@@ -90,5 +110,76 @@ export const validationEmpresa = (empresa: TypeEmpresa) => {
 
   // Validate email
   validateArray(email, 'correo electrónico');
-  validateExpressArray(email, 'correo electrónico', expEmail, 'example@gmail.com');
+  validateExpressArray(
+    email,
+    'correo electrónico',
+    expEmail,
+    'example@gmail.com'
+  );
 };
+
+export function validateEmpresaEdit(empresa: TypeEmpresa) {
+  const {
+    nombre,
+    'sitio-web': sitioWeb,
+    email,
+    telefono,
+    objetivos,
+    direccion,
+    mision,
+    vision,
+    'redes-sociales': redesSociales,
+  } = empresa;
+
+  // Regular expression
+  const expSitio = /^(?!:\/\/)([a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,6}$/;
+  const expTel = /^[0-9]{4}-[0-9]{4}$/;
+  const expEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  // Validate name
+  validateString(nombre, 'nombre');
+  validateLength(nombre, 'nombre', 3, 50);
+
+  // Validate website
+  if (sitioWeb.length > 0) {
+    validateExpression(
+      sitioWeb,
+      'sitio web',
+      expSitio,
+      'ejemplo.com (sin http:// o https://)'
+    );
+  }
+
+  // Validate email
+  validateArray(email, 'correo electrónico');
+  validateExpressArray(
+    email,
+    'correo electrónico',
+    expEmail,
+    'example@gmail.com'
+  );
+
+  // Validate cellphone
+  validateArray(telefono, 'teléfono');
+  validateExpressArray(telefono, 'teléfono', expTel, '####-####');
+
+  // validate objectives
+  validateArray(objetivos, 'objetivos');
+  validateLengthArray(objetivos, 'objetivo', 3, 50);
+
+  // Validate address
+  validateArray(direccion, 'dirección');
+  validateLengthArray(direccion, 'dirección', 3, 50);
+
+  // Validate mission
+  validateString(mision, 'misión');
+  validateLength(mision, 'misión', 10, 80);
+
+  // Validate vision
+  validateString(vision, 'visión');
+  validateLength(vision, 'visión', 10, 80);
+
+  // Validate social networks
+  validateArray(redesSociales, 'redes sociales');
+  validateLengthArray(redesSociales, 'red social', 3, 50);
+}

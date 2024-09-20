@@ -1,6 +1,9 @@
 import { Datos } from '../Datos';
 import { RedesSociales } from '../RedesSociales';
 import { TypeEmpresa } from '@/types/empresas';
+import { EliminarEmpresa } from './EliminarEmpresa';
+import { EditarEmpresa } from './EditarEmpresa';
+import { CambiarContrasena } from './CambiarContraseña';
 
 export const Empresa1 = ({ empresa }: { empresa: TypeEmpresa }) => {
   return (
@@ -33,6 +36,16 @@ export const Empresa1 = ({ empresa }: { empresa: TypeEmpresa }) => {
         <h5 className='font-medium text-base'>Visión</h5>
         <p>{empresa.vision}</p>
       </div>
+      
+      <h5 className='mt-16 text-blue-500 font-semibold'>Editar</h5>
+      <hr className="bg-transparent border-2 border-blue-500/60 dark:border-white/60" />
+      <div className='flex items-center gap-4'>
+        <EditarEmpresa empresa={empresa} />
+        <CambiarContrasena id={empresa.id} />
+      </div>
+      <h5 className=' text-red-500 font-semibold mt-8'>Zona  de peligro</h5>
+      <hr className="bg-transparent border-2 border-red-500/60 dark:border-white/60" />
+      <EliminarEmpresa id={empresa.id} nombre={empresa.nombre} />
     </div>
   );
 };

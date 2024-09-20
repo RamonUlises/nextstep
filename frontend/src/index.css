@@ -187,7 +187,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   animation: showThumbnail .5s linear 1 forwards;
 }
 .slider.prev .list .item img{
-  z-index: 100;
+  z-index: 10;
 }
 
 @keyframes showThumbnail{
