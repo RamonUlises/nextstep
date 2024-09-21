@@ -3,7 +3,7 @@ import crypto from 'node:crypto';
 import requestDatabaseTrabajador from '@/database/request/trabajadores';
 import { Request, Response } from 'express';
 import { TypeTrabajadores } from '@/types/trabajadores';
-import { encrypt } from '@/lib/encripts';
+import { decrypt, encrypt } from '@/lib/encripts';
 import { manejarError } from '@/lib/errores';
 import { ErrorZodType } from '@/types/errorZod';
 import { TypeEmpresa } from '@/types/empresas';
@@ -85,7 +85,11 @@ class Trabajadores {
       }
 
       data.id = crypto.randomUUID();
-      data.contrasena = encrypt(data.contrasena);
+      if (data.contrasena) {
+        data.contrasena = encrypt(data.contrasena);
+      } else {
+        throw new Error('La contraseña no puede estar vacía');
+      }
 
       data.puntos = 0;
       data.puntuacion = 0;
@@ -136,7 +140,7 @@ class Trabajadores {
         return;
       }
 
-      data.contrasena = encrypt(data.contrasena);
+      delete data.contrasena;
       await requestDatabaseTrabajador.actualizarTrabajador(id, data);
 
       res.status(200).json({ message: 'Trabajador actualizado con éxito' });
@@ -167,6 +171,54 @@ class Trabajadores {
       const { contrasena } = req.body as { contrasena: string };
 
       await requestDatabaseTrabajador.cambiarContrasena(id, encrypt(contrasena));
+
+      res.status(200).json({ message: 'Contraseña cambiada con éxito' });
+    } catch (error) {
+      res.status(500).json({ message: 'Error al cambiar la contraseña', error });
+    }
+  }
+  async actualizarImagen2(req: Request, res: Response): Promise<void> {
+    try {
+      const { id } = req.params;
+      const { imagen } = req.body as { imagen: string };
+
+      const data: TypeTrabajadores[] = await requestDatabaseTrabajador.obtenerTrabajador(id);
+
+      if(data.length === 0) {
+        res.status(404).json({ message: 'Trabajador no encontrado' });
+        return;
+      }
+
+      console.log(imagen);
+      await requestDatabaseTrabajador.actualizarImagen2(id, imagen);
+
+      res.status(200).json({ message: 'Imagen actualizada con éxito' });
+    } catch (error) {
+      res.status(500).json({ message: 'Error al actualizar la imagen', error });
+    }
+  }
+  async cambiarContrasena(req: Request, res: Response): Promise<void> {
+    try {
+      const { id } = req.params;
+      const { contrasenaNueva, contrasenaAntigua } = req.body as { contrasenaNueva: string; contrasenaAntigua: string };
+
+      console.log(contrasenaAntigua);
+
+      const data: TypeTrabajadores[] = await requestDatabaseTrabajador.obtenerTrabajador(id);
+
+      if(data.length === 0) {
+        res.status(404).json({ message: 'Trabajador no encontrado' });
+        return;
+      }
+
+      const contraAntigua = data[0].contrasena ? decrypt(data[0].contrasena) : '';
+
+      if(contraAntigua !== contrasenaAntigua) {
+        res.status(400).json({ message: 'Contraseña antigua incorrecta' });
+        return;
+      }
+
+      await requestDatabaseTrabajador.cambiarContrasena(id, encrypt(contrasenaNueva));
 
       res.status(200).json({ message: 'Contraseña cambiada con éxito' });
     } catch (error) {

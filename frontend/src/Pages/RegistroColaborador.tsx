@@ -28,6 +28,7 @@ export const RegistroColaborador = () => {
     habilidades: [],
     puntos: 0,
     puntuacion: 0,
+    puntuados: 0,
     saldo: 0,
   });
   const [error, setError] = useState<string>('');

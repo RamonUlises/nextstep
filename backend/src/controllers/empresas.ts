@@ -191,8 +191,6 @@ class Empresa {
       const { id } = req.params;
       const { contrasenaNueva, contrasenaAntigua } = req.body as { contrasenaNueva: string; contrasenaAntigua: string };
 
-      console.log(contrasenaAntigua);
-
       const data: TypeEmpresa[] = await requestDataBaseEmpresa.obtenerEmpresa(id);
 
       if(data.length === 0) {

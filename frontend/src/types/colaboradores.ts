@@ -17,6 +17,7 @@ export interface TypeColaboradores {
   'habilidades': string[];
   'puntos': number;
   'puntuacion': number;
+  'puntuados': number;
   'saldo': number;
   'imagen-2': string;
 };

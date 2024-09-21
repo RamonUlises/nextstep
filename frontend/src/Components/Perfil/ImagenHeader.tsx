@@ -1,3 +1,4 @@
+import colaborador from '@/lib/colaboradores';
 import empresas from '@/lib/empresas';
 import { Edit, UserRoundXIcon, X } from 'lucide-react';
 import { useState } from 'react';
@@ -5,9 +6,11 @@ import { useState } from 'react';
 export const ImagenHeader = ({
   imagen,
   id,
+  type,
 }: {
   imagen: string;
   id: string;
+  type: string;
 }) => {
   const [newImagen, setNewImagen] = useState<string>('sin-imagen');
   const [borrar, setBorrar] = useState<string>('imagen');
@@ -31,7 +34,13 @@ export const ImagenHeader = ({
 
   const subirImagen = async () => {
     try {
-      const response = await empresas.actualizarImagen2(id, newImagen);
+      let response;
+
+      if(type === 'empresa') {
+        response = await empresas.actualizarImagen2(id, newImagen);
+      } else {
+        response = await colaborador.actualizarImagen2(id, newImagen);
+      }
 
       if (response.status === 200) {
         location.reload();
@@ -44,8 +53,14 @@ export const ImagenHeader = ({
 
   const borrarImage = async () => {
     try {
-      const response = await empresas.actualizarImagen2(id, 'sin-imagen');
+      let response;
 
+      if(type === 'empresa') {
+        response = await empresas.actualizarImagen2(id, newImagen);
+      } else {
+        response = await colaborador.actualizarImagen2(id, newImagen);
+      }
+      
       if (response.status === 200) {
         location.reload();
       }

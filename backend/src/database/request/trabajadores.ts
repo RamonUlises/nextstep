@@ -66,6 +66,13 @@ class RequestDatabase {
       throw new Error('Error al cambiar la contraseña');
     }
   }
+  async actualizarImagen2(id: string, imagen: string): Promise<void> {
+    try {
+      await trabajadores.updateOne({ id }, { 'imagen-2': imagen });
+    } catch {
+      throw new Error('Error al actualizar la imagen');
+    }
+  }
 }
 
 const requestDatabase = new RequestDatabase();

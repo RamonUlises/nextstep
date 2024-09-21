@@ -19,6 +19,7 @@ const trabajadoresSchema = new mongoose.Schema({
   'habilidades': { type: Array, required: true },
   'puntos': { type: Number, required: true },
   'puntuacion': { type: Number, required: true },
+  'puntuados': { type: Number, required: true },
   'saldo': { type: Number, required: true },
   'imagen-2': { type: String, required: true },
 });

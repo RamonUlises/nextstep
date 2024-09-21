@@ -8,11 +8,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/Components/ui/dialog';
+import colaborador from '@/lib/colaboradores';
 import empresas from '@/lib/empresas';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export function CambiarContrasena({ id }: { id: string }) {
+export function CambiarContrasena({ id, type }: { id: string; type: string }) {
   const [contrasenaAntigua, setContrasenaAntigua] = useState('');
   const [nuevaContrasena, setNuevaContrasena] = useState('');
 
@@ -33,7 +34,12 @@ export function CambiarContrasena({ id }: { id: string }) {
         return;
       }
 
-      const response = await empresas.cambiarContrasena(id, nuevaContrasena, contrasenaAntigua);
+      let response;
+      if(type === 'empresa'){
+        response = await empresas.cambiarContrasena(id, nuevaContrasena, contrasenaAntigua);
+      } else {
+        response = await colaborador.cambiarContrasena(id, nuevaContrasena, contrasenaAntigua);
+      }
 
       if (response.status === 200) {
         setContrasenaAntigua('');

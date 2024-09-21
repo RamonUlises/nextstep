@@ -4,7 +4,7 @@ export interface TypeTrabajadores {
   'usuario': string;
   'telefono': string;
   'email': string;
-  'contrasena': string;
+  'contrasena'?: string;
   'redes-sociales': string[];
   'imagen': string;
   'descripcion': string;
@@ -17,6 +17,7 @@ export interface TypeTrabajadores {
   'habilidades': string[];
   'puntos': number;
   'puntuacion': number;
+  'puntuados': number;
   'saldo': number;
   'imagen-2': string;
 };

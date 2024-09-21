@@ -2,7 +2,7 @@ import { Facebook, Instagram } from 'lucide-react';
 
 export const RedesSociales = ({ redes }: { redes: string[] }) => {
   return (
-    <div className="flex justify-center">
+    <div className="flex flex-col items-center gap-2">
       {redes.map((red, i) => {
         const indice = red.indexOf(':');
         const parte1 = red.slice(0, indice);

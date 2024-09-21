@@ -8,11 +8,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/Components/ui/dialog';
+import colaborador from '@/lib/colaboradores';
 import empresas from '@/lib/empresas';
 import { eliminarCookie } from '@/utils/cookies';
 import { useState } from 'react';
 
-export const EliminarEmpresa = ({ nombre, id } : { nombre: string; id: string }) => {
+export const Eliminar = ({ nombre, id, type } : { nombre: string; id: string, type: string }) => {
   const [eliminar, setEliminar] = useState(false);
 
   const updateText = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,8 +26,14 @@ export const EliminarEmpresa = ({ nombre, id } : { nombre: string; id: string })
   
   const deleteEmpresa = async () => {
     try {
-      const response = await empresas.eliminarEmpresa(id);
+      let response;
 
+      if(type === 'empresa') {
+        response = await empresas.eliminarEmpresa(id);
+      } else {
+        response = await colaborador.eliminarColaborador(id);
+      }
+      
       if (response.status === 200) {
         window.location.href = '/';
         eliminarCookie('UserId');

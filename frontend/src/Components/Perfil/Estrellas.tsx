@@ -5,6 +5,10 @@ export const Estrellas = ({ value, color }: { value: number, color: string }) =>
 
   useEffect(() => {
     setPuntuacion(Math.round(value));
+    if(isNaN(value)) {
+      setPuntuacion(5);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

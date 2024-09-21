@@ -27,4 +27,12 @@ router.put('/contrasena-perdida/:id', (req, res) => {
   void trabajadores.cambiarContrasenaPerdida(req, res);
 });
 
+router.put('/imagen-2/:id', (req, res) => {
+  void trabajadores.actualizarImagen2(req, res);
+});
+
+router.put('/contrasena/:id', (req, res) => {
+  void trabajadores.cambiarContrasena(req, res);
+});
+
 export default router;

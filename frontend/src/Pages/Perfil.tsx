@@ -1,6 +1,7 @@
 import { Footer } from '@/Components/Footer';
 import { MenuDesktop } from '@/Components/MenuDesktop';
 import { MenuMovil } from '@/Components/MenuMovil';
+import { Colaborador } from '@/Components/Perfil/Colaborador';
 import { Empresa } from '@/Components/Perfil/Empresa';
 import { obtenerInfo } from '@/lib/obtenerInfo';
 import { TypeColaboradores } from '@/types/colaboradores';
@@ -32,7 +33,8 @@ export const Perfil = () => {
       <section className="flex flex-col overflow-x-hidden">
         <MenuDesktop />
         <MenuMovil />
-        {'nombre' in user ? <Empresa empresa={user} /> : <h1>Colaborador</h1>}
+        {'nombres' in user && <Colaborador colaborador={user} /> }
+        {'nombre' in user && <Empresa empresa={user} />}
         <Footer />
       </section>
     </>
