@@ -48,6 +48,17 @@ class RequesDatabase {
       throw new Error('Error al obtener los trabajos');
     }
   }
+  async obtenerTrabajosPorUsuario(usuario: string, estado: string): Promise<TypeTrabajos[]> {
+    try {
+      const data = await trabajos.find({
+        estado: estado,
+        aceptados: { $in: [usuario] },
+      });
+      return data as TypeTrabajos[];
+    } catch {
+      throw new Error('Error al obtener los trabajos');
+    }
+  }
 }
 
 const requestDatabase = new RequesDatabase();

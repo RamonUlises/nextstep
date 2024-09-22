@@ -178,7 +178,6 @@ class Empresa {
         return;
       }
 
-      console.log(imagen);
       await requestDataBaseEmpresa.actualizarImagen2(id, imagen);
 
       res.status(200).json({ message: 'Imagen actualizada con éxito' });

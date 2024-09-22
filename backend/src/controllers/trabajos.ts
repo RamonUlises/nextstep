@@ -24,7 +24,8 @@ const schema = zod.object({
   'fecha-inicio': string(),
   'fecha-expiracion': string(),
   'puntos': number(),
-  'estado': string()
+  'estado': string(),
+  'aceptados': string().array(),
 });
 
 class Trabajos {
@@ -55,7 +56,6 @@ class Trabajos {
     try {
       const data: TypeTrabajos = req.body as TypeTrabajos;
 
-      console.log(data);
       schema.parse(req.body);
 
       data.id = crypto.randomUUID();
@@ -108,6 +108,22 @@ class Trabajos {
     try {
       const { empresa } = req.params;
       const data: TypeTrabajos[] = await requestDatabaseTrabajo.obtenerTrabajosPorEmpresa(empresa);
+
+      if (data.length === 0) {
+        res.status(404).json({ message: 'Trabajos no encontrados' });
+        return;
+      }
+
+      res.status(200).json({ message: 'Trabajos obtenidos', data });
+    } catch (error) {
+      res.status(500).json({ message: 'Error al obtener los trabajos', error });
+    }
+  }
+  async obtenerTrabajosPorUsuario(req: Request, res: Response): Promise<void> {
+    try {
+      const { usuario } = req.params;
+      const { estado } = req.query;
+      const data: TypeTrabajos[] = await requestDatabaseTrabajo.obtenerTrabajosPorUsuario(usuario, estado as string);
 
       if (data.length === 0) {
         res.status(404).json({ message: 'Trabajos no encontrados' });

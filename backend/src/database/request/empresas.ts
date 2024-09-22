@@ -14,8 +14,7 @@ class RequesDatabase {
     try {
       const data = await empresas.find({ id });
       return data as TypeEmpresa[];
-    } catch(error) {
-      console.log(error);
+    } catch {
       throw new Error('Error al obtener la empresa');
     }
   }

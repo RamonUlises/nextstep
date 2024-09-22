@@ -3,6 +3,7 @@ import { Datos } from '../Datos';
 import { RedesSociales } from '../RedesSociales';
 import { Eliminar } from '../Eliminar';
 import { CambiarContrasena } from '../CambiarContraseña';
+import { EditarColaborador } from './EditarColaborador';
 
 export const Colaborador1 = ({
   colaborador,
@@ -74,7 +75,7 @@ export const Colaborador1 = ({
       <h5 className='mt-16 text-blue-500 font-semibold'>Editar</h5>
       <hr className="bg-transparent border-2 border-blue-500/60 dark:border-white/60" />
       <div className='flex items-center gap-4'>
-
+        <EditarColaborador colaborador={colaborador} />
         <CambiarContrasena type='colaborador' id={colaborador.id} />
       </div>
       <h5 className=" text-red-500 font-semibold mt-8">Zona de peligro</h5>

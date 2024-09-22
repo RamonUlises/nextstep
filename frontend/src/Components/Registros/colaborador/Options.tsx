@@ -31,7 +31,7 @@ export const Options = ({
         <SelectTrigger className="w-[80px] justify-evenly border-none bg-slate-300 dark:bg-zinc-700 dark:text-white">
           <SelectValue placeholder={option ? 'Si' : 'No'} />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className='z-[9999]'>
           <SelectGroup>
             <SelectItem className="cursor-pointer" value="Si">
               Si

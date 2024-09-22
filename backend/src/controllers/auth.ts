@@ -53,7 +53,6 @@ class Auth {
       res.status(200).json({ message: 'Login correcto', id });
     } catch (error) {
       res.status(500).json({ message: 'Error en el servidor', error });
-      console.log(error);
     }
   }
   accessAdmin(req: Request, res: Response) {
@@ -102,7 +101,6 @@ class Auth {
         .json({ message: `Correo enviado a ${email}`, type, token, id });
     } catch (error) {
       res.status(500).json({ message: 'Error en el servidor', error });
-      console.log(error);
     }
   }
 }

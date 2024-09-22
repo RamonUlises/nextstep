@@ -17,7 +17,8 @@ const trabajosSchema = new mongoose.Schema({
   'fecha-inicio': { type: String, required: true },
   'fecha-expiracion': { type: String, required: true },
   'puntos': { type: Number, required: true },
-  'estado': { type: String, required: true }
+  'estado': { type: String, required: true },
+  'aceptados': { type: Array, required: true },
 });
 
 const Trabajos = mongoose.model('Trabajos', trabajosSchema);

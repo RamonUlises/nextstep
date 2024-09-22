@@ -48,6 +48,7 @@ export const CrearTrabajo = () => {
     'presupuesto-min': 0,
     'presupuesto-max': 0,
     puntos: 300,
+    aceptados: [],
   });
 
   const [error, setError] = useState<string>('');
@@ -155,7 +156,11 @@ export const CrearTrabajo = () => {
       setError('');
       validateTrabajo(trabajo);
 
-      await trabajosLib.crearTrabajo(trabajo);
+      const response = await trabajosLib.crearTrabajo(trabajo);
+
+      if (response.status === 200) {
+        window.location.href = '/perfil';
+      }
     } catch (error) {
       setError(error as string);
     }
@@ -173,7 +178,7 @@ export const CrearTrabajo = () => {
       <div className="header-trabajo flex flex-col justify-end items-start pt-24">
         <div className="flex flex-col z-10 md:px-24 pb-4 mx-auto md:mx-0">
           {empresa.imagen !== 'sin-imagen' ? (
-            <div className="bg-principal-600 text-white rounded-full shadow-xl drop-shadow-xl">
+            <div className="text-white rounded-full w-[150px] h-[150px] overflow-hidden flex items-center">
               <img src={empresa.imagen} alt="foto de perfil" className="" />
             </div>
           ) : (

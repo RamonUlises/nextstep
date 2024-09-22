@@ -16,4 +16,5 @@ export interface TypeTrabajos {
   'fecha-expiracion': string;
   'puntos': number;
   'estado': string;
+  'aceptados': string[];
 };

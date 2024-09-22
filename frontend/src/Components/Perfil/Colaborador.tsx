@@ -3,6 +3,8 @@ import { ImagenHeader } from './ImagenHeader';
 import { Card } from './Card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { Colaborador1 } from './Colaborador/Colaborador1';
+import { Colaborador2 } from './Colaborador/Colaborador2';
+import { Colaborador3 } from './Colaborador/Colaborador3';
 
 export const Colaborador = ({
   colaborador,
@@ -52,10 +54,10 @@ export const Colaborador = ({
               <Colaborador1 colaborador={colaborador} />
             </TabsContent>
             <TabsContent value="trabajos-aceptados">
-              <h1>trabajos-aceptados</h1>
+              <Colaborador2 usuario={colaborador.usuario} />
             </TabsContent>
             <TabsContent value="historial">
-              <h1>historial</h1>
+              <Colaborador3 usuario={colaborador.usuario} />
             </TabsContent>
           </Tabs>
         </div>

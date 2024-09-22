@@ -27,4 +27,8 @@ router.get('/empresa/:empresa', (req, res) => {
   void trabajos.obtenerTrabajosPorEmpresa(req, res);
 });
 
+router.get('/usuario/:usuario', (req, res) => {
+  void trabajos.obtenerTrabajosPorUsuario(req, res);
+});
+
 export default router;
