@@ -7,7 +7,7 @@ import { Footer } from '../Components/Footer';
 import { BallIndex } from '../Components/Home/BallIndex';
 import { ButtonsMovilIndex } from '../Components/Home/ButtonsMovilIndex';
 import imagen from '../assets/image-inicio.png';
-import { CarouselSpacing } from '@/Components/Home/Carrusel';
+// import { CarouselSpacing } from '@/Components/Home/Carrusel';
 
 export const Home = () => {
   const [vwScreen, setWvScreen] = useState<number>(window.innerWidth);
