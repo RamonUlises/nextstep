@@ -14,7 +14,7 @@ export const Layout = ({
     <section className='flex flex-col bg-gradient-to-bl dark:from-zinc-700 dark:to-zinc-800'>
       <MenuDesktop />
       <MenuMovil />
-      <div className={`${className}`}>
+      <div className={`${className} mb-28`}>
         {children}
       </div>
       <Footer />

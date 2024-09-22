@@ -71,7 +71,7 @@ export const Home = () => {
           <h2 className="text-center text-2xl md:text-5xl font-extrabold dark:text-white mb-8">
             Talleres
           </h2>
-          <CarouselSpacing />
+          {/* <CarouselSpacing /> */}
         </div>
         <div className="flex flex-col h-screen pt-[103px]">
           <h2 className="text-center text-2xl md:text-5xl font-extrabold dark:text-white">
