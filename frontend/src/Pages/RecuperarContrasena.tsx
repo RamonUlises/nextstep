@@ -115,8 +115,8 @@ export const RecuperarContrasena = () => {
       >
         {token === '' && (
           <div className="flex flex-col">
-            <h2 className="text-2xl font-bold">Recuperar contraseña</h2>
-            <p className="text-center text-gray-500">
+            <h2 className="text-2xl font-bold dark:text-white">Recuperar contraseña</h2>
+            <p className="text-center text-gray-500 dark:text-white">
               Ingresa tu correo electrónico para recuperar tu contraseña
             </p>
             <input
@@ -142,7 +142,7 @@ export const RecuperarContrasena = () => {
               <button
                 onClick={buscarUsuario}
                 type="button"
-                className="px-8 py-2 mt-8 text-white bg-secundario-500 rounded-md"
+                className="px-8 py-2 mt-8 text-white bg-secundario-500 rounded-md dark:bg-zinc-600 dark:border-white dark:border-2 hover:bg-secundario-600 dark:hover:bg-zinc-700"
               >
                 Enviar
               </button>
@@ -151,12 +151,12 @@ export const RecuperarContrasena = () => {
         )}
         {token !== '' && !verificar && (
           <div className="flex flex-col">
-            <h2 className="text-2xl font-bold">Recuperar contraseña</h2>
-            <p>{message}</p>
-            <p className="mt-4">
+            <h2 className="text-2xl font-bold dark:text-white">Recuperar contraseña</h2>
+            <p className='dark:text-white'>{message}</p>
+            <p className="mt-4 dark:text-white">
               Ingresa el código que te hemos enviado a tu correo electrónico
             </p>
-            <div className='mt-4'>
+            <div className='mt-4 dark:text-white'>
               <InputOTP onChangeCapture={handleChangeToken} maxLength={6}>
                 <InputOTPGroup>
                   <InputOTPSlot index={0} />

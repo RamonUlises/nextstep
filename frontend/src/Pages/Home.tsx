@@ -7,9 +7,19 @@ import { Footer } from '../Components/Footer';
 import { BallIndex } from '../Components/Home/BallIndex';
 import { ButtonsMovilIndex } from '../Components/Home/ButtonsMovilIndex';
 import imagen from '../assets/image-inicio.png';
-// import { CarouselSpacing } from '@/Components/Home/Carrusel';
+import { CarouselSpacing } from '@/Components/Home/Carrusel';
+import image2 from '@/assets/Inicio/talleres/image-inicio-talleres1.png';
+import image3 from '@/assets/Inicio/talleres/image-inicio-talleres2.png';
+import image4 from '@/assets/Inicio/talleres/image-inicio-talleres3.png';
+import image5 from '@/assets/Inicio/talleres/image-inicio-talleres4.png';
+import image6 from '@/assets/Inicio/talleres/image-inicio-talleres5.png';
+import image7 from '@/assets/Inicio/talleres/image-inicio-talleres6.png';
+import image8 from '@/assets/Inicio/talleres/image-inicio-talleres7.png';
 
 export const Home = () => {
+  const imagenes = [image2, image3, image4, image5, image6, image7, image8];
+
+  const texts = [''];
   const [vwScreen, setWvScreen] = useState<number>(window.innerWidth);
 
   function handelWidth() {
@@ -71,9 +81,13 @@ export const Home = () => {
           <h2 className="text-center text-2xl md:text-5xl font-extrabold dark:text-white mb-8">
             Talleres
           </h2>
-          {/* <CarouselSpacing /> */}
+          <div className="flex flex-col w-full justify-center items-center pt-11">
+            <div className="flex justify-center items-center">
+              <CarouselSpacing images={imagenes} />
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col h-screen pt-[103px]">
+        <div className="flex flex-col h-screen md:h-screen mt-20">
           <h2 className="text-center text-2xl md:text-5xl font-extrabold dark:text-white">
             Beneficios
           </h2>
