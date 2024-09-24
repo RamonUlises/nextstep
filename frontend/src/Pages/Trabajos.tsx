@@ -1,41 +1,76 @@
 import { Footer } from '@/Components/Footer';
 import { MenuDesktop } from '@/Components/MenuDesktop';
 import { MenuMovil } from '@/Components/MenuMovil';
-import { Link } from 'react-router-dom';
-import { MapPinned } from 'lucide-react';
-import { Eye } from 'lucide-react';
-import { Hourglass } from 'lucide-react';
-import { InputTrabajos } from '@/Components/InputTrabajos';
+import { TypeTrabajos } from '@/types/trabajos';
+import { useEffect, useState } from 'react';
+import { obtenerCookie } from '@/utils/cookies';
+import trabajosLib from '@/lib/trabajos';
+import { CardTrabajos } from '@/Components/Trabajos/Card';
+import { Search } from 'lucide-react';
+
 export const Trabajos = () => {
+  const [trabajos, setTrabajos] = useState<TypeTrabajos[]>([]);
+
+  useEffect(() => {
+    const cookies = obtenerCookie('UserId');
+
+    if (!cookies) {
+      window.location.href = '/login';
+    }
+    (async () => {
+      try {
+        const response = await trabajosLib.obtenerTrabajosActivos();
+
+        if(response.status === 200) {
+          setTrabajos(response.data);
+        }
+      } catch (error) {
+        console.error('Error al obtener los trabajos', error);
+      }
+    })();
+  }, []);
+
   return (
     <section className="flex flex-col">
       <MenuDesktop />
       <MenuMovil />
-      <div className='mt-44'>
-        <InputTrabajos />
+      <div className="mt-8 md:mt-36 flex justify-center">
+        <div className="flex relative w-[40%]">
+          <Search className="absolute top-0 left-0 ml-4 my-2 text-white" />
+          <input
+            type="search"
+            placeholder="Buscar trabajo por título"
+            className="dark:bg-slate-200 w-full py-2 valid:pl-14 pr-4 rounded-xl bg-principal-600 outline-none text-white placeholder:text-white"
+          />
+        </div>
       </div>
       <div className="flex mb-[100px] mt-16 px-4">
-        <div className="flex flex-col items-center justify-center w-[25%] bg-white rounded-3xl mr-8 shadow-2xl gap-2 p-8 sticky top-0">
-          <Botones text="Áreas de comercio" />
-          <Botones text="Producción | Ingeniería" />
-          <Botones text="Operaciones | Logística" />
-          <Botones text="Finanzas | Contabilidad | Auditoría" />
-          <Botones text="Mercadeo | Ventas" />
-          <Botones text="Publicidad | Comunicaciones | Diseño" />
-          <Botones text="Administración" />
-          <Botones text="Banca | Servicios Financieros" />
-          <Botones text="Recursos Humanos" />
-          <Botones text="Informática | Internet" />
+        <div className="items-center justify-start w-[25%] mr-8 relative top-0">
+          <div className="bg-white rounded-3xl shadow-2xl flex flex-col sticky top-24 h-[80vh] overflow-x-hidden overflow-y-auto">
+            <Botones text="Áreas de comercio" />
+            <Botones text="Producción | Ingeniería" />
+            <Botones text="Operaciones | Logística" />
+            <Botones text="Finanzas | Contabilidad | Auditoría" />
+            <Botones text="Mercadeo | Ventas" />
+            <Botones text="Publicidad | Comunicaciones | Diseño" />
+            <Botones text="Administración" />
+            <Botones text="Banca | Servicios Financieros" />
+            <Botones text="Recursos Humanos" />
+            <Botones text="Informática | Internet" />
+          </div>
         </div>
-        <div className="flex w-[75%] flex-col p-16">
-          <CardTrabajos
-            titulo="Ingeniero de Producción"
-            empresa="Eficiencia Global S.A."
-            ubicacion="Avenida Principal 123, Managua, Nicaragua "
-            id="Detalles"
-            img=""
-            fecha="15/ 01 /2025"
-          />
+        <div className="flex w-[75%] flex-col px-16 gap-4">
+          {trabajos.map((trabajo) => (
+            <CardTrabajos
+              key={trabajo.id}
+              titulo={trabajo.titulo}
+              empresa={trabajo.empresa}
+              ubicacion={trabajo.ubicacion}
+              id={trabajo.id}
+              fecha={trabajo['fecha-expiracion']}
+              img={trabajo.imagen}
+            />
+          ))}
         </div>
       </div>
       <Footer />
@@ -44,52 +79,8 @@ export const Trabajos = () => {
 };
 const Botones = ({ text }: { text: string }) => {
   return (
-    <button className="rounded-2xl hover:bg-principal-600 transition duration-500 text-black hover:text-white font-medium text-base hover:text w-full py-[20px] outline-none">
+    <button className="rounded-2xl hover:bg-principal-600 transition duration-500 text-black hover:text-white font-medium text-sm hover:text w-full py-[20px] outline-none px-2">
       {text}
     </button>
-  );
-};
-const CardTrabajos = ({
-  titulo,
-  empresa,
-  ubicacion,
-  id,
-  fecha,
-  img,
-}: {
-  titulo: string;
-  empresa: string;
-  ubicacion: string;
-  id: string;
-  img: string;
-  fecha: string;
-}) => {
-
-  console.log(img);
-  return (
-    <div className="bg-gradient-to-br flex items-center to-[#1562AD] from-[#144678] w-full rounded-2xl text-white font-medium">
-      <div className="h-full w-[25%] flex items-center justify-center ">
-        <div className="rounded-full bg-white w-[100px] h-[100px]"></div>
-      </div>
-      <div className="w-[75%] flex flex-col pt-6 pb-16 gap-6">
-        <div className='flex justify-end'>
-          <div className='bg-principal-600 opacity-80 rounded-tl-3xl rounded-bl-3xl flex items-center py-3 px-6 gap-2 -mr-2'>
-            <Hourglass />
-            <p>{fecha}</p>
-          </div>
-        </div>
-        <h2 className="text-2xl font-semibold">{titulo}</h2>
-        <h5 className="text-xl font-normal pl-12">{empresa}</h5>
-        <div className="flex gap-4 items-center text-base font-normal">
-          <MapPinned />
-          <p>{ubicacion}</p>
-        </div>
-
-        <div className="flex gap-4 items-center">
-          <Eye />
-          <Link to="">{id}</Link>
-        </div>
-      </div>
-    </div>
   );
 };

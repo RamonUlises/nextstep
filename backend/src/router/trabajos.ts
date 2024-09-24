@@ -31,4 +31,8 @@ router.get('/usuario/:usuario', (req, res) => {
   void trabajos.obtenerTrabajosPorUsuario(req, res);
 });
 
+router.get('/obtener/activos', (req, res) => {
+  void trabajos.obtenerTrabajosActivos(req, res);
+});
+
 export default router;

@@ -2,7 +2,9 @@ import mongoose from 'mongoose';
 
 const trabajosSchema = new mongoose.Schema({
   'id': { type: String, required: true },
+  'id-empresa': { type: String, required: true },
   'empresa': { type: String, required: true },
+  'imagen': { type: String, required: true },
   'titulo': { type: String, required: true },
   'descripcion': { type: String, required: true },
   'responsabilidades': { type: Array, required: true },

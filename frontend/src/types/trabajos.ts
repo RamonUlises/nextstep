@@ -1,6 +1,8 @@
 export interface TypeTrabajos {
   'id': string;
+  'id-empresa': string;
   'empresa': string;
+  'imagen': string;
   'titulo': string;
   'descripcion': string;
   'responsabilidades': string[];

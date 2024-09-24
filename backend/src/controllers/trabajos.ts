@@ -9,7 +9,9 @@ import { ErrorZodType } from '@/types/errorZod';
 const { string, number } = zod;
 
 const schema = zod.object({
+  'id-empresa': string(),
   'empresa': string(),
+  'imagen': string(),
   'titulo': string(),
   'descripcion': string(),
   'responsabilidades': string().array(),
@@ -63,7 +65,7 @@ class Trabajos {
 
       res.status(200).json({ message: 'Trabajo creado con éxito' });
     } catch (error) {
-      manejarError(res, error as ErrorZodType);
+      console.log(error);
     }
   }
   async actualizarTrabajo(req: Request, res: Response): Promise<void> {
@@ -124,6 +126,20 @@ class Trabajos {
       const { usuario } = req.params;
       const { estado } = req.query;
       const data: TypeTrabajos[] = await requestDatabaseTrabajo.obtenerTrabajosPorUsuario(usuario, estado as string);
+
+      if (data.length === 0) {
+        res.status(404).json({ message: 'Trabajos no encontrados' });
+        return;
+      }
+
+      res.status(200).json({ message: 'Trabajos obtenidos', data });
+    } catch (error) {
+      res.status(500).json({ message: 'Error al obtener los trabajos', error });
+    }
+  }
+  async obtenerTrabajosActivos(req: Request, res: Response): Promise<void> {
+    try {
+      const data: TypeTrabajos[] = await requestDatabaseTrabajo.obtenerTrabajosEstado('activa');
 
       if (data.length === 0) {
         res.status(404).json({ message: 'Trabajos no encontrados' });

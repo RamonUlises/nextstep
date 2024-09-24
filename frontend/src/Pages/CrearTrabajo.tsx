@@ -32,7 +32,9 @@ export const CrearTrabajo = () => {
   const [empresa, setEmpresa] = useState<TypeEmpresa>({} as TypeEmpresa);
   const [trabajo, setTrabajo] = useState<TypeTrabajos>({
     id: '',
-    empresa: id as string,
+    'id-empresa': id as string,
+    empresa: '',
+    imagen: '',
     titulo: '',
     descripcion: '',
     responsabilidades: [],
@@ -131,6 +133,7 @@ export const CrearTrabajo = () => {
     (async () => {
       const response = await empresas.obtenerEmpresa(id as string);
       setEmpresa(response.data);
+      setTrabajo({ ...trabajo, imagen: response.data.imagen, empresa: response.data.nombre });
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -159,7 +162,7 @@ export const CrearTrabajo = () => {
       const response = await trabajosLib.crearTrabajo(trabajo);
 
       if (response.status === 200) {
-        window.location.href = '/perfil';
+        //window.location.href = '/perfil';
       }
     } catch (error) {
       setError(error as string);
