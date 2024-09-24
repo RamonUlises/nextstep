@@ -19,10 +19,43 @@ import { PoliticasPrivacidad } from './Pages/PoliticasPrivacidad';
 import { CrearTrabajo } from './Pages/CrearTrabajo';
 import { RecuperarContrasena } from './Pages/RecuperarContrasena';
 import { TalleresInfo } from './Pages/TalleresInfo';
+import { useEffect, useState } from 'react';
+import { NotConection } from './Components/NotConection';
 
 function App() {
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    // Función que se ejecuta cuando el usuario pierde la conexión
+    const handleOffline = () => {
+      setIsOnline(false);
+    };
+
+    // Función que se ejecuta cuando el usuario recupera la conexión
+    const handleOnline = () => {
+      setIsOnline(true);
+    };
+
+    if(!isOnline) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    // Añadir los event listeners
+    window.addEventListener('offline', handleOffline);
+    window.addEventListener('online', handleOnline);
+
+    // Limpieza al desmontar el componente
+    return () => {
+      window.removeEventListener('offline', handleOffline);
+      window.removeEventListener('online', handleOnline);
+    };
+  }, []);
+
   return (
     <>
+      {!isOnline && <NotConection />}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -53,7 +86,10 @@ function App() {
             path="/politicas-de-privacidad"
             element={<PoliticasPrivacidad />}
           />
-          <Route path="/recuperar-contrasena" element={<RecuperarContrasena />} />
+          <Route
+            path="/recuperar-contrasena"
+            element={<RecuperarContrasena />}
+          />
         </Routes>
       </BrowserRouter>
     </>
