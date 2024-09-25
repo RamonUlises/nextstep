@@ -183,11 +183,11 @@ export const EditarEmpresa = ({ empresa }: { empresa: TypeEmpresa }) => {
                     <UserRoundXIcon width={44} height={44} />
                   </div>
                 ) : (
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 w-24 h-24">
                     <img
                       src={empresaEdit['imagen']}
                       alt="Imagen de la empresa"
-                      className="w-24 h-24 rounded-full"
+                      className="rounded-full w-full h-full object-cover"
                     />
                   </div>
                 )}

@@ -10,9 +10,11 @@ import {
 
 export const Seleccionar = ({
   options,
+  defaultOption = 'Contrato',
   setOption,
 }: {
   options: string[];
+  defaultOption?: string;
   setOption: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   const [opcion, setOpcion] = useState<string>('');
@@ -26,7 +28,7 @@ export const Seleccionar = ({
     <div>
       <Select onValueChange={(op) => setOpcion(op)}>
         <SelectTrigger className="w-full bg-zinc-300 dark:bg-zinc-600 dark:border dark:border-white">
-          <SelectValue placeholder="Contrato" />
+          <SelectValue placeholder={defaultOption} />
         </SelectTrigger>
         <SelectContent className='dark:dark:bg-zinc-600'>
           <SelectGroup>

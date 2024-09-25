@@ -186,11 +186,11 @@ export const EditarColaborador = ({ colaborador }: { colaborador: TypeColaborado
                     <UserRoundXIcon width={44} height={44} />
                   </div>
                 ) : (
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 w-24 h-24">
                     <img
                       src={colaboradorEdit['imagen']}
                       alt="Imagen de la empresa"
-                      className="w-24 h-24 rounded-full"
+                      className="rounded-full w-full h-full object-cover"
                     />
                   </div>
                 )}

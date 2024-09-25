@@ -19,7 +19,7 @@ export const Card = ({
       <figure className="flex flex-col items-center mt-4">
         {imagen !== 'sin-imagen' ? (
           <div className="bg-transparent rounded-full w-[150px] h-[150px] flex items-center justify-center overflow-hidden">
-            <img src={imagen} alt="foto de perfil" className="w-full object-cover" />
+            <img src={imagen} alt="foto de perfil" className="w-full h-full object-cover" />
           </div>
         ) : (
           <div className="bg-white text-white rounded-full shadow-xl drop-shadow-xl w-auto h-auto p-8 dark:bg-zinc-700">

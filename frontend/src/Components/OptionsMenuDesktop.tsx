@@ -39,7 +39,7 @@ export function OptionsMenuDesktop({
             {img === 'sin-imagen' ? (
               <User width={33} height={33} />
             ) : (
-              <img src={img} alt="Image" className='w-full' />
+              <img src={img} alt="Image" className='w-full h-full object-cover' />
             )}
           </div>
         </Button>

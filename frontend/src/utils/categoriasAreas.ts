@@ -1,0 +1,1 @@
+export const categoriasAreas = ['Producción | Ingeniería', 'Operaciones | Logística', 'Finanzas | Contabilidad | Auditoría', 'Mercadeo | Ventas', 'Publicidad | Comunicaciones | Diseño', 'Administración', 'Banca | Servicios Financieros', 'Recursos Humanos', 'Informática | Internet'];
