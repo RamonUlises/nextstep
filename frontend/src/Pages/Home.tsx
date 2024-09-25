@@ -19,7 +19,6 @@ import image8 from '@/assets/Inicio/talleres/image-inicio-talleres7.png';
 export const Home = () => {
   const imagenes = [image2, image3, image4, image5, image6, image7, image8];
 
-  const texts = [''];
   const [vwScreen, setWvScreen] = useState<number>(window.innerWidth);
 
   function handelWidth() {

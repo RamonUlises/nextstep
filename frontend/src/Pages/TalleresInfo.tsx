@@ -38,9 +38,6 @@ export const TalleresInfo = () => {
   const imagenes5 = [image21, image22, image23];
   const imagenes6 = [image24, image25, image26];
   const imagenes7 = [image27, image28];
-  const texts = [
-    '',
-  ];
   return (
     <Layout>
       <div className="bg-secundario-600 flex  h-[500px] dark:bg-zinc-600">
