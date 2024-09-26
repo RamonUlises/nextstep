@@ -27,7 +27,7 @@ export const Seleccionar = ({
   return (
     <div>
       <Select onValueChange={(op) => setOpcion(op)}>
-        <SelectTrigger className="w-full bg-zinc-300 dark:bg-zinc-600 dark:border dark:border-white">
+        <SelectTrigger className="w-full bg-zinc-300 dark:bg-zinc-600 dark:border dark:border-white/60 dark:text-white">
           <SelectValue placeholder={defaultOption} />
         </SelectTrigger>
         <SelectContent className='dark:dark:bg-zinc-600'>

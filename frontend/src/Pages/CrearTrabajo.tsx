@@ -162,7 +162,7 @@ export const CrearTrabajo = () => {
       const response = await trabajosLib.crearTrabajo(trabajo);
 
       if (response.status === 200) {
-        //window.location.href = '/perfil';
+        window.location.href = '/perfil';
       }
     } catch (error) {
       setError(error as string);
@@ -202,7 +202,7 @@ export const CrearTrabajo = () => {
             <p>{empresa.direccion}</p>
           </div>
           <div className="flex items-center justify-center -mt-8">
-            <Estrellas color="text-principal-600 dark:text-white" value={13 / 4} />
+            <Estrellas color="text-principal-600 dark:text-white" value={empresa.puntuacion / empresa.puntuados} />
           </div>
         </div>
       </div>
@@ -354,13 +354,15 @@ export const CrearTrabajo = () => {
             inputClass="h-8 bg-zinc-300 dark:bg-zinc-600 dark:border"
             text="Responsabilidades"
             setTrabajo={setTrabajo}
-            iconMinClass="border-black text-black border-2"
+            iconMinClass="border-black text-black border-2 dark:border-white dark:text-white"
+            iconClass='text-black border-black dark:border-white text-white'
           />
           <InputAgregar
             inputClass="h-8 bg-zinc-300 dark:bg-zinc-600 dark:border"
             text="Requisitos"
             setTrabajo={setTrabajo}
-            iconMinClass="border-black text-black border-2"
+            iconMinClass="border-black text-black border-2 dark:border-white dark:text-white"  
+            iconClass='text-black border-black dark:border-white text-white'        
           />
         </div>
       </div>

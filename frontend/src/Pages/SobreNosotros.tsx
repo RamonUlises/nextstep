@@ -37,7 +37,7 @@ export const SobreNosotros = () => {
             <img
               src={image2}
               alt="imagen NextStep"
-              className="mt-4 xl:mt-0 w-[50%] md:w-[400px] h-auto z-50"
+              className="mt-4 xl:mt-0 w-[50%] md:w-[400px] h-auto z-40"
             />
           </div>
           <LayoutAtropos

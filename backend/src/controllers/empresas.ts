@@ -4,6 +4,7 @@ import { Request, Response } from 'express';
 
 import requestDataBaseEmpresa from '@/database/request/empresas';
 import requestDatabaseTrabajadores from '@/database/request/trabajadores';
+import requestDatabaseTrabajos from '@/database/request/trabajos';
 import { TypeEmpresa } from '@/types/empresas';
 import { manejarError } from '@/lib/errores';
 import { ErrorZodType } from '@/types/errorZod';
@@ -123,6 +124,7 @@ class Empresa {
       }
 
       delete data.contrasena;
+      await requestDatabaseTrabajos.actualizarImagen(id, data.imagen);
       await requestDataBaseEmpresa.actualizarEmpresa(id, data);
 
       res.status(200).json({ message: 'Empresa actualizada con éxito' });

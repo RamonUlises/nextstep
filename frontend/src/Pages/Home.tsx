@@ -56,7 +56,7 @@ export const Home = () => {
           <section className="flex flex-col items-center w-full h-full gap-5 mt-8 z-40 md:mt-[35%]">
             <div className="flex">
               <div className="text-principal-100 bg-gradient-to-r from-principal-500 to-principal-600 pl-8 md:pl-12 py-4 text-lg md:text-2xl font-extrabold dark:to-zinc-600 dark:from-zinc-800 rounded-div-1">
-                <p>Regis</p>
+                <p className='dark:text-white'>Regis</p>
               </div>
               <div className="text-principal-600 bg-principal-100 dark:bg-white pr-8 md:pr-12 py-4 md:text-2xl text-lg font-extrabold dark:text-black rounded-div-2">
                 <p>trate</p>

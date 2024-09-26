@@ -9,17 +9,17 @@ import { Card, CardContent } from '../ui/card';
 
 export function CarouselSpacing({ images }: { images: string[] }) {
   return (
-    <Carousel className="max-w-[80%]">
+    <Carousel className="max-w-[70%]">
       <CarouselContent className="-ml-1">
         {images.map((img, index) => (
-          <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
-            <div className="p-1">
+          <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3 flex justify-center">
+            <div className="p-1 w-[90%]">
               <Card className="dark:bg-transparent shadow-none border-none">
-                <CardContent className="flex aspect-square items-center justify-center p-0 bg-transparent">
+                <CardContent className="flex aspect-square p-0">
                   <img
                     src={img}
                     alt={`Image ${index}`}
-                    className="w-[80%] md:w-[90%] md:h-full object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </CardContent>
               </Card>

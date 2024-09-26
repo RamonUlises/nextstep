@@ -67,6 +67,17 @@ class RequesDatabase {
       throw new Error('Error al obtener los trabajos');
     }
   }
+  async actualizarImagen(id: string, imagen: string): Promise<void> {
+    try {
+      // actualizar la imagen de todos los trabajos del id-empresa sea igual al id
+      await trabajos.updateMany(
+        { 'id-empresa': id },
+        { $set: { imagen } },
+      );
+    } catch {
+      throw new Error('Error al actualizar la imagen');
+    }
+  }
 }
 
 const requestDatabase = new RequesDatabase();

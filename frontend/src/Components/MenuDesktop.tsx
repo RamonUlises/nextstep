@@ -8,6 +8,7 @@ import { TypeColaboradores } from '../types/colaboradores';
 import { TypeEmpresa } from '../types/empresas';
 import { obtenerInfo } from '../lib/obtenerInfo';
 import { OptionsMenuDesktop } from './OptionsMenuDesktop';
+import { Skeleton } from './ui/skeleton';
 
 type StateMenu = 'logueando' | 'logueado' | 'deslogueado';
 
@@ -81,7 +82,11 @@ export const MenuDesktop = () => {
         </section>
 
         {state === 'logueado' ? (
-          <Logueado nombre={'nombre' in user ? user.nombre : user.usuario} img={user.imagen} />
+          user.id === undefined ? (
+            <Skeleton className="w-16 h-10" />
+          ) : (
+            <Logueado nombre={'nombre' in user ? user.nombre : user.usuario} img={user.imagen} />
+          )
         ) : (
           <section className="flex justify-center items-center gap-5 bg-gradient-to-tl from-[#E75F0B] dark:from-zinc-800 to-[#C3480B] dark:to-zinc-700 px-6 py-3 rounded-lg shadow-2xl drop-shadow-2xl">
             {state === 'deslogueado' ? (

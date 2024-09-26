@@ -21,6 +21,7 @@ import { RecuperarContrasena } from './Pages/RecuperarContrasena';
 import { TalleresInfo } from './Pages/TalleresInfo';
 import { useEffect, useState } from 'react';
 import { NotConection } from './Components/NotConection';
+import { Premium } from './Pages/Premium';
 
 function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -82,6 +83,7 @@ function App() {
           <Route path="/crear-trabajo/:id" element={<CrearTrabajo />} />
           <Route path="/sobre-nosotros" element={<SobreNosotros />} />
           <Route path="/terminos-y-servicios" element={<TermimosServicios />} />
+          <Route path="/premium" element={<Premium/>} />
           <Route
             path="/politicas-de-privacidad"
             element={<PoliticasPrivacidad />}
