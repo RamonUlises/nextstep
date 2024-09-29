@@ -21,6 +21,7 @@ const trabajosSchema = new mongoose.Schema({
   'puntos': { type: Number, required: true },
   'estado': { type: String, required: true },
   'aceptados': { type: Array, required: true },
+  'nivel': { type: Number, required: true },
 });
 
 const Trabajos = mongoose.model('Trabajos', trabajosSchema);

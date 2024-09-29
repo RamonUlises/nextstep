@@ -5,7 +5,7 @@ import { Job } from '../icons/Job';
 import { Jobs } from '../icons/Jobs';
 import { OptionsMenuMovil } from './OptionsMenuMovil';
 
-export const MenuMovil = () => {
+export const MenuMovil = ({ handleBuzon }: { handleBuzon: (option: boolean) => void }) => {
   return (
     <>
       <header className="fixed bottom-0 left-0 flex justify-center w-full md:hidden z-[50]">
@@ -23,7 +23,7 @@ export const MenuMovil = () => {
             <Factory></Factory>
           </div>
           <div className="rounded-full bg-[#FC9A3B] p-1  hover:scale-125 transition-transform duration-300 dark:bg-zinc-600 overflow-hidden w-[47px] h-[47px] flex justify-center items-center">
-            <OptionsMenuMovil />
+            <OptionsMenuMovil handleBuzon={handleBuzon} />
           </div>
         </nav>
       </header>

@@ -39,4 +39,8 @@ router.put('/contrasena-perdida/:id', (req, res) => {
   void empresas.cambiarContrasenaPerdida(req, res);
 });
 
+router.put('/subir-nivel/:id', (req, res) => {
+  void empresas.subirNivel(req, res);
+});
+
 export default router;

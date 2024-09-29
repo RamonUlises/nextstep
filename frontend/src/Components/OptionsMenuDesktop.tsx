@@ -1,4 +1,4 @@
-import { Book, LogOut, Mail, PencilRuler, ShoppingCart, User } from 'lucide-react';
+import { Book, Crown, Inbox, LogOut, PencilRuler, ShoppingCart, User } from 'lucide-react';
 
 import { Button } from '@/Components/ui/button';
 import {
@@ -15,9 +15,13 @@ import { cookieExist } from '@/utils/cookies';
 export function OptionsMenuDesktop({
   img = 'sin-imagen',
   nombre,
+  empresa,
+  handleBuzon,
 }: {
   img: string;
   nombre: string;
+  empresa: boolean
+  handleBuzon: (option: boolean) => void;
 }) {
   const [login] = useState(
     cookieExist('UserId')
@@ -51,9 +55,15 @@ export function OptionsMenuDesktop({
             Perfil
           </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem disabled={!login} className='focus:bg-secundario-600 focus:text-white dark:focus:bg-zinc-700'>
-          <Mail className="mr-2 h-4 w-4" />
+        <DropdownMenuItem disabled={!login} className='focus:bg-secundario-600 focus:text-white dark:focus:bg-zinc-700' onClick={() => handleBuzon(true)}>
+          <Inbox className="mr-2 h-4 w-4" />
           Buzón
+        </DropdownMenuItem>
+        <DropdownMenuItem disabled={(!login || !empresa)} className='focus:bg-secundario-600 focus:text-white dark:focus:bg-zinc-700'>
+          <Link to="/premium" className="w-full flex items-center">
+            <Crown className="mr-2 h-4 w-4" />
+            Premium
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem className='focus:bg-secundario-600 focus:text-white dark:focus:bg-zinc-700'>
           <Link to="/tienda" className="w-full flex items-center">

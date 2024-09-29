@@ -306,3 +306,46 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   border-top: 320px solid #e75f0b;
   @apply border-t-principal-600 dark:border-t-zinc-600;
 }
+
+.stack-cards{
+  view-timeline-name: --stack-cards;
+}
+
+.stack-cards .card {
+  position: sticky;
+  top: var(--margin-top, 0);
+  box-shadow: 0px -8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.stack-cards .card .container-card{
+  transform-origin: center top;
+  animation: linear scale forwards;
+  animation-timeline: --stack-cards;
+}
+
+.stack-cards .card:first-child {
+  @apply sm:top-24;
+}
+
+.card-lvl-2{
+  box-shadow:  inset 10px 10px 20px rgba(255, 81, 0, 0.748), inset -10px -10px 20px rgba(255, 81, 0, 0.748);
+}
+
+@keyframes shine{
+  0%{
+    background-position: -300% -300%;
+  }
+  50%{
+    background-position: -100% -100%;
+  }
+  100%{
+    background-position: -300% -300%;
+  }
+}
+
+.animate-shine{
+  background: linear-gradient(135deg, #ff7300, #dcd100, #ff7300);
+  background-size: 1000%;
+  animation: shine 10s infinite linear;
+  box-shadow: 0px -8px 15px rgba(255, 166, 0, 0.781);
+}

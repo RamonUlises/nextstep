@@ -28,6 +28,7 @@ const schema = zod.object({
   'puntos': number(),
   'estado': string(),
   'aceptados': string().array(),
+  'nivel': number(),
 });
 
 class Trabajos {

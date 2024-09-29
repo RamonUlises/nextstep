@@ -10,10 +10,8 @@ import { useParams } from 'react-router-dom';
 import { Calendar } from '@/Components/ui/calendar';
 import {
   CalendarIcon,
-  MapPinCheck,
   Minus,
   Plus,
-  UserRoundXIcon,
 } from 'lucide-react';
 import { formatDateFunc } from '@/utils/formatDate';
 import { SeleccionarOpcion } from '@/Components/Trabajos/SeleccionarOpcion';
@@ -24,7 +22,8 @@ import { validateTrabajo } from '@/utils/validateTrabajos';
 import trabajosLib from '@/lib/trabajos';
 import { TypeEmpresa } from '@/types/empresas';
 import empresas from '@/lib/empresas';
-import { Estrellas } from '@/Components/Perfil/Estrellas';
+import { Skeleton } from '@/Components/ui/skeleton';
+import { HeaderTrabajo } from '@/Components/Trabajos/HeaderTrabajo';
 
 export const CrearTrabajo = () => {
   const { id } = useParams();
@@ -51,6 +50,7 @@ export const CrearTrabajo = () => {
     'presupuesto-max': 0,
     puntos: 300,
     aceptados: [],
+    nivel: 1,
   });
 
   const [error, setError] = useState<string>('');
@@ -132,8 +132,13 @@ export const CrearTrabajo = () => {
 
     (async () => {
       const response = await empresas.obtenerEmpresa(id as string);
+
+      if('numero-identificacion' in response.data === false) {
+        window.location.href = '/';
+      }
+
       setEmpresa(response.data);
-      setTrabajo({ ...trabajo, imagen: response.data.imagen, empresa: response.data.nombre });
+      setTrabajo({ ...trabajo, imagen: response.data.imagen, empresa: response.data.nombre, nivel: response.data.nivel });
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -178,34 +183,12 @@ export const CrearTrabajo = () => {
           <p className="font-bold text-base">{error}</p>
         </div>
       )}
-      <div className="header-trabajo flex flex-col justify-end items-start pt-24">
-        <div className="flex flex-col z-10 md:px-24 pb-4 mx-auto md:mx-0">
-          {empresa.imagen !== 'sin-imagen' ? (
-            <div className="text-white rounded-full w-[150px] h-[150px] overflow-hidden flex items-center">
-              <img src={empresa.imagen} alt="foto de perfil" className="" />
-            </div>
-          ) : (
-            <div className="bg-white text-white rounded-full shadow-xl drop-shadow-xl w-auto h-auto p-8 dark:bg-zinc-600">
-              <UserRoundXIcon
-                width={150}
-                height={150}
-                className="text-principal-600 dark:text-white"
-              />
-            </div>
-          )}
-
-          <h4 className="text-center font-bold text-xl mt-8 dark:text-white">
-            {empresa.nombre}
-          </h4>
-          <div className="flex items-center justify-center mt-4 gap-4 dark:text-white">
-            <MapPinCheck />
-            <p>{empresa.direccion}</p>
-          </div>
-          <div className="flex items-center justify-center -mt-8">
-            <Estrellas color="text-principal-600 dark:text-white" value={empresa.puntuacion / empresa.puntuados} />
-          </div>
-        </div>
-      </div>
+      {
+        empresa.nombre === undefined && (
+          <Skeleton className='w-screen h-screen dark:bg-zinc-700' />
+        )
+      }
+      <HeaderTrabajo direccion={empresa.direccion} imagen={empresa.imagen} nombre={empresa.nombre} puntuacion={empresa.puntuacion} puntuados={empresa.puntuados} />
       <div className="flex flex-col-reverse px-4 max-w-[458px] mx-auto mt-14 md:flex-row md:mt-[40px] md:px-8 md:max-w-full md:mx-0 dark:text-white">
         <div className="flex w-full md:w-[40%]">
           <div className="mt-14 md:mt-0 md:w-[90%] md:max-w-[340px] mx-auto bg-secundario-600 rounded-2xl px-6 dark:bg-zinc-600 shadow-2xl drop-shadow-2xl">

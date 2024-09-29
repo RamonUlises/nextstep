@@ -22,6 +22,7 @@ import { TalleresInfo } from './Pages/TalleresInfo';
 import { useEffect, useState } from 'react';
 import { NotConection } from './Components/NotConection';
 import { Premium } from './Pages/Premium';
+import { TrabajosInfo } from './Pages/TrabajosInfo';
 
 function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -52,6 +53,7 @@ function App() {
       window.removeEventListener('offline', handleOffline);
       window.removeEventListener('online', handleOnline);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -61,6 +63,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/trabajos" element={<Trabajos />} />
+          <Route path="/trabajos/:id" element={<TrabajosInfo />} />
           {/* <Route path="/colaboradores" element={<Colaboradores />} />
           <Route path="/empresas" element={<Empresas />} /> */}
           <Route path="/login" element={<Login />} />
@@ -74,7 +77,6 @@ function App() {
             element={<RegistroColaborador />}
           />
           <Route path="/registro/empresa" element={<RegistroEmpresa />} />
-          <Route path="*" element={<Page404 />} />
           <Route path="/administrador" element={<Administrador />} />
           <Route path="/talleres" element={<Talleres />} />
           <Route path="/talleres-info" element={<TalleresInfo />} />
@@ -92,6 +94,7 @@ function App() {
             path="/recuperar-contrasena"
             element={<RecuperarContrasena />}
           />
+          <Route path="*" element={<Page404 />} />
         </Routes>
       </BrowserRouter>
     </>

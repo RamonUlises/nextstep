@@ -126,7 +126,7 @@ export const Trabajos = () => {
             ))}
           </div>
         </div>
-        <div className="flex w-full items-center flex-col lg:pr-8 gap-4">
+        <div className="flex w-full items-center flex-col lg:pr-8 gap-6 stack-cards">
           {
             trabajos.length === 0 && (
               <>
@@ -136,7 +136,7 @@ export const Trabajos = () => {
               </>
             )
           }
-          {trabajosSeleccionados.map((trabajo) => (
+          {trabajosSeleccionados.map((trabajo, index) => (
             <CardTrabajos
               key={trabajo.id}
               titulo={trabajo.titulo}
@@ -145,6 +145,8 @@ export const Trabajos = () => {
               id={trabajo.id}
               fecha={trabajo['fecha-expiracion']}
               img={trabajo.imagen}
+              index={index}
+              nivel={trabajo.nivel}
             />
           ))}
         </div>

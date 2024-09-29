@@ -19,4 +19,5 @@ export interface TypeTrabajos {
   'puntos': number;
   'estado': string;
   'aceptados': string[];
+  'nivel': number;
 };

@@ -124,7 +124,7 @@ class Empresa {
       }
 
       delete data.contrasena;
-      await requestDatabaseTrabajos.actualizarImagen(id, data.imagen);
+      await requestDatabaseTrabajos.actualizarImagenNombre(id, data.imagen, data.nombre);
       await requestDataBaseEmpresa.actualizarEmpresa(id, data);
 
       res.status(200).json({ message: 'Empresa actualizada con éxito' });
@@ -223,6 +223,26 @@ class Empresa {
       res.status(200).json({ message: 'Contraseña cambiada con éxito' });
     } catch (error) {
       res.status(500).json({ message: 'Error al cambiar la contraseña', error });
+    }
+  }
+  async subirNivel(req: Request, res: Response): Promise<void> {
+    try {
+      const { id } = req.params;
+      const { nivel } = req.body as { nivel: number };
+
+      const data: TypeEmpresa[] = await requestDataBaseEmpresa.obtenerEmpresa(id);
+
+      if(data.length === 0) {
+        res.status(404).json({ message: 'Empresa no encontrada' });
+        return;
+      }
+
+      await requestDataBaseEmpresa.subirNivel(id, nivel);
+      await requestDatabaseTrabajos.subirNivel(id, nivel);
+
+      res.status(200).json({ message: 'Nivel subido con éxito' });
+    } catch (error) {
+      res.status(500).json({ message: 'Error al subir el nivel', error });
     }
   }
 }

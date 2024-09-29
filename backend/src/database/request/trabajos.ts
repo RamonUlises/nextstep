@@ -67,15 +67,25 @@ class RequesDatabase {
       throw new Error('Error al obtener los trabajos');
     }
   }
-  async actualizarImagen(id: string, imagen: string): Promise<void> {
+  async actualizarImagenNombre(id: string, imagen: string, empresa: string): Promise<void> {
     try {
       // actualizar la imagen de todos los trabajos del id-empresa sea igual al id
       await trabajos.updateMany(
         { 'id-empresa': id },
-        { $set: { imagen } },
+        { $set: { imagen, empresa } },
       );
     } catch {
       throw new Error('Error al actualizar la imagen');
+    }
+  }
+  async subirNivel(id: string, nivel: number): Promise<void> {
+    try {
+      await trabajos.updateMany(
+        { 'id-empresa': id },
+        { $set: { nivel } },
+      );
+    } catch {
+      throw new Error('Error al subir el nivel');
     }
   }
 }

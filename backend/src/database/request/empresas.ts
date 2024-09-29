@@ -69,6 +69,13 @@ class RequesDatabase {
       throw new Error('Error al cambiar la contraseña');
     }
   }
+  async subirNivel(id: string, nivel: number): Promise<void> {
+    try {
+      await empresas.updateOne({ id }, { nivel });
+    } catch {
+      throw new Error('Error al subir de nivel');
+    }
+  }
 }
 
 const requestDatabase = new RequesDatabase();

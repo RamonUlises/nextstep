@@ -12,7 +12,11 @@ import { Skeleton } from './ui/skeleton';
 
 type StateMenu = 'logueando' | 'logueado' | 'deslogueado';
 
-export const MenuDesktop = () => {
+export const MenuDesktop = ({
+  handleBuzon,
+}: {
+  handleBuzon: (option: boolean) => void;
+}) => {
   const [state, setState] = useState<StateMenu>('deslogueado');
   const [user, setUser] = useState<TypeColaboradores | TypeEmpresa>(
     {} as TypeColaboradores | TypeEmpresa
@@ -85,7 +89,7 @@ export const MenuDesktop = () => {
           user.id === undefined ? (
             <Skeleton className="w-16 h-10" />
           ) : (
-            <Logueado nombre={'nombre' in user ? user.nombre : user.usuario} img={user.imagen} />
+            <Logueado nombre={'nombre' in user ? user.nombre : user.usuario} img={user.imagen} empresa={'numero-identificacion' in user} handleBuzon={handleBuzon} />
           )
         ) : (
           <section className="flex justify-center items-center gap-5 bg-gradient-to-tl from-[#E75F0B] dark:from-zinc-800 to-[#C3480B] dark:to-zinc-700 px-6 py-3 rounded-lg shadow-2xl drop-shadow-2xl">
@@ -101,7 +105,7 @@ export const MenuDesktop = () => {
   );
 };
 
-function Logueado({ nombre, img }: { nombre: string; img: string }) {
+function Logueado({ nombre, img, empresa, handleBuzon }: { nombre: string; img: string, empresa: boolean, handleBuzon: (option: boolean) => void }) {
   if(nombre != undefined){
     if(nombre.length > 10){
       nombre = nombre.slice(0, 6) + '...';
@@ -115,7 +119,7 @@ function Logueado({ nombre, img }: { nombre: string; img: string }) {
           <ChangeTheme />
         </div>
         <div className='bg-gradient-to-tl from-[#E75F0B] dark:from-zinc-800 to-[#C3480B] px-1 dark:to-zinc-700 py-3 rounded-lg flex items-center shadow-2xl drop-shadow-2xl'>
-          <OptionsMenuDesktop img={img} nombre={nombre} />
+          <OptionsMenuDesktop empresa={empresa} img={img} nombre={nombre} handleBuzon={handleBuzon} />
         </div>
       </section>
     </>
