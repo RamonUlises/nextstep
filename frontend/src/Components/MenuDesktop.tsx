@@ -9,18 +9,16 @@ import { TypeEmpresa } from '../types/empresas';
 import { obtenerInfo } from '../lib/obtenerInfo';
 import { OptionsMenuDesktop } from './OptionsMenuDesktop';
 import { Skeleton } from './ui/skeleton';
+import { Buzon } from './Buzon';
 
 type StateMenu = 'logueando' | 'logueado' | 'deslogueado';
 
-export const MenuDesktop = ({
-  handleBuzon,
-}: {
-  handleBuzon: (option: boolean) => void;
-}) => {
+export const MenuDesktop = () => {
   const [state, setState] = useState<StateMenu>('deslogueado');
   const [user, setUser] = useState<TypeColaboradores | TypeEmpresa>(
     {} as TypeColaboradores | TypeEmpresa
   );
+  const [buzon, setBuzon] = useState<boolean>(false);
 
   useEffect(() => {
     const user = obtenerCookie('UserId');
@@ -40,8 +38,13 @@ export const MenuDesktop = ({
     }
   }, []);
 
+  const handleBuzon = (option: boolean) => {
+    setBuzon(option);
+  };
+
   return (
     <>
+      <Buzon option={buzon} handleBuzon={handleBuzon} />
       <header className="fixed justify-between hidden w-full p-3 text-white md:flex z-[50]">
         <section className="flex items-center md:gap-6 lg:gap-10 bg-gradient-to-tl from-[#E75F0B] dark:from-zinc-800 to-[#C3480B] dark:to-zinc-700 px-6 lg:px-10 py-3 rounded-lg shadow-2xl drop-shadow-2xl">
           <Link to="/" className="font-bold md:text-xl lg:text-2xl">

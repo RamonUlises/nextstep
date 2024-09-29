@@ -15,12 +15,10 @@ import image5 from '@/assets/Inicio/talleres/image-inicio-talleres4.png';
 import image6 from '@/assets/Inicio/talleres/image-inicio-talleres5.png';
 import image7 from '@/assets/Inicio/talleres/image-inicio-talleres6.png';
 import image8 from '@/assets/Inicio/talleres/image-inicio-talleres7.png';
-import { Buzon } from '@/Components/Buzon';
 
 export const Home = () => {
   const imagenes = [image2, image3, image4, image5, image6, image7, image8];
   const [vwScreen, setWvScreen] = useState<number>(window.innerWidth);
-  const [buzon, setBuzon] = useState<boolean>(false);
 
   function handelWidth() {
     setWvScreen(window.innerWidth);
@@ -33,16 +31,11 @@ export const Home = () => {
     };
   }, []);
 
-  const handleBuzon = (option: boolean) => {
-    setBuzon(option);
-  };
-
   return (
     <>
       <main className="flex flex-col dark:bg-zinc-900/95 overflow-x-hidden">
-        <MenuDesktop handleBuzon={handleBuzon} />
-        <MenuMovil handleBuzon={handleBuzon} />
-        <Buzon option={buzon} handleBuzon={handleBuzon} />
+        <MenuDesktop />
+        <MenuMovil />   
         <div className="flex flex-col md:pt-[103px] md:grid lg:grid-cols-[1fr,400px] md:grid-cols-[1fr,300px] lg:grid-rows-[1fr] md:h-screen md:bg-[150%,10px] bg-no-repeat relative md:bg-[url(./assets/Inicio/circulo-inicio.png)] dark:md:bg-[url(./assets/Inicio/circulo-inicio-dark.png)] md:bg-[100%]">
           <LayoutAtropos
             innerClass="w-32 h-32 rounded-full bg-gradient-to-r from-principal-500 to-principal-600 dark:to-zinc-700 dark:from-zinc-600"
