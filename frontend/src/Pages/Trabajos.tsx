@@ -13,7 +13,9 @@ import { Skeleton } from '@/Components/ui/skeleton';
 
 export const Trabajos = () => {
   const [trabajos, setTrabajos] = useState<TypeTrabajos[]>([]);
-  const [trabajosSeleccionados, setTrabajosSeleccionados] = useState<TypeTrabajos[]>([]);
+  const [trabajosSeleccionados, setTrabajosSeleccionados] = useState<
+    TypeTrabajos[]
+  >([]);
 
   const [categoria, setCategoria] = useState<string>('Áreas de comercio');
   const [busqueda, setBusqueda] = useState<string>('');
@@ -51,7 +53,7 @@ export const Trabajos = () => {
       const trabajosFiltrados: TypeTrabajos[] = [];
 
       trabajos.forEach((trabajo) => {
-        for(let i = 0; i < trabajo.categorias.length; i++) {
+        for (let i = 0; i < trabajo.categorias.length; i++) {
           if (trabajo.categorias[i] === categoria) {
             trabajosFiltrados.push(trabajo);
             break;
@@ -65,7 +67,7 @@ export const Trabajos = () => {
 
   useEffect(() => {
     buscarCategoria(categoria);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoria]);
 
   useEffect(() => {
@@ -82,14 +84,14 @@ export const Trabajos = () => {
 
       setTrabajosSeleccionados(trabajosFiltrados);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [busqueda]);
 
   return (
     <section className="flex flex-col bg-gradient-to-br dark:from-zinc-800 dark:to-zinc-900">
       <MenuDesktop />
       <MenuMovil />
-      <div className="mt-8 md:mt-36 flex justify-center">
+      <div className="pt-8 md:pt-36 flex justify-center">
         <div className="flex relative w-full sm:w-[60%] mx-4 md:w-[50%] lg:w-[40%]">
           <Search className="absolute top-0 left-0 ml-4 my-2 text-white" />
           <input
@@ -101,8 +103,8 @@ export const Trabajos = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col md:flex-row justify-center mb-[100px] mt-8 md:mt-16 px-4">
-        <div className="flex md:hidden overflow-hidden w-full justify-center mb-8">
+      <div className="flex flex-col md:flex-row justify-center mb-[100px] mt-8 md:mt-16 px-4 relative">
+        <div className="flex md:hidden overflow-hidden w-full justify-center mb-8 sticky top-8">
           <Seleccionar
             defaultOption="Categorias (Ninguna)"
             options={['Ninguna', ...categoriasAreas]}
@@ -127,15 +129,13 @@ export const Trabajos = () => {
           </div>
         </div>
         <div className="flex w-full items-center flex-col lg:pr-8 gap-6 stack-cards">
-          {
-            trabajos.length === 0 && (
-              <>
-                <Skeleton className="w-3/4 h-[250px] bg-secundario-500 dark:zinc-800" />
-                <Skeleton className="w-3/4 h-[250px] bg-secundario-500 dark:zinc-800" />
-                <Skeleton className="w-3/4 h-[250px] bg-secundario-500 dark:zinc-800" />
-              </>
-            )
-          }
+          {trabajos.length === 0 && (
+            <>
+              <Skeleton className="w-3/4 h-[250px] bg-secundario-500 dark:zinc-800" />
+              <Skeleton className="w-3/4 h-[250px] bg-secundario-500 dark:zinc-800" />
+              <Skeleton className="w-3/4 h-[250px] bg-secundario-500 dark:zinc-800" />
+            </>
+          )}
           {trabajosSeleccionados.map((trabajo, index) => (
             <CardTrabajos
               key={trabajo.id}

@@ -23,6 +23,7 @@ import { useEffect, useState } from 'react';
 import { NotConection } from './Components/NotConection';
 import { Premium } from './Pages/Premium';
 import { TrabajosInfo } from './Pages/TrabajosInfo';
+import { Tienda } from './Pages/Tienda';
 
 function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -94,6 +95,7 @@ function App() {
             path="/recuperar-contrasena"
             element={<RecuperarContrasena />}
           />
+          <Route path='tienda'element={<Tienda/>}/>
           <Route path="*" element={<Page404 />} />
         </Routes>
       </BrowserRouter>

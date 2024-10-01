@@ -5,17 +5,35 @@ import { Job } from '../icons/Job';
 import { Jobs } from '../icons/Jobs';
 import { OptionsMenuMovil } from './OptionsMenuMovil';
 import { Buzon } from './Buzon';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { TypeColaboradores } from '@/types/colaboradores';
+import { TypeEmpresa } from '@/types/empresas';
+import { obtenerCookie } from '@/utils/cookies';
+import { obtenerInfo } from '@/lib/obtenerInfo';
 
 export const MenuMovil = () => {
   const [buzon, setBuzon] = useState<boolean>(false);
+  const [user, setUser] = useState<TypeColaboradores | TypeEmpresa>(
+    {} as TypeColaboradores | TypeEmpresa
+  );
+
+  useEffect(() => {
+    const user = obtenerCookie('UserId');
+    if (user) {
+      (async () => {
+        const info = await obtenerInfo(user);
+        setUser(info.data[0]);
+      })();
+    }
+  }, []);
 
   const handleBuzon = (option: boolean) => {
     setBuzon(option);
   };
   return (
     <>
-      <Buzon option={buzon} handleBuzon={handleBuzon} />
+      
+      <Buzon option={buzon} id={user.id} type={'nombre' in user ? 'empresa' : 'colaborador'} handleBuzon={handleBuzon} />
       <header className="fixed bottom-0 left-0 flex justify-center w-full md:hidden z-[50]">
         <nav className="flex py-4 w-full justify-evenly bg-gradient-to-r from-[#C3480B] to-[#E75F0B] dark:from-zinc-800 dark:to-zinc-700 max-w-[450px] rounded-3xl mb-2">
           <Link

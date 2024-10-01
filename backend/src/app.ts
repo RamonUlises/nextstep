@@ -8,6 +8,8 @@ import { verifyAuth } from '@lib/verifyAuth';
 import trabajadores from '@router/trabajadores';
 import empresas from '@router/empresas';
 import auth from '@router/auth';
+import solicitudes from '@router/solicitudes';
+
 import '@database/connection';
 
 const app: express.Application = express();
@@ -27,6 +29,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 app.use('/api/trabajos', trabajos);
 app.use('/api/colaboradores', trabajadores);
 app.use('/api/empresas', empresas);
+app.use('/api/solicitudes', solicitudes);
 app.use('/api/auth', auth);
 app.use('/api/info', info);
 

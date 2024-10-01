@@ -40,33 +40,33 @@ export const TalleresInfo = () => {
   const imagenes7 = [image27, image28];
   return (
     <Layout>
-      <div className="bg-secundario-600 flex  h-[500px] dark:bg-zinc-600">
-        <h1 className="text-white font-bold text-5xl flex pt-40 pl-20 w-[40%]">
+      <div className="bg-secundario-600 flex h-[350px] md:h-[500px] dark:bg-zinc-600">
+        <h1 className="text-white font-bold text-5xl flex pt-20 md:pt-40 px-8 md:pl-20 md:w-[40%]">
           ¡Bienvenido a nuestros Talleres Exclusivos!{' '}
         </h1>
       </div>
-      <div className="flex">
-        <div className="flex -mt-52 items-center gap-8 justify-center">
+      <div className="flex -mt-16 sm:-mt-20 md:-mt-40 lg:-mt-52">
+        <div className="flex items-center gap-8 justify-center">
           {' '}
-          <p className="text-principal-400 font-bold text-[300px] flex pl-20">
+          <p className="text-principal-400 font-bold sm:text-[120px] md:text-[200px] lg:text-[300px] flex sm:pl-20 text-[180px]">
             1
           </p>
-          <Link to="" className="w-[30%] ">
-            <img src={image1} alt="" />
+          <Link to="" className="lg:w-[30%] md:w-[40%] w-1/3">
+            <img src={image1} alt="Imagen" />
           </Link>
         </div>
-        <div className="flex -mt-52 items-center gap-8 justify-start">
+        <div className="sm:flex items-center gap-8 justify-start pr-8 md:pr-0 hidden">
           {' '}
-          <p className="text-principal-400 font-bold text-[300px] flex pl-20">
+          <p className="text-principal-400 font-bold md:text-[200px] lg:text-[300px] flex pl-20 sm:text-[120px] text-[80px]">
             2
           </p>
-          <Link to="" className="w-[30%]">
-            <img src={image2} alt="" />
+          <Link to="" className="md:w-[40%] lg:w-[30%] w-[80%]">
+            <img src={image2} alt="Imagen" />
           </Link>
         </div>
       </div>
       <div className="flex flex-col w-full justify-center mt-36">
-        <h2 className="font-semibold text-2xl flex pl-[175px] dark:text-white">
+        <h2 className="font-semibold md:text-2xl flex dark:text-white text-center md:pl-[175px] text-xl px-4">
           Publicidad | Comunicaciones | Diseño
         </h2>
         <div className="flex justify-center items-center">
@@ -75,7 +75,7 @@ export const TalleresInfo = () => {
         </div>
       </div>
       <div className="flex flex-col w-full justify-center mt-24 ">
-        <h2 className="font-semibold text-2xl flex pl-[175px] dark:text-white">
+        <h2 className="font-semibold md:text-2xl flex dark:text-white text-center md:pl-[175px] text-xl px-4">
           Informática | Internet
         </h2>
         <div className="flex justify-center items-center">
@@ -84,7 +84,7 @@ export const TalleresInfo = () => {
         </div>
       </div>
       <div className="flex flex-col w-full justify-center mt-24 ">
-        <h2 className="font-semibold text-2xl flex pl-[175px] dark:text-white">
+        <h2 className="font-semibold md:text-2xl flex dark:text-white text-center md:pl-[175px] text-xl px-4">
           Mercadeo | Ventas
         </h2>
         <div className="flex justify-center items-center">
@@ -93,7 +93,7 @@ export const TalleresInfo = () => {
         </div>
       </div>
       <div className="flex flex-col w-full justify-center mt-24 ">
-        <h2 className="font-semibold text-2xl flex pl-[175px] dark:text-white">
+        <h2 className="font-semibold md:text-2xl flex dark:text-white text-center md:pl-[175px] text-xl px-4">
           Administración
         </h2>
         <div className="flex justify-center items-center">
@@ -102,7 +102,7 @@ export const TalleresInfo = () => {
         </div>
       </div>
       <div className="flex flex-col w-full justify-center mt-24 ">
-        <h2 className="font-semibold text-2xl flex pl-[175px] dark:text-white">
+        <h2 className="font-semibold md:text-2xl flex dark:text-white text-center md:pl-[175px] text-xl px-4">
           Recursos Humanos
         </h2>
         <div className="flex justify-center items-center">
@@ -111,7 +111,7 @@ export const TalleresInfo = () => {
         </div>
       </div>
       <div className="flex flex-col w-full justify-center mt-24 ">
-        <h2 className="font-semibold text-2xl flex pl-[175px] dark:text-white">
+        <h2 className="font-semibold md:text-2xl flex dark:text-white text-center md:pl-[175px] text-xl px-4">
           Finanzas | Contabilidad | Auditoria
         </h2>
         <div className="flex justify-center items-center">
@@ -120,7 +120,7 @@ export const TalleresInfo = () => {
         </div>
       </div>
       <div className="flex flex-col w-full justify-center mt-24 ">
-        <h2 className="font-semibold text-2xl flex pl-[175px] dark:text-white">
+        <h2 className="font-semibold md:text-2xl flex dark:text-white text-center md:pl-[175px] text-xl px-4">
           Producción | Ingeniería
         </h2>
         <div className="flex justify-center items-center">

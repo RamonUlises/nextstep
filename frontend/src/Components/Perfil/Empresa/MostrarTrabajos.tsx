@@ -21,9 +21,8 @@ export const MostrarTrabajos = ({ trabajos }: { trabajos: TypeTrabajos[] }) => {
             </h2>
             <hr className="border-black border-2 mt-4 dark:border-zinc-400" />
             {trabajosActivos.map((trabajo) => (
-              <>
+              <div key={trabajo.id}>
                 <div
-                  key={trabajo.id}
                   className="mt-12 bg-slate-200 px-4 py-4 rounded-xl flex justify-between items-center dark:bg-zinc-600 shadow-xl"
                 >
                   <div>
@@ -54,7 +53,7 @@ export const MostrarTrabajos = ({ trabajos }: { trabajos: TypeTrabajos[] }) => {
                     </div>
                   )
                 }
-              </>
+              </div>
             ))}
           </div>
         )}
