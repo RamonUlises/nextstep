@@ -24,6 +24,7 @@ import { NotConection } from './Components/NotConection';
 import { Premium } from './Pages/Premium';
 import { TrabajosInfo } from './Pages/TrabajosInfo';
 import { Tienda } from './Pages/Tienda';
+import { ScrollToTop } from './Components/ScrollTop';
 
 function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -39,7 +40,7 @@ function App() {
       setIsOnline(true);
     };
 
-    if(!isOnline) {
+    if (!isOnline) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
@@ -54,13 +55,14 @@ function App() {
       window.removeEventListener('offline', handleOffline);
       window.removeEventListener('online', handleOnline);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       {!isOnline && <NotConection />}
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/trabajos" element={<Trabajos />} />
@@ -86,7 +88,7 @@ function App() {
           <Route path="/crear-trabajo/:id" element={<CrearTrabajo />} />
           <Route path="/sobre-nosotros" element={<SobreNosotros />} />
           <Route path="/terminos-y-servicios" element={<TermimosServicios />} />
-          <Route path="/premium" element={<Premium/>} />
+          <Route path="/premium" element={<Premium />} />
           <Route
             path="/politicas-de-privacidad"
             element={<PoliticasPrivacidad />}
@@ -95,7 +97,7 @@ function App() {
             path="/recuperar-contrasena"
             element={<RecuperarContrasena />}
           />
-          <Route path='tienda'element={<Tienda/>}/>
+          <Route path="tienda" element={<Tienda />} />
           <Route path="*" element={<Page404 />} />
         </Routes>
       </BrowserRouter>

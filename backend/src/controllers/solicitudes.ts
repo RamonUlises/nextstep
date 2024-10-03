@@ -1,3 +1,4 @@
+import calificar from '@/database/request/calificar';
 import { TypeSolicitudes } from '@/types/solicitudes';
 import solicitudDataBase from '@database/request/solicitudes';
 import trabajosDataBase from '@database/request/trabajos';
@@ -77,6 +78,16 @@ class Solicitudes {
     try {
       const id = req.params.id;
       const solicitudes = await solicitudDataBase.obtenerSolicitudesColaborador(id);
+
+      res.status(200).json(solicitudes);
+    } catch {
+      throw new Error('Error al obtener las solicitudes');
+    }
+  }
+  async obtenerSolicitudesCalificar(req: Request, res: Response) {
+    try {
+      const usuario = req.params.usuario;
+      const solicitudes = await calificar.obtenerCalificacionesUsuario(usuario);
 
       res.status(200).json(solicitudes);
     } catch {

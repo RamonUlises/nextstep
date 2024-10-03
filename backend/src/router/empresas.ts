@@ -43,4 +43,8 @@ router.put('/subir-nivel/:id', (req, res) => {
   void empresas.subirNivel(req, res);
 });
 
+router.put('/calificar/:id', (req, res) => {
+  void empresas.calificarEmpresa(req, res);
+});
+
 export default router;

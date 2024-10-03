@@ -21,7 +21,7 @@ export const CardPendiente = ({
   return (
     <div
       key={id}
-      className="border-b border-gray-300 dark:border-gray-700 py-2 flex items-center justify-between gap-3"
+      className="border-b border-gray-300 dark:border-gray-700 py-2 flex items-center justify-between gap-3 dark:text-white"
     >
       <div className="w-16 h-16 rounded-full overflow-hidden min-w-16">
         <img

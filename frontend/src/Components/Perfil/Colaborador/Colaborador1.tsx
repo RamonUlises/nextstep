@@ -11,19 +11,19 @@ export const Colaborador1 = ({
   colaborador: TypeColaboradores;
 }) => {
   return (
-    <div className="mt-12 lg:max-w-[70%] mx-auto dark:text-white">
+    <div className="mt-24 sm:mt-12 lg:max-w-[70%] mx-auto dark:text-white">
       <Datos title="Nombre" text={colaborador.nombres} />
       <hr className="bg-transparent border-2 border-black/60 my-4 dark:border-white/60" />
       <Datos title="Teléfono" text={colaborador.telefono} />
       <hr className="bg-transparent border-2 border-black/60 my-4 dark:border-white/60" />
-      <div className="flex items-center justify-evenly">
+      <div className="flex items-center justify-evenly flex-wrap gap-2">
         <h5 className="font-medium text-base">Educación primaria</h5>
         <p>
           {colaborador['educacion-primaria'] ? 'Terminada' : 'No terminada'}
         </p>
       </div>
       <hr className="bg-transparent border-2 border-black/60 my-4 dark:border-white/60" />
-      <div className="flex items-center justify-evenly">
+      <div className="flex items-center justify-evenly flex-wrap gap-2">
         <h5 className="font-medium text-base">Educación secundaria</h5>
         <p>
           {colaborador['educacion-secundaria'] ? 'Terminada' : 'No terminada'}

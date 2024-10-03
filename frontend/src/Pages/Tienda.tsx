@@ -8,24 +8,68 @@ import image5 from '@/assets/Tienda/sueter.png';
 export const Tienda = () => {
   return (
     <Layout>
-      <div className="flex flex-col border- border-zinc-800 mt-[100px]">
+      <div className="flex flex-col border- border-zinc-800 md:mt-[100px]">
         <img src={image} alt="" />
       </div>
-      <div className="tienda-css pt-32">
-        <div className='flex flex-col'>
-          <img className="w-full h-full object-cover" src={image5} alt="" />
-          <h2>Sueter</h2>
-          <p>Colores </p><span className='block w-4 h-4 bg-black rounded-full'></span>
-        </div>
-        <div>
-          <img className="w-full h-full object-cover" src={image2} alt="" />
-        </div>
-        <div>
-          <img className="w-full h-full object-cover" src={image4} alt="" />
-        </div>
-        <div>
-          <img className="w-full h-full object-cover" src={image3} alt="" />
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <article className="flex flex-col justify-center items-center">
+          <figcaption className="w-full md:h-[400px] max-w-[500px]">
+            <img
+              src={image2}
+              alt="imagenes"
+              className="w-full h-full object-contain"
+            />
+          </figcaption>
+          <div className="flex items-center gap-3">
+            <h2>Colores</h2>
+            <div className="bg-zinc-900 w-3 h-3 rounded-full"></div>
+            <div className="bg-principal-600 w-3 h-3 rounded-full"></div>
+          </div>
+          <p>Tallas: S, M , L, XL , XXL </p>
+        </article>
+        <article className="flex flex-col justify-center items-center">
+          <figcaption className="w-full md:h-[400px] max-w-[500px]">
+            <img
+              src={image4}
+              alt="imagenes"
+              className="w-full h-full object-contain"
+            />
+          </figcaption>
+          <div className="flex items-center gap-3">
+            <h2>Colores</h2>
+            <div className="bg-zinc-900 w-3 h-3 rounded-full"></div>
+            <div className="bg-principal-600 w-3 h-3 rounded-full"></div>
+          </div>
+        </article>
+        <article className="flex flex-col justify-center items-center">
+          <figcaption className="w-full md:h-[350px] max-w-[300px]">
+            <img
+              src={image5}
+              alt="imagenes"
+              className="w-full h-full object-contain"
+            />
+          </figcaption>
+          <div className="flex items-center gap-3">
+            <h2>Colores</h2>
+            <div className="bg-zinc-900 w-3 h-3 rounded-full"></div>
+            <div className="bg-principal-600 w-3 h-3 rounded-full"></div>
+
+          </div>
+        </article>
+        <article className="flex flex-col justify-center items-center">
+          <figcaption className="w-full md:h-[400px] max-w-[300px]">
+            <img
+              src={image3}
+              alt="imagenes"
+              className="w-full h-full object-contain"
+            />
+          </figcaption>
+          <div className="flex items-center gap-3">
+            <h2>Colores</h2>
+            <div className="bg-zinc-900 w-3 h-3 rounded-full"></div>
+            <div className="bg-principal-600 w-3 h-3 rounded-full"></div>
+          </div>
+        </article>
       </div>
     </Layout>
   );

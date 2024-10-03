@@ -1,5 +1,5 @@
-import { MenuDesktop } from './Components/MenuDesktop';
-import { MenuMovil } from './Components/MenuMovil';
+import { MenuDesktop } from '../Components/MenuDesktop';
+import { MenuMovil } from '../Components/MenuMovil';
 import { ReactNode } from 'react';
 
 export const LayoutScreen = ({ children, className } : { children: ReactNode; className?: string } ) => {

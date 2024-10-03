@@ -96,6 +96,21 @@ class Solicitudes {
       }
     }
   }
+  async obtenerCalificaciones(usuario: string){
+    try {
+      const response = await axios.get(`${url}/solicitudes/calificaciones/${usuario}`, auth.options);
+      return { data: response.data, status: response.status };
+    } catch (error) {
+      if (error && typeof error === 'object' && 'response' in error) {
+        const err = error as { response: { data: string[]; status: number } };
+        throw { data: err.response.data, status: err.response.status };
+      } else if (error instanceof Error) {
+        throw { data: error.message, status: 500 };
+      } else {
+        throw { data: 'Error desconocido', status: 500 };
+      }
+    }
+  }
 }
 
 const solicitudes = new Solicitudes();

@@ -29,8 +29,8 @@ export const Colaborador = ({
           />
         </div>
         <div className="flex justify-center p-8">
-          <Tabs defaultValue="perfil" className="w-full">
-            <TabsList className="flex justify-between bg-transparent dark:bg-transparent">
+          <Tabs defaultValue="perfil" className="w-full m-0">
+            <TabsList className="flex flex-col gap-3 sm:justify-around bg-transparent dark:bg-transparent sm:flex-row my-6 sm:my-0">
               <TabsTrigger
                 className="border-b-4 rounded-none data-[state=active]:border-principal-500 dark:data-[state=active]:border-white dark:border-zinc-500"
                 value="perfil"

@@ -6,7 +6,7 @@ export const Datos = ({
   text: string | string[];
 }) => {
   return (
-    <div className="flex items-center justify-around">
+    <div className="flex flex-wrap items-center justify-between gap-2">
       <h5 className="font-medium text-base">{title}</h5>
       {typeof text !== 'string' ? (
         <ul className="list-disc">

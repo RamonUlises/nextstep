@@ -2,14 +2,15 @@ import zod from 'zod';
 import crypto from 'node:crypto';
 import { Request, Response } from 'express';
 
-import requestDataBaseEmpresa from '@/database/request/empresas';
-import requestDatabaseTrabajadores from '@/database/request/trabajadores';
-import requestDatabaseTrabajos from '@/database/request/trabajos';
 import { TypeEmpresa } from '@/types/empresas';
 import { manejarError } from '@/lib/errores';
 import { ErrorZodType } from '@/types/errorZod';
 import { decrypt, encrypt } from '@/lib/encripts';
 import { enviarCorreo } from '@/lib/enviarCorreo';
+import requestDatabaseTrabajadores from '@/database/request/trabajadores';
+import requestDataBaseEmpresa from '@/database/request/empresas';
+import requestDatabaseTrabajos from '@/database/request/trabajos';
+import requestDataBaseCalificar from '@/database/request/calificar';
 
 const { string, number, boolean } = zod;
 
@@ -243,6 +244,26 @@ class Empresa {
       res.status(200).json({ message: 'Nivel subido con éxito' });
     } catch (error) {
       res.status(500).json({ message: 'Error al subir el nivel', error });
+    }
+  }
+  async calificarEmpresa(req: Request, res: Response): Promise<void> {
+    try {
+      const { id } = req.params;
+      const { puntuacion, idCalificacion } = req.body as { puntuacion: number, idCalificacion: string };
+
+      const data: TypeEmpresa[] = await requestDataBaseEmpresa.obtenerEmpresa(id);
+
+      if(data.length === 0) {
+        res.status(404).json({ message: 'Empresa no encontrada' });
+        return;
+      }
+
+      await requestDataBaseEmpresa.calificarEmpresa(id, puntuacion);
+      await requestDataBaseCalificar.borrarCalificacion(idCalificacion);
+      
+      res.status(200).json({ message: 'Empresa calificada con éxito' });
+    } catch (error) {
+      res.status(500).json({ message: 'Error al calificar la empresa', error });
     }
   }
 }

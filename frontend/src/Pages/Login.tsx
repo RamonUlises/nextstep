@@ -1,7 +1,6 @@
 import { MenuDesktop } from '../Components/MenuDesktop';
 import { MenuMovil } from '../Components/MenuMovil';
 import { InputLogin } from '../Components/Login/InputLogin';
-import logo from '../assets/logo.png';
 import { FormEvent, useEffect, useState } from 'react';
 import { auth } from '../lib/auth';
 import { agregarCookie, obtenerCookie } from '../utils/cookies';
@@ -47,11 +46,7 @@ export const Login = () => {
       <div className="flex h-full md:grid-rows-1 md:grid-cols-2 md:grid">
         <section className="hidden md:block bg-[url(./assets/image-login.png)] bg-cover bg-no-repeat"></section>
         <section className="flex flex-col items-center w-full h-full md:justify-center bg-gradient-to-b dark:from-zinc-800 dark:to-zinc-700">
-          <img
-            src={logo}
-            alt="Logo NextStep"
-            className="w-[60%] mt-4 md:mt-0 mb-4"
-          />
+          <div className='w-72 h-40 md:w-96 mt-4 md:mt-0 mb-4 bg-[url(./assets/Logos/logo-original.png)] md:h-48 bg-contain bg-no-repeat dark:bg-[url(./assets/Logos/logo-blanco.png)]'></div>
           <form onSubmit={handleSubmit} className="flex flex-col items-center px-16 py-8 bg-white shadow-xl rounded-2xl dark:bg-zinc-800">
             <h3 className="mt-6 mb-7 text-center text-secundario-600 text-2xl font-bold dark:text-white">
               Iniciar Sesión

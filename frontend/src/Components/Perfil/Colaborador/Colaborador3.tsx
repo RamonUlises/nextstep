@@ -21,7 +21,7 @@ export const Colaborador3 = ({ usuario }: { usuario: string }) => {
   }, []);
 
   return (
-    <div className="lg:max-w-[70%] mx-auto dark:text-white">
+    <div className="lg:max-w-[70%] mx-auto dark:text-white mt-14 sm:mt-0">
       <div className="grid grid-cols-1 gap-4 mt-4">
         {trabajos.length === 0 ? (
           <h3 className="font-semibold text-center text-xl mt-8 dark:text-white">

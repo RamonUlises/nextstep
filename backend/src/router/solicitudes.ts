@@ -23,4 +23,8 @@ router.put('/estado/:id', (req, res) => {
   void solicitudes.actualizarEstadoSolicitud(req, res);
 });
 
+router.get('/calificaciones/:usuario', (req, res) => {
+  void solicitudes.obtenerSolicitudesCalificar(req, res);
+});
+
 export default router;

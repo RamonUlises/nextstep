@@ -35,4 +35,12 @@ router.get('/obtener/activos', (req, res) => {
   void trabajos.obtenerTrabajosActivos(req, res);
 });
 
+router.put('/:id/caducar', (req, res) => {
+  void trabajos.caducarTrabajo(req, res);
+});
+
+router.put('/:id/finalizar', (req, res) => {
+  void trabajos.finalizarTrabajo(req, res);
+});
+
 export default router;

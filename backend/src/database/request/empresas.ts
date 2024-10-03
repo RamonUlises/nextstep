@@ -76,6 +76,22 @@ class RequesDatabase {
       throw new Error('Error al subir de nivel');
     }
   }
+  async calificarEmpresa(id: string, calificacion: number): Promise<void> {
+    try {
+      const empresa = await empresas.findOne({ id });
+
+      if (!empresa) {
+        throw new Error('La empresa no existe');
+      }
+
+      const puntuacion = empresa.puntuacion + calificacion;
+      const puntuados = empresa.puntuados + 1;
+
+      await empresas.updateOne({ id }, { puntuacion, puntuados });
+    } catch {
+      throw new Error('Error al calificar la empresa');
+    }
+  }
 }
 
 const requestDatabase = new RequesDatabase();

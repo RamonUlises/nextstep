@@ -1,5 +1,5 @@
 import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from '@/Components/ui/input-otp';
-import { LayoutScreen } from '@/LayoutScreen';
+import { LayoutScreen } from '@/Layouts/LayoutScreen';
 import { recuperarContrasena } from '@/lib/auth';
 import colaborador from '@/lib/colaboradores';
 import empresas from '@/lib/empresas';

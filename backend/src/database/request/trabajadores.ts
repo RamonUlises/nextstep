@@ -73,6 +73,24 @@ class RequestDatabase {
       throw new Error('Error al actualizar la imagen');
     }
   }
+  async actualizarPuntuacion(usuario: string, puntuacionn: number, puntoss: number, saldoo: number): Promise<void> {
+    try {
+      const trabajador: TypeTrabajadores[] = await trabajadores.find({ usuario });
+
+      if (trabajador.length === 0) {
+        throw new Error('Trabajador no encontrado');
+      }
+
+      const puntuacion = trabajador[0].puntuacion + puntuacionn;
+      const puntuados = trabajador[0].puntuados + 1;
+      const puntos = trabajador[0].puntos + puntoss;
+      const saldo = trabajador[0].saldo + saldoo;
+
+      await trabajadores.updateOne({ usuario }, { puntuacion, puntuados, puntos, saldo });
+    } catch {
+      throw new Error('Error al actualizar la puntuación');
+    }
+  }
 }
 
 const requestDatabase = new RequestDatabase();

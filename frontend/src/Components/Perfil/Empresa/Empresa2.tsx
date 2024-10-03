@@ -34,7 +34,7 @@ export const Empresa2 = ({ empresa }: { empresa: TypeEmpresa }) => {
           trabajos.length === 0 ? (
             <h3 className='font-semibold text-center text-xl mt-8 dark:text-white'>Sin ofertas públicadas</h3> 
           ) : (
-            <MostrarTrabajos trabajos={trabajos} />
+            <MostrarTrabajos trabajos={trabajos} empresa={empresa.id} />
           )
         }
       </div>
