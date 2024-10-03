@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import createServer from '@/app';
+import { createServer } from '@/app';
 
 dotenv.config();
 
