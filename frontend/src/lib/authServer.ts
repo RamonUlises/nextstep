@@ -8,7 +8,7 @@ interface authServer {
 const auth: authServer = {
   editing: false,
   desarrollo: 'http://localhost:3000/api',
-  produccion: 'https://nextstep-gpli.onrender.com/api',
+  produccion: 'https://nextstep-backend.vercel.app/api',
   options: {
     headers: {
       'Content-Type': 'application/json',
