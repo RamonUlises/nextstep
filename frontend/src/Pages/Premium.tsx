@@ -109,7 +109,7 @@ export const Premium = () => {
 
   return (
     <section className="flex flex-col h-screen bg-zinc-900 relative overflow-hidden">
-      <Link to='/' className='fixed top-0 left-0 mt-8 ml-8 z-20 border-4 rounded-full cursor-pointer'>
+      <Link to='/' className='fixed top-0 left-0 mt-8 ml-8 z-20 rounded-full cursor-pointer'>
         <ArrowBigLeft className='text-white' width={40} height={40} />
       </Link>
       {empresa.nombre === undefined ? (

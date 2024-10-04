@@ -311,24 +311,30 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   view-timeline-name: --stack-cards;
 }
 
-.stack-cards .card {
+.stack-cards .card,
+.stack-cards .card2 {
   position: sticky;
   top: var(--margin-top, 0);
   box-shadow: 0px -8px 15px rgba(0, 0, 0, 0.5);
 }
 
-.stack-cards .card .container-card{
+.stack-cards .card .container-card,
+.stack-cards .card2 .container-card {
   transform-origin: center top;
   animation: linear scale forwards;
   animation-timeline: --stack-cards;
 }
 
 .stack-cards .card:first-child {
-  @apply sm:top-24;
+  @apply md:top-24;
+}
+
+.stack-cards .card2:first-child {
+  @apply top-24 md:top-48;
 }
 
 .card-lvl-2{
-  box-shadow:  inset 10px 10px 20px rgba(255, 81, 0, 0.748), inset -10px -10px 20px rgba(255, 81, 0, 0.748);
+  box-shadow: inset 10px 10px 20px rgba(255, 81, 0, 0.748), inset -10px -10px 20px rgba(255, 81, 0, 0.748);
 }
 
 @keyframes shine{
@@ -338,23 +344,11 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   50%{
     background-position: -100% -100%;
   }
-  100%{
-    background-position: -300% -300%;
-  }
 }
 
 .animate-shine{
-  background: linear-gradient(135deg, #ff7300, #dcd100, #ff7300);
+  background: linear-gradient(135deg, #e11d48, #f59e0b, #e11d48);
   background-size: 1000%;
-  animation: shine 10s infinite linear;
+  animation: shine 10s infinite linear alternate;
   box-shadow: 0px -8px 15px rgba(255, 166, 0, 0.781);
-}
-
-.tienda-css{
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
- grid-template-rows: 500px;
- gap: 20px;
- max-width: 1200px;
-  margin: 0 auto;
 }

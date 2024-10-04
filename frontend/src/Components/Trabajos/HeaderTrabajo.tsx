@@ -45,7 +45,7 @@ export const HeaderTrabajo = ({
           </div>
         )}
 
-        <div className="flex items-center justify-center -mt-8">
+        <div className="flex items-center justify-center mt-6">
           <Estrellas
             color="text-principal-600 dark:text-white"
             value={puntuacion / puntuados}

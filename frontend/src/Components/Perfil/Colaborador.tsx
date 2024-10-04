@@ -12,7 +12,7 @@ export const Colaborador = ({
   colaborador: TypeColaboradores;
 }) => {
   return (
-    <div className="flex flex-col bg-gradient-to-l dark:to-zinc-600 dark:from-zinc-700">
+    <div className="flex flex-col bg-gradient-to-l dark:to-zinc-700 dark:from-zinc-800">
       <ImagenHeader
         type="colaborador"
         id={colaborador.id}

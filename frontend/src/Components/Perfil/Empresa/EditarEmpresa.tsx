@@ -159,7 +159,7 @@ export const EditarEmpresa = ({ empresa }: { empresa: TypeEmpresa }) => {
           hidden ? 'hidden' : 'flex'
         }`}
       >
-        <div className="bg-white p-6 rounded-2xl max-h-[90%] overflow-y-auto overflow-x-hidden relative dark:bg-zinc-700">
+        <div className="bg-white p-6 rounded-2xl max-h-[90%] overflow-y-auto overflow-x-hidden relative dark:bg-zinc-800">
           <div className="sticky top-0 bg-transparent flex justify-end">
             <div
               onClick={() => setHidden(true)}
@@ -307,7 +307,7 @@ export const EditarEmpresa = ({ empresa }: { empresa: TypeEmpresa }) => {
               onClick={editarNewEmpresa}
               className="bg-blue-500 text-white px-6 py-2 rounded-xl cursor-pointer"
             >
-              Editar
+              Guardar
             </button>
           </div>
         </div>

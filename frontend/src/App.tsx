@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './Pages/Home';
 import { Trabajos } from './Pages/Trabajos';
-// import { Trabajadores } from "./Pages/Trabajadores";
+import { Colaboradores } from './Pages/Colaboradores';
 // import { Empresas } from "./Pages/Empresas";
 import { Login } from './Pages/Login';
 import { RegistroInfoColaboradores } from './Pages/RegistroInfoColaborador';
@@ -25,6 +25,7 @@ import { Premium } from './Pages/Premium';
 import { TrabajosInfo } from './Pages/TrabajosInfo';
 import { Tienda } from './Pages/Tienda';
 import { ScrollToTop } from './Components/ScrollTop';
+import { ColaboradoresInfo } from './Pages/ColaboradoresInfo';
 
 function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -67,8 +68,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/trabajos" element={<Trabajos />} />
           <Route path="/trabajos/:id" element={<TrabajosInfo />} />
-          {/* <Route path="/colaboradores" element={<Colaboradores />} />
-          <Route path="/empresas" element={<Empresas />} /> */}
+          <Route path="/colaboradores" element={<Colaboradores />} />
+          <Route path="/colaboradores/:id" element={<ColaboradoresInfo />} />
+          {/* <Route path="/empresas" element={<Empresas />} /> */}
           <Route path="/login" element={<Login />} />
           <Route
             path="/info-colaborador"

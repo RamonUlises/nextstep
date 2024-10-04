@@ -13,7 +13,7 @@ export const Estrellas = ({ value, color }: { value: number, color: string }) =>
   }, []);
 
   return (
-    <div className="flex items-center mt-16">
+    <div className="flex items-center gap-1">
       {[1, 2, 3, 4, 5].map((i) => (
         <span key={i}>
           {puntuacion >= i ? (

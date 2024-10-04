@@ -8,7 +8,7 @@ import { Empresa2 } from './Empresa/Empresa2';
 export const Empresa = ({ empresa }: { empresa: TypeEmpresa }) => {
   return (
     <>
-      <div className="flex flex-col bg-gradient-to-l dark:to-zinc-600 dark:from-zinc-700">
+      <div className="flex flex-col bg-gradient-to-l dark:to-zinc-700 dark:from-zinc-800">
         <ImagenHeader type='empresa' id={empresa.id} imagen={empresa['imagen-2']} />
         <div className="grid md:grid-cols-[auto,1fr] mb-16">
           <div className="flex flex-col px-4 pb-4">
@@ -18,6 +18,7 @@ export const Empresa = ({ empresa }: { empresa: TypeEmpresa }) => {
               email={empresa.email[0]}
               telefono={empresa.telefono[0]}
               value={empresa.puntuacion / empresa.puntuados}
+              nivel={empresa.nivel}
             />
           </div>
           <div className="flex justify-center p-8">
