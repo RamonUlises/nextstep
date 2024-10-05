@@ -18,13 +18,7 @@ const port: number | string = process.env.PORT ?? 3000;
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-const corsOptions = {
-  origin: ['https://nextstep-web.online', 'https://api.nextstep-web.online', 'http://localhost:3000', 'http://localhost:5173'],
-  methods: 'GET,POST,PUT,DELETE',
-  credentials: true,  // Permitir cookies y credenciales
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(morgan('dev') as express.RequestHandler<StreamOptions>);
 
 app.use((req: Request, res: Response, next: NextFunction) => {
