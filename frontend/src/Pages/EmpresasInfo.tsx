@@ -34,8 +34,8 @@ export const EmpresasInfo = () => {
         <Skeleton className="w-screen h-screen bg-slate-400 dark:bg-black" />
       ) : (
         <Layout>
+          <ImagenHeader imagen={empresaInfo['imagen-2']} />
           <div className="flex flex-col md:flex-row">
-            <ImagenHeader imagen={empresaInfo['imagen-2']} />
             <div className="mx-auto px-4">
               <Card
                 email={empresaInfo.email[0]}
