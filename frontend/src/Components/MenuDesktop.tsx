@@ -90,7 +90,7 @@ export const MenuDesktop = () => {
 
         {state === 'logueado' ? (
           user.id === undefined ? (
-            <Skeleton className="w-16 h-10" />
+            <Skeleton className="w-[180px] h-14" />
           ) : (
             <Logueado nombre={'nombre' in user ? user.nombre : user.usuario} img={user.imagen} empresa={'numero-identificacion' in user} handleBuzon={handleBuzon} />
           )
