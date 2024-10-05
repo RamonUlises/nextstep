@@ -9,7 +9,7 @@ export const Datos = ({
     <div className="flex flex-wrap items-center justify-between gap-2">
       <h5 className="font-medium text-base">{title}</h5>
       {typeof text !== 'string' ? (
-        <ul className="list-disc">
+        <ul className="list-disc ml-4">
           {text.map((el, i) => (
             <li key={i}>{el}</li>
           ))}

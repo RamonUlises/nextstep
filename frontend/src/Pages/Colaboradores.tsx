@@ -3,6 +3,7 @@ import { Skeleton } from '@/Components/ui/skeleton';
 import { Layout } from '@/Layouts/Layout';
 import colaborador from '@/lib/colaboradores';
 import { TypeColaboradores } from '@/types/colaboradores';
+import { sortStars } from '@/utils/sortStars';
 import { Search } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
@@ -17,9 +18,28 @@ export const Colaboradores = () => {
     (async () => {
       const response = await colaborador.obtenerColaboradores();
       setColaboradores(response);
-      setColaboradoresSelect(response);
+
+      const sort = sortStars(response).filter((item): item is TypeColaboradores => 'nombres' in item);
+
+      setColaboradoresSelect(sort);
     })();
   }, []);
+
+  useEffect(() => {
+    if (busqueda.trim() === '') {
+      const sort = sortStars(colaboradores).filter((item): item is TypeColaboradores => 'nombres' in item);
+      setColaboradoresSelect(sort);
+
+      return;
+    }
+
+    const colaboradoresFiltrados = colaboradores.filter((colaborador) =>
+      colaborador.usuario.toLowerCase().includes(busqueda.toLowerCase()) || colaborador.nombres.toLowerCase().includes(busqueda.toLowerCase())
+    );
+    const sort = sortStars(colaboradoresFiltrados).filter((item): item is TypeColaboradores => 'nombres' in item);
+    setColaboradoresSelect(sort);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [busqueda]);
 
   return (
     <Layout>
@@ -36,9 +56,9 @@ export const Colaboradores = () => {
       <div className="stack-cards mt-8 flex justify-center flex-wrap max-w-[1400px] mx-auto">
         {colaboradores.length === 0 && (
           <>
-            <Skeleton className="w-[300px] mt-4 mx-1 h-80 bg-secundario-500 dark:zinc-800" />
-            <Skeleton className="w-[300px] mt-4 mx-1 h-80 bg-secundario-500 dark:zinc-800" />
-            <Skeleton className="w-[300px] mt-4 mx-1 h-80 bg-secundario-500 dark:zinc-800" />
+            <Skeleton className="w-[300px] mt-4 mx-1 h-80 bg-secundario-500 dark:bg-zinc-800" />
+            <Skeleton className="w-[300px] mt-4 mx-1 h-80 bg-secundario-500 dark:bg-zinc-800" />
+            <Skeleton className="w-[300px] mt-4 mx-1 h-80 bg-secundario-500 dark:bg-zinc-800" />
           </>
         )}
         {colaboradoresSelect.map((colaborador, index) => (

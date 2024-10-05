@@ -78,6 +78,10 @@ export const TrabajosInfo = () => {
       } else {
         setSolicitudEspera(['vacio']);
       }
+
+      if (trab.estado !== 'activa') {
+        setMessage('Este trabajo no está disponible');
+      }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -105,7 +109,7 @@ export const TrabajosInfo = () => {
       ) : (
         <Layout>
           {message && (
-            <div className="bg-green-500 text-white text-center py-2 rounded-lg fixed px-4 md:mb-4 mr-4 top-0 right-0 z-40 mt-4 md:top-[90%]">
+            <div className="bg-green-500 text-white text-center py-2 rounded-lg fixed px-4 md:mb-4 mr-4 top-0 right-0 z-40 mt-4 md:top-[90%] dark:bg-zinc-800">
               {message}
             </div>
           )}
@@ -201,7 +205,7 @@ export const TrabajosInfo = () => {
           <div className="flex justify-center md:justify-start mt-8 md:ml-[60%]">
             <button
               onClick={crearSolicitud}
-              disabled={'nombre' in user || solicitudEspera[0] !== 'vacio'}
+              disabled={'nombre' in user || solicitudEspera[0] !== 'vacio' || trabajo.estado !== 'activa'}
               className="bg-principal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-principal-500 transition-colors duration-500 disabled:bg-principal-300 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:disabled:bg-zinc-400"
             >
               ¡Aplica ya!

@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './Pages/Home';
 import { Trabajos } from './Pages/Trabajos';
 import { Colaboradores } from './Pages/Colaboradores';
-// import { Empresas } from "./Pages/Empresas";
+import { Empresas } from './Pages/Empresas';
 import { Login } from './Pages/Login';
 import { RegistroInfoColaboradores } from './Pages/RegistroInfoColaborador';
 import { Page404 } from './Pages/404';
@@ -26,6 +26,7 @@ import { TrabajosInfo } from './Pages/TrabajosInfo';
 import { Tienda } from './Pages/Tienda';
 import { ScrollToTop } from './Components/ScrollTop';
 import { ColaboradoresInfo } from './Pages/ColaboradoresInfo';
+import { EmpresasInfo } from './Pages/EmpresasInfo';
 
 function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -70,7 +71,8 @@ function App() {
           <Route path="/trabajos/:id" element={<TrabajosInfo />} />
           <Route path="/colaboradores" element={<Colaboradores />} />
           <Route path="/colaboradores/:id" element={<ColaboradoresInfo />} />
-          {/* <Route path="/empresas" element={<Empresas />} /> */}
+          <Route path="/empresas" element={<Empresas />} />
+          <Route path="/empresas/:id" element={<EmpresasInfo />} />
           <Route path="/login" element={<Login />} />
           <Route
             path="/info-colaborador"
