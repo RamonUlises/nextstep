@@ -37,7 +37,7 @@ export const ChangeTheme = () => {
             )}
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-40 flex flex-col py-2 dark:bg-zinc-800/80 bg-white text-black border-none">
+        <DropdownMenuContent className="w-40 flex flex-col py-2 dark:bg-zinc-800 bg-white text-black border-none">
           <DropdownMenuGroup>
             <DropdownMenuItem onClick={
               () => {

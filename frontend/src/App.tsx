@@ -27,6 +27,7 @@ import { Tienda } from './Pages/Tienda';
 import { ScrollToTop } from './Components/ScrollTop';
 import { ColaboradoresInfo } from './Pages/ColaboradoresInfo';
 import { EmpresasInfo } from './Pages/EmpresasInfo';
+import { Soporte } from './Pages/Soporte';
 
 function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -101,7 +102,8 @@ function App() {
             path="/recuperar-contrasena"
             element={<RecuperarContrasena />}
           />
-          <Route path="tienda" element={<Tienda />} />
+          <Route path="/tienda" element={<Tienda />} />
+          <Route path="/soporte" element={<Soporte />} />
           <Route path="*" element={<Page404 />} />
         </Routes>
       </BrowserRouter>

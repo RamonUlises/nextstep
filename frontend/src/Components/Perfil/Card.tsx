@@ -20,7 +20,7 @@ export const Card = ({
   return (
     <article className="bg-gradient-to-b to-principal-600 from-principal-700 rounded-2xl -mt-8 z-20 py-4 px-8 opacity-90 max-w-[350px] w-full mx-auto dark:to-zinc-800 dark:from-zinc-700 relative">
       {
-        nivel === 2 && <Crown width='160' height='160' className='absolute -top-20 right-12 sm:right-9 rotate-[16deg] dark:text-rose-600 text-secundario-600' />
+        nivel === 2 && <Crown width='160' height='160' className='absolute -top-20 right-12 sm:right-9 rotate-[16deg] dark:text-rose-600 text-secundario-600 z-50' />
       }
       <figure className="flex flex-col items-center mt-4">
         {imagen !== 'sin-imagen' ? (
@@ -28,7 +28,7 @@ export const Card = ({
             <img src={imagen} alt="foto de perfil" className="w-full h-full object-cover" />
           </div>
         ) : (
-          <div className="bg-white text-white rounded-full shadow-xl drop-shadow-xl w-auto h-auto p-8 dark:bg-zinc-700">
+          <div className="bg-white text-white rounded-full shadow drop-shadow-xl w-[150px] h-[150px] p-8 dark:bg-zinc-700 flex items-center justify-center">
             <UserRoundXIcon
               width={60}
               height={60}

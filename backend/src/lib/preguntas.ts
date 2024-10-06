@@ -1,0 +1,16 @@
+export const preguntasRespuestas = {
+  'hola': 'Hola, ¿en qué puedo ayudarte?',
+  'adios': 'Adiós, ¡que tengas un buen día!',
+  'cuál es tu nombre': 'Mi nombre es Chatbot',
+  'como estas': 'Estoy bien, gracias por preguntar',
+  'que hora es': new Date().toLocaleTimeString(),
+  'que día es hoy': new Date().toLocaleDateString(),
+  'cual es tu color favorito': 'Mi color favorito es el Naranja',
+  'cual es tu comida favorita': 'Mi comida favorita es la pizza',
+  'cual es tu bebida favorita': 'Mi bebida favorita es el café',
+  'cual es tu pelicula favorita': 'Mi película favorita es Matrix',
+  'que sabes hacer': 'Soy un chatbot, puedo responder preguntas sobre las funciones de NextStep y su entorno',
+  'quien te creo': 'Fui creado por el equipo de NextStep',
+  'que es nextstep': 'NextStep es una plataforma para crecer personal y profesionalmente',
+  default: 'No entiendo tu pregunta',
+};

@@ -9,6 +9,7 @@ import trabajadores from '@router/trabajadores';
 import empresas from '@router/empresas';
 import auth from '@router/auth';
 import solicitudes from '@router/solicitudes';
+import chatbot from '@router/chatbot';
 
 import '@database/connection';
 
@@ -32,6 +33,7 @@ app.use('/api/empresas', empresas);
 app.use('/api/solicitudes', solicitudes);
 app.use('/api/auth', auth);
 app.use('/api/info', info);
+app.use('/api/chatbot', chatbot);
 
 app.use((req, res) => {
   res.status(404).json({
