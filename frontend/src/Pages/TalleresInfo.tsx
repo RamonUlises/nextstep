@@ -29,6 +29,7 @@ import image25 from '@/assets/Talleres/Talleres-info/image..23.png';
 import image26 from '@/assets/Talleres/Talleres-info/image..24.png';
 import image27 from '@/assets/Talleres/Talleres-info/image..25.png';
 import image28 from '@/assets/Talleres/Talleres-info/image..26.png';
+import { useEffect } from 'react';
 
 export const TalleresInfo = () => {
   const imagenes = [image3, image4, image1, image5, image6, image7];
@@ -38,6 +39,14 @@ export const TalleresInfo = () => {
   const imagenes5 = [image21, image22, image23];
   const imagenes6 = [image24, image25, image26];
   const imagenes7 = [image27, image28];
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.getElementById(hash.replace('#', ''));
+      if (element) element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, []);
   return (
     <Layout>
       <div className="bg-secundario-600 flex h-[350px] md:h-[500px] dark:bg-zinc-600">
@@ -65,7 +74,7 @@ export const TalleresInfo = () => {
           </Link>
         </div>
       </div>
-      <div className="flex flex-col w-full justify-center mt-36">
+      <div id='publicidad' className="flex flex-col w-full justify-center mt-36">
         <h2 className="font-semibold md:text-2xl flex dark:text-white text-center md:pl-[175px] text-xl px-4">
           Publicidad | Comunicaciones | Diseño
         </h2>
@@ -74,7 +83,7 @@ export const TalleresInfo = () => {
           <CarouselSpacing images={imagenes} />
         </div>
       </div>
-      <div className="flex flex-col w-full justify-center mt-24 ">
+      <div id='informatica' className="flex flex-col w-full justify-center mt-24 ">
         <h2 className="font-semibold md:text-2xl flex dark:text-white text-center md:pl-[175px] text-xl px-4">
           Informática | Internet
         </h2>
@@ -83,7 +92,7 @@ export const TalleresInfo = () => {
           <CarouselSpacing images={imagenes2} />
         </div>
       </div>
-      <div className="flex flex-col w-full justify-center mt-24 ">
+      <div id='mercadeo' className="flex flex-col w-full justify-center mt-24 ">
         <h2 className="font-semibold md:text-2xl flex dark:text-white text-center md:pl-[175px] text-xl px-4">
           Mercadeo | Ventas
         </h2>
@@ -92,7 +101,7 @@ export const TalleresInfo = () => {
           <CarouselSpacing images={imagenes3} />
         </div>
       </div>
-      <div className="flex flex-col w-full justify-center mt-24 ">
+      <div id='administracion' className="flex flex-col w-full justify-center mt-24 ">
         <h2 className="font-semibold md:text-2xl flex dark:text-white text-center md:pl-[175px] text-xl px-4">
           Administración
         </h2>
@@ -101,7 +110,7 @@ export const TalleresInfo = () => {
           <CarouselSpacing images={imagenes4} />
         </div>
       </div>
-      <div className="flex flex-col w-full justify-center mt-24 ">
+      <div id='recursos-humanos' className="flex flex-col w-full justify-center mt-24 ">
         <h2 className="font-semibold md:text-2xl flex dark:text-white text-center md:pl-[175px] text-xl px-4">
           Recursos Humanos
         </h2>
@@ -110,7 +119,7 @@ export const TalleresInfo = () => {
           <CarouselSpacing images={imagenes5} />
         </div>
       </div>
-      <div className="flex flex-col w-full justify-center mt-24 ">
+      <div id='finanzas' className="flex flex-col w-full justify-center mt-24 ">
         <h2 className="font-semibold md:text-2xl flex dark:text-white text-center md:pl-[175px] text-xl px-4">
           Finanzas | Contabilidad | Auditoria
         </h2>
@@ -119,7 +128,7 @@ export const TalleresInfo = () => {
           <CarouselSpacing images={imagenes6} />
         </div>
       </div>
-      <div className="flex flex-col w-full justify-center mt-24 ">
+      <div id='produccion' className="flex flex-col w-full justify-center mt-24 ">
         <h2 className="font-semibold md:text-2xl flex dark:text-white text-center md:pl-[175px] text-xl px-4">
           Producción | Ingeniería
         </h2>

@@ -97,18 +97,9 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   @apply text-principal-400 dark:text-white;
 }
 .slider .list .item .button{
-  @apply mt-5 gap-[5px] grid;
+  @apply mt-8 gap-[5px];
   grid-template-columns: repeat(2, 130px);
   grid-template-rows: 40px;
-  gap: 5px;
-  margin-top: 20px;
-}
-.slider .list .item .button button{
-  @apply bg-principal-500 transition-all duration-300 ease-in-out border-none font-bold rounded-xl dark:bg-zinc-700;
-}
-
-.slider .list .item .button button:hover{
-  scale: 1.1;
 }
 
 /* Thumbnail Section  */
